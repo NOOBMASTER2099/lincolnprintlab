@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Lincoln Print Lab | Instant 3D Print Quotes — Lincoln, NE</title>
+<meta name="description" content="Lincoln Print Lab — local PLA 3D printing in Lincoln, NE. Upload an STL, get an instant quote, then text us. Pick up or mailed." />
+<link rel="icon" href="logo.jpg" type="image/jpeg" />
+<link rel="apple-touch-icon" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#070708;
+  --panel:#121214;
+  --accent:#f4f1ea;
+  --accent-hot:#ffffff;
+  --ink:#f4f1ea;
+  --muted:#a8a59c;
+  --line:#2a2a2e;
+  --glow:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 42%),
+    radial-gradient(circle at 12% 80%, rgba(255,255,255,.03), transparent 28%);
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,7,8,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#000;border:1px solid var(--line)}
+.brand-name{font-family:Bangers,cursive;font-size:24px;letter-spacing:1.5px;line-height:1}
+.brand-name span{color:var(--accent-hot);opacity:.85}
+nav ul{display:flex;gap:16px;list-style:none;flex-wrap:wrap}
+nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
+nav a:hover{color:#fff}
+.kicker{
+  font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);font-size:13px;margin-bottom:12px;
+}
+h1{
+  font-family:Bangers,cursive;
+  font-size:clamp(46px,7vw,80px);
+  line-height:.92;letter-spacing:2px;margin-bottom:18px;
+}
+.lede{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:999px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;
+}
+.btn-primary{background:var(--accent-hot);color:#070708}
+.btn-primary:hover{background:#e8e4da}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+section{padding:48px 0}
+.section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:18px;max-width:640px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:8px;color:#fff;
+}
+.card p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:14px;align-items:flex-start}
+.foot-brand img{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#000;border:1px solid var(--line)}
+.foot-brand strong{color:#fff}
+.foot-brand a{color:var(--muted)}
+.foot-brand a:hover{color:#fff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:620px;justify-content:flex-end}
+.pills a{
+  color:var(--ink);font-family:Oswald,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;font-size:13px;
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+}
+.pills a:hover{border-color:#fff;color:#fff}
+
+.hero{
+  display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:40px;align-items:center;
+  padding:40px 0 20px;
+}
+.logo-frame{
+  background:#000;border:1px solid var(--line);border-radius:50%;padding:10px;
+  display:grid;place-items:center;
+  box-shadow:0 24px 70px var(--glow);
+  aspect-ratio:1;width:min(340px,100%);margin:0 auto;
+}
+.logo-frame img{width:100%;border-radius:50%;background:#000}
+
+.what-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
+}
+.what-grid .card strong{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:6px;
+}
+
+.quote-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start;margin-top:12px;
+}
+.dropzone{
+  border:2px dashed var(--line);border-radius:18px;padding:36px 24px;text-align:center;
+  background:#0a0a0c;cursor:pointer;transition:border-color .15s, background .15s;
+}
+.dropzone:hover,.dropzone.is-drag{
+  border-color:#fff;background:rgba(255,255,255,.05);
+}
+.dropzone strong{display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;margin:10px 0 6px}
+.dropzone span{color:var(--muted);font-size:14px}
+.dropzone input{display:none}
+.file-chip{
+  display:none;margin-top:14px;font-family:Oswald,sans-serif;letter-spacing:.04em;
+  color:#fff;background:rgba(255,255,255,.06);border:1px solid var(--line);
+  border-radius:999px;padding:8px 14px;font-size:13px;
+}
+.file-chip.is-on{display:inline-flex;align-items:center;gap:8px}
+.status-line{font-size:14px;color:var(--muted);margin-top:14px;min-height:1.4em}
+.status-line.err{color:#ff8a8a}
+.status-line.ok{color:#9dffa8}
+
+.quote-panel{display:flex;flex-direction:column;gap:14px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{
+  background:#0a0a0c;border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+}
+.stat label{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;
+  font-size:11px;color:var(--muted);margin-bottom:4px;
+}
+.stat strong{font-size:20px;color:#fff;font-family:Oswald,sans-serif;letter-spacing:.02em}
+.price-box{
+  background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(7,7,8,.4));
+  border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:20px 22px;
+}
+.price-box .label{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--muted)}
+.price-box .amount{font-family:Bangers,cursive;font-size:56px;letter-spacing:1px;line-height:1;margin:6px 0}
+.price-box .note{font-size:13px;color:var(--muted)}
+.fit-ok{color:#9dffa8}
+.fit-big{color:#ffcc66}
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.fulfill{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.fulfill label{
+  display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+  background:#0a0a0c;border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+  font-size:14px;color:var(--muted);
+}
+.fulfill label.is-on{border-color:#fff;color:#fff}
+.fulfill input{margin-top:3px;accent-color:#fff}
+.blurb{
+  display:none;font-size:14px;color:var(--muted);font-style:italic;
+  border-left:3px solid #fff;padding:8px 12px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;
+}
+.blurb.is-on{display:block}
+.disclaimer{font-size:13px;color:var(--muted);margin-top:18px;max-width:720px}
+.contact-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;
+}
+@media(max-width:860px){
+  nav ul{display:none}
+  .pills{justify-content:flex-start}
+  .hero,.quote-grid,.what-grid,.contact-row{grid-template-columns:1fr}
+  .logo-frame{width:min(280px,70vw)}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#what">What we print</a></li>
+        <li><a href="#quote">Get a quote</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <div class="logo-frame">
+      <img src="logo.jpg" alt="Lincoln Print Lab — Abe printing a Benchy" />
+    </div>
+    <div>
+      <p class="kicker">Lincoln, NE · Local 3D prints</p>
+      <h1>Lincoln Print Lab</h1>
+      <p class="lede">Upload your STL, get an instant PLA quote in your browser, then text us to lock it in. Pick up in Lincoln — or we can mail it.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#quote">Get an instant quote</a>
+        <a class="btn btn-ghost" href="sms:+14024135332">Text 402-413-5332</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="what">
+    <h2 class="section-title">What we print</h2>
+    <p class="section-sub">PLA on a ~220³ mm bed. Functional parts, props, gifts, replacements — if it fits the bed (or can be split), we can print it.</p>
+    <div class="what-grid">
+      <div class="card">
+        <strong>Instant STL quotes</strong>
+        <p>Drop a file, see grams, time, and a dollar estimate before you text. Math runs in your browser.</p>
+      </div>
+      <div class="card">
+        <strong>Pick up or mailed</strong>
+        <p>Grab it in Lincoln when it's ready, or have it shipped. Shipping confirmed after we see the file.</p>
+      </div>
+      <div class="card">
+        <strong>Simple pricing</strong>
+        <p>$5 setup + $0.15/g + $1 per print hour (~12 g/hr). $10 minimum. Final price locked by text before we print.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="quote" style="padding-top:24px">
+    <h2 class="section-title">Instant print quote</h2>
+    <p class="section-sub">Parsed on your device — the model never leaves your browser for the quote math.</p>
+    <div class="quote-grid">
+      <div class="card">
+        <h3>1. Drop your file</h3>
+        <p style="margin-bottom:16px">STL or 3MF · max ~50 MB</p>
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload STL or 3MF">
+          <div style="font-size:36px" aria-hidden="true">⧉</div>
+          <strong>Drop STL / 3MF here</strong>
+          <span>or click to browse</span>
+          <input type="file" id="file-input" accept=".stl,.3mf,model/stl,model/3mf,application/sla,application/vnd.ms-pki.stl" />
+        </div>
+        <div class="file-chip" id="file-chip"></div>
+        <p class="status-line" id="status">Waiting for a file…</p>
+      </div>
+
+      <div class="card quote-panel">
+        <div>
+          <span class="draft-tag">Estimate — confirmed by text</span>
+          <h3 style="margin-bottom:4px">2. Your estimate</h3>
+          <p>PLA · ~20% infill estimate · not a final invoice</p>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><label>Bounding box</label><strong id="stat-bbox">—</strong></div>
+          <div class="stat"><label>Est. plastic</label><strong id="stat-grams">—</strong></div>
+          <div class="stat"><label>Est. print time</label><strong id="stat-hours">—</strong></div>
+          <div class="stat"><label>Bed fit (220³ mm)</label><strong id="stat-fit">—</strong></div>
+        </div>
+        <div class="price-box">
+          <div class="label">Estimated quote</div>
+          <div class="amount" id="stat-price">$—</div>
+          <p class="note" id="stat-breakdown">Upload a file to see the breakdown.</p>
+        </div>
+        <p class="blurb" id="blurb"></p>
+
+        <div>
+          <h3 style="margin-bottom:10px">3. How you want it</h3>
+          <div class="fulfill" id="fulfill">
+            <label class="is-on">
+              <input type="radio" name="fulfill" value="pickup" checked />
+              <span><strong style="color:#fff">Pick up in Lincoln</strong><br />Text to set a time when it's ready</span>
+            </label>
+            <label>
+              <input type="radio" name="fulfill" value="mail" />
+              <span><strong style="color:#fff">Mailed</strong><br />We'll confirm shipping after we see the file</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top:4px">
+          <a class="btn btn-primary" id="btn-request" href="#" aria-disabled="true">Request this print</a>
+          <a class="btn btn-ghost" id="btn-email" href="mailto:contact@nebraskacomics.com">Email instead</a>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">Quotes are estimates from solid mesh volume (×0.45 for typical walls + ~20% infill) at 1.24 g/cm³ PLA. Real grams and time vary with supports, orientation, and settings. Final price confirmed by text before we print.</p>
+  </section>
+
+  <section class="wrap" id="contact" style="padding-top:24px;padding-bottom:24px">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-sub">Ready to print? Text the quote summary, or email if that's easier.</p>
+    <div class="contact-row">
+      <div class="card">
+        <h3>Text</h3>
+        <p style="margin-bottom:14px"><a href="tel:+14024135332" style="color:#fff;font-size:22px;font-family:Oswald,sans-serif;letter-spacing:.04em">402-413-5332</a></p>
+        <a class="btn btn-primary btn-sm" href="sms:+14024135332" style="padding:10px 16px;font-size:13px">Open messages</a>
+      </div>
+      <div class="card">
+        <h3>Email</h3>
+        <p style="margin-bottom:14px"><a href="mailto:contact@nebraskacomics.com" style="color:#fff">contact@nebraskacomics.com</a></p>
+        <p>Fallback for now — attach the STL/3MF if you can.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div>
+        <strong>Lincoln Print Lab</strong><br />
+        Lincoln, NE<br />
+        Sister shop to Nebraska Comics · local PLA prints
+      </div>
+    </div>
+    <div class="pills">
+      <a href="#quote">Quote</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+14024135332">402-413-5332</a>
+      <a href="mailto:contact@nebraskacomics.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+(function(){
+  /* ========== PRICING ========== */
+  var SETUP_FEE = 5;
+  var PRICE_PER_GRAM = 0.15;
+  var PRICE_PER_HOUR = 1;
+  var GRAMS_PER_HOUR = 12;
+  var MIN_PRICE = 10;
+  var ROUND_TO = 1;
+  var PLA_DENSITY = 1.24;
+  var FILL_FACTOR = 0.45;
+  var BED_MM = 220;
+  var MAX_FILE_MB = 50;
+  var WORKER = 'https://nc-plaque-mockups.nebraskacomics.workers.dev';
+  var SMS_TO = '+14024135332';
+  var EMAIL_TO = 'contact@nebraskacomics.com';
+  /* ============================ */
+
+  var dropzone = document.getElementById('dropzone');
+  var fileInput = document.getElementById('file-input');
+  var fileChip = document.getElementById('file-chip');
+  var statusEl = document.getElementById('status');
+  var blurbEl = document.getElementById('blurb');
+  var btnRequest = document.getElementById('btn-request');
+  var btnEmail = document.getElementById('btn-email');
+  var lastQuote = null;
+
+  function setStatus(msg, kind){
+    statusEl.textContent = msg;
+    statusEl.className = 'status-line' + (kind ? ' ' + kind : '');
+  }
+  function fmtMm(n){ return (Math.round(n * 10) / 10).toFixed(1); }
+  function fmtG(n){ return (Math.round(n * 10) / 10).toFixed(1); }
+  function fmtH(n){
+    if(n < 1) return Math.max(1, Math.round(n * 60)) + ' min';
+    return (Math.round(n * 10) / 10).toFixed(1) + ' hr';
+  }
+  function roundMoney(n){
+    return Math.max(MIN_PRICE, Math.round(n / ROUND_TO) * ROUND_TO);
+  }
+
+  function signedVolumeOfTriangle(p1, p2, p3){
+    return p1[0]*p2[1]*p3[2] + p2[0]*p3[1]*p1[2] + p3[0]*p1[1]*p2[2]
+         - p1[0]*p3[1]*p2[2] - p2[0]*p1[1]*p3[2] - p3[0]*p2[1]*p1[2];
+  }
+
+  function analyzeTriangles(tris){
+    var vol6 = 0;
+    var min = [Infinity, Infinity, Infinity];
+    var max = [-Infinity, -Infinity, -Infinity];
+    for(var i=0;i<tris.length;i++){
+      var t = tris[i];
+      vol6 += signedVolumeOfTriangle(t[0], t[1], t[2]);
+      for(var v=0;v<3;v++){
+        for(var a=0;a<3;a++){
+          if(t[v][a] < min[a]) min[a] = t[v][a];
+          if(t[v][a] > max[a]) max[a] = t[v][a];
+        }
+      }
+    }
+    var solidCm3 = Math.abs(vol6) / 6.0 / 1000.0;
+    var size = [max[0]-min[0], max[1]-min[1], max[2]-min[2]];
+    return { solidCm3: solidCm3, sizeMm: size, triCount: tris.length };
+  }
+
+  function parseAsciiStl(text){
+    var tris = [];
+    var verts = [];
+    var lines = text.split(/\r?\n/);
+    for(var i=0;i<lines.length;i++){
+      var m = lines[i].match(/vertex\s+([eE0-9+.\-]+)\s+([eE0-9+.\-]+)\s+([eE0-9+.\-]+)/);
+      if(m){
+        verts.push([parseFloat(m[1]), parseFloat(m[2]), parseFloat(m[3])]);
+        if(verts.length === 3){
+          tris.push([verts[0], verts[1], verts[2]]);
+          verts = [];
+        }
+      }
+    }
+    if(!tris.length) throw new Error('No triangles found in ASCII STL');
+    return analyzeTriangles(tris);
+  }
+
+  function parseBinaryStl(buf){
+    if(buf.byteLength < 84) throw new Error('STL too small');
+    var view = new DataView(buf);
+    var n = view.getUint32(80, true);
+    var need = 84 + n * 50;
+    if(buf.byteLength < need) throw new Error('Truncated binary STL');
+    var tris = [];
+    var off = 84;
+    for(var i=0;i<n;i++){
+      var p1 = [view.getFloat32(off+12,true), view.getFloat32(off+16,true), view.getFloat32(off+20,true)];
+      var p2 = [view.getFloat32(off+24,true), view.getFloat32(off+28,true), view.getFloat32(off+32,true)];
+      var p3 = [view.getFloat32(off+36,true), view.getFloat32(off+40,true), view.getFloat32(off+44,true)];
+      tris.push([p1,p2,p3]);
+      off += 50;
+    }
+    return analyzeTriangles(tris);
+  }
+
+  function parseStl(buf){
+    var head = new Uint8Array(buf, 0, Math.min(80, buf.byteLength));
+    var ascii = true;
+    for(var i=0;i<head.length;i++){
+      var c = head[i];
+      if(c === 0 || c > 127){ ascii = false; break; }
+    }
+    if(ascii){
+      var text = new TextDecoder('utf-8').decode(buf);
+      if(/^\s*solid\b/i.test(text) && /facet\s+normal/i.test(text)){
+        return parseAsciiStl(text);
+      }
+    }
+    return parseBinaryStl(buf);
+  }
+
+  function parse3mf(buf){
+    if(typeof JSZip === 'undefined') throw new Error('3MF support unavailable (JSZip missing)');
+    return JSZip.loadAsync(buf).then(function(zip){
+      var modelFile = null;
+      zip.forEach(function(path, file){
+        if(!modelFile && /3d\/.*\.model$/i.test(path)) modelFile = file;
+      });
+      if(!modelFile) throw new Error('No 3D model found inside 3MF');
+      return modelFile.async('text');
+    }).then(function(xml){
+      var doc = new DOMParser().parseFromString(xml, 'application/xml');
+      if(doc.querySelector('parsererror')) throw new Error('Invalid 3MF model XML');
+      var vertEls = doc.getElementsByTagName('vertex');
+      if(!vertEls.length) vertEls = doc.getElementsByTagNameNS('*', 'vertex');
+      var verts = [];
+      for(var i=0;i<vertEls.length;i++){
+        var el = vertEls[i];
+        verts.push([
+          parseFloat(el.getAttribute('x')),
+          parseFloat(el.getAttribute('y')),
+          parseFloat(el.getAttribute('z'))
+        ]);
+      }
+      var triEls = doc.getElementsByTagName('triangle');
+      if(!triEls.length) triEls = doc.getElementsByTagNameNS('*', 'triangle');
+      var tris = [];
+      for(var j=0;j<triEls.length;j++){
+        var t = triEls[j];
+        var v1 = verts[parseInt(t.getAttribute('v1'),10)];
+        var v2 = verts[parseInt(t.getAttribute('v2'),10)];
+        var v3 = verts[parseInt(t.getAttribute('v3'),10)];
+        if(v1 && v2 && v3) tris.push([v1,v2,v3]);
+      }
+      if(!tris.length) throw new Error('No triangles in 3MF');
+      return analyzeTriangles(tris);
+    });
+  }
+
+  function computeQuote(mesh, filename){
+    var grams = mesh.solidCm3 * PLA_DENSITY * FILL_FACTOR;
+    var hours = grams / GRAMS_PER_HOUR;
+    var raw = SETUP_FEE + (grams * PRICE_PER_GRAM) + (hours * PRICE_PER_HOUR);
+    var price = roundMoney(raw);
+    var size = mesh.sizeMm;
+    var fits = size[0] <= BED_MM && size[1] <= BED_MM && size[2] <= BED_MM;
+    return {
+      filename: filename,
+      sizeMm: size,
+      grams: grams,
+      hours: hours,
+      price: price,
+      raw: raw,
+      fits: fits,
+      solidCm3: mesh.solidCm3,
+      triCount: mesh.triCount
+    };
+  }
+
+  function fulfillLabel(){
+    var checked = document.querySelector('input[name="fulfill"]:checked');
+    return checked && checked.value === 'mail'
+      ? 'mailed'
+      : 'pick up in Lincoln';
+  }
+
+  function buildSummary(q){
+    return (
+      'Lincoln Print Lab quote: ' + q.filename +
+      ' · ' + fmtMm(q.sizeMm[0]) + '×' + fmtMm(q.sizeMm[1]) + '×' + fmtMm(q.sizeMm[2]) + ' mm' +
+      ' · ~' + fmtG(q.grams) + ' g PLA' +
+      ' · ~' + fmtH(q.hours) +
+      ' · estimate $' + q.price +
+      ' · ' + fulfillLabel() +
+      (q.fits ? '' : ' · MAY NEED SPLIT / larger bed')
+    );
+  }
+
+  function updateLinks(q){
+    var summary = buildSummary(q);
+    var sms = 'sms:' + SMS_TO + '?body=' + encodeURIComponent(summary);
+    var mail =
+      'mailto:' + EMAIL_TO +
+      '?subject=' + encodeURIComponent('Lincoln Print Lab quote — ' + q.filename) +
+      '&body=' + encodeURIComponent(summary + '\n\n(Attach the STL/3MF in your reply if you can.)');
+    btnRequest.href = sms;
+    btnRequest.removeAttribute('aria-disabled');
+    btnEmail.href = mail;
+  }
+
+  function renderQuote(q){
+    lastQuote = q;
+    document.getElementById('stat-bbox').textContent =
+      fmtMm(q.sizeMm[0]) + ' × ' + fmtMm(q.sizeMm[1]) + ' × ' + fmtMm(q.sizeMm[2]) + ' mm';
+    document.getElementById('stat-grams').textContent = '~' + fmtG(q.grams) + ' g';
+    document.getElementById('stat-hours').textContent = '~' + fmtH(q.hours);
+    var fitEl = document.getElementById('stat-fit');
+    if(q.fits){
+      fitEl.textContent = 'Fits standard bed';
+      fitEl.className = 'fit-ok';
+    } else {
+      fitEl.textContent = 'Large — may need split / larger bed';
+      fitEl.className = 'fit-big';
+    }
+    document.getElementById('stat-price').textContent = '$' + q.price;
+    document.getElementById('stat-breakdown').textContent =
+      '$' + SETUP_FEE + ' setup + $' + PRICE_PER_GRAM.toFixed(2) + '/g + $' + PRICE_PER_HOUR +
+      '/hr (~' + GRAMS_PER_HOUR + ' g/hr) · min $' + MIN_PRICE +
+      ' · raw $' + q.raw.toFixed(2) + ' → rounded $' + q.price +
+      ' · ' + q.triCount.toLocaleString() + ' tris';
+    updateLinks(q);
+    fetchBlurb(q);
+  }
+
+  function fetchBlurb(q){
+    blurbEl.classList.remove('is-on');
+    blurbEl.textContent = '';
+    try {
+      fetch(WORKER + '/quote-blurb', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'cors',
+        credentials: 'omit',
+        body: JSON.stringify({
+          filename: q.filename,
+          grams: Math.round(q.grams * 10) / 10,
+          hours: Math.round(q.hours * 10) / 10,
+          price: q.price,
+          sizeMm: q.sizeMm.map(function(n){ return Math.round(n*10)/10; }),
+          fits: q.fits,
+          fulfill: fulfillLabel()
+        })
+      }).then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(data){
+          if(data && data.blurb){
+            blurbEl.textContent = data.blurb;
+            blurbEl.classList.add('is-on');
+          }
+        }).catch(function(){});
+    } catch (e) {}
+  }
+
+  function handleFile(file){
+    if(!file) return;
+    var name = file.name || 'model.stl';
+    var lower = name.toLowerCase();
+    if(file.size > MAX_FILE_MB * 1024 * 1024){
+      setStatus('File is over ' + MAX_FILE_MB + ' MB — try a smaller export.', 'err');
+      return;
+    }
+    fileChip.textContent = name + ' · ' + (file.size/1024).toFixed(0) + ' KB';
+    fileChip.classList.add('is-on');
+    setStatus('Parsing ' + name + '…');
+    blurbEl.classList.remove('is-on');
+
+    var reader = new FileReader();
+    reader.onerror = function(){ setStatus('Could not read that file.', 'err'); };
+    reader.onload = function(){
+      var buf = reader.result;
+      var done = function(mesh){
+        if(!mesh.triCount || mesh.solidCm3 <= 0){
+          setStatus('Mesh looks empty — is the STL watertight?', 'err');
+          return;
+        }
+        var q = computeQuote(mesh, name);
+        renderQuote(q);
+        setStatus('Quote ready. Hit Request this print to text us.', 'ok');
+      };
+      var fail = function(err){
+        setStatus(String(err && err.message || err), 'err');
+      };
+      try {
+        if(lower.endsWith('.3mf')){
+          parse3mf(buf).then(done).catch(fail);
+        } else {
+          done(parseStl(buf));
+        }
+      } catch (err) { fail(err); }
+    };
+    reader.readAsArrayBuffer(file);
+  }
+
+  dropzone.addEventListener('click', function(){ fileInput.click(); });
+  dropzone.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); fileInput.click(); }
+  });
+  fileInput.addEventListener('change', function(){
+    if(fileInput.files && fileInput.files[0]) handleFile(fileInput.files[0]);
+  });
+  ;['dragenter','dragover'].forEach(function(ev){
+    dropzone.addEventListener(ev, function(e){
+      e.preventDefault(); e.stopPropagation();
+      dropzone.classList.add('is-drag');
+    });
+  });
+  ;['dragleave','drop'].forEach(function(ev){
+    dropzone.addEventListener(ev, function(e){
+      e.preventDefault(); e.stopPropagation();
+      dropzone.classList.remove('is-drag');
+    });
+  });
+  dropzone.addEventListener('drop', function(e){
+    var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if(f) handleFile(f);
+  });
+
+  document.querySelectorAll('input[name="fulfill"]').forEach(function(radio){
+    radio.addEventListener('change', function(){
+      document.querySelectorAll('#fulfill label').forEach(function(lab){
+        lab.classList.toggle('is-on', lab.querySelector('input').checked);
+      });
+      if(lastQuote) updateLinks(lastQuote);
+    });
+  });
+
+  btnRequest.addEventListener('click', function(e){
+    if(!lastQuote){
+      e.preventDefault();
+      setStatus('Upload a file first.', 'err');
+    }
+  });
+
+  window.__LPL_PRINTS__ = {
+    parseStl: parseStl,
+    parse3mf: parse3mf,
+    computeQuote: computeQuote,
+    constants: {
+      SETUP_FEE: SETUP_FEE,
+      PRICE_PER_GRAM: PRICE_PER_GRAM,
+      PRICE_PER_HOUR: PRICE_PER_HOUR,
+      GRAMS_PER_HOUR: GRAMS_PER_HOUR,
+      MIN_PRICE: MIN_PRICE,
+      PLA_DENSITY: PLA_DENSITY,
+      FILL_FACTOR: FILL_FACTOR,
+      BED_MM: BED_MM
+    },
+    renderQuote: renderQuote,
+    handleFile: handleFile
+  };
+})();
+</script>
+</body>
+</html>
