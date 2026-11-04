@@ -262,6 +262,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <li><a href="#what">What we print</a></li>
         <li><a href="#materials">Materials</a></li>
         <li><a href="#plaques">Plaques</a></li>
+        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#quote">Get a quote</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -338,7 +339,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </div>
       <div class="card">
         <strong>Simple pricing</strong>
-        <p>$5 setup + $0.15/g + $1 per print hour (~12 g/hr). $10 minimum. Final price locked by text before we print.</p>
+        <p>From $0.25/g by material. $15 minimum. Final price locked by text before we print. <a href="#pricing" style="text-decoration:underline">See pricing</a></p>
       </div>
       <div class="card">
         <strong>Material menu</strong>
@@ -421,6 +422,37 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </div>
   </section>
 
+  <section class="wrap" id="pricing" style="padding-top:24px">
+    <h2 class="section-title">Pricing</h2>
+    <p class="section-sub">Straightforward, by the gram. $15 minimum order. Every price is confirmed by text before we print — no surprises.</p>
+    <div class="what-grid">
+      <div class="card">
+        <strong>Custom prints (per gram)</strong>
+        <p>PLA / PLA+ / Silk / Matte — $0.25/g<br />PETG — $0.28/g<br />ABS / ASA — $0.32/g<br />TPU — $0.35/g<br />Nylon — $0.40/g<br />$15 minimum order</p>
+      </div>
+      <div class="card">
+        <strong>Name plaques</strong>
+        <p>Small (~6") — $15<br />Medium (~9") — $25<br />Large (~12–15") — $40–55<br />AI mockup preview — free</p>
+      </div>
+      <div class="card">
+        <strong>Multi-color &amp; big builds</strong>
+        <p>Multi-color (up to 4 colors) depends on size and what it is — quoted per job.<br />Large builds — by quote.</p>
+      </div>
+      <div class="card">
+        <strong>Design</strong>
+        <p>Small tweaks to your file — free<br />Custom design — $40/hr (1 hr minimum)</p>
+      </div>
+      <div class="card">
+        <strong>Rush &amp; bulk</strong>
+        <p>Rush (1–2 days) — +50%, $10 minimum<br />25+ units — 10% off<br />50+ units — 15% off</p>
+      </div>
+      <div class="card">
+        <strong>Pickup or mailed</strong>
+        <p>Pickup in Lincoln — free<br />Shipping — at cost (~$6 for small items)<br />Questions? Text <a href="tel:+14024135332" style="text-decoration:underline">402-413-5332</a></p>
+      </div>
+    </div>
+  </section>
+
   <section class="wrap" id="quote" style="padding-top:24px">
     <h2 class="section-title">Instant print quote</h2>
     <p class="section-sub">Parsed on your device — the model never leaves your browser for the quote math.</p>
@@ -453,6 +485,15 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
             <option value="ABS">ABS</option>
             <option value="ASA">ASA</option>
             <option value="Nylon">Nylon</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <label for="color-select">Colors</label>
+          <select id="color-select" aria-label="Colors">
+            <option value="1" selected>1 color</option>
+            <option value="2">2 colors</option>
+            <option value="3">3 colors</option>
+            <option value="4">4 colors</option>
           </select>
         </div>
         <div class="stat-grid">
@@ -543,11 +584,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <script>
 (function(){
   /* ========== PRICING ========== */
-  var SETUP_FEE = 5;
-  var PRICE_PER_GRAM = 0.15;
-  var PRICE_PER_HOUR = 1;
   var GRAMS_PER_HOUR = 12;
-  var MIN_PRICE = 10;
+  var MIN_PRICE = 15;
   var ROUND_TO = 1;
   var FILL_FACTOR = 0.45;
   var BED_MM = [420, 420, 480];
@@ -556,12 +594,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   var SMS_TO = '+14024135332';
   var EMAIL_TO = 'contact@lincolnprintlab.com';
   var MATERIALS = {
-    PLA:   { density: 1.24, label: 'PLA' },
-    PETG:  { density: 1.27, label: 'PETG' },
-    TPU:   { density: 1.21, label: 'TPU' },
-    ABS:   { density: 1.04, label: 'ABS' },
-    ASA:   { density: 1.07, label: 'ASA' },
-    Nylon: { density: 1.14, label: 'Nylon' }
+    PLA:   { density: 1.24, rate: 0.25, label: 'PLA' },
+    PETG:  { density: 1.27, rate: 0.28, label: 'PETG' },
+    TPU:   { density: 1.21, rate: 0.35, label: 'TPU' },
+    ABS:   { density: 1.04, rate: 0.32, label: 'ABS' },
+    ASA:   { density: 1.07, rate: 0.32, label: 'ASA' },
+    Nylon: { density: 1.14, rate: 0.40, label: 'Nylon' }
   };
   /* ============================ */
 
@@ -573,6 +611,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   var btnRequest = document.getElementById('btn-request');
   var btnEmail = document.getElementById('btn-email');
   var materialSelect = document.getElementById('material-select');
+  var colorSelect = document.getElementById('color-select');
   var estimateSub = document.getElementById('estimate-sub');
   var lastMesh = null;
   var lastFilename = null;
@@ -721,7 +760,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     var mat = currentMaterial();
     var grams = mesh.solidCm3 * mat.density * FILL_FACTOR;
     var hours = grams / GRAMS_PER_HOUR;
-    var raw = SETUP_FEE + (grams * PRICE_PER_GRAM) + (hours * PRICE_PER_HOUR);
+    var raw = grams * mat.rate;
     var price = roundMoney(raw);
     var size = mesh.sizeMm;
     var fits = dimsFit(size, BED_MM);
@@ -729,6 +768,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       filename: filename,
       material: mat.label,
       density: mat.density,
+      rate: mat.rate,
+      colors: parseInt(colorSelect.value,10) || 1,
       sizeMm: size,
       grams: grams,
       hours: hours,
@@ -754,7 +795,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       ' · ' + fmtMm(q.sizeMm[0]) + '×' + fmtMm(q.sizeMm[1]) + '×' + fmtMm(q.sizeMm[2]) + ' mm' +
       ' · ~' + fmtG(q.grams) + ' g' +
       ' · ~' + fmtH(q.hours) +
-      ' · estimate $' + q.price +
+      (q.colors > 1 ? ' · ' + q.colors + ' colors · base estimate $' + q.price + ' (multi-color quoted)' : ' · estimate $' + q.price) +
       ' · ' + fulfillLabel() +
       (q.fits ? '' : ' · MAY NEED SPLIT / larger bed')
     );
@@ -787,10 +828,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       fitEl.textContent = 'Large — may need split';
       fitEl.className = 'fit-big';
     }
-    document.getElementById('stat-price').textContent = '$' + q.price;
+    var multi = q.colors > 1;
+    document.getElementById('stat-price').textContent = multi ? 'From $' + q.price : '$' + q.price;
     document.getElementById('stat-breakdown').textContent =
-      '$' + SETUP_FEE + ' setup + $' + PRICE_PER_GRAM.toFixed(2) + '/g + $' + PRICE_PER_HOUR +
-      '/hr (~' + GRAMS_PER_HOUR + ' g/hr) · min $' + MIN_PRICE +
+      (multi ? q.colors + ' colors: final price quoted, depends on size and design · ' : '') +
+      '$' + q.rate.toFixed(2) + '/g · min $' + MIN_PRICE +
       ' · ' + q.material + ' @ ' + q.density + ' g/cm³' +
       ' · raw $' + q.raw.toFixed(2) + ' → rounded $' + q.price +
       ' · ' + q.triCount.toLocaleString() + ' tris';
@@ -910,6 +952,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   });
 
   materialSelect.addEventListener('change', recomputeIfReady);
+  colorSelect.addEventListener('change', recomputeIfReady);
 
   btnRequest.addEventListener('click', function(e){
     if(!lastQuote){
@@ -923,9 +966,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     parse3mf: parse3mf,
     computeQuote: computeQuote,
     constants: {
-      SETUP_FEE: SETUP_FEE,
-      PRICE_PER_GRAM: PRICE_PER_GRAM,
-      PRICE_PER_HOUR: PRICE_PER_HOUR,
       GRAMS_PER_HOUR: GRAMS_PER_HOUR,
       MIN_PRICE: MIN_PRICE,
       FILL_FACTOR: FILL_FACTOR,
