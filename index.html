@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <title>Lincoln Print Lab | Instant 3D Print Quotes — Lincoln, NE</title>
-<meta name="description" content="Lincoln Print Lab — local PLA 3D printing in Lincoln, NE. Upload an STL, get an instant quote, then text us. Pick up or mailed." />
+<meta name="description" content="Lincoln Print Lab — local 3D printing in Lincoln, NE. PLA, PETG, TPU, ABS, ASA, nylon & more. Upload an STL, get an instant quote, then text us. Pick up or mailed." />
 <link rel="icon" href="logo.jpg" type="image/jpeg" />
 <link rel="apple-touch-icon" href="logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,7 +72,7 @@ button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:
 .btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
 section{padding:48px 0}
 .section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
-.section-sub{color:var(--muted);margin-bottom:18px;max-width:640px}
+.section-sub{color:var(--muted);margin-bottom:18px;max-width:720px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
 .card h3{
   font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
@@ -86,7 +86,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 .foot-brand strong{color:#fff}
 .foot-brand a{color:var(--muted)}
 .foot-brand a:hover{color:#fff}
-.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:620px;justify-content:flex-end}
+.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:720px;justify-content:flex-end}
 .pills a{
   color:var(--ink);font-family:Oswald,sans-serif;
   letter-spacing:.06em;text-transform:uppercase;font-size:13px;
@@ -112,6 +112,28 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 .what-grid .card strong{
   display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
   color:#fff;margin-bottom:6px;
+}
+
+.mat-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;
+}
+.mat-grid .card strong{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:6px;
+}
+.mat-grid .card p{font-size:14px}
+
+.field-row{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.field-row label{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;
+  font-size:11px;color:var(--muted);
+}
+.field-row select{
+  background:#0a0a0c;color:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:12px 14px;font:inherit;appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);
+  background-position:calc(100% - 18px) calc(50% - 3px),calc(100% - 12px) calc(50% - 3px);
+  background-size:6px 6px,6px 6px;background-repeat:no-repeat;
 }
 
 .quote-grid{
@@ -176,13 +198,16 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 .blurb.is-on{display:block}
 .disclaimer{font-size:13px;color:var(--muted);margin-top:18px;max-width:720px}
 .contact-row{
-  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px;
 }
 @media(max-width:860px){
   nav ul{display:none}
   .pills{justify-content:flex-start}
-  .hero,.quote-grid,.what-grid,.contact-row{grid-template-columns:1fr}
+  .hero,.quote-grid,.what-grid,.mat-grid,.contact-row{grid-template-columns:1fr}
   .logo-frame{width:min(280px,70vw)}
+}
+@media(min-width:861px) and (max-width:980px){
+  .mat-grid,.contact-row{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -196,6 +221,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <nav>
       <ul>
         <li><a href="#what">What we print</a></li>
+        <li><a href="#materials">Materials</a></li>
         <li><a href="#quote">Get a quote</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -211,7 +237,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div>
       <p class="kicker">Lincoln, NE · Local 3D prints</p>
       <h1>Lincoln Print Lab</h1>
-      <p class="lede">Upload your STL, get an instant PLA quote in your browser, then text us to lock it in. Pick up in Lincoln — or we can mail it.</p>
+      <p class="lede">Upload your STL, get an instant quote in your browser, then text us to lock it in. Multi-color, big builds, and a full materials menu — pick up in Lincoln or we can mail it.</p>
       <div class="actions">
         <a class="btn btn-primary" href="#quote">Get an instant quote</a>
         <a class="btn btn-ghost" href="sms:+14024135332">Text 402-413-5332</a>
@@ -220,20 +246,65 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   </section>
 
   <section class="wrap" id="what">
-    <h2 class="section-title">What we print</h2>
-    <p class="section-sub">PLA on a ~220³ mm bed. Functional parts, props, gifts, replacements — if it fits the bed (or can be split), we can print it.</p>
+    <h2 class="section-title">What we can do</h2>
+    <p class="section-sub">Functional parts, props, gifts, replacements — drop a file and we’ll take it from there.</p>
     <div class="what-grid">
+      <div class="card">
+        <strong>Up to 4 colors per print</strong>
+        <p>Multi-color in one go — logos, figures, and fun color swaps without painting.</p>
+      </div>
+      <div class="card">
+        <strong>Big build volume</strong>
+        <p>Up to 420 × 420 × 480 mm. Room for large props, panels, and oversized parts.</p>
+      </div>
       <div class="card">
         <strong>Instant STL quotes</strong>
         <p>Drop a file, see grams, time, and a dollar estimate before you text. Math runs in your browser.</p>
       </div>
+    </div>
+    <div class="what-grid" style="margin-top:16px">
       <div class="card">
         <strong>Pick up or mailed</strong>
-        <p>Grab it in Lincoln when it's ready, or have it shipped. Shipping confirmed after we see the file.</p>
+        <p>Grab it in Lincoln when it’s ready, or have it shipped. Shipping confirmed after we see the file.</p>
       </div>
       <div class="card">
         <strong>Simple pricing</strong>
         <p>$5 setup + $0.15/g + $1 per print hour (~12 g/hr). $10 minimum. Final price locked by text before we print.</p>
+      </div>
+      <div class="card">
+        <strong>Material menu</strong>
+        <p>PLA, PETG, TPU, ABS, ASA, nylon, and more — pick what fits the job in the quote tool.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="materials" style="padding-top:24px">
+    <h2 class="section-title">Materials</h2>
+    <p class="section-sub">A quick guide to what we print. Not sure? Start with PLA — it’s the easy everyday choice — and text us if you want a recommendation.</p>
+    <div class="mat-grid">
+      <div class="card">
+        <strong>PLA / PLA+ / Silk / Matte</strong>
+        <p>Easy, bright, and beginner-friendly. Great for prototypes, gifts, display pieces, and everyday prints. Silk looks shiny; matte looks soft.</p>
+      </div>
+      <div class="card">
+        <strong>PETG</strong>
+        <p>Tougher and a bit more flexible than PLA. Good for functional parts, brackets, cases, and stuff that gets handled a lot.</p>
+      </div>
+      <div class="card">
+        <strong>TPU</strong>
+        <p>Rubbery and bendy. Phone bumpers, grips, gaskets, flexible hinges — anything that needs to flex without snapping.</p>
+      </div>
+      <div class="card">
+        <strong>ABS</strong>
+        <p>Strong and heat-resistant. Solid pick for tougher functional parts that see warmth or wear.</p>
+      </div>
+      <div class="card">
+        <strong>ASA</strong>
+        <p>Like ABS, but better outdoors. UV-resistant — good for garden, vehicle, and sun-facing parts.</p>
+      </div>
+      <div class="card">
+        <strong>Nylon</strong>
+        <p>Strong and durable for demanding parts. Needs dry filament for best results — tell us if that’s the goal.</p>
       </div>
     </div>
   </section>
@@ -259,13 +330,24 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <div>
           <span class="draft-tag">Estimate — confirmed by text</span>
           <h3 style="margin-bottom:4px">2. Your estimate</h3>
-          <p>PLA · ~20% infill estimate · not a final invoice</p>
+          <p id="estimate-sub">PLA · ~20% infill estimate · not a final invoice</p>
+        </div>
+        <div class="field-row">
+          <label for="material-select">Material</label>
+          <select id="material-select" aria-label="Material">
+            <option value="PLA" selected>PLA (default)</option>
+            <option value="PETG">PETG</option>
+            <option value="TPU">TPU</option>
+            <option value="ABS">ABS</option>
+            <option value="ASA">ASA</option>
+            <option value="Nylon">Nylon</option>
+          </select>
         </div>
         <div class="stat-grid">
           <div class="stat"><label>Bounding box</label><strong id="stat-bbox">—</strong></div>
           <div class="stat"><label>Est. plastic</label><strong id="stat-grams">—</strong></div>
           <div class="stat"><label>Est. print time</label><strong id="stat-hours">—</strong></div>
-          <div class="stat"><label>Bed fit (220³ mm)</label><strong id="stat-fit">—</strong></div>
+          <div class="stat"><label>Bed fit (up to 420³ mm)</label><strong id="stat-fit">—</strong></div>
         </div>
         <div class="price-box">
           <div class="label">Estimated quote</div>
@@ -279,27 +361,27 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           <div class="fulfill" id="fulfill">
             <label class="is-on">
               <input type="radio" name="fulfill" value="pickup" checked />
-              <span><strong style="color:#fff">Pick up in Lincoln</strong><br />Text to set a time when it's ready</span>
+              <span><strong style="color:#fff">Pick up in Lincoln</strong><br />Text to set a time when it’s ready</span>
             </label>
             <label>
               <input type="radio" name="fulfill" value="mail" />
-              <span><strong style="color:#fff">Mailed</strong><br />We'll confirm shipping after we see the file</span>
+              <span><strong style="color:#fff">Mailed</strong><br />We’ll confirm shipping after we see the file</span>
             </label>
           </div>
         </div>
 
         <div class="actions" style="margin-top:4px">
           <a class="btn btn-primary" id="btn-request" href="#" aria-disabled="true">Request this print</a>
-          <a class="btn btn-ghost" id="btn-email" href="mailto:contact@nebraskacomics.com">Email instead</a>
+          <a class="btn btn-ghost" id="btn-email" href="mailto:contact@lincolnprintlab.com">Email instead</a>
         </div>
       </div>
     </div>
-    <p class="disclaimer">Quotes are estimates from solid mesh volume (×0.45 for typical walls + ~20% infill) at 1.24 g/cm³ PLA. Real grams and time vary with supports, orientation, and settings. Final price confirmed by text before we print.</p>
+    <p class="disclaimer">Quotes are estimates from solid mesh volume (×0.45 for typical walls + ~20% infill) using the material density you pick (PLA 1.24 g/cm³ by default). Real grams and time vary with supports, orientation, and settings. Final price confirmed by text before we print.</p>
   </section>
 
   <section class="wrap" id="contact" style="padding-top:24px;padding-bottom:24px">
     <h2 class="section-title">Contact</h2>
-    <p class="section-sub">Ready to print? Text the quote summary, or email if that's easier.</p>
+    <p class="section-sub">Ready to print? Text the quote summary, email us, or find us on Facebook.</p>
     <div class="contact-row">
       <div class="card">
         <h3>Text</h3>
@@ -308,8 +390,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </div>
       <div class="card">
         <h3>Email</h3>
-        <p style="margin-bottom:14px"><a href="mailto:contact@nebraskacomics.com" style="color:#fff">contact@nebraskacomics.com</a></p>
-        <p>Fallback for now — attach the STL/3MF if you can.</p>
+        <p style="margin-bottom:14px"><a href="mailto:contact@lincolnprintlab.com" style="color:#fff">contact@lincolnprintlab.com</a></p>
+        <p>Attach the STL/3MF if you can.</p>
+      </div>
+      <div class="card">
+        <h3>Facebook</h3>
+        <p style="margin-bottom:14px"><a href="https://www.facebook.com/profile.php?id=61595927983709" style="color:#fff" target="_blank" rel="noopener">Lincoln Print Lab</a></p>
+        <a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener" style="padding:10px 16px;font-size:13px">Open page</a>
       </div>
     </div>
   </section>
@@ -322,14 +409,18 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div>
         <strong>Lincoln Print Lab</strong><br />
         Lincoln, NE<br />
-        Sister shop to Nebraska Comics · local PLA prints
+        Sister shop to Nebraska Comics · local 3D prints<br />
+        <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+        · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
       <a href="#quote">Quote</a>
+      <a href="#materials">Materials</a>
       <a href="#contact">Contact</a>
       <a href="tel:+14024135332">402-413-5332</a>
-      <a href="mailto:contact@nebraskacomics.com">Email</a>
+      <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+      <a href="mailto:contact@lincolnprintlab.com">Email</a>
     </div>
   </div>
 </footer>
@@ -344,13 +435,20 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   var GRAMS_PER_HOUR = 12;
   var MIN_PRICE = 10;
   var ROUND_TO = 1;
-  var PLA_DENSITY = 1.24;
   var FILL_FACTOR = 0.45;
-  var BED_MM = 220;
+  var BED_MM = [420, 420, 480];
   var MAX_FILE_MB = 50;
   var WORKER = 'https://nc-plaque-mockups.nebraskacomics.workers.dev';
   var SMS_TO = '+14024135332';
-  var EMAIL_TO = 'contact@nebraskacomics.com';
+  var EMAIL_TO = 'contact@lincolnprintlab.com';
+  var MATERIALS = {
+    PLA:   { density: 1.24, label: 'PLA' },
+    PETG:  { density: 1.27, label: 'PETG' },
+    TPU:   { density: 1.21, label: 'TPU' },
+    ABS:   { density: 1.04, label: 'ABS' },
+    ASA:   { density: 1.07, label: 'ASA' },
+    Nylon: { density: 1.14, label: 'Nylon' }
+  };
   /* ============================ */
 
   var dropzone = document.getElementById('dropzone');
@@ -360,7 +458,16 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   var blurbEl = document.getElementById('blurb');
   var btnRequest = document.getElementById('btn-request');
   var btnEmail = document.getElementById('btn-email');
+  var materialSelect = document.getElementById('material-select');
+  var estimateSub = document.getElementById('estimate-sub');
+  var lastMesh = null;
+  var lastFilename = null;
   var lastQuote = null;
+
+  function currentMaterial(){
+    var key = materialSelect.value;
+    return MATERIALS[key] || MATERIALS.PLA;
+  }
 
   function setStatus(msg, kind){
     statusEl.textContent = msg;
@@ -490,15 +597,24 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     });
   }
 
+  function dimsFit(size, bed){
+    var dims = size.slice().sort(function(a,b){ return a-b; });
+    var bedSorted = bed.slice().sort(function(a,b){ return a-b; });
+    return dims[0] <= bedSorted[0] && dims[1] <= bedSorted[1] && dims[2] <= bedSorted[2];
+  }
+
   function computeQuote(mesh, filename){
-    var grams = mesh.solidCm3 * PLA_DENSITY * FILL_FACTOR;
+    var mat = currentMaterial();
+    var grams = mesh.solidCm3 * mat.density * FILL_FACTOR;
     var hours = grams / GRAMS_PER_HOUR;
     var raw = SETUP_FEE + (grams * PRICE_PER_GRAM) + (hours * PRICE_PER_HOUR);
     var price = roundMoney(raw);
     var size = mesh.sizeMm;
-    var fits = size[0] <= BED_MM && size[1] <= BED_MM && size[2] <= BED_MM;
+    var fits = dimsFit(size, BED_MM);
     return {
       filename: filename,
+      material: mat.label,
+      density: mat.density,
       sizeMm: size,
       grams: grams,
       hours: hours,
@@ -520,8 +636,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   function buildSummary(q){
     return (
       'Lincoln Print Lab quote: ' + q.filename +
+      ' · ' + q.material +
       ' · ' + fmtMm(q.sizeMm[0]) + '×' + fmtMm(q.sizeMm[1]) + '×' + fmtMm(q.sizeMm[2]) + ' mm' +
-      ' · ~' + fmtG(q.grams) + ' g PLA' +
+      ' · ~' + fmtG(q.grams) + ' g' +
       ' · ~' + fmtH(q.hours) +
       ' · estimate $' + q.price +
       ' · ' + fulfillLabel() +
@@ -543,22 +660,24 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 
   function renderQuote(q){
     lastQuote = q;
+    estimateSub.textContent = q.material + ' · ~20% infill estimate · not a final invoice';
     document.getElementById('stat-bbox').textContent =
       fmtMm(q.sizeMm[0]) + ' × ' + fmtMm(q.sizeMm[1]) + ' × ' + fmtMm(q.sizeMm[2]) + ' mm';
     document.getElementById('stat-grams').textContent = '~' + fmtG(q.grams) + ' g';
     document.getElementById('stat-hours').textContent = '~' + fmtH(q.hours);
     var fitEl = document.getElementById('stat-fit');
     if(q.fits){
-      fitEl.textContent = 'Fits standard bed';
+      fitEl.textContent = 'Fits';
       fitEl.className = 'fit-ok';
     } else {
-      fitEl.textContent = 'Large — may need split / larger bed';
+      fitEl.textContent = 'Large — may need split';
       fitEl.className = 'fit-big';
     }
     document.getElementById('stat-price').textContent = '$' + q.price;
     document.getElementById('stat-breakdown').textContent =
       '$' + SETUP_FEE + ' setup + $' + PRICE_PER_GRAM.toFixed(2) + '/g + $' + PRICE_PER_HOUR +
       '/hr (~' + GRAMS_PER_HOUR + ' g/hr) · min $' + MIN_PRICE +
+      ' · ' + q.material + ' @ ' + q.density + ' g/cm³' +
       ' · raw $' + q.raw.toFixed(2) + ' → rounded $' + q.price +
       ' · ' + q.triCount.toLocaleString() + ' tris';
     updateLinks(q);
@@ -579,6 +698,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           grams: Math.round(q.grams * 10) / 10,
           hours: Math.round(q.hours * 10) / 10,
           price: q.price,
+          material: q.material,
           sizeMm: q.sizeMm.map(function(n){ return Math.round(n*10)/10; }),
           fits: q.fits,
           fulfill: fulfillLabel()
@@ -591,6 +711,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           }
         }).catch(function(){});
     } catch (e) {}
+  }
+
+  function recomputeIfReady(){
+    if(lastMesh && lastFilename){
+      renderQuote(computeQuote(lastMesh, lastFilename));
+      setStatus('Quote ready. Hit Request this print to text us.', 'ok');
+    }
   }
 
   function handleFile(file){
@@ -615,6 +742,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           setStatus('Mesh looks empty — is the STL watertight?', 'err');
           return;
         }
+        lastMesh = mesh;
+        lastFilename = name;
         var q = computeQuote(mesh, name);
         renderQuote(q);
         setStatus('Quote ready. Hit Request this print to text us.', 'ok');
@@ -666,6 +795,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     });
   });
 
+  materialSelect.addEventListener('change', recomputeIfReady);
+
   btnRequest.addEventListener('click', function(e){
     if(!lastQuote){
       e.preventDefault();
@@ -683,9 +814,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       PRICE_PER_HOUR: PRICE_PER_HOUR,
       GRAMS_PER_HOUR: GRAMS_PER_HOUR,
       MIN_PRICE: MIN_PRICE,
-      PLA_DENSITY: PLA_DENSITY,
       FILL_FACTOR: FILL_FACTOR,
-      BED_MM: BED_MM
+      BED_MM: BED_MM,
+      MATERIALS: MATERIALS
     },
     renderQuote: renderQuote,
     handleFile: handleFile
