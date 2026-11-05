@@ -322,7 +322,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           <div class="fulfill" id="fulfill">
             <label class="is-on">
               <input type="radio" name="fulfill" value="pickup" checked />
-              <span><strong style="color:#fff">Pick up in Lincoln</strong><br />Text to set a time when it’s ready</span>
+              <span><strong style="color:#fff">Pick up at Timeless Treasures</strong><br />Text to set a time when it’s ready</span>
             </label>
             <label>
               <input type="radio" name="fulfill" value="mail" />
@@ -569,7 +569,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     var checked = document.querySelector('input[name="fulfill"]:checked');
     return checked && checked.value === 'mail'
       ? 'mailed'
-      : 'pick up in Lincoln';
+      : 'pick up at Timeless Treasures';
   }
 
   function buildSummary(q){
