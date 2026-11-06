@@ -128,13 +128,14 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;
   font-size:11px;color:var(--muted);
 }
-.field-row select{
-  background:#0a0a0c;color:#fff;border:1px solid var(--line);border-radius:12px;
-  padding:12px 14px;font:inherit;appearance:none;-webkit-appearance:none;
-  background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);
-  background-position:calc(100% - 18px) calc(50% - 3px),calc(100% - 12px) calc(50% - 3px);
-  background-size:6px 6px,6px 6px;background-repeat:no-repeat;
+.opt-group{display:flex;flex-wrap:wrap;gap:8px}
+.opt-btn{
+  background:#0a0a0c;color:var(--muted);border:1px solid var(--line);border-radius:999px;
+  padding:8px 14px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  font-size:13px;cursor:pointer;
 }
+.opt-btn:hover{border-color:#fff;color:#fff}
+.opt-btn.is-on{border-color:#fff;color:#fff;background:rgba(255,255,255,.06)}
 
 .quote-grid{
   display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start;margin-top:12px;
@@ -196,6 +197,10 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   border-left:3px solid #fff;padding:8px 12px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;
 }
 .blurb.is-on{display:block}
+.request-panel{display:none;margin-top:14px;background:#0a0a0c;border:1px solid var(--line);border-radius:12px;padding:16px}
+.request-panel.is-on{display:block}
+.request-panel textarea{width:100%;background:#0a0a0c;border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:12px 14px;font:inherit;resize:vertical}
+.request-panel textarea:focus{outline:none;border-color:#fff}
 .disclaimer{font-size:13px;color:var(--muted);margin-top:18px;max-width:720px}
 .contact-row{
   display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px;
@@ -285,24 +290,24 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           <p id="estimate-sub">PLA · ~20% infill estimate · not a final invoice</p>
         </div>
         <div class="field-row">
-          <label for="material-select">Material</label>
-          <select id="material-select" aria-label="Material">
-            <option value="PLA" selected>PLA (default)</option>
-            <option value="PETG">PETG</option>
-            <option value="TPU">TPU</option>
-            <option value="ABS">ABS</option>
-            <option value="ASA">ASA</option>
-            <option value="Nylon">Nylon</option>
-          </select>
+          <label id="material-label">Material</label>
+          <div class="opt-group" id="material-options" role="group" aria-labelledby="material-label">
+            <button type="button" class="opt-btn is-on" data-material="PLA" aria-pressed="true">PLA</button>
+            <button type="button" class="opt-btn" data-material="PETG" aria-pressed="false">PETG</button>
+            <button type="button" class="opt-btn" data-material="TPU" aria-pressed="false">TPU</button>
+            <button type="button" class="opt-btn" data-material="ABS" aria-pressed="false">ABS</button>
+            <button type="button" class="opt-btn" data-material="ASA" aria-pressed="false">ASA</button>
+            <button type="button" class="opt-btn" data-material="Nylon" aria-pressed="false">Nylon</button>
+          </div>
         </div>
         <div class="field-row">
-          <label for="color-select">Colors</label>
-          <select id="color-select" aria-label="Colors">
-            <option value="1" selected>1 color</option>
-            <option value="2">2 colors</option>
-            <option value="3">3 colors</option>
-            <option value="4">4 colors</option>
-          </select>
+          <label id="color-label">Colors</label>
+          <div class="opt-group" id="color-options" role="group" aria-labelledby="color-label">
+            <button type="button" class="opt-btn is-on" data-colors="1" aria-pressed="true">1 color</button>
+            <button type="button" class="opt-btn" data-colors="2" aria-pressed="false">2 colors</button>
+            <button type="button" class="opt-btn" data-colors="3" aria-pressed="false">3 colors</button>
+            <button type="button" class="opt-btn" data-colors="4" aria-pressed="false">4 colors</button>
+          </div>
         </div>
         <div class="stat-grid">
           <div class="stat"><label>Bounding box</label><strong id="stat-bbox">—</strong></div>
@@ -334,6 +339,16 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <div class="actions" style="margin-top:4px">
           <a class="btn btn-primary" id="btn-request" href="#" aria-disabled="true">Request this print</a>
           <a class="btn btn-ghost" id="btn-email" href="mailto:contact@lincolnprintlab.com">Email instead</a>
+        </div>
+        <div class="request-panel" id="request-panel">
+          <h3 style="margin-bottom:8px">Send us this quote</h3>
+          <p style="margin-bottom:10px">Your texting app should have opened. If it didn't (like on a computer), copy the quote below and paste it in a text to <strong style="color:#fff">(402) 413-5332</strong>.</p>
+          <textarea id="request-text" readonly rows="4"></textarea>
+          <div class="actions" style="margin-top:10px">
+            <button class="btn btn-primary" id="btn-copy" type="button">Copy quote</button>
+            <a class="btn btn-ghost" id="btn-sms" href="#">Open in texting app</a>
+          </div>
+          <p class="status-line" id="copy-status"></p>
         </div>
       </div>
     </div>
@@ -402,16 +417,22 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   var blurbEl = document.getElementById('blurb');
   var btnRequest = document.getElementById('btn-request');
   var btnEmail = document.getElementById('btn-email');
-  var materialSelect = document.getElementById('material-select');
-  var colorSelect = document.getElementById('color-select');
+  var requestPanel = document.getElementById('request-panel');
+  var requestText = document.getElementById('request-text');
+  var btnCopy = document.getElementById('btn-copy');
+  var btnSms = document.getElementById('btn-sms');
+  var copyStatus = document.getElementById('copy-status');
+  var materialOptions = document.getElementById('material-options');
+  var colorOptions = document.getElementById('color-options');
+  var currentMaterialKey = 'PLA';
+  var currentColors = 1;
   var estimateSub = document.getElementById('estimate-sub');
   var lastMesh = null;
   var lastFilename = null;
   var lastQuote = null;
 
   function currentMaterial(){
-    var key = materialSelect.value;
-    return MATERIALS[key] || MATERIALS.PLA;
+    return MATERIALS[currentMaterialKey] || MATERIALS.PLA;
   }
 
   function setStatus(msg, kind){
@@ -561,7 +582,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       material: mat.label,
       density: mat.density,
       rate: mat.rate,
-      colors: parseInt(colorSelect.value,10) || 1,
+      colors: currentColors,
       sizeMm: size,
       grams: grams,
       hours: hours,
@@ -743,13 +764,64 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     });
   });
 
-  materialSelect.addEventListener('change', recomputeIfReady);
-  colorSelect.addEventListener('change', recomputeIfReady);
+  materialOptions.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-material]');
+    if(!btn) return;
+    currentMaterialKey = btn.getAttribute('data-material');
+    materialOptions.querySelectorAll('.opt-btn').forEach(function(b){
+      var on = b === btn;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    recomputeIfReady();
+  });
+  colorOptions.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-colors]');
+    if(!btn) return;
+    currentColors = parseInt(btn.getAttribute('data-colors'), 10) || 1;
+    colorOptions.querySelectorAll('.opt-btn').forEach(function(b){
+      var on = b === btn;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    recomputeIfReady();
+  });
 
   btnRequest.addEventListener('click', function(e){
     if(!lastQuote){
       e.preventDefault();
       setStatus('Upload a file first.', 'err');
+      return;
+    }
+    // Show the send panel with the full summary. On phones the sms: link
+    // opens the texting app; on desktop it silently does nothing, so the
+    // panel is the fallback — copy the quote and paste it in a text.
+    var summary = buildSummary(lastQuote);
+    requestText.value = summary;
+    btnSms.href = 'sms:' + SMS_TO + '?body=' + encodeURIComponent(summary);
+    requestPanel.classList.add('is-on');
+    copyStatus.textContent = '';
+    copyStatus.className = 'status-line';
+    setStatus('Quote details ready below — copy them or send from your phone.', 'ok');
+  });
+
+  btnCopy.addEventListener('click', function(){
+    var done = function(){
+      copyStatus.textContent = 'Copied — paste it in a text to (402) 413-5332.';
+      copyStatus.className = 'status-line ok';
+    };
+    var fallback = function(){
+      requestText.select();
+      try { document.execCommand('copy'); done(); }
+      catch (err) {
+        copyStatus.textContent = 'Copy didn\'t work — select the text above and copy it by hand.';
+        copyStatus.className = 'status-line err';
+      }
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(requestText.value).then(done).catch(fallback);
+    } else {
+      fallback();
     }
   });
 
