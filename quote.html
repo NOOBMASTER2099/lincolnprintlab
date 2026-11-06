@@ -806,22 +806,36 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   });
 
   btnCopy.addEventListener('click', function(){
+    // Select the text first so Ctrl+C always works as a fallback.
+    requestText.focus();
+    requestText.select();
+    var settled = false;
     var done = function(){
+      if(settled) return; settled = true;
       copyStatus.textContent = 'Copied — paste it in a text to (402) 413-5332.';
       copyStatus.className = 'status-line ok';
+      btnCopy.textContent = 'Copied ✓';
+      setTimeout(function(){ btnCopy.textContent = 'Copy quote'; }, 3000);
     };
-    var fallback = function(){
+    var manual = function(){
+      if(settled) return; settled = true;
+      requestText.focus();
       requestText.select();
-      try { document.execCommand('copy'); done(); }
-      catch (err) {
-        copyStatus.textContent = 'Copy didn\'t work — select the text above and copy it by hand.';
-        copyStatus.className = 'status-line err';
-      }
+      copyStatus.textContent = 'Quote selected — press Ctrl+C (or Cmd+C) to copy it.';
+      copyStatus.className = 'status-line';
+    };
+    var execCopy = function(){
+      try {
+        if(document.execCommand('copy')) { done(); }
+        else { manual(); }
+      } catch (err) { manual(); }
     };
     if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(requestText.value).then(done).catch(fallback);
+      navigator.clipboard.writeText(requestText.value).then(done).catch(execCopy);
+      // Don't leave the user hanging if the clipboard promise never settles.
+      setTimeout(function(){ if(!settled) execCopy(); }, 1500);
     } else {
-      fallback();
+      execCopy();
     }
   });
 
