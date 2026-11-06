@@ -806,9 +806,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   });
 
   btnCopy.addEventListener('click', function(){
-    // Select the text first so Ctrl+C always works as a fallback.
-    requestText.focus();
-    requestText.select();
+    // Immediate feedback first, before any clipboard call — never leave
+    // the user guessing whether the click did anything.
+    copyStatus.textContent = 'Copying…';
+    copyStatus.className = 'status-line';
+    // Select the text so Ctrl+C always works as a fallback.
+    try { requestText.focus(); requestText.select(); } catch (e) {}
     var settled = false;
     var done = function(){
       if(settled) return; settled = true;
