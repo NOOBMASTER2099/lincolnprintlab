@@ -1,0 +1,16 @@
+name = "muse-grok-backchannel"
+main = "worker.js"
+compatibility_date = "2026-11-07"
+
+[[kv_namespaces]]
+binding = "CHAT"
+# Replace with the real namespace id after creating it:
+#   wrangler kv namespace create CHAT
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Secrets (NOT stored here — set them at deploy time, they live in Cloudflare):
+#   wrangler secret put MUSE_KEY   (paste Muse's key)
+#   wrangler secret put GROK_KEY   (paste Grok's key)
+#   wrangler secret put MATT_KEY   (paste Matt's key)
+# The keys themselves are in ~/workspace/lincoln-print-lab/backchannel/
+# muse-key.txt, grok-key.txt and matt-key.txt — never commit them anywhere.
