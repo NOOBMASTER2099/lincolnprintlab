@@ -4,9 +4,8 @@ compatibility_date = "2026-11-07"
 
 [[kv_namespaces]]
 binding = "CHAT"
-# Replace with the real namespace id after creating it:
-#   wrangler kv namespace create CHAT
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+# Created by Social Media on deploy, 2026-11-07:
+id = "7ad59db2cd014d08aef024be1227634f"
 
 # Secrets (NOT stored here — set them at deploy time, they live in Cloudflare):
 #   wrangler secret put MUSE_KEY   (paste Muse's key)
