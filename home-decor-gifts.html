@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Home Decor &amp; Gifts | Lincoln Print Lab — Lincoln, NE</title>
+<meta name="description" content="Lincoln Print Lab — 3D-printed home decor and gifts in Lincoln, NE. Planters, vases, lithophane photo lamps, coasters and shelves. Download the model or get a quote." />
+<link rel="icon" href="logo.jpg" type="image/jpeg" />
+<link rel="apple-touch-icon" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#000000;
+  --panel:#121214;
+  --accent:#f4f1ea;
+  --accent-hot:#ffffff;
+  --ink:#f4f1ea;
+  --muted:#a8a59c;
+  --line:#2a2a2e;
+  --glow:rgba(255,255,255,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  background-image:none;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(0,0,0,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.brand-name{font-family:Bangers,cursive;font-size:24px;letter-spacing:1.5px;line-height:1}
+.brand-name span{color:var(--accent-hot);opacity:.85}
+nav ul{display:flex;gap:16px;list-style:none;flex-wrap:wrap}
+nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
+nav a:hover{color:#fff}
+.kicker{
+  font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);font-size:13px;margin-bottom:12px;
+}
+h1{
+  font-family:Bangers,cursive;
+  font-size:clamp(46px,7vw,80px);
+  line-height:.92;letter-spacing:2px;margin-bottom:18px;
+}
+.lede{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:999px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;
+}
+.btn-primary{background:var(--accent-hot);color:#070708}
+.btn-primary:hover{background:#e8e4da}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+section{padding:48px 0}
+.section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:18px;max-width:720px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:8px;color:#fff;
+}
+.card p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:14px;align-items:flex-start}
+.foot-brand img{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.foot-brand strong{color:#fff}
+.foot-brand a{color:var(--muted)}
+.foot-brand a:hover{color:#fff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:720px;justify-content:flex-end}
+.pills a{
+  color:var(--ink);font-family:Oswald,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;font-size:13px;
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+}
+.pills a:hover{border-color:#fff;color:#fff}
+.prod-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
+}
+.prod-grid .card strong{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:6px;
+}
+.order-block{
+  margin-top:20px;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:28px;
+}
+.order-block h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:8px;
+}
+.order-block > p{color:var(--muted);margin-bottom:18px;max-width:640px}
+@media(max-width:860px){
+  nav ul{display:none}
+  .pills{justify-content:flex-start}
+  .prod-grid{grid-template-columns:1fr}
+}
+/* Car Parts page extras */
+.fits{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;
+  font-size:13px;color:#fff;margin-top:10px;
+}
+.part-note{font-size:13px;font-style:italic;margin-top:6px}
+.part-link{
+  display:inline-block;margin-top:12px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  font-size:13px;color:#fff;text-decoration:underline;
+}
+.part-link:hover{color:#e8e4da}
+.tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-size:11px;border:1px solid rgba(255,255,255,.28);
+  color:var(--muted);border-radius:999px;padding:3px 9px;margin:0 6px 10px 0;
+}
+.tag.hot{border-color:#fff;color:#fff}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
+    </a>
+    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="car-parts.html">Car Parts</a></li> <li><a href="index.html#what">What we print</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+  </div>
+</header>
+<main id="top">
+<section class="wrap" id="home-decor-gifts">
+    <h2 class="section-title">Home Decor &amp; Gifts</h2>
+    <p class="section-sub">Planters, vases, lithophane photo lamps, coasters, shelves, and gifts for the house — made to order in Lincoln. Don&#x27;t see what you need? Tell us what you&#x27;re looking for — we&#x27;ll research it and track it down for you.</p>
+    <p class="section-sub">Prices are filament-only estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum). Final price is confirmed with the instant quote tool once we see your file.</p>
+    <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
+      <a href="#planters">Planters &amp; Vases</a>
+      <a href="#lamps">Lithophane Photo Lamps</a>
+      <a href="#coasters">Coasters &amp; Desk Items</a>
+      <a href="#shelves">Shelves, Hooks &amp; Wall Items</a>
+      <a href="#jewelry">Jewelry Holders</a>
+      <a href="#bathroom">Bathroom Items</a>
+      <a href="#christmas">Christmas &amp; Gift Boxes</a>
+      <a href="#character-planters">Character Planters</a>
+    </div>
+  </section>
+
+<section class="wrap" id="planters">
+    <h2 class="section-title">Planters &amp; Vases</h2>
+    <p class="section-sub">Vase-mode planters and vases — print fast, look great.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Hexagonal planter v2 (vase mode)</strong>
+        <p>Six-sided planter that prints in one piece in vase mode, about an hour faster than the original two-piece version.</p>
+        <p class="fits">Printables &middot; by Catdad Workshop &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/225682-hexagonal-planter-v2-vase-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Spiral planter with drainage (vase mode)</strong>
+        <p>Spiral planter sized for a 4-inch plant, with built-in drainage and a hidden water tray; scales to 3-inch or 6-inch.</p>
+        <p class="fits">Printables &middot; by Catdad Workshop &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; PLA $27 &middot; PETG $30</p>
+        <a class="part-link" href="https://www.printables.com/model/275318-spiral-planter-with-drainage-vase-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Organic Planter</strong>
+        <p>Planter/vase with an organic wavy pattern; comes with and without drainage holes, looks great in see-through filament.</p>
+        <p class="fits">Printables &middot; by BakedBean3D &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/924015-organic-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Twisted Planter with Legs, Vase Mode</strong>
+        <p>Twisted planter on legs, prints in 2 parts (planter in vase mode, legs normal mode); for indoor or outdoor use, ~9 x 11 cm.</p>
+        <p class="fits">Printables &middot; by SLIMPRINT &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/64617-twisted-planter-with-legs-vase-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Flower Pot | Planter With Saucer</strong>
+        <p>Plain flower pot with a matching saucer (versions with and without drainage holes); inside is 110 mm tall, 128 mm across the top — fits a basil plant.</p>
+        <p class="fits">Printables &middot; by Extrutim &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/172331-flower-pot-planter-with-saucer" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Simple Vase Planter</strong>
+        <p>Simple round vase/planter; designer gives tips for a watertight print (concentric bottom layers, wider extrusion).</p>
+        <p class="fits">Printables &middot; by KAPPA3D &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; PLA $71 &middot; PETG $79</p>
+        <a class="part-link" href="https://www.printables.com/model/661364-simple-vase-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>&quot;Wave&quot; Vase &amp; Planter</strong>
+        <p>Vase and planter set with a traditional Japanese wave pattern; prints in vase mode.</p>
+        <p class="fits">Printables &middot; by orax &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/290784-wave-vase-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Spiral Succulent Planter</strong>
+        <p>Small spiral planter that holds a 60–65 mm succulent pot (the size sold at IKEA and Lowe&#x27;s).</p>
+        <p class="fits">Printables &middot; by Naren V &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/810625-spiral-succulent-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Ribbed Planter - Vase Mode</strong>
+        <p>Simple elegant ribbed planter; also works as a desk organizer or home decor piece.</p>
+        <p class="fits">Printables &middot; by AlexT &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/939397-ribbed-planter-vase-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Low-Poly Rose Vase</strong>
+        <p>Twisted low-poly vase that catches the light as it turns; a longtime community favorite.</p>
+        <p class="fits">Printables &middot; by Riskable &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/1595-low-poly-rose-vase" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Pen pot / vase with secret compartment</strong>
+        <p>Low-poly twisted pen pot / vase with a separate liner for pens, plus an optional hidden screw-together box underneath.</p>
+        <p class="fits">Printables &middot; by Simon &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/205009-pen-pot-vase-with-secret-compartment" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Twisted 6-sided Vase Basic</strong>
+        <p>Tall (200 mm) six-sided twisted vase; a nice gift with a bunch of flowers.</p>
+        <p class="fits">Printables &middot; by Planboy &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/282037-twisted-6-sided-vase-basic" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Modern Spiral Vase</strong>
+        <p>Stylish spiral vase with smooth twisted lines; looks good in any color.</p>
+        <p class="fits">Printables &middot; by KamoJawo &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/1422925-modern-spiral-vase" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Tall Twisted Vase (Vase Mode)</strong>
+        <p>Tall twisted vase (5.4 x 20 cm) for dried flowers; add sand or pebbles at the bottom so it doesn&#x27;t tip over.</p>
+        <p class="fits">Printables &middot; by SLIMPRINT &middot; Free download</p>
+        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/382276-tall-twisted-vase-vase-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>SELF WATERING PLANTER</strong>
+        <p>Two-part self-watering planter: a base tank plus a planter with slots that draw water up from below; tested leak-free in PLA.</p>
+        <p class="fits">Printables &middot; by Plastic 3D &middot; Free download</p>
+        <p class="part-note">License: License — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/231024-self-watering-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Wearable Planter Vase</strong>
+        <p>Tiny planter on a necklace cord — carry a small plant with you; originally an art project from 2011.</p>
+        <p class="fits">Printables &middot; by Colleen Jordan &middot; Free download</p>
+        <p class="part-note">License: CC BY-NC — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/556843-wearable-planter-vase" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="lamps">
+    <h2 class="section-title">Lithophane Photo Lamps</h2>
+    <p class="section-sub">Photo lamps and lanterns — your photos, lit up.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Four-Panel Lithophane Lantern — Utilizes an E12 Bulb</strong>
+        <p>Four-sided lantern that takes 115 x 145 mm lithophane photo panels (make your own from any photo with a free online lithophane tool); lit by a screw-in E12 LED bulb.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://makerworld.com/en/models/162414?from=search" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Lithophane Lantern</strong>
+        <p>Decorative lantern with swap-out side panels; fits the Bambu LED Lamp Kit, or a tea-light version is included.</p>
+        <p class="fits">MakerWorld &middot; by GulagHias &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://makerworld.com/en/models/1999360-lithophane-lantern" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Lithophane Lamp / Light Box - MakerLab Compatible</strong>
+        <p>Simple photo lamp box built to fit lithophanes made with MakerLab&#x27;s &quot;Make My Lithophane&quot; tool; adapters for an LED strip or the Bambu LED Lamp Kit included.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://makerworld.com/en/models/968626-lithophane-lamp-light-box-makerlab-compatible" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Cube Lamp Lithophane</strong>
+        <p>Cube lamp with a lift-off top so lithophane panels swap easily; panels are 136 x 136 mm.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: Open license — verify on page &middot; PLA $42–48 &middot; PETG $47–54</p>
+        <a class="part-link" href="https://makerworld.com/en/models/696973-cube-lamp-lithophane" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Multi-Photo Lithophane Box (Holds 4 Images)</strong>
+        <p>Four-sided light box holding 4 personal photos (100 x 100 mm each); fits the Bambu LED Lamp Kit.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://makerworld.com/en/models/2138937-multi-photo-lithophane-box-holds-4-images" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Lithophane Sphere Magnetic Puzzle LED Kit 001</strong>
+        <p>Soccer-ball-shaped photo globe (truncated icosahedron) that holds lithophane photos on its faces and lights up with an LED Kit 001; needs 110 small magnets (4 x 1.5 mm).</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://makerworld.com/en/models/1338025-lithophane-sphere-magnetic-puzzle-led-kit-001" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="coasters">
+    <h2 class="section-title">Coasters &amp; Desk Items</h2>
+    <p class="section-sub">Coasters, organizers, and desk pieces.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Modern Geometric Coaster Set &amp; Holder</strong>
+        <p>Four coasters (circle, square, rounded arch, small circle) plus a storage stand; coasters print best at 100% infill for a nice weight.</p>
+        <p class="fits">Printables &middot; by Chris Snyder &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/1766156-modern-geometric-coaster-set-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Maze coaster and coaster base organizer</strong>
+        <p>Coaster set with a maze pattern on top, plus a holder base and a small cylinder that doubles as a desk organizer.</p>
+        <p class="fits">Printables &middot; by KeepReal &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/998210-maze-coaster-and-coaster-base-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Coaster with Holder</strong>
+        <p>Five coasters and a matching storage holder; keeps tables free of drink rings.</p>
+        <p class="fits">Printables &middot; by Maker_Stein &middot; Free download</p>
+        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/1788448-coaster-with-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Spinning Carousel Desk Organizer</strong>
+        <p>Big spinning desk organizer with a center pen cup, built like an old amusement-park carousel (60+ parts, no glue or extra hardware).</p>
+        <p class="fits">Printables &middot; by actualSIZE &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/204834-spinning-carousel-desk-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Coffee Cup Desk Organizer</strong>
+        <p>A coaster with pen and tool slots around the rim, so your coffee and your pens sit in one spot; two sizes for different mugs.</p>
+        <p class="fits">Printables &middot; by scrith &middot; Free download</p>
+        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/535575-coffee-cup-desk-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Bat-Coaster Collection – The Ultimate Dark Knight Set</strong>
+        <p>Twelve coasters with Batman logos from 1939 to the latest movies, plus a storage case that holds 6.</p>
+        <p class="fits">Printables &middot; by jajaum3d &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/478100-bat-coaster-collection-the-ultimate-dark-knight-se" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="shelves">
+    <h2 class="section-title">Shelves, Hooks &amp; Wall Items</h2>
+    <p class="section-sub">Honeycomb shelves, key holders, and lampshades.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Honeycomb Display Shelf (No Supports Required)</strong>
+        <p>Small wall shelf with snap-in honeycomb &quot;grill&quot; panels; looks great with several hung together.</p>
+        <p class="fits">Printables &middot; by Ryan Millar &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/90656-honeycomb-display-shelf-no-supports-required" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Honeycomb Shelf</strong>
+        <p>Wall-mounted hexagonal shelves in two depths (shallow ledge or deeper shelf) with interlocking parts and tool hooks.</p>
+        <p class="fits">Printables &middot; by Stun &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/650409-honeycomb-shelf" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Honeycomb Storage Wall (HSW) Shelf</strong>
+        <p>Shelf and supports that clip onto the popular Honeycomb Storage Wall system.</p>
+        <p class="fits">Printables &middot; by Drew Singer &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/524153-honeycomb-storage-wall-hsw-shelf" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Honeycomb minimalistic shelf (16x15 cm)</strong>
+        <p>Small see-through honeycomb shelf for a bathroom or any room; sticks to the wall with double-sided tape.</p>
+        <p class="fits">Printables &middot; by f4r0kh &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/493477-honeycomb-minimalistic-shelf-16x15-cm" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Magnetic Beehive Key Holder</strong>
+        <p>Beehive-shaped wall key holder with 5 magnetic slots and standard hook slots; needs small magnets (15 mm and 12 mm).</p>
+        <p class="fits">Printables &middot; by Rodrim &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/1237-magnetic-beehive-key-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Wall Mounted Key Holder</strong>
+        <p>Modular key holder styled after a car seat-belt buckle; clip as many together as you need, screw or stick to the wall.</p>
+        <p class="fits">Printables &middot; by HappyBlue &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/716713-wall-mounted-key-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Sway, A lampshade</strong>
+        <p>Lampshade in 3 swaying shapes, made for an E14 socket holder; print upside down in PETG.</p>
+        <p class="fits">Printables &middot; by Joel &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/814516-sway-a-lampshade" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="jewelry">
+    <h2 class="section-title">Jewelry Holders</h2>
+    <p class="section-sub">Ring holders and jewelry stands.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Octopus ring holder</strong>
+        <p>Octopus with four tentacles for holding rings, earrings, and small jewelry; about 83 x 106 x 39 mm.</p>
+        <p class="fits">Printables &middot; by Jopek Design &middot; Free download</p>
+        <p class="part-note">License: License — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/496724-octopus-ring-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>The Solo Stand: Light Single Ring Holder</strong>
+        <p>Minimalist single ring holder, printed face-down so the textured bed gives it a unique finish; ~15 g of PETG.</p>
+        <p class="fits">Printables &middot; by kroiderCreations &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $15</p>
+        <a class="part-link" href="https://www.printables.com/model/493420-the-solo-stand-light-single-ring-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Valentinosaurus - Ringosaurus V2 - Ring Holder</strong>
+        <p>Dinosaur ring holder with a heart-shaped back for earrings, wider stance so it won&#x27;t tip; 4 versions including a weighted one (ball bearings) and a magnetic-foot one.</p>
+        <p class="fits">Printables &middot; by Asphalt3D &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/760941-valentinosaurus-ringosaurus-v2-ring-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Keychain - Ring holder</strong>
+        <p>Small ring holder that clips onto your keys, for jobs or sports where you can&#x27;t wear a ring; adjustable in Fusion 360 for any ring size.</p>
+        <p class="fits">Printables &middot; by MW &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/493399-keychain-ring-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="bathroom">
+    <h2 class="section-title">Bathroom Items</h2>
+    <p class="section-sub">Soap dishes, toothbrush holders, and tissue covers.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Bathroom Dental Organisers HEX Design and Matching Soap Dish</strong>
+        <p>Hex-pattern toothbrush and dental organizers (with or without a toothbrush holder) plus a matching soap dish.</p>
+        <p class="fits">Printables &middot; by Peter Martin &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/739076-bathroom-dental-organisers-hex-design-and-matching" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Bathroom Accessories: Tissue Box Cover &amp; Toothbrush Holder</strong>
+        <p>Tissue box cover that fits a standard Kleenex flat box, plus a toothbrush holder with drainage holes in the bottom.</p>
+        <p class="fits">Printables &middot; by maureen.nemetski &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/476979-bathroom-accessories-tissue-box-cover-toothbrush-h" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Reversible soap dish + toothbrush holder</strong>
+        <p>Flip-it-over soap dish: when one side gets gunky, flip it to the clean side; matching toothbrush holder with a drain.</p>
+        <p class="fits">Printables &middot; by ArchiPrinter &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/108801-reversible-soap-dish-toothbrush-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="christmas">
+    <h2 class="section-title">Christmas &amp; Gift Boxes</h2>
+    <p class="section-sub">Ornaments, photo frames, and gift boxes for the holidays.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Photo Frame Ornament (Wallet + Parametric)</strong>
+        <p>Small hanging photo frame ornament for a wallet-sized (2&quot; x 3&quot;) photo; frame + slide-in backer, with or without the year on the front.</p>
+        <p class="fits">Printables &middot; by chemistbyday &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/684951-photo-frame-ornament-wallet-parametric" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Minimalist lithophane picture frame</strong>
+        <p>Self-standing picture frame that holds a 100 x 100 mm lithophane photo and battery string lights; swap in a photo of a loved one for a Christmas gift.</p>
+        <p class="fits">Printables &middot; by DaHouzKat &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/94082-minimalist-lithophane-picture-frame" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Christmas Tree Bauble Secret Compartment Gift Box</strong>
+        <p>Two-piece latching bauble (100 mm) that hangs on the tree and hides a small gift inside.</p>
+        <p class="fits">Printables &middot; by 3DCreat3d &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/11308-christmas-tree-bauble-secret-compartment-gift-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Snowflake Photo Frame</strong>
+        <p>Snowflake-shaped photo frame for Christmas family photos; about 30 cm, can scale to 18 cm.</p>
+        <p class="fits">Printables &middot; by Algol &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/689467-snowflake-photo-frame" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Gift Box</strong>
+        <p>Gift-box-shaped ornament that hides in the Christmas tree; prints in multiple colors without a multi-material printer.</p>
+        <p class="fits">Printables &middot; by WrenchWorks3D &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/en/model/671408-gift-box/collections" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="character-planters">
+    <h2 class="section-title">Character Planters</h2>
+    <p class="section-sub">Groot and Bulbasaur planters — display-only, for the shelf.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Self watering baby groot planter</strong>
+        <p>Baby Groot (Guardians of the Galaxy) planter with a self-watering setup; makers report it prints without supports at 150% scale.</p>
+        <p class="fits">Printables &middot; by UniversalMaker &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/723019-self-watering-baby-groot-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Pokémon Bulbasaur / Bisasam Planter</strong>
+        <p>Bulbasaur planter that fits a standard 5 cm pot at 60% scale or a ~10 cm pot at 120%; drain-hole version included.</p>
+        <p class="fits">Printables &middot; by R3D &middot; Free download</p>
+        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/256744-pokemon-bulbasaur-bisasam-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Groot Hanging Planter</strong>
+        <p>Groot&#x27;s head as a hanging planter, with 3 holes for chains (or set it on a windowsill); drainage holes in the bottom.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://makerworld.com/en/models/738079-groot-hanging-planter?from=search" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap">
+    <div class="order-block">
+      <h3>Can&#x27;t find what you need?</h3>
+      <p>Don&#x27;t see the piece you want? Tell us what you&#x27;re picturing — a planter, a lamp with your photo, a gift — and we&#x27;ll research it, find the file, and print it for you. Planters and vases that hold water are printed with extra walls or used with a liner; lamp shades use PETG and a low-heat LED bulb only.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="quote.html">Get an instant quote</a>
+        <a class="btn btn-ghost" href="sms:+14024135332">Text 402-413-5332</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div>
+        <strong>Lincoln Print Lab</strong><br />
+        Lincoln, NE<br />
+        Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
+        <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+        · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+        · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+        · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+        · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
+      </div>
+    </div>
+    <div class="pills">
+      <a href="products.html">Products</a>
+      <a href="car-parts.html">Car Parts</a>
+      <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
+      <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
+      <a href="larp-gear.html">LARP Gear</a>
+      <a href="tabletop-gaming.html">Tabletop &amp; Gaming</a>
+      <a href="home-decor-gifts.html">Home Decor &amp; Gifts</a>
+      <a href="wall-art-plaques.html">Wall Art &amp; Plaques</a>
+      <a href="plaques.html">Custom Plaques</a>
+      <a href="quote.html">Quote</a>
+      <a href="materials.html">Materials</a>
+      <a href="contact.html">Contact</a>
+      <a href="tel:+14024135332">402-413-5332</a>
+      <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+      <a href="mailto:contact@lincolnprintlab.com">Email</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

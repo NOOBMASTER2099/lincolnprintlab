@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Wall Art &amp; Plaques | Lincoln Print Lab — Lincoln, NE</title>
+<meta name="description" content="Lincoln Print Lab — 3D-printed wall art and plaques in Lincoln, NE. Custom name signs, house signs, HueForge art and shadow boxes. Download the model or get a quote." />
+<link rel="icon" href="logo.jpg" type="image/jpeg" />
+<link rel="apple-touch-icon" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#000000;
+  --panel:#121214;
+  --accent:#f4f1ea;
+  --accent-hot:#ffffff;
+  --ink:#f4f1ea;
+  --muted:#a8a59c;
+  --line:#2a2a2e;
+  --glow:rgba(255,255,255,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  background-image:none;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(0,0,0,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.brand-name{font-family:Bangers,cursive;font-size:24px;letter-spacing:1.5px;line-height:1}
+.brand-name span{color:var(--accent-hot);opacity:.85}
+nav ul{display:flex;gap:16px;list-style:none;flex-wrap:wrap}
+nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
+nav a:hover{color:#fff}
+.kicker{
+  font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);font-size:13px;margin-bottom:12px;
+}
+h1{
+  font-family:Bangers,cursive;
+  font-size:clamp(46px,7vw,80px);
+  line-height:.92;letter-spacing:2px;margin-bottom:18px;
+}
+.lede{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:999px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;
+}
+.btn-primary{background:var(--accent-hot);color:#070708}
+.btn-primary:hover{background:#e8e4da}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+section{padding:48px 0}
+.section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:18px;max-width:720px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:8px;color:#fff;
+}
+.card p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:14px;align-items:flex-start}
+.foot-brand img{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.foot-brand strong{color:#fff}
+.foot-brand a{color:var(--muted)}
+.foot-brand a:hover{color:#fff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:720px;justify-content:flex-end}
+.pills a{
+  color:var(--ink);font-family:Oswald,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;font-size:13px;
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+}
+.pills a:hover{border-color:#fff;color:#fff}
+.prod-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
+}
+.prod-grid .card strong{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:6px;
+}
+.order-block{
+  margin-top:20px;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:28px;
+}
+.order-block h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:8px;
+}
+.order-block > p{color:var(--muted);margin-bottom:18px;max-width:640px}
+@media(max-width:860px){
+  nav ul{display:none}
+  .pills{justify-content:flex-start}
+  .prod-grid{grid-template-columns:1fr}
+}
+/* Car Parts page extras */
+.fits{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;
+  font-size:13px;color:#fff;margin-top:10px;
+}
+.part-note{font-size:13px;font-style:italic;margin-top:6px}
+.part-link{
+  display:inline-block;margin-top:12px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  font-size:13px;color:#fff;text-decoration:underline;
+}
+.part-link:hover{color:#e8e4da}
+.tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-size:11px;border:1px solid rgba(255,255,255,.28);
+  color:var(--muted);border-radius:999px;padding:3px 9px;margin:0 6px 10px 0;
+}
+.tag.hot{border-color:#fff;color:#fff}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
+    </a>
+    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="car-parts.html">Car Parts</a></li> <li><a href="index.html#what">What we print</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+  </div>
+</header>
+<main id="top">
+<section class="wrap" id="wall-art-plaques">
+    <h2 class="section-title">Wall Art &amp; Plaques</h2>
+    <p class="section-sub">Name signs, house signs, wall art panels, shadow boxes, and funny signs — personalized for your wall. Don&#x27;t see what you need? Tell us what you&#x27;re looking for — we&#x27;ll research it and track it down for you.</p>
+    <p class="section-sub">Prices are filament-only estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum). Final price is confirmed with the instant quote tool once we see your file.</p>
+    <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
+      <a href="#name-signs">Custom Name &amp; House Signs</a>
+      <a href="#nature">Nature, Wildlife &amp; Landscape Wall Art</a>
+      <a href="#character-art">Character, Movie, TV &amp; Sports Wall Art</a>
+      <a href="#shadow-boxes">Shadow Boxes</a>
+      <a href="#funny-signs">Funny, Quote &amp; Novelty Signs</a>
+      <a href="#mandalas">Mandalas, Geometric &amp; Game Logos</a>
+    </div>
+  </section>
+
+<section class="wrap" id="name-signs">
+    <h2 class="section-title">Custom Name &amp; House Signs</h2>
+    <p class="section-sub">Your name, your house — personalized signs, the sellable core.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Personalized Initial &amp; Name Sign (Customizable)</strong>
+        <p>Big first initial with a custom script name fitted into it; type any name in the Parametric Creator, solid or outline letter, hidden keyhole for wall hanging.</p>
+        <p class="fits">MakerWorld &middot; by Kasperzi &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2845165-personalized-initial-name-sign-customizable" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Fully Customizable Initial and Name Sign</strong>
+        <p>Layered initial + fitted name insert, fully parametric; up to 3 hidden keyholes on the back for wall mounting.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2567680-fully-customizable-initial-and-name-sign" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Customizable Name Sign Generator</strong>
+        <p>Giant first letter with a decorative rim and your custom script name pressed into it; snap-fit, no glue, no supports.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2651953-customizable-name-sign-generator" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Customizable Text Sign Generator + Wall Mounts</strong>
+        <p>Any name or word as a bold background letter with an embedded word inlay; built-in keyhole wall mounts and an optional display stand.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/3252851-customizable-text-sign-generator-wall-mounts" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Customizable Rustic House Name Sign</strong>
+        <p>Vintage-style house/cottage name plaque with raised lettering, wood texture, scrollwork, and oak leaves; text editable in Bambu Studio; 250×250×15 mm.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; PLA $21 &middot; PETG $24 &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2918662-customizable-rustic-house-name-sign" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Customisable Blue Plaque (No AMS required!)</strong>
+        <p>Your own words on a classic UK-style blue heritage plaque (English Heritage / Historic England layouts); every text line editable, two-color swap at layer 14, screw or stick-on mounting.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2509951-customisable-blue-plaque-no-ams-required" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Customizable House Number &amp; Street Sign</strong>
+        <p>Parametric address plaque: change the house number, street name, size, colors, and mounting holes; flat front, 240×168 mm default.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/3072095-customizable-house-number-street-sign" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="nature">
+    <h2 class="section-title">Nature, Wildlife &amp; Landscape Wall Art</h2>
+    <p class="section-sub">Deer, mountains, waves, and samurai — HueForge and silhouette art.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>The Way of the Samurai — HueForge</strong>
+        <p>Lone samurai under a blossoming cherry tree, 170×170 mm filament-painted plaque; 3 colors, layer swaps only, no AMS needed.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/3529921-the-way-of-the-samurai-hueforge" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Deer Mountain Landscape 2D Wall Art</strong>
+        <p>Deer by a river with pine trees and mountains under the sun, in a tall organic frame; layered silhouette with a laser-cut look.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://makerworld.com/en/models/2755622-deer-mountain-landscape-2d-wall-art" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Deer and Mountain Silhouette Wall Art</strong>
+        <p>Buck and does with mountains behind; thin, light, hangs with tape or Command strips; print in any color for a contrasting wall.</p>
+        <p class="fits">MakerWorld &middot; by briankstan &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $15</p>
+        <a class="part-link" href="https://makerworld.com/en/models/867758-deer-and-mountain-silhouette-wall-art" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Whitetail Deer HueForge — Wildlife Series</strong>
+        <p>Bold high-contrast whitetail buck portrait with detailed antlers; cabin and hunting-room wall art.</p>
+        <p class="fits">MakerWorld &middot; by RyansHueForgeStudio &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2591244-whitetail-deer-hueforge-wildlife-series" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Geometric Wall Art — Deer</strong>
+        <p>Low-poly geometric deer head, modern look; mount with sticky tape or Velcro tabs, add spacers for a shadow effect.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/136293" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Buck in the Mountains</strong>
+        <p>Flat 200×200 mm buck-and-mountains panel (also splits into a 400×400 mm two-piece version); easy print, no supports.</p>
+        <p class="fits">MakerWorld &middot; by ClodStomperProductions &middot; Free download</p>
+        <p class="part-note">License: CC BY-NC-ND — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://makerworld.com/en/models/468262-buck-in-the-mountains" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Christmas Winter Landscape (plug-in, for LED tealights)</strong>
+        <p>Layered plug-in winter scene — snow hills, fir trees, church, moon with a deer — that slots into a base and glows with LED tealights behind it.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2061667-christmas-winter-landscape" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Wave Wall Art</strong>
+        <p>Calming ocean wave as a HueForge filament painting in a snap-fit frame; two manual color swaps, no AMS needed.</p>
+        <p class="fits">Printables &middot; by Bamingo Design &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/887133-wave-wall-art" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="character-art">
+    <h2 class="section-title">Character, Movie, TV &amp; Sports Wall Art</h2>
+    <p class="section-sub">Fan art for the wall — display-only.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Carolina Panthers &quot;#Keep Pounding&quot; 4-Color Display</strong>
+        <p>Panthers logo, team script, and &quot;EST. 1995&quot; on a display plate for a wall, desk, or fan cave.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/1751719-carolina-panthers-keep-pounding-4-color-display" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>The Grinch&#x27;s Lair — Multi-Color Christmas Wall Sign</strong>
+        <p>Grinch-green wall sign with raised Grinch hands, ornaments, snowflakes, gifts, a Christmas tree, and Max the dog.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2101369-the-grinch-s-lair-multi-color-christmas-wall-sign" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Newcastle United FC — Multi-Color 3D Printed Plaque</strong>
+        <p>The Magpies&#x27; badge (two seahorses and a castle) as a 200×199 mm wall plaque; 6 colors, no painting needed.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2930152-newcastle-united-fc-multi-color-3d-printed-plaque" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Herugrim Plaque | Shield of Rohan | The Lord of the Rings</strong>
+        <p>Wall plaque built to hold and display a Herugrim sword (King Théoden&#x27;s sword), with a toothed hook for hanging and a painting stencil.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/896057-herugrim-plaque-shield-of-rohan-the-lord-of-the-ri" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Autumn Snoopy &amp; Woodstock Decorative Plaque</strong>
+        <p>Snoopy under a pumpkin umbrella with Woodstock in a beanie, falling leaves; flat plaque for fall/Halloween decor.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/3401891-autumn-snoopy-woodstock-decorative-plaque" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Top Gun Wall Art — &quot;Because I Was Inverted&quot;</strong>
+        <p>The famous Top Gun line as a clean multi-color display plaque; about a 2-hour print.</p>
+        <p class="fits">MakerWorld &middot; by SB Artisan Creations &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/984905-top-gun-wall-art-because-i-was-inverted" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Pacman 3D Printed &#x27;Hueforge&#x27; Wall Art</strong>
+        <p>Pac-Man maze scene as a 200×200 mm HueForge filament painting; a matching frame model is linked on the page.</p>
+        <p class="fits">MakerWorld &middot; by sub_13 &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/1073780-pacman-3d-printed-hueforge-wall-art" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Snoop Dogg Hueforge</strong>
+        <p>Snoop Dogg portrait from the gold-album era as a 200×200 mm HueForge wall art panel.</p>
+        <p class="fits">MakerWorld &middot; by SmoTech3D &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $15 &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/1009084" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Spiderman Wall Plaque (AMS only)</strong>
+        <p>Layered Spider-Man wall plaque for Spidey fans; 6+ hour print, standard PLA settings.</p>
+        <p class="fits">MakerWorld &middot; by angeloimpedovo &middot; Free download</p>
+        <p class="part-note">License: CC BY-NC — personal use, not for resale &middot; PLA $50 &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/1361998-spiderman-wall-plaque-ams-only?appSharePlatform=fb" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Spider-Man Wall art (Single and AMS)</strong>
+        <p>Layered Spider-Man wall art with both single-color and AMS print profiles; 240+ reviews, a proven popular print.</p>
+        <p class="fits">MakerWorld &middot; by Area 3d Studio &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/402336-spider-man-wall-art-single-and-ams?from=search" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Spider-Man 3D Wall Art — Iconic Mask &amp; Logo</strong>
+        <p>Spider-Man mask rising out of a clean white background with the spider emblem; red and black AMS finish, no supports (eyes are fragile — handle with care).</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/1412421-spider-man-3d-wall-art-iconic-mask-logo" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Spider-Man Hanging</strong>
+        <p>Spider-Man in a dynamic hanging pose as a wall decoration; newer edition with reinforced lines.</p>
+        <p class="fits">MakerWorld &middot; by RaffNix3D &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://makerworld.com/en/models/889684-spider-man-hanging" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>The Amazing Spider-Man Movie Poster Wall Art</strong>
+        <p>The Amazing Spider-Man movie poster as a HueForge filament painting.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/452782-the-amazing-spider-man-movie-poster-wall-art" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Badass Batman with customizable framework</strong>
+        <p>Batman HueForge wall art with a frame whose color can be changed at layer 28; 4 filaments.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/450044-badass-batman-with-customizable-framework" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Batman: Return of the Joker — Cut Scene Wall Art</strong>
+        <p>The Joker&#x27;s &quot;HA HA HA&quot; NES cut scene as layered 8-bit pixel wall art; 4 plates, 9 colors, stacks into a frame.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2510724-batman-return-of-the-joker-cut-scene-wall-art" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Batman Wall Art SLIM 4 colour AMS</strong>
+        <p>Slim 4-color Batman wall art; under an hour to print, about 34 g of filament.</p>
+        <p class="fits">MakerWorld &middot; by nERoX1329 &middot; Free download</p>
+        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; PLA $15 &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/525910" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>BATMAN Mural — Artistic layers, superimposed layers</strong>
+        <p>Large circular Batman mural in stacked artistic layers (black and gold in the designer&#x27;s photos); change the colors and layer heights for your own style.</p>
+        <p class="fits">MakerWorld &middot; by Atelier Art3Dchoix &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2416010-batman-mural-artistic-layers-superimposed-layers" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Batman Joker / Wall Art / 2d Art / Multicolor</strong>
+        <p>Batman and Joker face-off as a 4-color HueForge-style 2D wall art panel; works with or without an AMS via layer swaps.</p>
+        <p class="fits">MakerWorld &middot; by 3D Prints This Week &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $15 &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/56543-batman-joker-wall-art-2d-art-multicolor" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="shadow-boxes">
+    <h2 class="section-title">Shadow Boxes</h2>
+    <p class="section-sub">Layered shadow boxes — Ghostbusters, Jurassic Park, Star Wars, and more.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Ghostbusters Frozen Empire Shadow Box</strong>
+        <p>The Frozen Empire movie poster as a layered shadow box; the first of the designer&#x27;s boxes to mix regular, multi-color, and HueForge plates.</p>
+        <p class="fits">Printables &middot; by TheCraftyMaker &middot; Free download</p>
+        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/808593-ghostbusters-frozen-empire-shadow-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Jurassic Park Shadow Box</strong>
+        <p>The Jurassic Park gate scene with the tour car as a 10-plate layered shadow box.</p>
+        <p class="fits">Printables &middot; by TheCraftyMaker &middot; Free download</p>
+        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/622659-jurassic-park-shadow-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Ahsoka Arcana Shadow Box</strong>
+        <p>Ahsoka Tano on the planet Arcana hunting for the map to Grand Admiral Thrawn; 5 plates plus a Star Wars Ahsoka logo piece.</p>
+        <p class="fits">Printables &middot; by TheCraftyMaker &middot; Free download</p>
+        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/569853-ahsoka-arcana-shadow-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Bob Ross Painting Shadow Box</strong>
+        <p>A Bob Ross-style mountain landscape as a 4-plate HueForge shadow box set; the designer&#x27;s favorite of the series.</p>
+        <p class="fits">Printables &middot; by TheCraftyMaker &middot; Free download</p>
+        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/783779-bob-ross-painting-shadow-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>The Starry Night Shadow Box</strong>
+        <p>Van Gogh&#x27;s &quot;The Starry Night&quot; as a 4-plate HueForge shadow box set.</p>
+        <p class="fits">Printables &middot; by TheCraftyMaker &middot; Free download</p>
+        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/it/model/783769-the-starry-night-shadow-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="funny-signs">
+    <h2 class="section-title">Funny, Quote &amp; Novelty Signs</h2>
+    <p class="section-sub">Funny signs and quotes for the bar, the shop, or the wall.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Intoxicologist placard — funny cocktail wall plaque</strong>
+        <p>&quot;Intoxicologist&quot; in bold raised letters with cocktail icons; home bar, man cave, or workshop sign.</p>
+        <p class="fits">MakerWorld &middot; by Lord Magos Kekszcius &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/3066021-intoxicologist-placard-funny-fast-summer-cocktail" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Sign / desk plaque: &quot;I already understood that, I just don&#x27;t care&quot;</strong>
+        <p>Playful two-part sign with a stand; black/white/red lettering, or mount it flat on a wall or door.</p>
+        <p class="fits">MakerWorld &middot; by oonieh &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $15 &middot; PETG $15 &middot; Multicolor</p>
+        <a class="part-link" href="https://makerworld.com/en/models/3547687-sign-desk-plaque-i-already-understood-that" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>BOO! Halloween Wall Sign</strong>
+        <p>Script &quot;Boo!&quot; with a small bat perched above the letters; single-part silhouette, no supports, scale freely (keep at least 150 mm wide).</p>
+        <p class="fits">Printables &middot; by Pawel &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/1435375-boo-halloween-wall-sign" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Funny Sign — &quot;Dont worry about getting older, you&#x27;re still gonna do dumb stuff…&quot; (dual colour print)</strong>
+        <p>Two-color funny wall sign; raised-text and flush-text versions, magnet-mount or screw-hole versions included.</p>
+        <p class="fits">Printables &middot; by Spudd78 &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/510257-funny-sign-dont-worry-about-getting-older-dual-col" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Plague Plaque — a COVID-19 Quarantine Sign</strong>
+        <p>Four-color quarantine plaque (&quot;plague plaque&quot;) with highlight/shadow lettering; hanging-hole and tape versions.</p>
+        <p class="fits">Printables &middot; by rebeltaz &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/170123-plague-plaque-a-covid-19-quarantine-sign" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Do. Or Do Not. There Is No Try. Yoda Plaque.</strong>
+        <p>Yoda with the famous line as a motivational work plaque; magnets in the back, white/black/green print.</p>
+        <p class="fits">Printables &middot; by Mike &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/135012-do-or-do-not-there-is-no-try-yoda-plaque" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="mandalas">
+    <h2 class="section-title">Mandalas, Geometric &amp; Game Logos</h2>
+    <p class="section-sub">Mandalas, geometric art, and game logos.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Floral multi color mandala wall art</strong>
+        <p>20 cm layered floral mandala, 8 levels, 2 mm per level; wine/white/light-pink in the designer&#x27;s photos.</p>
+        <p class="fits">Printables &middot; by Spike Mix &middot; Free download</p>
+        <p class="part-note">License: Standard license — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/852997-floral-multi-color-mandala-wall-art" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Spinning Mandala</strong>
+        <p>Kinetic wall mandala: two spinner wheels turn on a shaft with 608 bearings; prints in parts so each can be a different color.</p>
+        <p class="fits">Printables &middot; by SmokinRoaches &middot; Free download</p>
+        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/it/model/836277-spinning-mandala" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Lion Animal Mandala 1 / 4</strong>
+        <p>Lion head mandala wall picture, 100% infill, 0.20 mm layers; first of a 4-part animal mandala series.</p>
+        <p class="fits">Printables &middot; by evax design &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/837292-lion-animal-mandala-1-4" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Kiryu-Kai Plaque + Badge</strong>
+        <p>Wall plaque of the Kiryu-kai logo (175×175×5 mm) plus matching badge buttons in two sizes; color change at 3.2 mm.</p>
+        <p class="fits">Printables &middot; by M1150 &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/82730-kiryu-kai-plaque-badge" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Brand of Sacrifice Wall Plaque</strong>
+        <p>The Brand of Sacrifice symbol from Berserk as a wall hanger with a keyhole mount; 125×121.5 mm.</p>
+        <p class="fits">Printables &middot; by Silver Harmony Studios &middot; Free download</p>
+        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
+        <a class="part-link" href="https://www.printables.com/model/904479-brand-of-sacrifice-wall-plaque" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Destiny 2 Logo Sign Hanging Wall Art</strong>
+        <p>Three-part Destiny 2 logo sign; black frame with white faces that snap together, hanging hole in the back.</p>
+        <p class="fits">Printables &middot; by Dopey3D &middot; Free download</p>
+        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
+        <a class="part-link" href="https://www.printables.com/model/809390-destiny-2-logo-sign-hanging-wall-art" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap">
+    <div class="order-block">
+      <h3>Can&#x27;t find your sign?</h3>
+      <p>Don&#x27;t see the sign or art you want? Tell us the name, the quote, or the picture — we&#x27;ll research it, find the file, and print it for you. Custom name and house signs are our best sellers — order by name. Shadow boxes need a separate display frame — ask us and we&#x27;ll sort it.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="quote.html">Get an instant quote</a>
+        <a class="btn btn-ghost" href="sms:+14024135332">Text 402-413-5332</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div>
+        <strong>Lincoln Print Lab</strong><br />
+        Lincoln, NE<br />
+        Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
+        <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+        · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+        · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+        · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+        · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
+      </div>
+    </div>
+    <div class="pills">
+      <a href="products.html">Products</a>
+      <a href="car-parts.html">Car Parts</a>
+      <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
+      <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
+      <a href="larp-gear.html">LARP Gear</a>
+      <a href="tabletop-gaming.html">Tabletop &amp; Gaming</a>
+      <a href="home-decor-gifts.html">Home Decor &amp; Gifts</a>
+      <a href="wall-art-plaques.html">Wall Art &amp; Plaques</a>
+      <a href="plaques.html">Custom Plaques</a>
+      <a href="quote.html">Quote</a>
+      <a href="materials.html">Materials</a>
+      <a href="contact.html">Contact</a>
+      <a href="tel:+14024135332">402-413-5332</a>
+      <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+      <a href="mailto:contact@lincolnprintlab.com">Email</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
