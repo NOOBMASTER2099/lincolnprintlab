@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Car Parts | Lincoln Print Lab — Lincoln, NE</title>
+<meta name="description" content="Lincoln Print Lab — local 3D printing in Lincoln, NE. 3D-printed car parts for classic American cars: Monte Carlo, Cutlass, Regal, Grand Prix, El Camino, Malibu, Chevelle, Camaro, Mustang, F-150, Charger, Challenger, and old trucks. PLA, PETG, TPU, ABS, ASA, nylon & more." />
+<link rel="icon" href="logo.jpg" type="image/jpeg" />
+<link rel="apple-touch-icon" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#000000;
+  --panel:#121214;
+  --accent:#f4f1ea;
+  --accent-hot:#ffffff;
+  --ink:#f4f1ea;
+  --muted:#a8a59c;
+  --line:#2a2a2e;
+  --glow:rgba(255,255,255,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  background-image:none;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(0,0,0,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.brand-name{font-family:Bangers,cursive;font-size:24px;letter-spacing:1.5px;line-height:1}
+.brand-name span{color:var(--accent-hot);opacity:.85}
+nav ul{display:flex;gap:16px;list-style:none;flex-wrap:wrap}
+nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
+nav a:hover{color:#fff}
+.kicker{
+  font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);font-size:13px;margin-bottom:12px;
+}
+h1{
+  font-family:Bangers,cursive;
+  font-size:clamp(46px,7vw,80px);
+  line-height:.92;letter-spacing:2px;margin-bottom:18px;
+}
+.lede{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:999px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;
+}
+.btn-primary{background:var(--accent-hot);color:#070708}
+.btn-primary:hover{background:#e8e4da}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+section{padding:48px 0}
+.section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:18px;max-width:720px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:8px;color:#fff;
+}
+.card p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:14px;align-items:flex-start}
+.foot-brand img{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.foot-brand strong{color:#fff}
+.foot-brand a{color:var(--muted)}
+.foot-brand a:hover{color:#fff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:720px;justify-content:flex-end}
+.pills a{
+  color:var(--ink);font-family:Oswald,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;font-size:13px;
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+}
+.pills a:hover{border-color:#fff;color:#fff}
+.prod-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
+}
+.prod-grid .card strong{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:6px;
+}
+.order-block{
+  margin-top:20px;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:28px;
+}
+.order-block h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:8px;
+}
+.order-block > p{color:var(--muted);margin-bottom:18px;max-width:640px}
+@media(max-width:860px){
+  nav ul{display:none}
+  .pills{justify-content:flex-start}
+  .prod-grid{grid-template-columns:1fr}
+}
+/* Car Parts page extras */
+.fits{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;
+  font-size:13px;color:#fff;margin-top:10px;
+}
+.part-note{font-size:13px;font-style:italic;margin-top:6px}
+.part-link{
+  display:inline-block;margin-top:12px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  font-size:13px;color:#fff;text-decoration:underline;
+}
+.part-link:hover{color:#e8e4da}
+.tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-size:11px;border:1px solid rgba(255,255,255,.28);
+  color:var(--muted);border-radius:999px;padding:3px 9px;margin:0 6px 10px 0;
+}
+.tag.hot{border-color:#fff;color:#fff}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
+    </a>
+    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="car-parts.html" aria-current="page">Car Parts</a></li> <li><a href="index.html#what">What we print</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+  </div>
+</header>
+<main id="top">
+<section class="wrap" id="car-parts">
+    <h2 class="section-title">Car Parts</h2>
+    <p class="section-sub">Old-school American cars break the little plastic bits first &mdash; the clips, bezels, vents, and mounts nobody makes anymore. We print them. Adapters, mounts, brackets, emblems, gauge pods, cup holders, speaker adapters, and wire looms &mdash; if it&rsquo;s plastic and it fits your car, we can probably make it.</p>
+    <p class="section-sub">Best bets to start with: the dash bezel for GloShift gauges, the 6&times;9 rear-deck speaker adapter, the spark plug wire loom kit, and the El Camino bed molding clips. Most small parts start at our $15 minimum &mdash; <a href="quote.html" style="text-decoration:underline">get an instant quote</a> with your file, or text us for a price. Bring your own model file, or just tell us what broke and we&rsquo;ll design it.</p>
+    <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
+      <a href="#gm-classic">Classic GM 1978&ndash;1988</a>
+      <a href="#chevy">Classic Chevy</a>
+      <a href="#ford">Classic Ford</a>
+      <a href="#mopar">Chrysler, Dodge &amp; Plymouth</a>
+      <a href="#trucks">Trucks</a>
+    </div>
+  </section>
+
+<section class="wrap" id="gm-classic">
+    <h2 class="section-title">Classic GM 1978&ndash;1988</h2>
+    <p class="section-sub">Monte Carlo, Cutlass Supreme, Regal, Grand Prix, El Camino, Malibu &mdash; the 80s GM cars. These are the parts we print most for this crowd.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <span class="tag hot">Best bet</span>
+        <strong>Dash bezel for GloShift gauges</strong>
+        <p>Dash bezel and gauge cluster insert made to fit GloShift gauges and Amazon accessory gauges.</p>
+        <p class="fits">Fits: 1978&ndash;88 Monte Carlo, Cutlass Supreme, El Camino, and more 80s GM cars</p>
+        <p class="part-note">Big part &mdash; printed on our large-format printer. Finished bezels like this sell for $150&ndash;$228.</p>
+        <a class="part-link" href="https://www.thingiverse.com/thing:5420772" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag hot">Best bet</span>
+        <strong>Rear-deck 6&times;9 speaker adapter</strong>
+        <p>Adapter that fits modern 6&times;9 speakers into the factory 4&times;10 rear-deck spots. No cutting, no drilling.</p>
+        <p class="fits">Fits: 1986 Monte Carlo SS; most 1978&ndash;88 GM cars</p>
+        <p class="part-note">Print in CF PETG at 100% infill, per the designer.</p>
+        <a class="part-link" href="https://www.printables.com/model/1346146-g-body-rear-deck-speaker-adapter-6x9" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag hot">Best bet</span>
+        <strong>El Camino bed molding &amp; tailgate trim clip</strong>
+        <p>Replacement clips that hold the upper bed and tailgate trim in place. Reuses the original metal spring clip.</p>
+        <p class="fits">Fits: 1978&ndash;87 Chevrolet El Camino</p>
+        <p class="part-note">Also fits 1978&ndash;87 GMC Caballero. Repro part # OPR 08-3720-I. Print in ASA at 100% infill.</p>
+        <a class="part-link" href="https://www.printables.com/model/1399915-1978-87-el-camino-bed-molding-tailgate-trim-clip" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Indicator light gasket</strong>
+        <p>Replacement gasket for the &ldquo;Choke&rdquo;, &ldquo;Service Engine Soon&rdquo;, and &ldquo;Fasten Seat Belt&rdquo; indicator lights.</p>
+        <p class="fits">Fits: 1978&ndash;88 GM cars</p>
+        <p class="part-note">Print in ABS, not PLA.</p>
+        <a class="part-link" href="https://www.printables.com/model/1740408-gm-g-body-indicator-light-gasket" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Bucket seat / console foldable cup holder</strong>
+        <p>Foldable cup holder that mounts inside the center console with Velcro. Fits a soda can or a small coffee.</p>
+        <p class="fits">Fits: 1978&ndash;87 GM cars with bucket seats</p>
+        <a class="part-link" href="https://www.printables.com/model/1740397-gm-g-body-bucket-seatconsole-foldable-cup-holder" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Stereo lower mount patches</strong>
+        <p>Glue-on patches that repair blown-out lower stereo mount screw tabs.</p>
+        <p class="fits">Fits: 1978&ndash;87 GM cars</p>
+        <p class="part-note">Print in ABS, not PLA.</p>
+        <a class="part-link" href="https://www.printables.com/model/1544154-1978-1987-gm-g-body-stereo-lower-mount-patches" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>Monte Carlo emblem</strong>
+        <p>Monte Carlo emblem and badge &mdash; a printable replacement or display piece. Matt already printed this one.</p>
+        <p class="fits">Fits: Chevrolet Monte Carlo</p>
+        <p class="part-note">Display only &mdash; trademarked emblem, no price.</p>
+        <a class="part-link" href="https://www.thingiverse.com/thing:5157218" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag">Display only</span>
+        <strong>1984 Monte Carlo SS wall art</strong>
+        <p>Flat 2D silhouette wall art of the &rsquo;84 Monte Carlo SS. Booth and garage display piece.</p>
+        <p class="fits">Fits: Display &mdash; any wall</p>
+        <p class="part-note">Search &ldquo;Monte Carlo SS&rdquo; inside the collection.</p>
+        <a class="part-link" href="https://www.makerworld.com/en/collections/6015018-2d-wall-art-cars" target="_blank" rel="noopener">View the collection &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Childs Play emblem &mdash; 1980 El Camino</strong>
+        <p>Custom replacement for the Chevrolet badge, spun on the designer&rsquo;s surname &ldquo;Childs&rdquo;.</p>
+        <p class="fits">Fits: 1980 El Camino (designer unsure of other years)</p>
+        <a class="part-link" href="https://www.thingiverse.com/thing:4218126" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="chevy">
+    <h2 class="section-title">Classic Chevy</h2>
+    <p class="section-sub">Chevelle, Camaro, Corvette, C10, and the older El Caminos.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <span class="tag hot">Best bet</span>
+        <strong>&rsquo;73&ndash;&rsquo;77 El Camino upper bed molding clip</strong>
+        <p>Clips that fit the factory nubs over the rear window and hold the chrome trim. About 1 g of filament each, 5 needed per car.</p>
+        <p class="fits">Fits: 1973&ndash;77 Chevrolet El Camino</p>
+        <p class="part-note">Repro part # OPR 08-3710. Print in ABS with a 5 mm brim.</p>
+        <a class="part-link" href="https://www.printables.com/model/1758147-1973-77-chevrolet-el-camino-upper-bed-molding-clip" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>&rsquo;68 Chevelle ashtray cup holder</strong>
+        <p>Cup holder inlay that drops into the original ashtray. Optional magnets, plus a coin slot.</p>
+        <p class="fits">Fits: 1968 Chevrolet Chevelle</p>
+        <a class="part-link" href="https://makerworld.com/en/models/631994-68-chevrolet-chevelle-cup-holder-updated?from=search" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>&rsquo;75/&rsquo;76 Chevelle Laguna S-3 license plate mount</strong>
+        <p>Front license plate mount that uses the pre-existing holes at the bottom center.</p>
+        <p class="fits">Fits: 1975&ndash;76 Chevelle Laguna S-3</p>
+        <p class="part-note">Print in PETG, ASA, or ABS.</p>
+        <a class="part-link" href="https://www.printables.com/model/1780704-197576-chevelle-laguna-s-3-license-plate-mount" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <span class="tag hot">Best bet</span>
+        <strong>8mm spark plug wire loom kit</strong>
+        <p>Wire loom kit that holds 8 mm spark plug wires on the valve cover.</p>
+        <p class="fits">Fits: 1960s&ndash;70s Chevrolet big blocks (designed for a &rsquo;70s Chevelle)</p>
+        <p class="part-note">Print in ASA, PETG, or nylon &mdash; engine-bay heat. Not PLA.</p>
+        <a class="part-link" href="https://www.printables.com/model/842140-8mm-spark-plug-wire-loom-kit-for-60s-and-70s-chevr" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>2010 Camaro mirror to &rsquo;68&ndash;&rsquo;73 A-body adapter</strong>
+        <p>Mirror adapters, spacers, and shims to mount 2010 Camaro side mirrors on A-body doors.</p>
+        <p class="fits">Fits: 1968&ndash;73 Chevelle, El Camino, Sprint, and other GM A-body cars</p>
+        <a class="part-link" href="https://www.thingiverse.com/thing:2275079" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Edelbrock 1806/1906 duct intake</strong>
+        <p>Printable air-intake duct with a filter system for an Edelbrock 1806/1906 carb.</p>
+        <p class="fits">Fits: 1976 Chevrolet Monte Carlo</p>
+        <p class="part-note">Print in ASA &mdash; engine-bay heat. Filter is a hand-cut sheet over a 5 mm plate.</p>
+        <a class="part-link" href="https://www.printables.com/model/330223-edelbrock-18061906-duct-intake" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Speaker box (kick-panel)</strong>
+        <p>Speaker box that replaces the kick-panel air vent.</p>
+        <p class="fits">Fits: Chevelle and Pontiac GTO</p>
+        <p class="part-note">Printed in sections on our large-format printer.</p>
+        <a class="part-link" href="https://www.printables.com/model/426629-speaker-box/remixes" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="ford">
+    <h2 class="section-title">Classic Ford</h2>
+    <p class="section-sub">Mustang, F-150, and the old Ford trucks.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Foxbody Mustang Holley 12.3&quot; Pro Dash mount</strong>
+        <p>Dash mount for a Holley 12.3-inch Pro Dash, made for the Foxbody instrument cluster opening.</p>
+        <p class="fits">Fits: 1987&ndash;93 Ford Mustang</p>
+        <p class="part-note">STL file available from the designer &mdash; ask us and we&rsquo;ll get it.</p>
+        <a class="part-link" href="https://www.instagram.com/reel/DZkWPMAt2zg/" target="_blank" rel="noopener">See the part &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Ford trucks 1967&ndash;1979 parts catalog</strong>
+        <p>A print farm&rsquo;s 150+ part catalog for classic Ford trucks &mdash; triple-gauge pillar pods, tail light buckets, glove box inserts, and more.</p>
+        <p class="fits">Fits: 1967&ndash;79 Ford trucks</p>
+        <p class="part-note">Shop catalog &mdash; we can design and print similar parts for your truck.</p>
+        <a class="part-link" href="https://3dclassiccarparts.com" target="_blank" rel="noopener">Visit the catalog &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Your Ford part not listed?</strong>
+        <p>Tell us the year, model, and what broke. We&rsquo;ll design it and print it.</p>
+        <p class="fits">Fits: Any Ford</p>
+        <div class="actions" style="margin-top:14px">
+          <a class="btn btn-primary" href="quote.html" style="padding:10px 16px;font-size:13px">Get a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="mopar">
+    <h2 class="section-title">Chrysler, Dodge &amp; Plymouth</h2>
+    <p class="section-sub">Mopar &mdash; Charger, Challenger, Barracuda, Ram, and the old Dodge trucks.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>Dodge Charger cup holder</strong>
+        <p>Cup holder for the Charger console.</p>
+        <p class="fits">Fits: 2019 Dodge Charger Pursuit</p>
+        <a class="part-link" href="https://www.printables.com/model/833454-cup-holder-dodge-charger" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>1975 Dodge trim clip</strong>
+        <p>Replacement clip for the wide trim on 70s Dodge trucks.</p>
+        <p class="fits">Fits: 1970s Dodge trucks</p>
+        <a class="part-link" href="https://www.printables.com/model/322642-1975-dodge-trim-clip" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Mopar dash vents &mdash; 1970&ndash;74 Challenger &amp; Barracuda</strong>
+        <p>Reproduction dash vents for the E-body cars.</p>
+        <p class="fits">Fits: 1970&ndash;74 Dodge Challenger and Plymouth Barracuda</p>
+        <p class="part-note">Shop part &mdash; we can design and print a version for your car.</p>
+        <a class="part-link" href="https://www.facebook.com/reel/1072040025757767/" target="_blank" rel="noopener">See the part &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>1st-gen Dodge Ram double-DIN radio kit</strong>
+        <p>Double-DIN radio bezel with HVAC relocation mount.</p>
+        <p class="fits">Fits: 1st-gen Dodge Ram</p>
+        <p class="part-note">Shop part &mdash; we can print a version for your truck.</p>
+        <a class="part-link" href="https://www.etsy.com/listing/941532888/first-gen-dodge-ram-double-din-radio?utm_source=OpenGraph&amp;utm_medium=PageTools&amp;utm_campaign=Share" target="_blank" rel="noopener">See the part &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>2&quot; (52mm) single gauge pod</strong>
+        <p>Single 52 mm gauge pod &mdash; the base model for custom gauge setups.</p>
+        <p class="fits">Fits: Universal; shown on a 1987 Dodge Ramcharger</p>
+        <a class="part-link" href="https://www.thingiverse.com/thing:1832214" target="_blank" rel="noopener">View the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="trucks">
+    <h2 class="section-title">Trucks</h2>
+    <p class="section-sub">Chevy and GMC square-body, Silverado, and Sierra &mdash; the work trucks.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <strong>&rsquo;81 square-body gauge pod adapter</strong>
+        <p>Gauge pod adapter for the factory dash bezel. Gauges mount from behind and come out for wiring.</p>
+        <p class="fits">Fits: 1981 Chevrolet square-body truck</p>
+        <p class="part-note">Community design &mdash; ask us and we&rsquo;ll print a version.</p>
+        <a class="part-link" href="https://www.facebook.com/reel/28343505495309086/" target="_blank" rel="noopener">See the part &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>GMT800 center-console gauge pod insert</strong>
+        <p>Center-console gauge pod insert, angled at the driver, for 52 mm gauges.</p>
+        <p class="fits">Fits: 1999&ndash;2006 Chevrolet Silverado / GMC Sierra</p>
+        <p class="part-note">Community design &mdash; custom work available.</p>
+        <a class="part-link" href="https://www.facebook.com/reel/1888308028742445/" target="_blank" rel="noopener">See the part &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>&rsquo;99&ndash;&rsquo;06 Chevy/GMC dash-pocket adapter plate</strong>
+        <p>Dash-pocket adapter plate for a 2-1/16&quot; gauge or module. Clips in with the factory clips.</p>
+        <p class="fits">Fits: 1999&ndash;2006 Chevrolet/GMC trucks</p>
+        <p class="part-note">Free STL promised by the creator on MakerWorld.</p>
+        <a class="part-link" href="https://www.facebook.com/reel/1424008796334371/" target="_blank" rel="noopener">See the part &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Square-body C10 ashtray cup holder</strong>
+        <p>Dual cup holder that drops into the ashtray slot.</p>
+        <p class="fits">Fits: Chevrolet C10 square-body trucks</p>
+        <p class="part-note">Community/seller part &mdash; we can print a version.</p>
+        <a class="part-link" href="https://www.facebook.com/reel/2552968998504342/" target="_blank" rel="noopener">See the part &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap">
+    <div class="order-block">
+      <h3>Can&rsquo;t find your part?</h3>
+      <p>Tell us what broke. Send a photo, the year and model, or your own STL file &mdash; we&rsquo;ll design it, print it, and hold it for pickup at 1717 O St or mail it to you. We&rsquo;re also working on the hard ones nobody makes anymore, like the wagon hatch clips for the 80s GM wagons and power mirror frames. Bigger custom projects &mdash; like full door panels with speaker pods &mdash; are possible too; just ask.</p>
+      <p>Cabin parts are printed in ASA or PETG, not PLA &mdash; they hold up in a hot car. Engine-bay parts get ASA or nylon. We don&rsquo;t print brakes, steering, fuel-system, wheel, or structural parts.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="quote.html">Get an instant quote</a>
+        <a class="btn btn-ghost" href="sms:+14024135332">Text 402-413-5332</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div>
+        <strong>Lincoln Print Lab</strong><br />
+        Lincoln, NE<br />
+        Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
+        <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+        · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+        · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+        · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+        · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
+      </div>
+    </div>
+    <div class="pills">
+      <a href="products.html">Products</a>
+      <a href="car-parts.html">Car Parts</a>
+      <a href="plaques.html">Custom Plaques</a>
+      <a href="quote.html">Quote</a>
+      <a href="materials.html">Materials</a>
+      <a href="contact.html">Contact</a>
+      <a href="tel:+14024135332">402-413-5332</a>
+      <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+      <a href="mailto:contact@lincolnprintlab.com">Email</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
