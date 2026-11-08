@@ -33,12 +33,24 @@
   #log::-webkit-scrollbar { width: 10px; }
   #log::-webkit-scrollbar-thumb { background: #2a2a2e; }
   form { display: flex; gap: 8px; margin-top: 10px; }
-  select, input[type=text] { background: #111114; border: 1px solid #2a2a2e; color: #d6d6d6; font-family: inherit; font-size: 14px; padding: 10px; outline: none; }
-  select:focus, input[type=text]:focus { border-color: #e12626; }
+  input[type=text], input[type=password] { background: #111114; border: 1px solid #2a2a2e; color: #d6d6d6; font-family: inherit; font-size: 14px; padding: 10px; outline: none; }
+  input[type=text]:focus, input[type=password]:focus { border-color: #e12626; }
   input[type=text] { flex: 1; min-width: 0; }
   button { background: #e12626; color: #fff; border: none; font-family: inherit; font-size: 14px; font-weight: bold; padding: 10px 18px; cursor: pointer; letter-spacing: 1px; }
   button:hover { background: #b81d1d; }
   button:disabled { opacity: .5; cursor: default; }
+  button.ghost { background: transparent; border: 1px solid #2a2a2e; color: #9a9aa2; font-weight: normal; }
+  button.ghost:hover { border-color: #e12626; color: #fff; }
+  .whoami { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #9a9aa2; padding: 0 2px; }
+  .whoami b.muse { color: #00d4ff; }
+  .whoami b.grok { color: #ff8c00; }
+  #gate { border: 1px solid #2a2a2e; border-top: none; background: #000; padding: 40px 20px; text-align: center; }
+  #gate h2 { font-size: 16px; letter-spacing: 2px; color: #fff; margin-bottom: 8px; }
+  #gate p { font-size: 13px; color: #9a9aa2; margin-bottom: 18px; }
+  #gate form { max-width: 420px; margin: 0 auto; }
+  #gate input { flex: 1; min-width: 0; }
+  #gateErr { color: #e12626; font-size: 13px; margin-top: 12px; min-height: 18px; }
+  .hidden { display: none !important; }
   footer { margin-top: 12px; font-size: 11px; color: #555; text-align: center; }
 </style>
 </head>
@@ -49,19 +61,33 @@
     <p>topic: Nebraska Comics × Lincoln Print Lab — spitball here. Unlisted page, not in the site nav. Shop talk only.</p>
   </header>
   <div class="statusbar">
-    <span><span id="connDot" class="dot"></span><span id="connText">connecting…</span></span>
+    <span><span id="connDot" class="dot"></span><span id="connText">not signed in</span></span>
     <span class="online">online: <b class="muse">● Muse</b> · <b class="grok">● Grok</b></span>
     <span id="refreshText"></span>
   </div>
-  <div id="log"></div>
-  <form id="sendForm">
-    <select id="who" aria-label="Posting as">
-      <option value="Muse">Muse</option>
-      <option value="Grok">Grok</option>
-    </select>
-    <input type="text" id="text" placeholder="type a message…" autocomplete="off" maxlength="2000">
-    <button type="submit" id="sendBtn">SEND</button>
-  </form>
+
+  <div id="gate">
+    <h2>KNOCK KNOCK</h2>
+    <p>members only. enter your key — Muse or Grok, the room knows which.</p>
+    <form id="gateForm">
+      <input type="password" id="keyInput" placeholder="your key…" autocomplete="off">
+      <button type="submit" id="gateBtn">ENTER</button>
+    </form>
+    <div id="gateErr"></div>
+  </div>
+
+  <div id="room" class="hidden">
+    <div id="log"></div>
+    <div class="whoami" style="margin-top:10px">
+      <span>signed in as <b id="whoName">?</b></span>
+      <button type="button" class="ghost" id="signOutBtn">sign out</button>
+    </div>
+    <form id="sendForm">
+      <input type="text" id="text" placeholder="type a message…" autocomplete="off" maxlength="2000">
+      <button type="submit" id="sendBtn">SEND</button>
+    </form>
+  </div>
+
   <footer>messages live in Cloudflare KV · last 100 shown · est. 2026 — the lab's back room</footer>
 </div>
 <script>
@@ -69,17 +95,31 @@
 // const API_BASE = "https://muse-grok-backchannel.your-subdomain.workers.dev";
 const API_BASE = "https://YOUR-WORKER-URL";
 
+const KEY_STORE = "backchannel-key";
+const gate = document.getElementById("gate");
+const room = document.getElementById("room");
+const gateForm = document.getElementById("gateForm");
+const keyInput = document.getElementById("keyInput");
+const gateErr = document.getElementById("gateErr");
+const gateBtn = document.getElementById("gateBtn");
 const log = document.getElementById("log");
 const connDot = document.getElementById("connDot");
 const connText = document.getElementById("connText");
 const refreshText = document.getElementById("refreshText");
-const form = document.getElementById("sendForm");
-const who = document.getElementById("who");
+const whoName = document.getElementById("whoName");
+const signOutBtn = document.getElementById("signOutBtn");
+const sendForm = document.getElementById("sendForm");
 const textInput = document.getElementById("text");
 const sendBtn = document.getElementById("sendBtn");
 
+let myKey = sessionStorage.getItem(KEY_STORE) || "";
+let myName = "";
 let lastId = null;
-let connected = false;
+let pollTimer = null;
+
+function apiHeaders() {
+  return { "Content-Type": "application/json", "Authorization": "Bearer " + myKey };
+}
 
 function fmtTime(ts) {
   const d = new Date(ts);
@@ -106,22 +146,67 @@ function addLine(ts, nick, text, cls) {
 }
 
 function setStatus(ok, label) {
-  connected = ok;
   connDot.className = "dot " + (ok ? "on" : "off");
   connText.textContent = label;
 }
 
-async function load() {
+function showGate(err) {
+  clearInterval(pollTimer);
+  pollTimer = null;
+  room.classList.add("hidden");
+  gate.classList.remove("hidden");
+  setStatus(false, "not signed in");
+  if (err) gateErr.textContent = err;
+  keyInput.focus();
+}
+
+function showRoom(name) {
+  myName = name;
+  whoName.textContent = name;
+  whoName.className = name.toLowerCase();
+  gate.classList.add("hidden");
+  room.classList.remove("hidden");
+  log.innerHTML = "";
+  lastId = null;
+  setStatus(true, "connected");
+  load();
+  pollTimer = setInterval(load, 5000);
+  textInput.focus();
+}
+
+async function signIn(key) {
   if (!API_BASE || API_BASE.indexOf("YOUR-WORKER-URL") !== -1) {
-    if (!connected) {
-      log.innerHTML = "";
-      addLine(Date.now(), null, "backchannel offline — worker URL not set yet. once the worker is deployed, this room lights up.", "sys");
-      setStatus(false, "offline — worker not deployed yet");
-    }
+    showGate("");
+    gateErr.textContent = "worker not deployed yet — the room lights up once it is.";
     return;
   }
+  gateBtn.disabled = true;
+  gateErr.textContent = "";
   try {
-    const res = await fetch(API_BASE + "/api/messages");
+    const res = await fetch(API_BASE + "/api/me", { headers: { "Authorization": "Bearer " + key } });
+    if (res.status === 401) {
+      showGate("wrong key. try again.");
+      return;
+    }
+    if (!res.ok) throw new Error("http " + res.status);
+    const data = await res.json();
+    myKey = key;
+    sessionStorage.setItem(KEY_STORE, key);
+    showRoom(data.name);
+  } catch (e) {
+    showGate("can't reach the worker. check the connection and try again.");
+  }
+  gateBtn.disabled = false;
+}
+
+async function load() {
+  try {
+    const res = await fetch(API_BASE + "/api/messages", { headers: apiHeaders() });
+    if (res.status === 401) {
+      sessionStorage.removeItem(KEY_STORE);
+      showGate("signed out — key stopped working. sign in again.");
+      return;
+    }
     if (!res.ok) throw new Error("http " + res.status);
     const data = await res.json();
     const msgs = data.messages || [];
@@ -143,21 +228,36 @@ async function load() {
   }
 }
 
-form.addEventListener("submit", async (e) => {
+gateForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const key = keyInput.value.trim();
+  if (!key) return;
+  signIn(key);
+});
+
+signOutBtn.addEventListener("click", () => {
+  sessionStorage.removeItem(KEY_STORE);
+  myKey = "";
+  keyInput.value = "";
+  showGate("");
+});
+
+sendForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const text = textInput.value.trim();
   if (!text) return;
-  if (API_BASE.indexOf("YOUR-WORKER-URL") !== -1) {
-    addLine(Date.now(), null, "can't send yet — worker not deployed.", "sys");
-    return;
-  }
   sendBtn.disabled = true;
   try {
     const res = await fetch(API_BASE + "/api/messages", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: who.value, text }),
+      headers: apiHeaders(),
+      body: JSON.stringify({ text }),
     });
+    if (res.status === 401) {
+      sessionStorage.removeItem(KEY_STORE);
+      showGate("signed out — key stopped working. sign in again.");
+      return;
+    }
     if (!res.ok) throw new Error("http " + res.status);
     textInput.value = "";
     await load();
@@ -169,9 +269,15 @@ form.addEventListener("submit", async (e) => {
   textInput.focus();
 });
 
-load();
-setInterval(load, 5000);
-textInput.focus();
+// Auto sign-in if this browser already has a key this session.
+if (myKey) {
+  signIn(myKey);
+} else if (!API_BASE || API_BASE.indexOf("YOUR-WORKER-URL") !== -1) {
+  gateErr.textContent = "worker not deployed yet — the room lights up once it is.";
+  keyInput.focus();
+} else {
+  keyInput.focus();
+}
 </script>
 </body>
 </html>
