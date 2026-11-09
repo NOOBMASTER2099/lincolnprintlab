@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <title>Custom Name Plaques | Lincoln Print Lab — Lincoln, NE</title>
-<meta name="description" content="Lincoln Print Lab — local 3D printing in Lincoln, NE. PLA, PETG, TPU, ABS, ASA, nylon & more. Upload an STL, get an instant quote, then text us. Pick up or mailed." />
+<meta name="description" content="Lincoln Print Lab — local 3D printing in Lincoln, NE. PLA, PETG, TPU, ABS, ASA, nylon & more. Upload an STL, get an instant quote, then text us. Pick up, delivery in town, or mailed." />
 <link rel="icon" href="logo.jpg" type="image/jpeg" />
 <link rel="apple-touch-icon" href="logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -263,10 +263,10 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <main id="top">
 <section class="wrap" id="plaques" style="padding-top:24px">
     <h2 class="section-title">Custom Name Plaques</h2>
-    <p class="section-sub">Personalized signs like “Jake’s Comic Cave.” Small $15 · medium $25 · large $40–55. Mailed or pick up at 1717 O St, Lincoln. Preview an AI mockup first — nothing reaches us until you approve it.</p>
+    <p class="section-sub">Personalized signs like “Jake’s Comic Cave.” Small $15 · medium $25 · large $40–55. Mailed, pick up at 1717 O St, Lincoln, or delivery in town. Preview an AI mockup first — nothing reaches us until you approve it.</p>
     <div class="order-block">
       <h3>Custom Name Plaque — from $15</h3>
-      <p>Type your plaque name, pick a color, and hit Make my mockup. When you like it, send the order. Pick up at 1717 O St or mailed — text 402-413-5332 to set it up.</p>
+      <p>Type your plaque name, pick a color, and hit Make my mockup. When you like it, send the order. Pick up at 1717 O St, delivery in town, or mailed — text 402-413-5332 to set it up.</p>
       <form class="order-form" id="plaque-order-form" action="mailto:contact@lincolnprintlab.com" method="post" enctype="text/plain">
         <input type="hidden" name="subject" value="Custom Name Plaque order" />
         <label>Plaque name
@@ -289,7 +289,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           <input type="text" name="Contact" placeholder="402-... or you@email.com" required />
         </label>
         <label class="full">Notes
-          <textarea name="Notes" placeholder="Size, font style, pickup or mail timing…"></textarea>
+          <textarea name="Notes" placeholder="Size, font style, pickup, delivery, or mail timing…"></textarea>
         </label>
         <div class="full order-actions">
           <button class="btn btn-primary" type="button" id="make-mockup">Make my mockup</button>
@@ -434,7 +434,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       'Contact: ' + contact + '\n' +
       'Notes: ' + notes + '\n' +
       'AI mockup (customer approved): ' + lastMockup.url + '\n' +
-      'Fulfillment: mailed or pick up at 1717 O St — text 402-413-5332 to set a time.';
+      'Fulfillment: mailed, pick up at 1717 O St, or delivery in town — text 402-413-5332 to set a time.';
     var mailto =
       'mailto:' + EMAIL_TO +
       '?subject=' + encodeURIComponent('Custom Name Plaque order — ' + name) +
@@ -444,7 +444,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         'LPL custom name plaque: ' + name + ' / ' + color +
         ' / contact ' + contact +
         ' / mockup ' + lastMockup.url +
-        ' / mailed or 1717 O St pickup'
+        ' / mailed, 1717 O St pickup, or delivery in town'
       );
     window.location.href = mailto;
     setTimeout(function(){

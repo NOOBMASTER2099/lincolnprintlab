@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <title>Instant Print Quote | Lincoln Print Lab — Lincoln, NE</title>
-<meta name="description" content="Lincoln Print Lab — local 3D printing in Lincoln, NE. PLA, PETG, TPU, ABS, ASA, nylon & more. Upload an STL, get an instant quote, then text us. Pick up or mailed." />
+<meta name="description" content="Lincoln Print Lab — local 3D printing in Lincoln, NE. PLA, PETG, TPU, ABS, ASA, nylon & more. Upload an STL, get an instant quote, then text us. Pick up, delivery in town, or mailed." />
 <link rel="icon" href="logo.jpg" type="image/jpeg" />
 <link rel="apple-touch-icon" href="logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -333,6 +333,10 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
               <input type="radio" name="fulfill" value="mail" />
               <span><strong style="color:#fff">Mailed</strong><br />We’ll confirm shipping after we see the file</span>
             </label>
+            <label>
+              <input type="radio" name="fulfill" value="deliver" />
+              <span><strong style="color:#fff">Deliver in town</strong><br />We deliver in Lincoln — fee at checkout</span>
+            </label>
           </div>
         </div>
 
@@ -597,9 +601,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 
   function fulfillLabel(){
     var checked = document.querySelector('input[name="fulfill"]:checked');
-    return checked && checked.value === 'mail'
-      ? 'mailed'
-      : 'pick up at 1717 O St';
+    if (checked && checked.value === 'mail') return 'mailed';
+    if (checked && checked.value === 'deliver') return 'delivered in town';
+    return 'pick up at 1717 O St';
   }
 
   function buildSummary(q){
