@@ -133,6 +133,16 @@ a.card{display:block}
   font-size:13px;color:#fff;
 }
 a.card:hover .card-link{text-decoration:underline}
+.open-status{
+  display:inline-block;
+  font-family:Oswald,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:14px;
+  margin-bottom:22px;
+}
+.open-status.is-open{color:#6fdf8a}
+.open-status.is-closed{color:var(--muted)}
 footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
 .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
 .foot-brand{display:flex;gap:14px;align-items:flex-start}
@@ -327,6 +337,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="actions">
         <a class="btn btn-primary" href="quote.html">Get an instant quote</a>
         <a class="btn btn-ghost" href="sms:+14024135332">Text 402-413-5332</a>
+        <a class="btn btn-ghost" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Get directions</a>
       </div>
     </div>
   </section>
@@ -369,6 +380,21 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <p>Brackets, mounts, adapters, clips and bezels for classic American cars &mdash; Monte Carlo, Cutlass, Regal, and more.</p>
         <span class="card-link">Check out the selection &rarr;</span>
       </a>
+      <a class="card" href="business-office.html">
+        <strong>Business, conventions &amp; office</strong>
+        <p>Desk organizers, office gadgets, booth gear and branded swag for companies and conventions.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
+      </a>
+      <a class="card" href="fidgets.html">
+        <strong>Fidgets</strong>
+        <p>Articulated dragons, snakes, octopus, cubes, clickers and spinners &mdash; the ones everybody asks for.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
+      </a>
+      <a class="card" href="kids.html">
+        <strong>Kids stuff</strong>
+        <p>Toy cars, animals, dinosaurs, puzzles, piggy banks and more &mdash; kid-friendly prints.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
+      </a>
       <a class="card" href="plaques.html">
         <strong>Custom plaques</strong>
         <p>Custom name signs and plaques &mdash; preview an AI mockup, approve it, we print.</p>
@@ -376,10 +402,23 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </a>
     </div>
   </section>
+<section class="wrap" id="find-us">
+    <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 22px">
+      <div>
+        <strong style="font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:#fff">Find us</strong>
+        <p style="margin-top:4px">1717 O St, Lincoln &mdash; inside Timeless Treasures</p>
+        <p style="margin-top:2px">Pickup &amp; display only &mdash; order online or by text, then pick up here.</p>
+        <span class="open-status" id="open-status" style="margin-bottom:0">Mon&ndash;Sat 10:00 AM&ndash;6:00 PM &middot; Sun 12:00 PM&ndash;5:00 PM</span>
+      </div>
+      <div class="actions" style="margin-top:0">
+        <a class="btn btn-primary" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+  </section>
 <section class="wrap" id="quote-cta">
     <div class="card" style="text-align:center;padding:32px 22px">
       <h2 class="section-title">Got a file or an idea?</h2>
-      <p class="section-sub" style="margin:0 auto 18px">Drop your STL and get an instant quote in your browser &mdash; then text us to lock it in. Pick up at 1717 O St, get it delivered in town, or we can mail it.</p>
+      <p class="section-sub" style="margin:0 auto 18px">Drop your STL and get an instant quote in your browser &mdash; then text us to lock it in. Pick up at 1717 O St, get it delivered in town, or we can mail it. Ordering for a company or a convention? We do bulk &mdash; 25+ units 10% off, 50+ units 15% off.</p>
       <div class="actions" style="justify-content:center">
         <a class="btn btn-primary" href="quote.html">Get an instant quote</a>
         <a class="btn btn-ghost" href="payment.html">Go to checkout</a>
@@ -412,6 +451,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tabletop-gaming.html">Tabletop &amp; Gaming</a>
       <a href="home-decor-gifts.html">Home Decor &amp; Gifts</a>
       <a href="wall-art-plaques.html">Wall Art &amp; Plaques</a>
+      <a href="business-office.html">Business, Conventions &amp; Office</a>
+      <a href="fidgets.html">Fidgets</a>
+      <a href="kids.html">Kids Stuff</a>
       <a href="plaques.html">Custom Plaques</a>
       <a href="quote.html">Quote</a>
       <a href="payment.html">Checkout</a>
@@ -504,6 +546,47 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};
+})();
+</script>
+<script>
+/* Open / closed status for Timeless Treasures pickup hours (America/Chicago). */
+(function(){
+  var el = document.getElementById('open-status');
+  if(!el) return;
+  var parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    weekday: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23'
+  }).formatToParts(new Date());
+  var weekday = parts.find(function(p){ return p.type === 'weekday'; }).value;
+  var hour = parseInt(parts.find(function(p){ return p.type === 'hour'; }).value, 10);
+  var minute = parseInt(parts.find(function(p){ return p.type === 'minute'; }).value, 10);
+  var mins = hour * 60 + minute;
+  var order = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var names = {Sun:'Sunday',Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday',Sat:'Saturday'};
+  function hoursFor(day){
+    if(day === 'Sun') return {open:12*60, close:17*60, openLabel:'12:00 PM', closeLabel:'5:00 PM'};
+    return {open:10*60, close:18*60, openLabel:'10:00 AM', closeLabel:'6:00 PM'};
+  }
+  var today = hoursFor(weekday);
+  if(mins >= today.open && mins < today.close){
+    el.textContent = 'Open now · closes ' + today.closeLabel;
+    el.classList.add('is-open');
+    return;
+  }
+  var nextDay = weekday;
+  var nextHours = today;
+  var when = 'today';
+  if(mins >= today.close){
+    var idx = (order.indexOf(weekday) + 1) % 7;
+    nextDay = order[idx];
+    nextHours = hoursFor(nextDay);
+    when = names[nextDay];
+  }
+  el.textContent = 'Closed · opens ' + when + ' ' + nextHours.openLabel;
+  el.classList.add('is-closed');
 })();
 </script>
 </body>
