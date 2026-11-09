@@ -263,6 +263,46 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 @media(max-width:860px){
   .prod-grid,.order-form{grid-template-columns:1fr}
 }
+
+/* ---- Version A header / shortcut bar / compact mobile (2026-11-09) ---- */
+.site-head{padding:28px 0 8px;text-align:center}
+.site-head-logo img{width:132px;height:132px;border-radius:50%;object-fit:cover;background:#000;margin:0 auto}
+.social-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.social-row a{display:inline-block;padding:7px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;text-decoration:none;font-size:14px;font-weight:600}
+.social-row a:hover{border-color:#fff;color:#fff}
+.socials-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.socials-toggle{display:none;list-style:none;cursor:pointer}
+.shortcut-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 8px}
+.shortcut{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 10px;color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:14px;text-align:center}
+.shortcut:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.shortcut small{font-family:"Source Sans 3",system-ui,sans-serif;text-transform:none;letter-spacing:0;font-size:12px;color:var(--muted)}
+.shortcut .shortcut-status{font-family:"Source Sans 3",system-ui,sans-serif;text-transform:none;letter-spacing:0;font-size:12px;color:#6fdf8a}
+.more-cats{margin-top:16px}
+.more-btn{display:block;list-style:none;cursor:pointer;background:#fff;color:#1c1a17;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;text-align:center;border-radius:12px;padding:14px 16px}
+.more-btn::-webkit-details-marker{display:none}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.more-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f4f1ea;color:#1c1a17;border-radius:10px;padding:12px 14px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px}
+.more-row:hover{background:#fff}
+.more-row span{color:#1c1a17}
+@media(max-width:860px){
+  .site-head{padding:18px 0 4px}
+  .site-head-logo img{width:92px;height:92px}
+  .socials-toggle{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 16px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+  .socials .social-row{display:none}
+  .socials-check:checked ~ .social-row{display:flex}
+  .shortcut-bar{grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 6px}
+  .shortcut{padding:12px 8px;font-size:13px}
+  .more-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .hero-tiles{grid-template-columns:1fr 1fr;gap:10px}
+  .hero-tiles .card{padding:10px}
+  .hero-tiles .card img{margin-bottom:8px}
+  .hero-tiles .card p{display:none}
+  .hero-tiles .card strong{font-size:13px;margin-bottom:2px}
+  .hero{padding:20px 0 8px;gap:20px}
+  .logo-frame{width:min(200px,60vw)}
+  h1{font-size:clamp(38px,10vw,46px)}
+  section{padding:32px 0}
+}
 </style>
 
 </head>
@@ -277,6 +317,29 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
   </div>
 </header>
+<div class="wrap site-head">
+  <div class="site-head-logo">
+    <img src="logo.jpg" alt="Lincoln Print Lab &mdash; Abe printing a Benchy" />
+    <div class="socials">
+      <input type="checkbox" id="socials-toggle" class="socials-check" />
+      <label for="socials-toggle" class="socials-toggle">Follow LPL &#9662;</label>
+      <div class="social-row">
+        <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+      </div>
+    </div>
+  </div>
+  <nav class="shortcut-bar" aria-label="Quick links">
+    <a class="shortcut" href="quote.html"><span>Get an instant quote</span><small>Upload an STL, instant price</small></a>
+    <a class="shortcut" href="sms:+14024135332"><span>Text us</span><small>(402) 413-5332</small></a>
+    <a class="shortcut" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener"><span>Get directions</span><small>1717 O St, Lincoln</small></a>
+    <a class="shortcut" href="index.html#find-us"><span>Booth hours</span><span class="shortcut-status js-open-status">Mon&ndash;Sat 10&ndash;6 &middot; Sun 12&ndash;5</span></a>
+  </nav>
+</div>
+
 <main id="top">
 <section class="wrap" id="products">
     <h2 class="section-title">Products</h2>
@@ -561,6 +624,24 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};
+})();
+</script>
+
+<script>
+/* Shortcut-bar live booth status — same Timeless Treasures hours as the Find us strip (America/Chicago). Mon-Sat 10 AM-6 PM, Sun 12-5 PM. */
+(function(){
+  var els=document.querySelectorAll('.js-open-status');
+  if(!els.length) return;
+  var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+  var o={}; p.forEach(function(x){o[x.type]=x.value;});
+  var mins=parseInt(o.hour,10)*60+parseInt(o.minute,10);
+  function hrs(d){return d==='Sun'?{open:720,close:1020,openLabel:'12:00 PM',closeLabel:'5:00 PM'}:{open:600,close:1080,openLabel:'10:00 AM',closeLabel:'6:00 PM'};}
+  var order=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var names={Sun:'Sunday',Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday',Sat:'Saturday'};
+  var today=hrs(o.weekday); var txt;
+  if(mins>=today.open&&mins<today.close){txt='Open now \u00b7 closes '+today.closeLabel;}
+  else{var when='today';var nx=today;if(mins>=today.close){var i=(order.indexOf(o.weekday)+1)%7;nx=hrs(order[i]);when=names[order[i]];}txt='Closed \u00b7 opens '+when+' '+nx.openLabel;}
+  els.forEach(function(el){el.textContent=txt;});
 })();
 </script>
 </body>

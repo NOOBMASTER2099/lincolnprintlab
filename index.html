@@ -315,6 +315,46 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 @media(max-width:860px){
   .prod-grid,.order-form{grid-template-columns:1fr}
 }
+
+/* ---- Version A header / shortcut bar / compact mobile (2026-11-09) ---- */
+.site-head{padding:28px 0 8px;text-align:center}
+.site-head-logo img{width:132px;height:132px;border-radius:50%;object-fit:cover;background:#000;margin:0 auto}
+.social-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.social-row a{display:inline-block;padding:7px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;text-decoration:none;font-size:14px;font-weight:600}
+.social-row a:hover{border-color:#fff;color:#fff}
+.socials-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.socials-toggle{display:none;list-style:none;cursor:pointer}
+.shortcut-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 8px}
+.shortcut{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 10px;color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:14px;text-align:center}
+.shortcut:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.shortcut small{font-family:"Source Sans 3",system-ui,sans-serif;text-transform:none;letter-spacing:0;font-size:12px;color:var(--muted)}
+.shortcut .shortcut-status{font-family:"Source Sans 3",system-ui,sans-serif;text-transform:none;letter-spacing:0;font-size:12px;color:#6fdf8a}
+.more-cats{margin-top:16px}
+.more-btn{display:block;list-style:none;cursor:pointer;background:#fff;color:#1c1a17;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;text-align:center;border-radius:12px;padding:14px 16px}
+.more-btn::-webkit-details-marker{display:none}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.more-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f4f1ea;color:#1c1a17;border-radius:10px;padding:12px 14px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px}
+.more-row:hover{background:#fff}
+.more-row span{color:#1c1a17}
+@media(max-width:860px){
+  .site-head{padding:18px 0 4px}
+  .site-head-logo img{width:92px;height:92px}
+  .socials-toggle{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 16px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+  .socials .social-row{display:none}
+  .socials-check:checked ~ .social-row{display:flex}
+  .shortcut-bar{grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 6px}
+  .shortcut{padding:12px 8px;font-size:13px}
+  .more-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .hero-tiles{grid-template-columns:1fr 1fr;gap:10px}
+  .hero-tiles .card{padding:10px}
+  .hero-tiles .card img{margin-bottom:8px}
+  .hero-tiles .card p{display:none}
+  .hero-tiles .card strong{font-size:13px;margin-bottom:2px}
+  .hero{padding:20px 0 8px;gap:20px}
+  .logo-frame{width:min(200px,60vw)}
+  h1{font-size:clamp(38px,10vw,46px)}
+  section{padding:32px 0}
+}
 </style>
 
 </head>
@@ -333,12 +373,16 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <section class="wrap hero">
     <div class="logo-frame">
       <img src="logo.jpg" alt="Lincoln Print Lab — Abe printing a Benchy" />
+      <div class="socials">
+        <input type="checkbox" id="socials-toggle" class="socials-check" />
+        <label for="socials-toggle" class="socials-toggle">Follow LPL &#9662;</label>
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
         <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+      </div>
       </div>
     </div>
     <div>
@@ -352,119 +396,72 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </div>
     </div>
   </section>
+<div class="wrap">
+  <nav class="shortcut-bar" aria-label="Quick links">
+    <a class="shortcut" href="quote.html"><span>Get an instant quote</span><small>Upload an STL, instant price</small></a>
+    <a class="shortcut" href="sms:+14024135332"><span>Text us</span><small>(402) 413-5332</small></a>
+    <a class="shortcut" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener"><span>Get directions</span><small>1717 O St, Lincoln</small></a>
+    <a class="shortcut" href="#find-us"><span>Booth hours</span><span class="shortcut-status js-open-status">Mon&ndash;Sat 10&ndash;6 &middot; Sun 12&ndash;5</span></a>
+  </nav>
+</div>
 <section class="wrap" id="dream">
     <h2 class="section-title">You dream it. We print it.</h2>
     <p class="section-sub">You&rsquo;re the boss of what comes off our printers. Bring a file, a sketch, or just an idea &mdash; pick a category and see what Lincoln is already printing with us.</p>
-    <div class="what-grid">
+    <div class="what-grid hero-tiles">
+      <a class="card" href="quote.html">
+        <img src="logo.jpg" alt="Custom prints &amp; quote" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Custom prints &amp; quote</strong>
+        <p>Upload your file, instant price.</p>
+        <span class="card-link">$15 minimum &middot; 3&ndash;5 day lead</span>
+      </a>
       <a class="card" href="cosplay-helmets-props.html">
-        <img src="homepage-cosplay-venom-mask.webp" alt="Cosplay helmets & props" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Cosplay helmets &amp; props</strong>
-        <p>Helmets, masks, armor pieces and props &mdash; sized to fit you, finished and ready to wear.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="rc-drone-parts.html">
-        <img src="homepage-rc-drone.jpg" alt="RC cars & drone parts" loading="lazy" onerror="this.style.display='none'" />
-        <strong>RC cars &amp; drone parts</strong>
-        <p>Replacement parts, mounts, upgrades and custom bits that keep your rig running.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="larp-gear.html">
-        <img src="homepage-larp-axe-mace.webp" alt="LARP gear" loading="lazy" onerror="this.style.display='none'" />
-        <strong>LARP gear</strong>
-        <p>Swords, shields, armor and props for your next event &mdash; built to your character.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="tabletop-gaming.html">
-        <img src="homepage-tabletop-dice-tower.jpg" alt="Tabletop & gaming" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Tabletop &amp; gaming</strong>
-        <p>Minis, dice towers, terrain, card organizers and upgrades for your game night.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="home-decor-gifts.html">
-        <img src="https://media.printables.com/media/prints/64617/images/4118581_889ada54-ce28-477f-a886-3a6f39974f1d/thumbs/cover/1200x630/jpg/twisted-planter-with-legs-slimprint.jpg" alt="Home decor & gifts" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Home decor &amp; gifts</strong>
-        <p>Lithophane photo lamps, planters, vases, wall art and personalized plaques.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
+        <img src="homepage-cosplay-venom-mask.webp" alt="Helmets &amp; cosplay" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Helmets &amp; cosplay</strong>
+        <p>Helmets, props &amp; costume pieces.</p>
+        <span class="card-link">50 items</span>
       </a>
       <a class="card" href="wall-art-plaques.html">
-        <img src="https://makerworld.bblmw.com/makerworld/model/USae4e60ca2292b9/design/2024-12-10_dc023140a53328.jpg" alt="Wall art & plaques" loading="lazy" onerror="this.style.display='none'" />
+        <img src="https://makerworld.bblmw.com/makerworld/model/USae4e60ca2292b9/design/2024-12-10_dc023140a53328.jpg" alt="Wall art &amp; plaques" loading="lazy" onerror="this.style.display='none'" />
         <strong>Wall art &amp; plaques</strong>
-        <p>Die-cut character plaques, custom name signs, and wall art &mdash; made to order in Lincoln.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
+        <p>Signs, name plates &amp; decor.</p>
+        <span class="card-link">50 items &middot; from $15</span>
       </a>
       <a class="card" href="car-parts.html">
-        <img src="homepage-car-parts-console.webp" alt="Car parts" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Car parts</strong>
-        <p>Brackets, mounts, adapters, clips and bezels for classic American cars &mdash; Monte Carlo, Cutlass, Regal, and more.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
+        <img src="homepage-car-parts-console.webp" alt="Car parts &amp; accessories" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Car parts &amp; accessories</strong>
+        <p>Brackets, mounts, adapters, clips and bezels.</p>
+        <span class="card-link">28 parts + 15 accessories</span>
       </a>
-      <a class="card" href="business-office.html">
-        <img src="homepage-business-organizer.webp" alt="Business, conventions & office" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Business, conventions &amp; office</strong>
-        <p>Desk organizers, office gadgets, booth gear and branded swag for companies and conventions.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="fidgets.html">
-        <img src="homepage-fidgets-infinity-cubes.jpg" alt="Fidgets" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Fidgets</strong>
-        <p>Infinity cubes, clickers, spinners, gear fidgets, mazes and worry stones &mdash; the ones everybody asks for.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
+      <a class="card" href="dragons-creatures.html">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US98dbd0cb213ac7/design/2025-04-10_c3a80c7914a2d.jpeg" alt="Dragons &amp; fidgets" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dragons &amp; fidgets</strong>
+        <p>Articulated dragons, spinners &amp; clickers.</p>
+        <span class="card-link">50 + 50 items</span>
       </a>
       <a class="card" href="kids.html">
         <img src="homepage-kids-toys.jpg" alt="Kids stuff" loading="lazy" onerror="this.style.display='none'" />
         <strong>Kids stuff</strong>
-        <p>Toy cars, animals, dinosaurs, puzzles, piggy banks and more &mdash; kid-friendly prints.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="dragons-creatures.html">
-        <img src="https://makerworld.bblmw.com/makerworld/model/US98dbd0cb213ac7/design/2025-04-10_c3a80c7914a2d.jpeg" alt="Dragons & creatures" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Dragons & creatures</strong>
-        <p>Articulated dragons, axolotls, sharks, snakes, and more creatures &mdash; the flexi animals everybody asks for.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="kitchen.html">
-        <img src="homepage-kitchen-jar-opener.jpg" alt="Kitchen gadgets & accessories" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Kitchen gadgets & accessories</strong>
-        <p>Kitchen utensils, organizers, gadgets and accessories &mdash; practical prints for the kitchen.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="pets.html">
-        <img src="homepage-pets-voronoi-balls.jpg" alt="Pet supplies" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Pet supplies</strong>
-        <p>Pet toys, bowls, name tags, leash holders, feeders and more.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="seasonal-holiday.html">
-        <img src="homepage-seasonal-snowflakes.jpg" alt="Seasonal & holiday" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Seasonal & holiday</strong>
-        <p>Halloween props, Christmas ornaments, and holiday decor.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="garden-outdoor.html">
-        <img src="homepage-garden-barn-birdhouse.jpg" alt="Garden & outdoor" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Garden & outdoor</strong>
-        <p>Birdhouses, feeders, garden markers, outdoor planters and decor.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="phone-tech.html">
-        <img src="https://makerworld.bblmw.com/makerworld/model/US3ec306c4956654/design/8ecc26266b866bd4.jpeg" alt="Phone & tech accessories" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Phone & tech accessories</strong>
-        <p>Phone stands, cable holders, headphone stands, tablet stands and more.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="tools-workshop.html">
-        <img src="https://makerworld.bblmw.com/makerworld/model/USb1b4776a453cfd/design/2023-11-10_456ad3287bd6d.png" alt="Tools & workshop" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Tools & workshop</strong>
-        <p>Tool organizers, bit holders, jigs, and workshop accessories.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
-      </a>
-      <a class="card" href="plaques.html">
-        <img src="homepage-custom-plaques.jpg" alt="Custom plaques" loading="lazy" onerror="this.style.display='none'" />
-        <strong>Custom plaques</strong>
-        <p>Custom name signs and plaques &mdash; preview an AI mockup, approve it, we print.</p>
-        <span class="card-link">Check out the selection &rarr;</span>
+        <p>Figures, toys &amp; flexis.</p>
+        <span class="card-link">50 items</span>
       </a>
     </div>
+    <details class="more-cats">
+      <summary class="more-btn">More categories &mdash; 12 more</summary>
+      <div class="more-grid">
+      <a class="more-row" href="rc-drone-parts.html"><span>RC cars &amp; drone parts</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="larp-gear.html"><span>LARP gear</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="tabletop-gaming.html"><span>Tabletop &amp; gaming</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="home-decor-gifts.html"><span>Home decor &amp; gifts</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="fidgets.html"><span>Fidgets</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="kitchen.html"><span>Kitchen</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="pets.html"><span>Pets</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="seasonal-holiday.html"><span>Seasonal &amp; holiday</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="garden-outdoor.html"><span>Garden &amp; outdoor</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="phone-tech.html"><span>Phone &amp; tech accessories</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="tools-workshop.html"><span>Tools &amp; workshop</span><span aria-hidden="true">&rarr;</span></a>
+      <a class="more-row" href="business-office.html"><span>Business / Conventions &amp; Office</span><span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </details>
   </section>
 <section class="wrap" id="find-us">
     <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 22px">
@@ -658,6 +655,24 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   }
   el.textContent = 'Closed · opens ' + when + ' ' + nextHours.openLabel;
   el.classList.add('is-closed');
+})();
+</script>
+
+<script>
+/* Shortcut-bar live booth status — same Timeless Treasures hours as the Find us strip (America/Chicago). Mon-Sat 10 AM-6 PM, Sun 12-5 PM. */
+(function(){
+  var els=document.querySelectorAll('.js-open-status');
+  if(!els.length) return;
+  var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+  var o={}; p.forEach(function(x){o[x.type]=x.value;});
+  var mins=parseInt(o.hour,10)*60+parseInt(o.minute,10);
+  function hrs(d){return d==='Sun'?{open:720,close:1020,openLabel:'12:00 PM',closeLabel:'5:00 PM'}:{open:600,close:1080,openLabel:'10:00 AM',closeLabel:'6:00 PM'};}
+  var order=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var names={Sun:'Sunday',Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday',Sat:'Saturday'};
+  var today=hrs(o.weekday); var txt;
+  if(mins>=today.open&&mins<today.close){txt='Open now \u00b7 closes '+today.closeLabel;}
+  else{var when='today';var nx=today;if(mins>=today.close){var i=(order.indexOf(o.weekday)+1)%7;nx=hrs(order[i]);when=names[order[i]];}txt='Closed \u00b7 opens '+when+' '+nx.openLabel;}
+  els.forEach(function(el){el.textContent=txt;});
 })();
 </script>
 </body>
