@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Pet Supplies | Lincoln Print Lab &mdash; Lincoln, NE</title>
+<meta name="description" content="Lincoln Print Lab &mdash; 3D-printed pet supplies in Lincoln, NE. Download the model or get a quote." />
+<link rel="icon" href="logo.jpg" type="image/jpeg" />
+<link rel="apple-touch-icon" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#000000;
+  --panel:#121214;
+  --accent:#f4f1ea;
+  --accent-hot:#ffffff;
+  --ink:#f4f1ea;
+  --muted:#a8a59c;
+  --line:#2a2a2e;
+  --glow:rgba(255,255,255,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  background-image:none;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(0,0,0,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.brand-name{font-family:Bangers,cursive;font-size:24px;letter-spacing:1.5px;line-height:1}
+.brand-name span{color:var(--accent-hot);opacity:.85}
+nav ul{display:flex;gap:16px;list-style:none;flex-wrap:wrap}
+nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
+nav a:hover{color:#fff}
+.cart-chip{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px;
+  color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+  white-space:nowrap;flex-shrink:0;
+}
+.cart-chip:hover{border-color:#fff;color:#fff}
+.cart-chip.has-items{border-color:rgba(255,255,255,.55);color:#fff}
+.add-cart-btn{
+  margin-top:12px;display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);
+  background:transparent;color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-weight:600;font-size:13px;cursor:pointer;
+}
+.add-cart-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.add-cart-btn.is-added{border-color:#9dffa8;color:#9dffa8}
+
+.kicker{
+  font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);font-size:13px;margin-bottom:12px;
+}
+h1{
+  font-family:Bangers,cursive;
+  font-size:clamp(46px,7vw,80px);
+  line-height:.92;letter-spacing:2px;margin-bottom:18px;
+}
+.lede{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:999px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;
+}
+.btn-primary{background:var(--accent-hot);color:#070708}
+.btn-primary:hover{background:#e8e4da}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+section{padding:48px 0}
+.section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:18px;max-width:720px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card img { width: 100%; border-radius: 12px; margin-bottom: 12px; aspect-ratio: 4/3; object-fit: cover; background: #0a0a0c; display: block;}
+.card h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:8px;color:#fff;
+}
+.card p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:14px;align-items:flex-start}
+.foot-brand img{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.foot-brand strong{color:#fff}
+.foot-brand a{color:var(--muted)}
+.foot-brand a:hover{color:#fff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:720px;justify-content:flex-end}
+.pills a{
+  color:var(--ink);font-family:Oswald,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;font-size:13px;
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+}
+.pills a:hover{border-color:#fff;color:#fff}
+.prod-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
+}
+.prod-grid .card strong{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:6px;
+}
+.order-block{
+  margin-top:20px;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:28px;
+}
+.order-block h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:8px;
+}
+.order-block > p{color:var(--muted);margin-bottom:18px;max-width:640px}
+@media(max-width:860px){
+  nav ul{display:none}
+  .pills{justify-content:flex-start}
+  .prod-grid{grid-template-columns:1fr}
+}
+/* Car Parts page extras */
+.fits{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;
+  font-size:13px;color:#fff;margin-top:10px;
+}
+.part-note{font-size:13px;font-style:italic;margin-top:6px}
+.part-link{
+  display:inline-block;margin-top:12px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  font-size:13px;color:#fff;text-decoration:underline;
+}
+.part-link:hover{color:#e8e4da}
+.tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-size:11px;border:1px solid rgba(255,255,255,.28);
+  color:var(--muted);border-radius:999px;padding:3px 9px;margin:0 6px 10px 0;
+}
+.tag.hot{border-color:#fff;color:#fff}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
+    </a>
+    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+  </div>
+</header>
+<main id="top">
+<section class="wrap" id="pets">
+    <h2 class="section-title">Pet Supplies</h2>
+    <p class="section-sub">Pick from our inventory — pet toys, bowls, name tags, leash holders, feeders and more. Download the model you like, then send us the file and we'll give you an exact quote. Practical prints for dogs, cats, and more. Don't see what you need? Tell us what you're looking for — we'll research it and track it down for you.</p>
+    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
+    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+
+    <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
+      <a href="#dog-toys">Dog Toys &amp; Enrichment</a>
+      <a href="#cat-toys">Cat Toys &amp; Enrichment</a>
+      <a href="#bowls-feeders">Bowls, Feeders &amp; Food Gear</a>
+      <a href="#tags-leashes">Tags, Leashes &amp; Walk Gear</a>
+      <a href="#pet-care">Pet Care, Litter &amp; Small Pets</a>
+    </div>
+  </section>
+
+<section class="wrap" id="dog-toys">
+    <h2 class="section-title">Dog Toys &amp; Enrichment</h2>
+    <p class="section-sub">Puzzle feeders, treat dispensers, chew toys, and articulated dogs — mental stimulation for dogs of all sizes.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/682515/images/5362971_b8b03723-8dba-44ec-bae4-7a432ba2c14a_f4f53df7-0c74-4925-925b-046b129b9200/thumbs/inside/1280x960/jpeg/large_display_rollertoy_682515.webp" alt="Treat dispenser toy / slow feeder for dogs" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Treat dispenser toy / slow feeder for dogs</strong>
+        <p>A rolling treat dispenser on a base: the dog rolls or flips the roller to shake treats out of the holes; hole caps adjust the difficulty.</p>
+        <p class="fits">Printables &middot; by Rikk3tick &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 2x 608zz bearings, 2x M4 bolts, 2x M4 threaded inserts; roller can be used without the base</p>
+        <a class="part-link" href="https://www.printables.com/model/682515-treat-dispenser-toy-slow-feeder-for-dogs" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/820555/images/7210887_351fbc90-1149-4476-b72e-c809e3d50437/thumbs/inside/1280x960/jpg/mg_0614.webp" alt="Dog Puzzle Feeder" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dog Puzzle Feeder</strong>
+        <p>A sliding puzzle feeder: the dog works the pieces apart to reach the food inside; tolerances hold together but allow disassembly.</p>
+        <p class="fits">Printables &middot; by Simson &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended; dry treats only; supervise play</p>
+        <a class="part-link" href="https://www.printables.com/model/820555-dog-puzzle-feeder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/192523/images/1580133_85799b5f-475e-490c-9b26-722bc84a6e8c/thumbs/inside/1280x960/jpg/dogbusybox-1.webp" alt="Dog Busy Box" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dog Busy Box</strong>
+        <p>A pyramid-base busy box: the dog drops a ball in the top funnel and it rolls out in a random direction; works with or without the base.</p>
+        <p class="fits">Printables &middot; by jcar &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs a ball (printable or standard); no supports</p>
+        <a class="part-link" href="https://www.printables.com/model/192523-dog-busy-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/512778/images/4017878_6c60ecf6-8601-487a-b7b7-c231571ece1b/thumbs/inside/1280x960/jpg/2.webp" alt="Dog Toy TPU Bone For Chewing / pet toy" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dog Toy TPU Bone For Chewing / pet toy</strong>
+        <p>A simple chew bone printed in TPU with a low-density gyroid infill so it gives a little when chewed.</p>
+        <p class="fits">Printables &middot; by tee &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print in TPU at 2-5% gyroid infill; not for aggressive chewers — supervise play and replace if pieces break off</p>
+        <a class="part-link" href="https://www.printables.com/model/512778-dog-toy-tpu-bone-for-chewing-pet-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/391862/stls/3274967_7f1bd1af-16ad-4077-ac31-08e88a557625/thumbs/inside/1280x960/png/springoflexi_v2_preview.webp" alt="SPRINGO - The Articulating Spring Dog" loading="lazy" onerror="this.style.display='none'" />
+        <strong>SPRINGO - The Articulating Spring Dog</strong>
+        <p>A dog with a spring midsection for maximum articulation; prints with supports around the head and ears.</p>
+        <p class="fits">Printables &middot; by 3D Built &middot; Free download</p>
+        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs supports around head and ears; flexible filament prints best</p>
+        <a class="part-link" href="https://www.printables.com/model/391862-springo-the-articulating-spring-dog" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/397716/images/3259661_8ff02e4a-ae01-475c-95a7-458b1c8b403e/thumbs/inside/1280x960/jpg/large_display_1.webp" alt="Articulated Sausage Dog - Different Lengths Available" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Articulated Sausage Dog - Different Lengths Available</strong>
+        <p>A print-in-place articulated dachshund in several lengths; no supports, ears slot in without glue.</p>
+        <p class="fits">Printables &middot; by kwerkshop &middot; Free download</p>
+        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Scales up or down; silk gold filament looks great</p>
+        <a class="part-link" href="https://www.printables.com/model/397716-articulated-sausage-dog-different-lengths-availabl" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/1789825/images/14997604_a3ae8a9c-4a03-4e1c-809c-4cd1522cecc2/thumbs/inside/1280x960/jpg/mix_ad-min.webp" alt="Fluffy Tails Cute Flexi Samoyed Dog - Toy, Keychain &amp;amp; Magnet" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Fluffy Tails Cute Flexi Samoyed Dog - Toy, Keychain &amp; Magnet</strong>
+        <p>A fully articulated print-in-place Samoyed with a rounded fluffy tail; toy, keychain, and magnet versions included.</p>
+        <p class="fits">Printables &middot; by Fluffy Tails &middot; Free download</p>
+        <p class="part-note">License: Free for personal use only (commercial licence via Fluffy Tails Patreon) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; No supports; recommended size 125 mm; PLA+</p>
+        <a class="part-link" href="https://www.printables.com/model/1789825-fluffy-tails-cute-flexi-samoyed-dog-toy-keychain-m" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/1552851/images/12969350_0496c21e-435e-44cb-a677-7772c89e6a3e/thumbs/inside/1280x960/jpg/1.webp" alt="Flexi Valentine&#x27;s Day Dog - Articulated Heart Toy" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Flexi Valentine's Day Dog - Articulated Heart Toy</strong>
+        <p>A fully articulated print-in-place dog carrying a heart in its paw; ball-joint segments, multi-colour ready.</p>
+        <p class="fits">Printables &middot; by MarcellosPrintHub &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; No supports; 1.5-3 hour print; PLA or PETG</p>
+        <a class="part-link" href="https://www.printables.com/model/1552851-flexi-valentines-day-dog-articulated-heart-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USf5931e062fd62e/design/5720670bdc0ca2d4.jpeg" alt="Treat Game Dog / Cat" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Treat Game Dog / Cat</strong>
+        <p>A stable frame with a rotating treat cylinder: the dog or cat nudges it with snout or paw and treats fall out of the openings.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Roller prints in two sizes (small and large dogs); dry treats only; supervise play</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2554417-treat-game-dog-cat" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US60c3adc11fec94/design/442641f057fff4a0.jpg" alt="PawMaze Treat Toy – Dog-Cat Puzzle Feeder - No Ams" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>PawMaze Treat Toy – Dog-Cat Puzzle Feeder - No Ams</strong>
+        <p>A maze-tray puzzle feeder: treats go in the tray and the dog rolls, spins, and explores to find them; colourful printing without AMS.</p>
+        <p class="fits">MakerWorld &middot; by Chung Ngo &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $69 &middot; PETG $77 &middot; Multicolor &middot; Weight is the 3-plate print profile total (165 g + 19 g + 91 g); 11-hour print; supervise pets during play</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2970989-pawmaze-treat-toy-dog-cat-puzzle-feeder-no-ams" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="cat-toys">
+    <h2 class="section-title">Cat Toys &amp; Enrichment</h2>
+    <p class="section-sub">Track balls, tumblers, catnip toys, and spring toys — the stuff cats actually bat around at 3 AM.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/471400/images/3861150_6f786505-1468-4c33-9c63-63b4153936ef/thumbs/inside/1280x960/png/large_display_ball_cat_toy_471400.webp" alt="Ball Cat Toy (No Supports)" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Ball Cat Toy (No Supports)</strong>
+        <p>A 50 mm ball with heart, star, and moon cutouts that holds a jingle bell inside; print two halves and glue them together.</p>
+        <p class="fits">Printables &middot; by Kevinwulf &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs a small jingle bell + superglue; glow-in-the-dark PLA helps find it at night</p>
+        <a class="part-link" href="https://www.printables.com/model/471400-ball-cat-toy-no-supports" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/4ff80334-d3ca-4965-a467-80e43c13d92e/images/12191043_a2356b1f-f039-4baf-81e6-71a576c74d3e_c0516cd5-3ab1-4e8d-a364-78cb7e731379/thumbs/inside/1280x960/png/gemini_generated_image_dounx3dounx3doun.webp" alt="Fluffy Tail Cute Flexi Cat Toy / Keychain" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Fluffy Tail Cute Flexi Cat Toy / Keychain</strong>
+        <p>A highly flexible articulated cat, print-in-place with no supports; keychain version included, 120 mm long.</p>
+        <p class="fits">Printables &middot; by Fluffy Tails &middot; Free download</p>
+        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence via Fluffy Tails Patreon; matte PLA or PLA+</p>
+        <a class="part-link" href="https://www.printables.com/model/1620600-fluffy-tail-cute-flexi-cat-toy-keychain" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <strong>Track Ball Cat Toy</strong>
+        <p>A 3D-printable version of the classic track ball cat toy; works with standard ping pong balls and the cat names are customizable.</p>
+        <p style="color:#ff5a5a;font-weight:600">Model link is dead — this model was removed from Printables. Needs a replacement item.</p>
+        <p class="fits">Printables &middot; by mgreminger &middot; Free download</p>
+        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs standard ping pong balls; Fusion 360 files included to edit the names</p>
+        <a class="part-link" href="https://www.printables.com/model/106696-track-ball-cat-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/409843/images/3412800_12c44217-533f-4fa0-aa21-edffb8db41a4/thumbs/inside/1280x960/jpg/img20230227172439.webp" alt="Tumbler Cat Toy V2" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Tumbler Cat Toy V2</strong>
+        <p>A weighted wobbling base with replaceable feather rods — like a punching bag that dispenses fun; the feather part swaps out when the cat destroys it.</p>
+        <p class="fits">Printables &middot; by Marco &middot; Free download</p>
+        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs craft feathers + wood glue (24 h to set); print base with lightning or gradual infill</p>
+        <a class="part-link" href="https://www.printables.com/model/409843-tumbler-cat-toy-v2" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/411680/images/3418219_615a8f54-4955-43bc-bf23-d1b3284b0275/thumbs/inside/1280x960/jpeg/img_4113.webp" alt="Wobbly Cat Treat Toy" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Wobbly Cat Treat Toy</strong>
+        <p>Fill the top with dry treats, screw on the weighted base, and the cat bats it around to tip a treat out.</p>
+        <p class="fits">Printables &middot; by Adam Byram &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Dry treats only; no supports; STEP files included</p>
+        <a class="part-link" href="https://www.printables.com/model/411680-wobbly-cat-treat-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/524606/images/4242166_49f64ba8-e363-4871-a509-fa263119c38d/thumbs/inside/1280x960/png/img_0738.webp" alt="Voronoi Cat Toys" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Voronoi Cat Toys</strong>
+        <p>Four Voronoi-pattern cat toys (50/100/150/200 cells) that roll irregular paths when batted; a small ball can be paused inside to make them rattle.</p>
+        <p class="fits">Printables &middot; by PeteJ &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; About 40 mm diameter; optional 24 mm ball paused in at 30 mm height; PLA, PETG, or ABS</p>
+        <a class="part-link" href="https://www.printables.com/model/524606-voronoi-cat-toys" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/849722/images/6537528_c12a2205-4209-4e09-ace1-aa3d276d7510_e9fdebf2-4102-4abb-a7ff-55c25646da56/thumbs/inside/1280x960/png/cat-mouse-toy-v20.webp" alt="Catnip Enhanced Mouse" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Catnip Enhanced Mouse</strong>
+        <p>A flat catnip puck with a mouse design that holds catnip inside — sized so it can't be swallowed like a bottle cap.</p>
+        <p class="fits">Printables &middot; by ArtieH &middot; Free download</p>
+        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No supports as oriented; fill with loose catnip</p>
+        <a class="part-link" href="https://www.printables.com/model/849722-catnip-enhanced-mouse" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/155771/stls/1459225_0349b668-bd53-4fdf-92e0-7b88ce5e7fa5/thumbs/inside/1280x960/png/main-spring_preview.webp" alt="Wall Mounted Cat Toy" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Wall Mounted Cat Toy</strong>
+        <p>A spring-latch arm that mounts to the wall so the cat can bat at a toy on the end of the spring; loose or stiff spring options.</p>
+        <p class="fits">Printables &middot; by 3D Printy &middot; Free download</p>
+        <p class="part-note">License: CC BY 4.0 &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs a small short screw to mount; print springs with solid perimeters; attach any favourite toy to the arm</p>
+        <a class="part-link" href="https://www.printables.com/model/155771-wall-mounted-cat-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/408780/images/3404723_b82bd534-61db-4182-ae0a-0e4b28e48a0d/thumbs/inside/1280x960/jpg/20230226_091854.webp" alt="&quot;Worlds Best Cat&quot; Toy" loading="lazy" onerror="this.style.display='none'" />
+        <strong>"Worlds Best Cat" Toy</strong>
+        <p>A two-piece cat toy that holds catnip inside, holds printed balls on filament stalks, or rattles with a ball trapped inside — or all three.</p>
+        <p class="fits">Printables &middot; by The_Black_Sheep &middot; Free download</p>
+        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Glue base and body together; ball scaled to 60% fits inside</p>
+        <a class="part-link" href="https://www.printables.com/model/408780-worlds-best-cat-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/414733/images/3441489_1aea4c64-f2f7-413b-96a6-ebb4a8a2e6f6/thumbs/inside/1280x960/jpeg/a08f632b-aa32-4ed2-a8d3-d8aad30980a7.webp" alt="Wobbly Mouse Toy, for cats" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Wobbly Mouse Toy, for cats</strong>
+        <p>A three-part wobbly mouse on a spring base; every feature is replaceable when it breaks.</p>
+        <p class="fits">Printables &middot; by tuncay &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Under 2 hours to print; assembles with glue, heatsets + M3 screws, or pins</p>
+        <a class="part-link" href="https://www.printables.com/model/414733-wobbly-mouse-toy-for-cats" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="bowls-feeders">
+    <h2 class="section-title">Bowls, Feeders &amp; Food Gear</h2>
+    <p class="section-sub">Slow feeder bowls, raised bowl stands, treat jars, and food scoops — dry food and water only, PLA is not food-safe.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/762907/images/5945870_e25e18a0-bdaa-4b01-8942-ad4c38d04bc9_5dba297d-272a-4866-a2da-c7df0d0e3a1f/thumbs/inside/1280x960/jpg/img_5312.webp" alt="Raised Water &amp;amp; Slow Feeder Bowls" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Raised Water &amp; Slow Feeder Bowls</strong>
+        <p>A wall-bracket set with an elevated water bowl and a slow feeder bowl, so the dog eats and drinks at a comfortable height without launching food everywhere.</p>
+        <p class="fits">Printables &middot; by DesignBuildRepeat &middot; Free download</p>
+        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print water bowl with 4 walls / 4 top layers to help it stay watertight; PETG preferred for the water bowl; dry food and water only — PLA is not food-safe</p>
+        <a class="part-link" href="https://www.printables.com/model/762907-raised-water-slow-feeder-bowls" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/123652/images/1192597_c732cc7f-5d8f-487b-979f-e02c14cfcbe1/thumbs/inside/1280x960/jpeg/whatsapp-image-2022-01-24-at-124254-2.webp" alt="Dog puzzle bowl slow-feeder" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dog puzzle bowl slow-feeder</strong>
+        <p>A puzzle slow feeder bowl (17 cm diameter) that makes the dog work for its kibble; about a 9-hour print at 0.3 mm layers.</p>
+        <p class="fits">Printables &middot; by XavierMalina &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Best for small dogs; print at 0.2 mm layers for easier cleaning; dry food only — PLA is not food-safe</p>
+        <a class="part-link" href="https://www.printables.com/model/123652-dog-puzzle-bowl-slow-feeder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/803339/images/6218440_aa6368d5-1bad-425f-9ef5-65d316201dd9_a745aede-6307-412e-a2af-e2624036109c/thumbs/inside/1280x960/jpg/1000002486.webp" alt="Slow Feeder Dog Bowls" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Slow Feeder Dog Bowls</strong>
+        <p>Two slow feeder bowls in different patterns and sizes: the big one holds 2-1/4 cups, the small one 1/3 cup.</p>
+        <p class="fits">Printables &middot; by Ketsacreations &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; STEP files included to add the pet's name; no supports; dry food only — PLA is not food-safe</p>
+        <a class="part-link" href="https://www.printables.com/model/803339-slow-feeder-dog-bowls" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/563840/images/4998687_a09adf8a-70cd-45b6-a358-d4b397c09d01_0d1c15fd-5157-469c-8dd5-0cb877d10d4f/thumbs/inside/1280x960/jpg/20230914_164924.webp" alt="Slow feeder bowl for dogs" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Slow feeder bowl for dogs</strong>
+        <p>A slow feeder bowl that holds about 2 cups of food, with 2 mm walls and raised stand-offs to slow down power eaters.</p>
+        <p class="fits">Printables &middot; by DBK² &middot; Free download</p>
+        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fusion 360 file included for remixing; dry food only — PLA is not food-safe</p>
+        <a class="part-link" href="https://www.printables.com/model/563840-slow-feeder-bowl-for-dogs" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/eee0cb00-6c17-4687-8fb7-4b5694cab639/previews/thumbs/inside/1280x960/png/c03275c3-943b-4c6b-a6be-f7440abb3057.webp" alt="Slow Feeder Custom Dog Bowl" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Slow Feeder Custom Dog Bowl</strong>
+        <p>A paw-print ('Pawzzle') slow feeder bowl in sizes 6.5–8.5 inches, with the dog's name engraved on request.</p>
+        <p class="fits">Printables &middot; by RO3D &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Name engraving is a custom order — tell us the name and size; dry food only — PLA is not food-safe</p>
+        <a class="part-link" href="https://www.printables.com/model/1350783-slow-feeder-custom-dog-bowl" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/416849/stls/3458311_0aa41dd4-65e8-4136-96d6-653ffaa4d17a/thumbs/inside/1280x960/png/slow-feed-dog-bowl-honeycomb-v5_preview.webp" alt="Slow Feeder Dog Bowl - Honeycomb design" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Slow Feeder Dog Bowl - Honeycomb design</strong>
+        <p>A honeycomb-pattern slow feeder bowl with rounded corners for easy washing, so no bacteria gets trapped in corners.</p>
+        <p class="fits">Printables &middot; by FuzzyLotus &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG preferred over PLA+; print with lots of walls; don't leave it on the floor empty — some dogs will chew it; dry food only</p>
+        <a class="part-link" href="https://www.printables.com/model/416849-slow-feeder-dog-bowl-honeycomb-design" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/534195/images/4310206_5f7b19a4-a7d0-4f7d-aa77-0958b6ccb7e3/thumbs/inside/1280x960/jpg/20230723_140741.webp" alt="Slow Feeder" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Slow Feeder</strong>
+        <p>A drop-in slow feeder insert for a standard 4.5-inch bowl, plus a small bowl file; scale it to fit the bowl you already own.</p>
+        <p class="fits">Printables &middot; by Grayfaux &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits a 4.5 in bowl — scale to fit others; dry food only — PLA is not food-safe</p>
+        <a class="part-link" href="https://www.printables.com/model/534195-slow-feeder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/178904/images/1897502_2a122b05-8eb5-4f0a-8ae6-4c17966007a2/thumbs/inside/1280x960/jpg/dsc_13312.webp" alt="Dog Treat Container - Small" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dog Treat Container - Small</strong>
+        <p>A pocket-size treat container: the base unscrews for filling and the lid rotates open and closed so treats don't spill on walks.</p>
+        <p class="fits">Printables &middot; by Adam-M &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended; dry or semi-moist treats only, clean regularly — PLA is not food-safe</p>
+        <a class="part-link" href="https://www.printables.com/model/178904-dog-treat-container-small" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/281228/images/2493219_38677744-42ba-42bc-81b2-aac7ea9d7229/thumbs/inside/1280x960/jpg/scoop1.webp" alt="Cat and Dog Food Scoop" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Cat and Dog Food Scoop</strong>
+        <p>A food scoop with cute ears and a hanging hole, sized for dry cat or dog food (50 mm scoop).</p>
+        <p class="fits">Printables &middot; by Maut &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Dry food only; 8 mm hanging hole; supports needed</p>
+        <a class="part-link" href="https://www.printables.com/model/281228-cat-and-dog-food-scoop" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/4b894852-006f-43d8-8b9c-ac1818468c1d/images/12000337_6ce0e762-a242-4f10-b977-63daba7eefb5_3a97d07c-3276-4210-88bf-d3ec1b141d36/thumbs/inside/1280x960/jpeg/img_0668.webp" alt="Paw Print Dog Food Scoops (1C / 1.5C / 2C)" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Paw Print Dog Food Scoops (1C / 1.5C / 2C)</strong>
+        <p>Measuring scoops for kibble in 1, 1.5, and 2 cup sizes, with a paw print and a long oval handle; fuzzy skin hides the layer lines.</p>
+        <p class="fits">Printables &middot; by MakerCameron &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 30% gyroid infill, 4 walls for longevity; dry food only</p>
+        <a class="part-link" href="https://www.printables.com/model/508452-paw-print-dog-food-scoop-1-and-2-cup-versions" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="tags-leashes">
+    <h2 class="section-title">Tags, Leashes &amp; Walk Gear</h2>
+    <p class="section-sub">Customizable name tags, collar tags, leash handles, and poop bag holders — the walk kit.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/442884/stls/3666328_3fdb1a40-23de-4d91-bc66-5e6ea2433fd4/thumbs/inside/1280x960/png/nametags_preview.webp" alt="Hex Pattern Dog ID Tag - Fully Customisable in Fusion 360, 2 Colour Print (no MMU)" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Hex Pattern Dog ID Tag - Fully Customisable in Fusion 360, 2 Colour Print (no MMU)</strong>
+        <p>A parametric dog ID tag with a hex pattern and customizable name and phone number; prints in two colours with a simple filament change.</p>
+        <p class="fits">Printables &middot; by LanzDesign &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Customize name/number in Fusion 360 or PrusaSlicer text; collar-hook and ring versions included</p>
+        <a class="part-link" href="https://www.printables.com/model/442884-hex-pattern-dog-id-tag-fully-customisable-in-fusio" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/b1104c77-66e6-4c79-9f82-85f8e1bb13a0/previews/thumbs/inside/1280x960/png/ab448b75-5f88-428f-85a2-f58d487374f2.webp" alt="Dog Bone Name Tag for Collar &amp;amp; Harness – Customizable Pet ID Tag (No Supports)" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dog Bone Name Tag for Collar &amp; Harness – Customizable Pet ID Tag (No Supports)</strong>
+        <p>A bone-shaped ID tag that clips onto a collar or harness, personalized with the pet's name; about a 30-minute print.</p>
+        <p class="fits">Printables &middot; by YoephLabs &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Customize the name in OpenSCAD or any 3D text editor; PLA, PETG, or TPU; no supports</p>
+        <a class="part-link" href="https://www.printables.com/model/1762598-dog-bone-name-tag-for-collar-harness-customizable" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/438842/stls/3627680_475fad8d-c1ff-4dd9-a83c-fdcb5a00dd0e/thumbs/inside/1280x960/png/dog-id_preview.webp" alt="Dog Tag with embedded NFC chip" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dog Tag with embedded NFC chip</strong>
+        <p>A durable PLA dog tag with an NFC chip paused into the print — tap a phone to it to read the dog's name, contact, and medical info.</p>
+        <p class="fits">Printables &middot; by NetApex &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs one NFC tag (pause mid-print to insert); water-resistant; program it with any NFC phone</p>
+        <a class="part-link" href="https://www.printables.com/model/438842-dog-tag-with-embedded-nfc-chip" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/443741/stls/3664166_a493f0c1-cf20-428b-be75-e5e86c43650e/thumbs/inside/1280x960/png/generic-v3_preview.webp" alt="Dog Tags" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dog Tags</strong>
+        <p>A two-tag set that slides onto the collar instead of dangling: one for name, rabies number, and phone; one for name, phone, and address.</p>
+        <p class="fits">Printables &middot; by bmccarthy321 &middot; Free download</p>
+        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; TPU or flex filament recommended, 100% infill; Fusion 360 file included to edit the text</p>
+        <a class="part-link" href="https://www.printables.com/model/443741-dog-tags" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/439869/stls/3636350_4ac6bd16-1de5-430c-be3d-4dcc1a1729cf/thumbs/inside/1280x960/png/dog-collar-tag-holder-blank-design_preview.webp" alt="Pet Tag - Jingle Free" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Pet Tag - Jingle Free</strong>
+        <p>A silent collar nameplate that combines the pet's name, phone, and government rabies tag into one plate — no jingling, no slapping hands.</p>
+        <p class="fits">Printables &middot; by Dog Box &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits a 19.1 mm collar, 29.15 mm round or 28.75 mm octagonal gov't tag; husky-tested for 3 months</p>
+        <a class="part-link" href="https://www.printables.com/model/439869-pet-tag-jingle-free" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/443264/stls/3662507_e560018e-65bf-4a15-82f1-f71e49fc2fef/thumbs/inside/1280x960/png/id_dog-frame_preview.webp" alt="Dog&#x27;s ID tag. Fully customizable phone number and pet&#x27;s name." loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dog's ID tag. Fully customizable phone number and pet's name.</strong>
+        <p>A chunky ID tag built from printed letters and digits that slide into a frame — mix and match to spell any name and phone number.</p>
+        <p class="fits">Printables &middot; by Raffaello &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Designed for big dogs; scale 25-100%; sand the letters lightly if they fit tight</p>
+        <a class="part-link" href="https://www.printables.com/model/443264-dogs-id-tag-fully-customizable-phone-number-and-pe" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/438828/stls/3627593_bddefcaa-b479-4a09-9490-d99f4e53fd7a/thumbs/inside/1280x960/png/dt_gen3_preview.webp" alt="Universal Parametric RFID-compatible Dog Tag Generator" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Universal Parametric RFID-compatible Dog Tag Generator</strong>
+        <p>An OpenSCAD generator for almost any dog tag: any diameter, 1–4 lines of text, optional symbol, optional RFID inlay.</p>
+        <p class="fits">Printables &middot; by Altair &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Print in 2-3 colours by layer; glue two thin tags back to back for a sturdier double-sided tag</p>
+        <a class="part-link" href="https://www.printables.com/model/438828-universal-parametric-rfid-compatible-dog-tag-gener" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/438922/stls/3640202_50f0825e-f773-407c-9548-e90d19af8432/thumbs/inside/1280x960/png/example_preview.webp" alt="Pet Collar Tag" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Pet Collar Tag</strong>
+        <p>A flexible tag that slides straight onto the dog's collar; enter the name and phone number in OpenSCAD and print.</p>
+        <p class="fits">Printables &middot; by 3DPS &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print in TPU/flex filament; change colour at the text layer for contrast</p>
+        <a class="part-link" href="https://www.printables.com/model/438922-pet-collar-tag" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/718763/previews/thumbs/inside/1280x960/png/1155bd22e426674e0be04bea3190c7d53bbc96ab.webp" alt="Dog Poop Bag Holder" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dog Poop Bag Holder</strong>
+        <p>A threaded two-part holder for standard dog waste-bag spools that clips to the leash; wide dispenser hole with tear-off notches.</p>
+        <p class="fits">Printables &middot; by dudermakes24 &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; PLA $18 &middot; PETG $20 &middot; Fits commonly sold bag spools; parametric Fusion 360 file to change the embossed text to your pet's name</p>
+        <a class="part-link" href="https://www.printables.com/model/718763-dog-poop-bag-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/571040/stls/4568318_d5dc9658-fea2-4481-b3df-b6b5dc3607d5/thumbs/inside/1280x960/png/trufleash-standard-female_preview.webp" alt="Overengineered dog leash handle with rugged design, poop bag container and treats dispenser" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Overengineered dog leash handle with rugged design, poop bag container and treats dispenser</strong>
+        <p>A rugged replacement leash handle ("TrufLeash") with modular ports for a poop bag container, a treat dispenser, or an extra grip.</p>
+        <p class="fits">Printables &middot; by serce &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print at 40% honeycomb infill (PLA) or ABS; treat module needs 2x 6x4 mm magnets; test before trusting with a strong puller</p>
+        <a class="part-link" href="https://www.printables.com/model/571040-ultimate-dog-handle-with-rugged-design-poop-bag-co" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="pet-care">
+    <h2 class="section-title">Pet Care, Litter &amp; Small Pets</h2>
+    <p class="section-sub">Litter scoops, hamster hideouts, cage feeders, bird feeders, and a feeding tracker for the fridge.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/288258/images/2540089_3002d10a-211b-4c14-8bd2-d83f1c03e777/thumbs/inside/1280x960/jpg/capture2.webp" alt="Litter Scoop" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Litter Scoop</strong>
+        <p>A quick-print cat litter scoop; about a 5.5-hour print, pops off the bed after a few minutes in the freezer.</p>
+        <p class="fits">Printables &middot; by Artikel3D &middot; Free download</p>
+        <p class="part-note">License: CC0 (Public Domain) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended for longevity</p>
+        <a class="part-link" href="https://www.printables.com/model/288258-litter-scoop" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/75759/images/653216_e1f01a9d-8211-486c-b9a1-b6d96bdc8310/thumbs/inside/1280x960/jpg/20220518_162241.webp" alt="Cat litter scoop." loading="lazy" onerror="this.style.display='none'" />
+        <strong>Cat litter scoop.</strong>
+        <p>A two-part litter scoop (handle + scoop) that clicks together, with 5 mm holes; a combined one-piece file is included too.</p>
+        <p class="fits">Printables &middot; by EvaMika &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended for strength; no supports; use solid infill around the joint on the two-part print</p>
+        <a class="part-link" href="https://www.printables.com/model/75759-cat-litter-scoop" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/531000/images/4286516_edfc7e35-df28-49f7-8327-9b3fb6201f77/thumbs/inside/1280x960/jpg/scoop.webp" alt="Pentagram Cat litter Scoop" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Pentagram Cat litter Scoop</strong>
+        <p>A pentagram-shaped cat litter scoop for the goth cat household; print in PETG with basic supports.</p>
+        <p class="fits">Printables &middot; by Dlysikatos &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG preferred; basic supports needed</p>
+        <a class="part-link" href="https://www.printables.com/model/531000-pentagram-cat-litter-scoop" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/695545/images/5465632_9d4bb43d-f3e2-411f-aceb-090db660cd53_dd7333df-edd1-436d-ac72-c2f4bcdb8862/thumbs/inside/1280x960/jpg/whatsapp-bild-2023-12-27-um-173727_27fbc5cb.webp" alt="Litter box scoop/ Katzenklo Schaufel" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Litter box scoop/ Katzenklo Schaufel</strong>
+        <p>A litter box scoop with an 8 mm grid; prints in PLA with no supports or raft.</p>
+        <p class="fits">Printables &middot; by Fiewo &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Remix of the Cat Litter Filter with an enlarged grid; no supports</p>
+        <a class="part-link" href="https://www.printables.com/model/695545-litter-box-scoop-katzenklo-schaufel" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/2648/images/2488_6c60b1f6-1a90-4432-b67d-b671002eaa9d/thumbs/inside/1280x960/jpg/img_5631.webp" alt="The Litterator - Cat litter scoop" loading="lazy" onerror="this.style.display='none'" />
+        <strong>The Litterator - Cat litter scoop</strong>
+        <p>An original-design cat litter scoop, created and tested by the designer; one of the highest-rated litter scoops on Printables.</p>
+        <p class="fits">Printables &middot; by Chris Schiller &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Rated 4.98/5 across 41 ratings; gcode for Prusa MK2S included</p>
+        <a class="part-link" href="https://www.printables.com/model/2648-the-litterator-cat-litter-scoop" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/441731/images/3653094_5b9a7491-ce09-4536-a5e6-f0b5e625ba7a/thumbs/inside/1280x960/jpg/2023-04-03-212856.webp" alt="Pet Litter Scooper - No Supports" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Pet Litter Scooper - No Supports</strong>
+        <p>A scalable litter scooper with slots to sift big clumps out of fine litter; designed to print with no supports.</p>
+        <p class="fits">Printables &middot; by Triple G Workshop &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Scalable to any size; rated 4.93/5 across 46 ratings</p>
+        <a class="part-link" href="https://www.printables.com/model/441731-pet-litter-scooper-no-supports" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/673707/images/5295822_27902476-afb2-4d11-a845-81376f3727fe_2af0a8d6-759f-48da-a75f-b8e367d43472/thumbs/inside/1280x960/jpeg/img-20231028-wa0000.webp" alt="HAMSTER HIDEOUT with WINDOWS" loading="lazy" onerror="this.style.display='none'" />
+        <strong>HAMSTER HIDEOUT with WINDOWS</strong>
+        <p>A printable burrow hideout with windows so you can see your hamster sleeping or crawling through the caves.</p>
+        <p class="fits">Printables &middot; by Leptónica &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Use plain PLA without additives — hamsters chew everything; works best inside an aquarium-style enclosure</p>
+        <a class="part-link" href="https://www.printables.com/model/673707-hamster-hideout-with-windows" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/209398/images/1791319_9a1b8fb2-32a8-4cc9-97fd-627d813809d1/thumbs/inside/1280x960/jpg/img_1140.webp" alt="Small animal cage feeder (hamster, hedgehog, guinea pig, rabbit, rat)" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Small animal cage feeder (hamster, hedgehog, guinea pig, rabbit, rat)</strong>
+        <p>A cage-mounted feeder: the cup sits inside the cage and the hopper outside, so you refill without opening the cage.</p>
+        <p class="fits">Printables &middot; by Alluvian &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits cages with 23.25 mm horizontal wire gaps; natural-colour PLA recommended; dry food only</p>
+        <a class="part-link" href="https://www.printables.com/model/209398-small-animal-cage-feeder-hamster-hedgehog-guinea-p" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/121652/images/1177966_60fe713a-d17e-484a-9052-1601f881acb0/thumbs/inside/1280x960/png/img_51013169.webp" alt="Bird feeder with Voronoi pattern" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Bird feeder with Voronoi pattern</strong>
+        <p>A Voronoi-pattern bird feeder for small birds, in single-wall and double-wall versions, with an insert for small seeds.</p>
+        <p class="fits">Printables &middot; by Will &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No supports, but needs good part cooling for the overhangs; outdoor use — PETG or ASA preferred over PLA (sun and rain)</p>
+        <a class="part-link" href="https://www.printables.com/model/121652-bird-feeder-with-voronoi-pattern" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USeccbd98edc8916/design/2dcc495a779ed99a.jpg" alt="Pet Feeding Schedule (Feeding Reminder)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Pet Feeding Schedule (Feeding Reminder)</strong>
+        <p>A magnetic fridge tracker with dog, cat, or food-bowl sliders — flip it after each meal so the household never double-feeds the pet.</p>
+        <p class="fits">MakerWorld &middot; by iChris3D &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Commercial licence via the designer's Ko-fi (one-time lifetime payment); needs 4 magnets (6x3, 8x3, or 10x3 mm) + glue; print back panel in a contrasting colour</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2387096-pet-feeding-schedule-feeding-reminder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap">
+    <div class="order-block">
+      <h3>Can't find it for your pet?</h3>
+      <p>Text us at (402) 413-5332 or get an exact quote — tell us what you need for your pet and we'll track down the file and print it for you.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="quote.html">Get an instant quote</a>
+        <a class="btn btn-ghost" href="sms:+14024135332">Text 402-413-5332</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div>
+        <strong>Lincoln Print Lab</strong><br />
+        Lincoln, NE<br />
+        Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
+        <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+        · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+        · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+        · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+        · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
+      </div>
+    </div>
+    <div class="pills">
+      <a href="products.html">Products</a>
+      <a href="car-parts.html">Car Parts</a>
+      <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
+      <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
+      <a href="larp-gear.html">LARP Gear</a>
+      <a href="tabletop-gaming.html">Tabletop &amp; Gaming</a>
+      <a href="home-decor-gifts.html">Home Decor &amp; Gifts</a>
+      <a href="wall-art-plaques.html">Wall Art &amp; Plaques</a>
+      <a href="business-office.html">Business, Conventions &amp; Office</a>
+      <a href="fidgets.html">Fidgets</a>
+      <a href="kids.html">Kids Stuff</a>
+      <a href="dragons-creatures.html">Dragons &amp; Creatures</a>
+      <a href="kitchen.html">Kitchen Gadgets &amp; Accessories</a>
+      <a href="pets.html">Pet Supplies</a>
+      <a href="seasonal-holiday.html">Seasonal &amp; Holiday</a>
+      <a href="garden-outdoor.html">Garden &amp; Outdoor</a>
+      <a href="phone-tech.html">Phone &amp; Tech Accessories</a>
+      <a href="tools-workshop.html">Tools &amp; Workshop</a>
+      <a href="plaques.html">Custom Plaques</a>
+      <a href="quote.html">Quote</a>
+      <a href="payment.html">Checkout</a>
+      <a href="materials.html">Materials</a>
+      <a href="contact.html">Contact</a>
+      <a href="tel:+14024135332">402-413-5332</a>
+      <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+      <a href="mailto:contact@lincolnprintlab.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script>
+/* Lincoln Print Lab — shared cart. localStorage cart + header chip + Add to cart buttons. */
+(function(){
+  var KEY='lpl-cart-v1';
+  function load(){ try{ var c=JSON.parse(localStorage.getItem(KEY)); return Array.isArray(c)?c:[]; }catch(e){ return []; } }
+  function save(c){ try{ localStorage.setItem(KEY, JSON.stringify(c)); }catch(e){} }
+  function money(v){ return '$'+Math.round(v); }
+  function totals(c){ var n=0,t=0; c.forEach(function(i){ n+=i.qty; t+=i.qty*i.price; }); return {count:n,total:t}; }
+  function renderChip(){
+    var chip=document.getElementById('cart-chip');
+    if(!chip) return;
+    var tt=totals(load());
+    chip.textContent='\uD83D\uDED2 Cart ('+tt.count+') \u2014 '+money(tt.total);
+    chip.classList.toggle('has-items', tt.count>0);
+  }
+  function parsePrice(card){
+    var note=card.querySelector('.part-note');
+    var txt=note?note.textContent:'';
+    var m=txt.match(/PLA\s*\$([\d,]+(?:\.\d+)?)/);
+    if(m) return {price:parseFloat(m[1].replace(/,/g,'')), est:false};
+    var m2=txt.match(/\$([\d,]+(?:\.\d+)?)/);
+    if(m2) return {price:parseFloat(m2[1].replace(/,/g,'')), est:true};
+    return {price:15, est:true};
+  }
+  function isDisplayOnly(card){
+    var tag=card.querySelector('.tag');
+    if(tag && /display only/i.test(tag.textContent)) return true;
+    var note=card.querySelector('.part-note');
+    if(note && /display only/i.test(note.textContent)) return true;
+    return false;
+  }
+  function addItem(name, price, est){
+    var c=load();
+    var found=null;
+    c.forEach(function(i){ if(i.name===name && i.price===price) found=i; });
+    if(found){ found.qty+=1; } else { c.push({name:name, price:price, est:!!est, qty:1}); }
+    save(c); renderChip();
+  }
+  function removeItem(idx){ var c=load(); if(idx>=0 && idx<c.length){ c.splice(idx,1); save(c); renderChip(); } }
+  function setQty(idx, qty){
+    var c=load();
+    if(idx>=0 && idx<c.length){
+      qty=Math.max(0, Math.floor(qty));
+      if(qty===0){ c.splice(idx,1); } else { c[idx].qty=qty; }
+      save(c); renderChip();
+    }
+  }
+  function clearCart(){ save([]); renderChip(); }
+  var grids=document.querySelectorAll('.prod-grid');
+  grids.forEach(function(grid){
+    Array.prototype.forEach.call(grid.children, function(card){
+      if(!card.classList || !card.classList.contains('card')) return;
+      if(isDisplayOnly(card)) return;
+      var nameEl=card.querySelector('strong');
+      var note=card.querySelector('.part-note');
+      if(!nameEl || !note) return;
+      if(card.querySelector('.add-cart-btn')) return;
+      var name=nameEl.textContent.trim();
+      var pr=parsePrice(card);
+      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
+      var btn=document.createElement('button');
+      btn.type='button';
+      btn.className='add-cart-btn';
+      btn.textContent=label;
+      btn.addEventListener('click', function(){
+        addItem(name, pr.price, pr.est);
+        btn.textContent='Added \u2713';
+        btn.classList.add('is-added');
+        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
+      });
+      card.appendChild(btn);
+    });
+  });
+  renderChip();
+  window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
+    addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};
+})();
+</script>
+</body>
+</html>
