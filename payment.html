@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Checkout — Lincoln Print Lab | Pay with Cash App, Zelle, or PayPal</title>
+<meta name="description" content="Checkout at Lincoln Print Lab — pay with Cash App ($Lincolnprintlab), Zelle, or PayPal. Pick up at 1717 O St, get it delivered in town, or have it mailed. All sales are final; if a print fails or we can't accept your order, full refund within 3–5 business days." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Lincoln Print Lab",
+  "description": "Custom 3D printing in Lincoln, NE — instant online quotes, custom prints, wall art and plaques, multi-color and large-format builds, PLA/PETG/TPU/ABS/ASA/nylon.",
+  "url": "https://lincolnprintlab.com",
+  "telephone": "+1-402-413-5332",
+  "priceRange": "$15+",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1717 O St",
+    "addressLocality": "Lincoln",
+    "addressRegion": "NE",
+    "postalCode": "68508",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "10:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "17:00" }
+  ],
+  "areaServed": "Lincoln, NE",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61595927983709",
+    "https://www.youtube.com/@lincolnprintlab",
+    "https://www.instagram.com/lincolnprintlab/",
+    "https://www.tiktok.com/@lincolnprintlabs",
+    "https://www.pinterest.com/lincolnprintlab/"
+  ]
+}
+</script>
+<link rel="icon" href="logo.jpg" type="image/jpeg" />
+<link rel="apple-touch-icon" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#000000;
+  --panel:#121214;
+  --accent:#f4f1ea;
+  --accent-hot:#ffffff;
+  --ink:#f4f1ea;
+  --muted:#a8a59c;
+  --line:#2a2a2e;
+  --glow:rgba(255,255,255,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  background-image:none;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(0,0,0,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.brand-name{font-family:Bangers,cursive;font-size:24px;letter-spacing:1.5px;line-height:1}
+.brand-name span{color:var(--accent-hot);opacity:.85}
+nav ul{display:flex;gap:16px;list-style:none;flex-wrap:wrap}
+nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
+nav a:hover{color:#fff}
+.cart-chip{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px;
+  color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+  white-space:nowrap;flex-shrink:0;
+}
+.cart-chip:hover{border-color:#fff;color:#fff}
+.cart-chip.has-items{border-color:rgba(255,255,255,.55);color:#fff}
+.add-cart-btn{
+  margin-top:12px;display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);
+  background:transparent;color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-weight:600;font-size:13px;cursor:pointer;
+}
+.add-cart-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.add-cart-btn.is-added{border-color:#9dffa8;color:#9dffa8}
+
+.kicker{
+  font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);font-size:13px;margin-bottom:12px;
+}
+h1{
+  font-family:Bangers,cursive;
+  font-size:clamp(46px,7vw,80px);
+  line-height:.92;letter-spacing:2px;margin-bottom:18px;
+}
+.lede{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:999px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;
+}
+.btn-primary{background:var(--accent-hot);color:#070708}
+.btn-primary:hover{background:#e8e4da}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+section{padding:48px 0}
+.section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:18px;max-width:720px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+a.card{display:block}
+.card h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:8px;color:#fff;
+}
+.card p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:14px;align-items:flex-start}
+.foot-brand img{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.foot-brand strong{color:#fff}
+.foot-brand a{color:var(--muted)}
+.foot-brand a:hover{color:#fff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:720px;justify-content:flex-end}
+.pills a{
+  color:var(--ink);font-family:Oswald,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;font-size:13px;
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+}
+.pills a:hover{border-color:#fff;color:#fff}
+
+.hero{
+  display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:40px;align-items:center;
+  padding:40px 0 20px;
+}
+.logo-frame{
+  background:transparent;border:0;border-radius:0;padding:0;
+  display:grid;place-items:center;
+  box-shadow:none;
+  width:min(360px,100%);margin:0 auto;
+}
+.logo-frame img{width:100%;border-radius:0;background:transparent}
+
+.what-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
+}
+.what-grid .card strong{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:6px;
+}
+
+.mat-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;
+}
+.mat-grid .card strong{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:6px;
+}
+.mat-grid .card p{font-size:14px}
+
+.field-row{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.field-row label{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;
+  font-size:11px;color:var(--muted);
+}
+.field-row select{
+  background:#0a0a0c;color:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:12px 14px;font:inherit;appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);
+  background-position:calc(100% - 18px) calc(50% - 3px),calc(100% - 12px) calc(50% - 3px);
+  background-size:6px 6px,6px 6px;background-repeat:no-repeat;
+}
+
+.quote-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start;margin-top:12px;
+}
+.dropzone{
+  border:2px dashed var(--line);border-radius:18px;padding:36px 24px;text-align:center;
+  background:#0a0a0c;cursor:pointer;transition:border-color .15s, background .15s;
+}
+.dropzone:hover,.dropzone.is-drag{
+  border-color:#fff;background:rgba(255,255,255,.05);
+}
+.dropzone strong{display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;margin:10px 0 6px}
+.dropzone span{color:var(--muted);font-size:14px}
+.dropzone input{display:none}
+.file-chip{
+  display:none;margin-top:14px;font-family:Oswald,sans-serif;letter-spacing:.04em;
+  color:#fff;background:rgba(255,255,255,.06);border:1px solid var(--line);
+  border-radius:999px;padding:8px 14px;font-size:13px;
+}
+.file-chip.is-on{display:inline-flex;align-items:center;gap:8px}
+.status-line{font-size:14px;color:var(--muted);margin-top:14px;min-height:1.4em}
+.status-line.err{color:#ff8a8a}
+.status-line.ok{color:#9dffa8}
+
+.quote-panel{display:flex;flex-direction:column;gap:14px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{
+  background:#0a0a0c;border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+}
+.stat label{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;
+  font-size:11px;color:var(--muted);margin-bottom:4px;
+}
+.stat strong{font-size:20px;color:#fff;font-family:Oswald,sans-serif;letter-spacing:.02em}
+.price-box{
+  background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(0,0,0,.4));
+  border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:20px 22px;
+}
+.price-box .label{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--muted)}
+.price-box .amount{font-family:Bangers,cursive;font-size:56px;letter-spacing:1px;line-height:1;margin:6px 0}
+.price-box .note{font-size:13px;color:var(--muted)}
+.fit-ok{color:#9dffa8}
+.fit-big{color:#ffcc66}
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.fulfill{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.fulfill label{
+  display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+  background:#0a0a0c;border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+  font-size:14px;color:var(--muted);
+}
+.fulfill label.is-on{border-color:#fff;color:#fff}
+.fulfill input{margin-top:3px;accent-color:#fff}
+.blurb{
+  display:none;font-size:14px;color:var(--muted);font-style:italic;
+  border-left:3px solid #fff;padding:8px 12px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;
+}
+.blurb.is-on{display:block}
+.disclaimer{font-size:13px;color:var(--muted);margin-top:18px;max-width:720px}
+.contact-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px;
+}
+@media(max-width:860px){
+  nav ul{display:none}
+  .pills{justify-content:flex-start}
+  .hero,.quote-grid,.what-grid,.mat-grid,.contact-row{grid-template-columns:1fr}
+  .logo-frame{width:min(280px,70vw)}
+}
+@media(min-width:861px) and (max-width:980px){
+  .mat-grid,.contact-row{grid-template-columns:1fr 1fr}
+}
+
+.prod-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
+}
+.prod-grid .card strong{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:6px;
+}
+.order-block{
+  margin-top:20px;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:28px;
+}
+.order-block h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:8px;
+}
+.order-block > p{color:var(--muted);margin-bottom:18px;max-width:640px}
+.order-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.order-form .full{grid-column:1 / -1}
+.order-form label{display:flex;flex-direction:column;gap:6px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--muted)}
+.order-form input,.order-form select,.order-form textarea{
+  background:#0a0a0c;border:1px solid var(--line);border-radius:10px;
+  color:var(--ink);padding:12px 14px;font:inherit;text-transform:none;letter-spacing:0;
+}
+.order-form input:focus,.order-form select:focus,.order-form textarea:focus{
+  outline:none;border-color:#fff;
+}
+.order-form textarea{min-height:90px;resize:vertical}
+.order-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+.mockup-panel{margin-top:16px;display:none;flex-direction:column;gap:12px}
+.mockup-panel.is-on{display:flex}
+.mockup-panel img{width:min(320px,100%);border-radius:12px;border:1px solid var(--line);background:#000}
+.mockup-status{font-size:14px;color:var(--muted)}
+.mockup-status.err{color:#ff8a8a}
+.mockup-status.ok{color:#9dffa8}
+@media(max-width:860px){
+  .prod-grid,.order-form{grid-template-columns:1fr}
+}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
+    </a>
+    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="car-parts.html">Car Parts</a></li> <li><a href="index.html#what">What we print</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+  </div>
+</header>
+<main id="top">
+<section class="wrap" style="padding-top:40px">
+  <p class="kicker">Lincoln, NE · Checkout</p>
+  <h1>Checkout</h1>
+  <p class="lede">Review your cart, pick how you want it, and pay with Cash App, Zelle, or PayPal. There&rsquo;s no card form here &mdash; you pay in your app, we confirm by text, then we print it.</p>
+  <div class="actions" style="margin-bottom:8px">
+    <a class="btn btn-ghost" href="products.html">Keep browsing</a>
+    <a class="btn btn-ghost" href="quote.html">Get an exact quote first</a>
+  </div>
+</section>
+
+<section class="wrap" id="cart-section">
+  <h2 class="section-title">1. Your cart</h2>
+  <p class="section-sub">Prices are estimates &mdash; Matt confirms the exact total by text before you pay. Items marked (est.) don&rsquo;t have a firm listed price yet, so we start at the $15 minimum.</p>
+  <div id="cart-list"></div>
+  <div class="card" style="margin-top:14px">
+    <strong>Add an item by hand</strong>
+    <p>Ordering a custom print, a plaque, or something from a quote? Add it here.</p>
+    <div class="order-form" style="margin-top:10px">
+      <label>Item name<input id="manual-name" type="text" placeholder="e.g. Custom plaque — Jake's Comic Cave" /></label>
+      <label>Price (estimate, $)<input id="manual-price" type="number" min="15" step="1" placeholder="15" /></label>
+    </div>
+    <div class="actions" style="margin-top:12px">
+      <button class="btn btn-primary" id="manual-add" type="button">Add to cart</button>
+    </div>
+    <p class="status-line" id="manual-status"></p>
+  </div>
+  <div class="price-box" style="margin-top:16px">
+    <span class="label">Estimated subtotal</span>
+    <div class="amount" id="cart-subtotal">$0</div>
+    <p class="note">Estimate only &mdash; shipping, delivery fee, and sales tax are added below and confirmed by text.</p>
+  </div>
+</section>
+
+<section class="wrap" id="fulfill-section">
+  <h2 class="section-title">2. How you want it</h2>
+  <div class="fulfill" id="checkout-fulfill">
+    <label class="is-on">
+      <input type="radio" name="cfulfill" value="pickup" checked />
+      <span><strong style="color:#fff">Pick up at 1717 O St</strong><br />Free &mdash; inside Timeless Treasures, Lincoln. Text to set a time when it&rsquo;s ready.</span>
+    </label>
+    <label>
+      <input type="radio" name="cfulfill" value="deliver" />
+      <span><strong style="color:#fff">Deliver in town</strong><br />We deliver in Lincoln &mdash; fee at checkout (amount confirmed by text).</span>
+    </label>
+    <label>
+      <input type="radio" name="cfulfill" value="mail" />
+      <span><strong style="color:#fff">Mailed</strong><br />Shipping at cost (about $6 for small items). We&rsquo;ll confirm the exact shipping after we see the order.</span>
+    </label>
+  </div>
+  <div id="address-block" style="display:none;margin-top:14px">
+    <div class="order-form">
+      <label class="full">Delivery / shipping address<input id="addr-street" type="text" placeholder="Street address" /></label>
+      <label>City<input id="addr-city" type="text" value="Lincoln" /></label>
+      <label>ZIP<input id="addr-zip" type="text" placeholder="68508" /></label>
+    </div>
+    <p class="disclaimer">We need the address to deliver or mail it &mdash; and Nebraska sales tax is based on where it&rsquo;s delivered.</p>
+  </div>
+  <label style="display:flex;gap:10px;align-items:flex-start;margin-top:16px;cursor:pointer">
+    <input type="checkbox" id="rush-box" style="margin-top:4px;accent-color:#fff" />
+    <span><strong style="color:#fff">Rush &mdash; 1&ndash;2 business days (+50%)</strong><br /><span style="color:var(--muted)">Need it fast? Rush adds 50% to the items and moves you to the front of the queue.</span></span>
+  </label>
+</section>
+
+<section class="wrap" id="info-section">
+  <h2 class="section-title">3. Your info</h2>
+  <div class="order-form">
+    <label>Your name<input id="cust-name" type="text" placeholder="Your name" autocomplete="name" /></label>
+    <label>Phone (for text confirmation)<input id="cust-phone" type="tel" placeholder="(402) 555-0100" autocomplete="tel" /></label>
+    <label class="full">Email (optional)<input id="cust-email" type="email" placeholder="you@email.com" autocomplete="email" /></label>
+    <label class="full">Anything we should know? (color, size, material, deadline)<textarea id="cust-notes" placeholder="e.g. Print the vase in silk green, need it by Friday"></textarea></label>
+  </div>
+</section>
+
+<section class="wrap" id="pay-section">
+  <h2 class="section-title">4. How to pay</h2>
+  <p class="section-sub">Pay in your app &mdash; we never see or store your card number. Put your name in the payment note so we can match it to your order.</p>
+  <div class="fulfill" id="checkout-pay">
+    <label class="is-on">
+      <input type="radio" name="cpay" value="cashapp" checked />
+      <span><strong style="color:#fff">Cash App &mdash; $Lincolnprintlab</strong><br />Free to send. <a href="https://cash.app/$Lincolnprintlab" target="_blank" rel="noopener" style="text-decoration:underline">Open Cash App to pay $Lincolnprintlab</a></span>
+    </label>
+    <label>
+      <input type="radio" name="cpay" value="zelle" />
+      <span><strong style="color:#fff">Zelle &mdash; (402) 413-5332</strong><br />Free &mdash; no fee. Send it from your bank&rsquo;s app to (402) 413-5332. Put your name in the memo.</span>
+    </label>
+    <label>
+      <input type="radio" name="cpay" value="paypal" />
+      <span><strong style="color:#fff">PayPal &mdash; Goods &amp; Services</strong><br />Text us and we&rsquo;ll send you the PayPal payment link. Note: PayPal takes 2.99% on Goods &amp; Services, so the total is a little higher this way.</span>
+    </label>
+  </div>
+  <div class="price-box" style="margin-top:16px">
+    <span class="label">Estimated total</span>
+    <div class="amount" id="order-total">$0</div>
+    <div class="note" id="order-breakdown">Items $0 &middot; Shipping/handling $0 &middot; Est. tax $0</div>
+    <p class="note" style="margin-top:8px">This is an estimate. Matt confirms the exact total &mdash; including the delivery fee and sales tax &mdash; by text before you pay. You don&rsquo;t pay until he confirms.</p>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <strong>Estimated ready date</strong>
+    <p id="eta-text" style="font-size:18px;color:#fff"></p>
+    <p id="eta-note">This is an estimate, not a guarantee. Matt confirms the exact date by text. If we can&rsquo;t make it by then, we&rsquo;ll text you and you can cancel for a full refund.</p>
+  </div>
+  <div class="actions" style="margin-top:16px">
+    <button class="btn btn-primary" id="place-order" type="button">Place order &mdash; send to Matt by text</button>
+  </div>
+  <p class="status-line" id="order-status"></p>
+  <div class="mockup-panel" id="order-panel">
+    <h3 style="margin-bottom:4px">Your order is ready to send</h3>
+    <p style="margin-bottom:6px">Your texting app should have opened. If it didn&rsquo;t (like on a computer), copy the order below and paste it in a text to <strong style="color:#fff">(402) 413-5332</strong>.</p>
+    <textarea id="order-text" readonly rows="6"></textarea>
+    <div class="actions" style="margin-top:10px">
+      <button class="btn btn-primary" id="copy-order" type="button">Copy order</button>
+      <a class="btn btn-ghost" id="sms-order" href="#">Open in texting app</a>
+      <a class="btn btn-ghost" id="email-order" href="#">Email instead</a>
+    </div>
+    <p class="status-line" id="copy-order-status"></p>
+  </div>
+</section>
+
+<section class="wrap" id="terms">
+  <h2 class="section-title">Terms &amp; disclosure</h2>
+  <p class="section-sub">Plain English, no fine-print games. Please read this before you pay &mdash; by placing an order, you agree to these terms.</p>
+  <div class="card" style="margin-bottom:14px">
+    <h3>All sales are final</h3>
+    <p>Every print is made to order just for you, so we don&rsquo;t take returns or exchanges because you changed your mind, picked the wrong color or size, or decided you don&rsquo;t want it after all. This policy is shown to you here, before you pay. It does <strong>not</strong> cover a print that arrives broken, defective, or different from what you ordered &mdash; see &ldquo;If something&rsquo;s wrong&rdquo; below.</p>
+  </div>
+  <div class="card" style="margin-bottom:14px">
+    <h3>If we can&rsquo;t make it, you get your money back</h3>
+    <p>If your print fails, we can&rsquo;t accept the order, or we can&rsquo;t get it to you by the estimated date, we&rsquo;ll text you and you can cancel for a <strong>full refund</strong>. Refunds go back the same way you paid (Cash App, Zelle, or PayPal) within <strong>3&ndash;5 business days</strong>. If we miss the estimated date, we&rsquo;ll tell you before that date passes and give you a new date or a full refund &mdash; your choice. This follows the FTC&rsquo;s Mail, Internet, or Telephone Order Merchandise Rule: if a seller can&rsquo;t ship on time, you get the choice to wait or cancel for a prompt refund, and the refund can&rsquo;t be store credit.</p>
+  </div>
+  <div class="card" style="margin-bottom:14px">
+    <h3>If something&rsquo;s wrong with your print</h3>
+    <p>&ldquo;All sales final&rdquo; doesn&rsquo;t cover a print that arrives broken, defective, or different from what you ordered. If that happens, text us within a reasonable time after you get it and we&rsquo;ll make it right &mdash; reprint it, replace it, or refund you. A product has to be fit for its ordinary purpose, and no return policy overrides that.</p>
+  </div>
+  <div class="card" style="margin-bottom:14px">
+    <h3>What you pay for</h3>
+    <p>Prices on the site are estimates. Matt confirms the exact total by text before you pay &mdash; you don&rsquo;t pay until he confirms. You pay shipping and handling: mailed orders are at cost (about $6 for small items). Delivery in Lincoln has a fee, charged at checkout and confirmed by text. Pickup at 1717 O St is free. Nebraska sales tax applies &mdash; 5.5% state plus local, based on where it&rsquo;s delivered (Lincoln is 7.25% total). Rush (1&ndash;2 business days) is +50%.</p>
+  </div>
+  <div class="card" style="margin-bottom:14px">
+    <h3>Safety &mdash; please read this</h3>
+    <p><strong>Cosplay helmets and props are costume pieces only.</strong> They are not protective gear. Do not wear them on a scooter, motorcycle, bike, or anywhere you need real protection &mdash; they will not protect you in a crash. <strong>PLA prints are not food-safe</strong> &mdash; don&rsquo;t use them for food or drink, because the layer lines can harbor bacteria. <strong>Car parts are for non-safety-critical use only</strong> (brackets, mounts, clips, bezels, cup holders) &mdash; never brakes, steering, or anything that keeps you safe on the road.</p>
+  </div>
+  <div class="card" style="margin-bottom:14px">
+    <h3>Character designs &amp; your files</h3>
+    <p>Some designs are characters owned by Marvel, DC, and other studios. Where a design is marked &ldquo;Display only,&rdquo; it&rsquo;s for personal use and display &mdash; we don&rsquo;t sell prints of it as merchandise. If you send us your own file, you&rsquo;re responsible for it: you have the right to print it, and it doesn&rsquo;t break anyone&rsquo;s copyright or trademark. If we can&rsquo;t print something, we&rsquo;ll tell you before you pay.</p>
+  </div>
+  <div class="card" style="margin-bottom:14px">
+    <h3>Your order &amp; your info</h3>
+    <p>We use your name, phone, and email only to make and deliver your order and to text you about it. We don&rsquo;t sell your info. Payment happens in your Cash App, Zelle, or PayPal app &mdash; we never see or store your card number. Because there&rsquo;s no card form on this site, there&rsquo;s nothing for anyone to steal here.</p>
+  </div>
+  <div class="card" style="margin-bottom:14px">
+    <h3>Estimates, not guarantees</h3>
+    <p>Print times, prices, and delivery dates are estimates. The exact price and date are confirmed by text before we print. If anything changes &mdash; a print fails, a part takes longer, the queue is full &mdash; we&rsquo;ll text you first, and you can cancel for a full refund if the new date doesn&rsquo;t work for you.</p>
+  </div>
+  <div class="card">
+    <h3>Questions or a problem?</h3>
+    <p>Text (402) 413-5332 or email contact@lincolnprintlab.com. If we can&rsquo;t sort it out together, you can also contact the Nebraska Attorney General&rsquo;s consumer protection office or the FTC.</p>
+  </div>
+  <p class="disclaimer">These terms are written in plain English and describe how we actually do business. They are not legal advice. If you have a question about any of this, text (402) 413-5332 before you order and we&rsquo;ll answer it.</p>
+</section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div>
+        <strong>Lincoln Print Lab</strong><br />
+        Lincoln, NE<br />
+        Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
+        <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+        · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+        · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+        · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+        · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
+      </div>
+    </div>
+    <div class="pills">
+      <a href="products.html">Products</a>
+      <a href="car-parts.html">Car Parts</a>
+      <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
+      <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
+      <a href="larp-gear.html">LARP Gear</a>
+      <a href="tabletop-gaming.html">Tabletop &amp; Gaming</a>
+      <a href="home-decor-gifts.html">Home Decor &amp; Gifts</a>
+      <a href="wall-art-plaques.html">Wall Art &amp; Plaques</a>
+      <a href="plaques.html">Custom Plaques</a>
+      <a href="quote.html">Quote</a>
+      <a href="payment.html">Checkout</a>
+      <a href="materials.html">Materials</a>
+      <a href="contact.html">Contact</a>
+      <a href="tel:+14024135332">402-413-5332</a>
+      <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+      <a href="mailto:contact@lincolnprintlab.com">Email</a>
+    </div>
+  </div>
+</footer>
+<!-- assembly acquired -->
+<script>
+/* Lincoln Print Lab — shared cart. localStorage cart + header chip + Add to cart buttons. */
+(function(){
+  var KEY='lpl-cart-v1';
+  function load(){ try{ var c=JSON.parse(localStorage.getItem(KEY)); return Array.isArray(c)?c:[]; }catch(e){ return []; } }
+  function save(c){ try{ localStorage.setItem(KEY, JSON.stringify(c)); }catch(e){} }
+  function money(v){ return '$'+Math.round(v); }
+  function totals(c){ var n=0,t=0; c.forEach(function(i){ n+=i.qty; t+=i.qty*i.price; }); return {count:n,total:t}; }
+  function renderChip(){
+    var chip=document.getElementById('cart-chip');
+    if(!chip) return;
+    var tt=totals(load());
+    chip.textContent='\uD83D\uDED2 Cart ('+tt.count+') \u2014 '+money(tt.total);
+    chip.classList.toggle('has-items', tt.count>0);
+  }
+  function parsePrice(card){
+    var note=card.querySelector('.part-note');
+    var txt=note?note.textContent:'';
+    var m=txt.match(/PLA\s*\$([\d,]+(?:\.\d+)?)/);
+    if(m) return {price:parseFloat(m[1].replace(/,/g,'')), est:false};
+    var m2=txt.match(/\$([\d,]+(?:\.\d+)?)/);
+    if(m2) return {price:parseFloat(m2[1].replace(/,/g,'')), est:true};
+    return {price:15, est:true};
+  }
+  function isDisplayOnly(card){
+    var tag=card.querySelector('.tag');
+    if(tag && /display only/i.test(tag.textContent)) return true;
+    var note=card.querySelector('.part-note');
+    if(note && /display only/i.test(note.textContent)) return true;
+    return false;
+  }
+  function addItem(name, price, est){
+    var c=load();
+    var found=null;
+    c.forEach(function(i){ if(i.name===name && i.price===price) found=i; });
+    if(found){ found.qty+=1; } else { c.push({name:name, price:price, est:!!est, qty:1}); }
+    save(c); renderChip();
+  }
+  function removeItem(idx){ var c=load(); if(idx>=0 && idx<c.length){ c.splice(idx,1); save(c); renderChip(); } }
+  function setQty(idx, qty){
+    var c=load();
+    if(idx>=0 && idx<c.length){
+      qty=Math.max(0, Math.floor(qty));
+      if(qty===0){ c.splice(idx,1); } else { c[idx].qty=qty; }
+      save(c); renderChip();
+    }
+  }
+  function clearCart(){ save([]); renderChip(); }
+  var grids=document.querySelectorAll('.prod-grid');
+  grids.forEach(function(grid){
+    Array.prototype.forEach.call(grid.children, function(card){
+      if(!card.classList || !card.classList.contains('card')) return;
+      if(isDisplayOnly(card)) return;
+      var nameEl=card.querySelector('strong');
+      var note=card.querySelector('.part-note');
+      if(!nameEl || !note) return;
+      if(card.querySelector('.add-cart-btn')) return;
+      var name=nameEl.textContent.trim();
+      var pr=parsePrice(card);
+      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
+      var btn=document.createElement('button');
+      btn.type='button';
+      btn.className='add-cart-btn';
+      btn.textContent=label;
+      btn.addEventListener('click', function(){
+        addItem(name, pr.price, pr.est);
+        btn.textContent='Added \u2713';
+        btn.classList.add('is-added');
+        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
+      });
+      card.appendChild(btn);
+    });
+  });
+  renderChip();
+  window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
+    addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};
+})();
+</script>
+<script>
+/* Lincoln Print Lab — checkout. Renders the cart, totals, ETA, and sends the order by text/email. */
+(function(){
+  var SMS_TO='+14024135332';
+  var EMAIL_TO='contact@lincolnprintlab.com';
+  var TAX_RATE=0.0725; /* Lincoln combined estimate: 5.5% state + 1.75% local */
+  var SHIP_MAIL=6; /* ~$6 for small items, at cost */
+  function $(id){ return document.getElementById(id); }
+  function fmt$(v){ var n=Math.round(v*100)/100; return '$'+n.toFixed(2).replace(/\.00$/,''); }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function cart(){ return window.LPLCart ? window.LPLCart.load() : []; }
+  function fulfillVal(){ var r=document.querySelector('input[name="cfulfill"]:checked'); return r?r.value:'pickup'; }
+  function payVal(){ var r=document.querySelector('input[name="cpay"]:checked'); return r?r.value:'cashapp'; }
+  function rushOn(){ var b=$('rush-box'); return !!(b && b.checked); }
+  function addBusinessDays(d, n){
+    var date=new Date(d.getTime()); var added=0;
+    while(added<n){ date.setDate(date.getDate()+1); var day=date.getDay(); if(day!==0 && day!==6) added++; }
+    return date;
+  }
+  function fmtDate(d){ return d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); }
+  function etaRange(){
+    var rush=rushOn();
+    var low=rush?1:3, high=rush?2:5;
+    var f=fulfillVal();
+    if(f==='mail'){ low+=3; high+=5; }
+    var today=new Date();
+    var start=addBusinessDays(today, low), end=addBusinessDays(today, high);
+    return {start:start, end:end, label:(f==='mail'?'Estimated delivery: ':'Estimated ready: ')+fmtDate(start)+' \u2013 '+fmtDate(end)};
+  }
+  function compute(){
+    var c=cart();
+    var items=0; c.forEach(function(i){ items+=i.qty*i.price; });
+    var rushFee=rushOn()?items*0.5:0;
+    var f=fulfillVal();
+    var ship=0;
+    if(f==='mail'){ ship=SHIP_MAIL; }
+    var tax=(items+rushFee)*TAX_RATE;
+    var total=items+rushFee+ship+tax;
+    return {items:items, rushFee:rushFee, ship:ship, tax:tax, total:total};
+  }
+  function renderTotals(){
+    var t=compute();
+    var sub=$('cart-subtotal'); if(sub) sub.textContent=fmt$(t.items+t.rushFee);
+    var tot=$('order-total'); if(tot) tot.textContent=fmt$(t.total);
+    var br=$('order-breakdown');
+    if(br){
+      var parts=['Items '+fmt$(t.items)];
+      if(t.rushFee>0) parts.push('Rush +'+fmt$(t.rushFee));
+      parts.push('Shipping/handling '+(fulfillVal()==='deliver'?'fee at checkout':fmt$(t.ship)));
+      parts.push('Est. tax (Lincoln 7.25%) '+fmt$(t.tax));
+      br.textContent=parts.join(' \u00b7 ');
+    }
+    var eta=$('eta-text');
+    if(eta){ eta.textContent=etaRange().label; }
+  }
+  function renderCart(){
+    var c=cart();
+    var list=$('cart-list');
+    if(!list) return;
+    if(c.length===0){
+      list.innerHTML='<div class="card"><strong>Your cart is empty</strong><p>Browse the catalogs and hit <strong>Add to cart</strong> on anything you like, or add an item by hand below. <a href="products.html" style="text-decoration:underline">See all products</a></p></div>';
+    } else {
+      var html='';
+      c.forEach(function(it, idx){
+        html+='<div class="card" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:10px">'
+          +'<div><strong>'+esc(it.name)+'</strong><br /><span style="color:var(--muted)">'+fmt$(it.price)+(it.est?' (est.)':'')+' each</span></div>'
+          +'<div style="display:flex;gap:8px;align-items:center">'
+          +'<button type="button" class="btn btn-ghost" data-qty="-1" data-idx="'+idx+'" style="padding:8px 14px">\u2212</button>'
+          +'<span style="min-width:28px;text-align:center;font-weight:700">'+it.qty+'</span>'
+          +'<button type="button" class="btn btn-ghost" data-qty="1" data-idx="'+idx+'" style="padding:8px 14px">+</button>'
+          +'<strong style="min-width:70px;text-align:right">'+fmt$(it.qty*it.price)+'</strong>'
+          +'<button type="button" class="btn btn-ghost" data-remove="'+idx+'" style="padding:8px 14px">Remove</button>'
+          +'</div></div>';
+      });
+      list.innerHTML=html;
+      list.querySelectorAll('[data-qty]').forEach(function(b){
+        b.addEventListener('click', function(){
+          var idx=parseInt(b.getAttribute('data-idx'),10);
+          var d=parseInt(b.getAttribute('data-qty'),10);
+          var cc=cart();
+          if(cc[idx]){ window.LPLCart.setQty(idx, cc[idx].qty+d); renderAll(); }
+        });
+      });
+      list.querySelectorAll('[data-remove]').forEach(function(b){
+        b.addEventListener('click', function(){
+          window.LPLCart.removeItem(parseInt(b.getAttribute('data-remove'),10)); renderAll();
+        });
+      });
+    }
+    renderTotals();
+  }
+  function renderAll(){ renderCart(); if(window.LPLCart) window.LPLCart.renderChip(); }
+  document.querySelectorAll('input[name="cfulfill"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      document.querySelectorAll('#checkout-fulfill label').forEach(function(x){ x.classList.remove('is-on'); });
+      var lbl=r.closest('label'); if(lbl) lbl.classList.add('is-on');
+      var ab=$('address-block');
+      if(ab) ab.style.display=(r.value==='pickup')?'none':'block';
+      renderTotals();
+    });
+  });
+  document.querySelectorAll('input[name="cpay"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      document.querySelectorAll('#checkout-pay label').forEach(function(x){ x.classList.remove('is-on'); });
+      var lbl=r.closest('label'); if(lbl) lbl.classList.add('is-on');
+    });
+  });
+  var rush=$('rush-box'); if(rush) rush.addEventListener('change', renderTotals);
+  var madd=$('manual-add');
+  if(madd) madd.addEventListener('click', function(){
+    var nm=$('manual-name').value.trim();
+    var pr=parseFloat($('manual-price').value);
+    var st=$('manual-status');
+    if(!nm){ if(st){ st.textContent='Give the item a name first.'; st.classList.add('err'); } return; }
+    if(!(pr>=15)){ if(st){ st.textContent='Price needs to be at least $15 (our minimum).'; st.classList.add('err'); } return; }
+    window.LPLCart.addItem(nm, Math.round(pr), true);
+    $('manual-name').value=''; $('manual-price').value='';
+    if(st){ st.textContent='Added \u2014 '+nm; st.classList.remove('err'); st.classList.add('ok'); }
+    renderAll();
+  });
+  var place=$('place-order');
+  if(place) place.addEventListener('click', function(){
+    var st=$('order-status');
+    var c=cart();
+    var name=$('cust-name').value.trim();
+    var phone=$('cust-phone').value.trim();
+    function fail(msg){ if(st){ st.textContent=msg; st.classList.add('err'); } }
+    if(c.length===0) return fail('Your cart is empty \u2014 add something first.');
+    if(!name) return fail('Add your name so we know who the order is for.');
+    if(phone.replace(/\D/g,'').length<7) return fail('Add a phone number so we can text you to confirm.');
+    if(st){ st.textContent=''; st.classList.remove('err'); }
+    var t=compute();
+    var f=fulfillVal();
+    var fLabel=f==='pickup'?'Pick up at 1717 O St':(f==='deliver'?'Deliver in town':'Mailed');
+    var pLabel=payVal()==='cashapp'?'Cash App ($Lincolnprintlab)':(payVal()==='zelle'?'Zelle to (402) 413-5332':'PayPal (link by text)');
+    var lines=[];
+    lines.push('Lincoln Print Lab order:');
+    lines.push('Name: '+name);
+    lines.push('Phone: '+phone);
+    var em=$('cust-email').value.trim(); if(em) lines.push('Email: '+em);
+    lines.push('Fulfillment: '+fLabel);
+    if(f!=='pickup'){
+      var addr=[$('addr-street').value.trim(), $('addr-city').value.trim(), $('addr-zip').value.trim()].filter(function(x){return x;}).join(', ');
+      if(addr) lines.push('Address: '+addr);
+    }
+    lines.push('Items:');
+    c.forEach(function(it){ lines.push('- '+it.name+' x'+it.qty+' \u2014 '+fmt$(it.qty*it.price)+(it.est?' (est.)':'')); });
+    if(t.rushFee>0) lines.push('Rush (1-2 days, +50%): +'+fmt$(t.rushFee));
+    lines.push('Est. subtotal: '+fmt$(t.items+t.rushFee));
+    lines.push('Shipping/handling: '+(f==='deliver'?'fee at checkout (confirmed by text)':fmt$(t.ship)));
+    lines.push('Est. tax (Lincoln 7.25%): '+fmt$(t.tax));
+    lines.push('ESTIMATED TOTAL: '+fmt$(t.total));
+    lines.push('Pay by: '+pLabel);
+    var notes=$('cust-notes').value.trim(); if(notes) lines.push('Notes: '+notes);
+    lines.push(etaRange().label);
+    var text=lines.join('\n');
+    var ta=$('order-text'); if(ta) ta.value=text;
+    var sms=$('sms-order'); if(sms) sms.href='sms:'+SMS_TO+'?body='+encodeURIComponent(text);
+    var em2=$('email-order'); if(em2) em2.href='mailto:'+EMAIL_TO+'?subject='+encodeURIComponent('Lincoln Print Lab order \u2014 '+name)+'&body='+encodeURIComponent(text);
+    var panel=$('order-panel'); if(panel) panel.classList.add('is-on');
+    renderTotals();
+    if(sms){ try{ window.location.href=sms.href; }catch(e){} }
+    if(st){ st.textContent='Order ready \u2014 your texting app should have opened. If it didn\u2019t, copy the order below and text it to (402) 413-5332.'; st.classList.add('ok'); }
+  });
+  var copyBtn=$('copy-order');
+  if(copyBtn) copyBtn.addEventListener('click', function(){
+    var ta=$('order-text'); if(!ta) return;
+    function done(ok){
+      var s=$('copy-order-status');
+      if(s){ s.textContent=ok?'Copied \u2014 paste it in a text to (402) 413-5332.':'Copy didn\u2019t work \u2014 select the text and copy it by hand.'; s.classList.toggle('ok', ok); s.classList.toggle('err', !ok); }
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(ta.value).then(function(){done(true);}, function(){done(false);}); }
+    else { ta.select(); try{ document.execCommand('copy'); done(true); }catch(e){ done(false); } }
+  });
+  renderAll();
+})();
+</script>
+</body>
+</html>

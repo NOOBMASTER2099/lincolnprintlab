@@ -79,6 +79,22 @@ header{
 nav ul{display:flex;gap:16px;list-style:none;flex-wrap:wrap}
 nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
 nav a:hover{color:#fff}
+.cart-chip{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px;
+  color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+  white-space:nowrap;flex-shrink:0;
+}
+.cart-chip:hover{border-color:#fff;color:#fff}
+.cart-chip.has-items{border-color:rgba(255,255,255,.55);color:#fff}
+.add-cart-btn{
+  margin-top:12px;display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);
+  background:transparent;color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-weight:600;font-size:13px;cursor:pointer;
+}
+.add-cart-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.add-cart-btn.is-added{border-color:#9dffa8;color:#9dffa8}
+
 .kicker{
   font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
   color:var(--muted);font-size:13px;margin-bottom:12px;
@@ -290,6 +306,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
     <nav><ul><li><a href="products.html">Products</a></li> <li><a href="car-parts.html">Car Parts</a></li> <li><a href="index.html#what" aria-current="page">What we print</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
   </div>
 </header>
 <main id="top">
@@ -433,6 +450,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="wall-art-plaques.html">Wall Art &amp; Plaques</a>
       <a href="plaques.html">Custom Plaques</a>
       <a href="quote.html">Quote</a>
+      <a href="payment.html">Checkout</a>
       <a href="materials.html">Materials</a>
       <a href="contact.html">Contact</a>
       <a href="tel:+14024135332">402-413-5332</a>
@@ -446,5 +464,83 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   </div>
 </footer>
 <!-- assembly acquired -->
+<script>
+/* Lincoln Print Lab — shared cart. localStorage cart + header chip + Add to cart buttons. */
+(function(){
+  var KEY='lpl-cart-v1';
+  function load(){ try{ var c=JSON.parse(localStorage.getItem(KEY)); return Array.isArray(c)?c:[]; }catch(e){ return []; } }
+  function save(c){ try{ localStorage.setItem(KEY, JSON.stringify(c)); }catch(e){} }
+  function money(v){ return '$'+Math.round(v); }
+  function totals(c){ var n=0,t=0; c.forEach(function(i){ n+=i.qty; t+=i.qty*i.price; }); return {count:n,total:t}; }
+  function renderChip(){
+    var chip=document.getElementById('cart-chip');
+    if(!chip) return;
+    var tt=totals(load());
+    chip.textContent='\uD83D\uDED2 Cart ('+tt.count+') \u2014 '+money(tt.total);
+    chip.classList.toggle('has-items', tt.count>0);
+  }
+  function parsePrice(card){
+    var note=card.querySelector('.part-note');
+    var txt=note?note.textContent:'';
+    var m=txt.match(/PLA\s*\$([\d,]+(?:\.\d+)?)/);
+    if(m) return {price:parseFloat(m[1].replace(/,/g,'')), est:false};
+    var m2=txt.match(/\$([\d,]+(?:\.\d+)?)/);
+    if(m2) return {price:parseFloat(m2[1].replace(/,/g,'')), est:true};
+    return {price:15, est:true};
+  }
+  function isDisplayOnly(card){
+    var tag=card.querySelector('.tag');
+    if(tag && /display only/i.test(tag.textContent)) return true;
+    var note=card.querySelector('.part-note');
+    if(note && /display only/i.test(note.textContent)) return true;
+    return false;
+  }
+  function addItem(name, price, est){
+    var c=load();
+    var found=null;
+    c.forEach(function(i){ if(i.name===name && i.price===price) found=i; });
+    if(found){ found.qty+=1; } else { c.push({name:name, price:price, est:!!est, qty:1}); }
+    save(c); renderChip();
+  }
+  function removeItem(idx){ var c=load(); if(idx>=0 && idx<c.length){ c.splice(idx,1); save(c); renderChip(); } }
+  function setQty(idx, qty){
+    var c=load();
+    if(idx>=0 && idx<c.length){
+      qty=Math.max(0, Math.floor(qty));
+      if(qty===0){ c.splice(idx,1); } else { c[idx].qty=qty; }
+      save(c); renderChip();
+    }
+  }
+  function clearCart(){ save([]); renderChip(); }
+  var grids=document.querySelectorAll('.prod-grid');
+  grids.forEach(function(grid){
+    Array.prototype.forEach.call(grid.children, function(card){
+      if(!card.classList || !card.classList.contains('card')) return;
+      if(isDisplayOnly(card)) return;
+      var nameEl=card.querySelector('strong');
+      var note=card.querySelector('.part-note');
+      if(!nameEl || !note) return;
+      if(card.querySelector('.add-cart-btn')) return;
+      var name=nameEl.textContent.trim();
+      var pr=parsePrice(card);
+      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
+      var btn=document.createElement('button');
+      btn.type='button';
+      btn.className='add-cart-btn';
+      btn.textContent=label;
+      btn.addEventListener('click', function(){
+        addItem(name, pr.price, pr.est);
+        btn.textContent='Added \u2713';
+        btn.classList.add('is-added');
+        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
+      });
+      card.appendChild(btn);
+    });
+  });
+  renderChip();
+  window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
+    addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};
+})();
+</script>
 </body>
 </html>
