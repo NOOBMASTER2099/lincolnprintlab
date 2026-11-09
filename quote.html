@@ -336,6 +336,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           <div class="label">Estimated quote</div>
           <div class="amount" id="stat-price">$—</div>
           <p class="note" id="stat-breakdown">Upload a file to see the breakdown.</p>
+          <p class="note" id="stat-eta">Upload a file to see the estimated ready date.</p>
         </div>
         <p class="blurb" id="blurb"></p>
 
@@ -401,7 +402,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </div>
     </div>
     <p class="disclaimer">Quotes are estimates from solid mesh volume (×0.45 for typical walls + ~20% infill) using the material density you pick (PLA 1.24 g/cm³ by default). Real grams and time vary with supports, orientation, and settings. Final price confirmed by text before we print.</p>
-    <p class="disclaimer">Ready to order? <a href="payment.html" style="text-decoration:underline">Go to checkout</a> &mdash; pay with Cash App, Zelle, or PayPal, and get an estimated ready date.</p>
+    <p class="disclaimer">Ready to order? <a href="payment.html" style="text-decoration:underline">Go to checkout</a> &mdash; send your order request, Matt confirms the total and ready date by text, then you pay.</p>
   </section>
 </main>
 <footer>
@@ -678,6 +679,28 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     return 'pick up at 1717 O St';
   }
 
+  /* Estimated ready date — same lead time as the checkout: 3-5 business days,
+     +3-5 for mailed orders. Estimate only; Matt confirms the exact date by text. */
+  function addBusinessDays(d, n){
+    var date = new Date(d.getTime()); var added = 0;
+    while(added < n){ date.setDate(date.getDate() + 1); var day = date.getDay(); if(day !== 0 && day !== 6) added++; }
+    return date;
+  }
+  function fmtDate(d){ return d.toLocaleDateString('en-US', {weekday:'short', month:'short', day:'numeric'}); }
+  function etaLabel(){
+    var checked = document.querySelector('input[name="fulfill"]:checked');
+    var mail = checked && checked.value === 'mail';
+    var low = 3, high = 5;
+    if(mail){ low += 3; high += 5; }
+    var today = new Date();
+    var start = addBusinessDays(today, low), end = addBusinessDays(today, high);
+    return (mail ? 'Estimated delivery: ' : 'Estimated ready: ') + fmtDate(start) + ' \u2013 ' + fmtDate(end) + ' (estimate \u2014 Matt confirms the exact date by text)';
+  }
+  function updateEta(){
+    var el = document.getElementById('stat-eta');
+    if(el && lastQuote) el.textContent = etaLabel();
+  }
+
   function buildSummary(q){
     return (
       'Lincoln Print Lab quote: ' + q.filename +
@@ -689,7 +712,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       ' · ' + (FINISH_LABELS[q.finish] || 'Raw print') +
       (q.specialty ? ' · specialty filament (silk/metallic, +$0.05/g)' : '') +
       ' · ' + fulfillLabel() +
-      (q.fits ? '' : ' · MAY NEED SPLIT / larger bed')
+      (q.fits ? '' : ' · MAY NEED SPLIT / larger bed') +
+      ' · ' + etaLabel()
     );
   }
 
@@ -733,6 +757,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       ' → rounded $' + q.price +
       ' · ' + q.triCount.toLocaleString() + ' tris';
     updateLinks(q);
+    updateEta();
     fetchBlurb(q);
   }
 
@@ -843,7 +868,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       document.querySelectorAll('#fulfill label').forEach(function(lab){
         lab.classList.toggle('is-on', lab.querySelector('input').checked);
       });
-      if(lastQuote) updateLinks(lastQuote);
+      if(lastQuote){ updateLinks(lastQuote); updateEta(); }
     });
   });
 

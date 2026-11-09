@@ -133,6 +133,16 @@ a.card{display:block}
   font-size:13px;color:#fff;
 }
 a.card:hover .card-link{text-decoration:underline}
+.open-status{
+  display:inline-block;
+  font-family:Oswald,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:14px;
+  margin-bottom:22px;
+}
+.open-status.is-open{color:#6fdf8a}
+.open-status.is-closed{color:var(--muted)}
 footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
 .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
 .foot-brand{display:flex;gap:14px;align-items:flex-start}
@@ -159,6 +169,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   width:min(360px,100%);margin:0 auto;
 }
 .logo-frame img{width:100%;border-radius:0;background:transparent}
+.social-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.social-row a{display:inline-block;padding:7px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;text-decoration:none;font-size:14px;font-weight:600}
+.social-row a:hover{border-color:var(--accent-hot);color:#fff}
 
 .what-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
@@ -336,8 +349,17 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <p>&ldquo;All sales final&rdquo; doesn&rsquo;t cover a print that arrives broken, defective, or different from what you ordered. If that happens, text us within a reasonable time after you get it and we&rsquo;ll make it right &mdash; reprint it, replace it, or refund you. A product has to be fit for its ordinary purpose, and no return policy overrides that.</p>
   </div>
   <div class="card" style="margin-bottom:14px">
+    <h3>We check every print before it&rsquo;s ready</h3>
+    <p>After your print is built, Matt inspects it before it&rsquo;s marked ready &mdash; he checks the print quality, the size, and the finish. If something isn&rsquo;t right, we reprint it or text you before you pay anything. You only get the &ldquo;it&rsquo;s ready&rdquo; text after the print has passed that check.</p>
+  </div>
+  <div class="card" style="margin-bottom:14px">
     <h3>What you pay for</h3>
     <p>Prices on the site are estimates. Matt confirms the exact total by text before you pay &mdash; you don&rsquo;t pay until he confirms. You pay shipping and handling: mailed orders are at cost (about $6 for small items). Delivery in Lincoln has a fee, charged at checkout and confirmed by text. Pickup at 1717 O St is free. Nebraska sales tax applies &mdash; 5.5% state plus local, based on where it&rsquo;s delivered (Lincoln is 7.25% total). Rush (1&ndash;2 business days) is +50%.</p>
+  </div>
+  <div class="card" style="margin-bottom:14px">
+    <h3>Pickup &mdash; 48 hours, and stay in contact</h3>
+    <p>When your print is ready, we&rsquo;ll text you. <strong>Pick it up within 48 hours of that text.</strong> Can&rsquo;t make it in 48 hours? <strong>Just text us</strong> at (402) 413-5332 and we&rsquo;ll set a different pickup date &mdash; no penalty for staying in contact.</p>
+    <p>If you don&rsquo;t pick up within 48 hours and don&rsquo;t stay in contact, we&rsquo;ll set the item aside (restock it) and you&rsquo;ll need to arrange a new pickup date. Your order is never forfeited, resold, or charged extra for this &mdash; we just need to keep the shop moving and the shelf clear, so keep in touch.</p>
   </div>
   <div class="card" style="margin-bottom:14px">
     <h3>Safety &mdash; please read this</h3>
@@ -486,6 +508,47 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};
+})();
+</script>
+<script>
+/* Open / closed status for Timeless Treasures pickup hours (America/Chicago). */
+(function(){
+  var el = document.getElementById('open-status');
+  if(!el) return;
+  var parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    weekday: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23'
+  }).formatToParts(new Date());
+  var weekday = parts.find(function(p){ return p.type === 'weekday'; }).value;
+  var hour = parseInt(parts.find(function(p){ return p.type === 'hour'; }).value, 10);
+  var minute = parseInt(parts.find(function(p){ return p.type === 'minute'; }).value, 10);
+  var mins = hour * 60 + minute;
+  var order = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var names = {Sun:'Sunday',Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday',Sat:'Saturday'};
+  function hoursFor(day){
+    if(day === 'Sun') return {open:12*60, close:17*60, openLabel:'12:00 PM', closeLabel:'5:00 PM'};
+    return {open:10*60, close:18*60, openLabel:'10:00 AM', closeLabel:'6:00 PM'};
+  }
+  var today = hoursFor(weekday);
+  if(mins >= today.open && mins < today.close){
+    el.textContent = 'Open now · closes ' + today.closeLabel;
+    el.classList.add('is-open');
+    return;
+  }
+  var nextDay = weekday;
+  var nextHours = today;
+  var when = 'today';
+  if(mins >= today.close){
+    var idx = (order.indexOf(weekday) + 1) % 7;
+    nextDay = order[idx];
+    nextHours = hoursFor(nextDay);
+    when = names[nextDay];
+  }
+  el.textContent = 'Closed · opens ' + when + ' ' + nextHours.openLabel;
+  el.classList.add('is-closed');
 })();
 </script>
 </body>
