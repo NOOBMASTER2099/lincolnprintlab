@@ -127,6 +127,12 @@ a.card{display:block}
   margin-bottom:8px;color:#fff;
 }
 .card p{color:var(--muted)}
+.card-link{
+  display:inline-block;margin-top:12px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;
+  font-size:13px;color:#fff;
+}
+a.card:hover .card-link{text-decoration:underline}
 footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
 .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
 .foot-brand{display:flex;gap:14px;align-items:flex-start}
@@ -305,7 +311,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="car-parts.html">Car Parts</a></li> <li><a href="index.html#what">What we print</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
   </div>
 </header>
@@ -373,8 +379,35 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   </label>
 </section>
 
+<section class="wrap" id="finish-section">
+  <h2 class="section-title">3. Finishing</h2>
+  <p class="section-sub">How do you want it finished? Finishing applies to your whole order.</p>
+  <div class="fulfill" id="checkout-finish">
+    <label class="is-on">
+      <input type="radio" name="cfinish" value="raw" checked />
+      <span><strong style="color:#fff">Raw print — included</strong><br />As-printed, supports off</span>
+    </label>
+    <label>
+      <input type="radio" name="cfinish" value="assembled" />
+      <span><strong style="color:#fff">Assembled — +$18</strong><br />Multi-part glued/joined (+$10–$25)</span>
+    </label>
+    <label>
+      <input type="radio" name="cfinish" value="sanded" />
+      <span><strong style="color:#fff">Sanded + primed — +$22</strong><br />Sanded smooth and primed, ready to paint (+$15–$30)</span>
+    </label>
+    <label>
+      <input type="radio" name="cfinish" value="painted" />
+      <span><strong style="color:#fff">Painted — quoted</strong><br />Painted per job, $25 and up — Matt confirms the price by text</span>
+    </label>
+  </div>
+  <label style="display:flex;gap:10px;align-items:flex-start;margin-top:12px;cursor:pointer">
+    <input type="checkbox" id="specialty-box" style="margin-top:4px;accent-color:#fff" />
+    <span><strong style="color:#fff">Specialty filament (silk/metallic) +$0.05/g</strong><br /><span style="color:var(--muted)">Shiny silk or metallic filament — exact amount depends on weight, confirmed by text.</span></span>
+  </label>
+</section>
+
 <section class="wrap" id="info-section">
-  <h2 class="section-title">3. Your info</h2>
+  <h2 class="section-title">4. Your info</h2>
   <div class="order-form">
     <label>Your name<input id="cust-name" type="text" placeholder="Your name" autocomplete="name" /></label>
     <label>Phone (for text confirmation)<input id="cust-phone" type="tel" placeholder="(402) 555-0100" autocomplete="tel" /></label>
@@ -384,7 +417,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 </section>
 
 <section class="wrap" id="pay-section">
-  <h2 class="section-title">4. How to pay</h2>
+  <h2 class="section-title">5. How to pay</h2>
   <p class="section-sub">Pay in your app &mdash; we never see or store your card number. Put your name in the payment note so we can match it to your order.</p>
   <div class="fulfill" id="checkout-pay">
     <label class="is-on">
@@ -411,6 +444,10 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <p id="eta-text" style="font-size:18px;color:#fff"></p>
     <p id="eta-note">This is an estimate, not a guarantee. Matt confirms the exact date by text. If we can&rsquo;t make it by then, we&rsquo;ll text you and you can cancel for a full refund.</p>
   </div>
+  <label style="display:flex;gap:10px;align-items:flex-start;margin-top:16px;cursor:pointer">
+    <input type="checkbox" id="agree-terms" style="margin-top:4px;accent-color:#fff" />
+    <span>I agree to the <a href="terms.html" target="_blank" rel="noopener" style="text-decoration:underline">Terms of Service</a> &mdash; all sales are final, and if a print fails or we can&rsquo;t accept your order, you get a full refund within 3&ndash;5 business days.</span>
+  </label>
   <div class="actions" style="margin-top:16px">
     <button class="btn btn-primary" id="place-order" type="button">Place order &mdash; send to Matt by text</button>
   </div>
@@ -428,47 +465,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   </div>
 </section>
 
-<section class="wrap" id="terms">
-  <h2 class="section-title">Terms &amp; disclosure</h2>
-  <p class="section-sub">Plain English, no fine-print games. Please read this before you pay &mdash; by placing an order, you agree to these terms.</p>
-  <div class="card" style="margin-bottom:14px">
-    <h3>All sales are final</h3>
-    <p>Every print is made to order just for you, so we don&rsquo;t take returns or exchanges because you changed your mind, picked the wrong color or size, or decided you don&rsquo;t want it after all. This policy is shown to you here, before you pay. It does <strong>not</strong> cover a print that arrives broken, defective, or different from what you ordered &mdash; see &ldquo;If something&rsquo;s wrong&rdquo; below.</p>
-  </div>
-  <div class="card" style="margin-bottom:14px">
-    <h3>If we can&rsquo;t make it, you get your money back</h3>
-    <p>If your print fails, we can&rsquo;t accept the order, or we can&rsquo;t get it to you by the estimated date, we&rsquo;ll text you and you can cancel for a <strong>full refund</strong>. Refunds go back the same way you paid (Cash App, Zelle, or PayPal) within <strong>3&ndash;5 business days</strong>. If we miss the estimated date, we&rsquo;ll tell you before that date passes and give you a new date or a full refund &mdash; your choice. This follows the FTC&rsquo;s Mail, Internet, or Telephone Order Merchandise Rule: if a seller can&rsquo;t ship on time, you get the choice to wait or cancel for a prompt refund, and the refund can&rsquo;t be store credit.</p>
-  </div>
-  <div class="card" style="margin-bottom:14px">
-    <h3>If something&rsquo;s wrong with your print</h3>
-    <p>&ldquo;All sales final&rdquo; doesn&rsquo;t cover a print that arrives broken, defective, or different from what you ordered. If that happens, text us within a reasonable time after you get it and we&rsquo;ll make it right &mdash; reprint it, replace it, or refund you. A product has to be fit for its ordinary purpose, and no return policy overrides that.</p>
-  </div>
-  <div class="card" style="margin-bottom:14px">
-    <h3>What you pay for</h3>
-    <p>Prices on the site are estimates. Matt confirms the exact total by text before you pay &mdash; you don&rsquo;t pay until he confirms. You pay shipping and handling: mailed orders are at cost (about $6 for small items). Delivery in Lincoln has a fee, charged at checkout and confirmed by text. Pickup at 1717 O St is free. Nebraska sales tax applies &mdash; 5.5% state plus local, based on where it&rsquo;s delivered (Lincoln is 7.25% total). Rush (1&ndash;2 business days) is +50%.</p>
-  </div>
-  <div class="card" style="margin-bottom:14px">
-    <h3>Safety &mdash; please read this</h3>
-    <p><strong>Cosplay helmets and props are costume pieces only.</strong> They are not protective gear. Do not wear them on a scooter, motorcycle, bike, or anywhere you need real protection &mdash; they will not protect you in a crash. <strong>PLA prints are not food-safe</strong> &mdash; don&rsquo;t use them for food or drink, because the layer lines can harbor bacteria. <strong>Car parts are for non-safety-critical use only</strong> (brackets, mounts, clips, bezels, cup holders) &mdash; never brakes, steering, or anything that keeps you safe on the road.</p>
-  </div>
-  <div class="card" style="margin-bottom:14px">
-    <h3>Character designs &amp; your files</h3>
-    <p>Some designs are characters owned by Marvel, DC, and other studios. Where a design is marked &ldquo;Display only,&rdquo; it&rsquo;s for personal use and display &mdash; we don&rsquo;t sell prints of it as merchandise. If you send us your own file, you&rsquo;re responsible for it: you have the right to print it, and it doesn&rsquo;t break anyone&rsquo;s copyright or trademark. If we can&rsquo;t print something, we&rsquo;ll tell you before you pay.</p>
-  </div>
-  <div class="card" style="margin-bottom:14px">
-    <h3>Your order &amp; your info</h3>
-    <p>We use your name, phone, and email only to make and deliver your order and to text you about it. We don&rsquo;t sell your info. Payment happens in your Cash App, Zelle, or PayPal app &mdash; we never see or store your card number. Because there&rsquo;s no card form on this site, there&rsquo;s nothing for anyone to steal here.</p>
-  </div>
-  <div class="card" style="margin-bottom:14px">
-    <h3>Estimates, not guarantees</h3>
-    <p>Print times, prices, and delivery dates are estimates. The exact price and date are confirmed by text before we print. If anything changes &mdash; a print fails, a part takes longer, the queue is full &mdash; we&rsquo;ll text you first, and you can cancel for a full refund if the new date doesn&rsquo;t work for you.</p>
-  </div>
-  <div class="card">
-    <h3>Questions or a problem?</h3>
-    <p>Text (402) 413-5332 or email contact@lincolnprintlab.com. If we can&rsquo;t sort it out together, you can also contact the Nebraska Attorney General&rsquo;s consumer protection office or the FTC.</p>
-  </div>
-  <p class="disclaimer">These terms are written in plain English and describe how we actually do business. They are not legal advice. If you have a question about any of this, text (402) 413-5332 before you order and we&rsquo;ll answer it.</p>
-</section>
 </main>
 <footer>
   <div class="wrap foot">
@@ -542,11 +538,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     if(note && /display only/i.test(note.textContent)) return true;
     return false;
   }
-  function addItem(name, price, est){
+  function addItem(name, price, est, detail){
     var c=load();
     var found=null;
     c.forEach(function(i){ if(i.name===name && i.price===price) found=i; });
-    if(found){ found.qty+=1; } else { c.push({name:name, price:price, est:!!est, qty:1}); }
+    if(found){ found.qty+=1; } else { var it={name:name, price:price, est:!!est, qty:1}; if(detail) it.detail=detail; c.push(it); }
     save(c); renderChip();
   }
   function removeItem(idx){ var c=load(); if(idx>=0 && idx<c.length){ c.splice(idx,1); save(c); renderChip(); } }
@@ -596,6 +592,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   var EMAIL_TO='contact@lincolnprintlab.com';
   var TAX_RATE=0.0725; /* Lincoln combined estimate: 5.5% state + 1.75% local */
   var SHIP_MAIL=6; /* ~$6 for small items, at cost */
+  var FINISH_FEES={raw:0, assembled:18, sanded:22, painted:0};
+  var FINISH_LABELS={raw:'Raw print (included)', assembled:'Assembled (+$18)', sanded:'Sanded + primed (+$22)', painted:'Painted (quoted per job, $25+)'};
   function $(id){ return document.getElementById(id); }
   function fmt$(v){ var n=Math.round(v*100)/100; return '$'+n.toFixed(2).replace(/\.00$/,''); }
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -603,6 +601,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   function fulfillVal(){ var r=document.querySelector('input[name="cfulfill"]:checked'); return r?r.value:'pickup'; }
   function payVal(){ var r=document.querySelector('input[name="cpay"]:checked'); return r?r.value:'cashapp'; }
   function rushOn(){ var b=$('rush-box'); return !!(b && b.checked); }
+  function finishVal(){ var r=document.querySelector('input[name="cfinish"]:checked'); return r?r.value:'raw'; }
+  function finishFee(){ return FINISH_FEES[finishVal()]||0; }
+  function specialtyOn(){ var b=$('specialty-box'); return !!(b && b.checked); }
   function addBusinessDays(d, n){
     var date=new Date(d.getTime()); var added=0;
     while(added<n){ date.setDate(date.getDate()+1); var day=date.getDay(); if(day!==0 && day!==6) added++; }
@@ -622,20 +623,24 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     var c=cart();
     var items=0; c.forEach(function(i){ items+=i.qty*i.price; });
     var rushFee=rushOn()?items*0.5:0;
+    var fee=finishFee();
     var f=fulfillVal();
     var ship=0;
     if(f==='mail'){ ship=SHIP_MAIL; }
-    var tax=(items+rushFee)*TAX_RATE;
-    var total=items+rushFee+ship+tax;
-    return {items:items, rushFee:rushFee, ship:ship, tax:tax, total:total};
+    var tax=(items+fee+rushFee)*TAX_RATE;
+    var total=items+fee+rushFee+ship+tax;
+    return {items:items, finishFee:fee, finish:finishVal(), specialty:specialtyOn(), rushFee:rushFee, ship:ship, tax:tax, total:total};
   }
   function renderTotals(){
     var t=compute();
-    var sub=$('cart-subtotal'); if(sub) sub.textContent=fmt$(t.items+t.rushFee);
+    var sub=$('cart-subtotal'); if(sub) sub.textContent=fmt$(t.items+t.finishFee+t.rushFee);
     var tot=$('order-total'); if(tot) tot.textContent=fmt$(t.total);
     var br=$('order-breakdown');
     if(br){
       var parts=['Items '+fmt$(t.items)];
+      if(t.finishFee>0) parts.push('Finishing +'+fmt$(t.finishFee));
+      if(t.finish==='painted') parts.push('Finishing: Painted (quoted)');
+      if(t.specialty) parts.push('Specialty filament +$0.05/g (confirmed by text)');
       if(t.rushFee>0) parts.push('Rush +'+fmt$(t.rushFee));
       parts.push('Shipping/handling '+(fulfillVal()==='deliver'?'fee at checkout':fmt$(t.ship)));
       parts.push('Est. tax (Lincoln 7.25%) '+fmt$(t.tax));
@@ -654,7 +659,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       var html='';
       c.forEach(function(it, idx){
         html+='<div class="card" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:10px">'
-          +'<div><strong>'+esc(it.name)+'</strong><br /><span style="color:var(--muted)">'+fmt$(it.price)+(it.est?' (est.)':'')+' each</span></div>'
+          +'<div><strong>'+esc(it.name)+'</strong><br /><span style="color:var(--muted)">'+fmt$(it.price)+(it.est?' (est.)':'')+' each</span>'+(it.detail?'<br /><span style="color:var(--muted);font-size:13px">'+esc(it.detail)+'</span>':'')+'</div>'
           +'<div style="display:flex;gap:8px;align-items:center">'
           +'<button type="button" class="btn btn-ghost" data-qty="-1" data-idx="'+idx+'" style="padding:8px 14px">\u2212</button>'
           +'<span style="min-width:28px;text-align:center;font-weight:700">'+it.qty+'</span>'
@@ -697,6 +702,14 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     });
   });
   var rush=$('rush-box'); if(rush) rush.addEventListener('change', renderTotals);
+  document.querySelectorAll('input[name="cfinish"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      document.querySelectorAll('#checkout-finish label').forEach(function(x){ x.classList.remove('is-on'); });
+      var lbl=r.closest('label'); if(lbl) lbl.classList.add('is-on');
+      renderTotals();
+    });
+  });
+  var spec=$('specialty-box'); if(spec) spec.addEventListener('change', renderTotals);
   var madd=$('manual-add');
   if(madd) madd.addEventListener('click', function(){
     var nm=$('manual-name').value.trim();
@@ -719,6 +732,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     if(c.length===0) return fail('Your cart is empty \u2014 add something first.');
     if(!name) return fail('Add your name so we know who the order is for.');
     if(phone.replace(/\D/g,'').length<7) return fail('Add a phone number so we can text you to confirm.');
+    var agree=$('agree-terms');
+    if(!agree || !agree.checked) return fail('Please tick "I agree to the Terms of Service" before placing your order.');
     if(st){ st.textContent=''; st.classList.remove('err'); }
     var t=compute();
     var f=fulfillVal();
@@ -735,9 +750,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       if(addr) lines.push('Address: '+addr);
     }
     lines.push('Items:');
-    c.forEach(function(it){ lines.push('- '+it.name+' x'+it.qty+' \u2014 '+fmt$(it.qty*it.price)+(it.est?' (est.)':'')); });
+    c.forEach(function(it){ lines.push('- '+it.name+' x'+it.qty+' \u2014 '+fmt$(it.qty*it.price)+(it.est?' (est.)':'')); if(it.detail) lines.push('  '+it.detail); });
+    lines.push('Finishing: '+FINISH_LABELS[t.finish]);
+    if(t.specialty) lines.push('Specialty filament (silk/metallic): +$0.05/g, exact amount confirmed by text');
     if(t.rushFee>0) lines.push('Rush (1-2 days, +50%): +'+fmt$(t.rushFee));
-    lines.push('Est. subtotal: '+fmt$(t.items+t.rushFee));
+    lines.push('Est. subtotal: '+fmt$(t.items+t.finishFee+t.rushFee));
     lines.push('Shipping/handling: '+(f==='deliver'?'fee at checkout (confirmed by text)':fmt$(t.ship)));
     lines.push('Est. tax (Lincoln 7.25%): '+fmt$(t.tax));
     lines.push('ESTIMATED TOTAL: '+fmt$(t.total));

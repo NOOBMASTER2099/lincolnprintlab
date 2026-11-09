@@ -127,6 +127,12 @@ a.card{display:block}
   margin-bottom:8px;color:#fff;
 }
 .card p{color:var(--muted)}
+.card-link{
+  display:inline-block;margin-top:12px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;
+  font-size:13px;color:#fff;
+}
+a.card:hover .card-link{text-decoration:underline}
 footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
 .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
 .foot-brand{display:flex;gap:14px;align-items:flex-start}
@@ -305,7 +311,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="car-parts.html">Car Parts</a></li> <li><a href="index.html#what" aria-current="page">What we print</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
   </div>
 </header>
@@ -324,101 +330,59 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </div>
     </div>
   </section>
-<section class="wrap">
-    <h2 class="section-title">Follow the lab</h2>
-    <p class="section-sub">Daily free builds, print timelapses, and new drops — find us here.</p>
-    <div class="pills" style="justify-content:flex-start">
-      <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
-      <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a>
-    </div>
-  </section>
 <section class="wrap" id="dream">
     <h2 class="section-title">You dream it. We print it.</h2>
-    <p class="section-sub">You&rsquo;re the boss of what comes off our printers. Bring a file, a sketch, or just an idea &mdash; here&rsquo;s the kind of stuff Lincoln is already printing with us.</p>
+    <p class="section-sub">You&rsquo;re the boss of what comes off our printers. Bring a file, a sketch, or just an idea &mdash; pick a category and see what Lincoln is already printing with us.</p>
     <div class="what-grid">
       <a class="card" href="cosplay-helmets-props.html">
         <strong>Cosplay helmets &amp; props</strong>
         <p>Helmets, masks, armor pieces and props &mdash; sized to fit you, finished and ready to wear.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
       </a>
       <a class="card" href="rc-drone-parts.html">
         <strong>RC cars &amp; drone parts</strong>
         <p>Replacement parts, mounts, upgrades and custom bits that keep your rig running.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
       </a>
       <a class="card" href="larp-gear.html">
         <strong>LARP gear</strong>
         <p>Swords, shields, armor and props for your next event &mdash; built to your character.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
       </a>
-    </div>
-    <div class="what-grid" style="margin-top:16px">
       <a class="card" href="tabletop-gaming.html">
         <strong>Tabletop &amp; gaming</strong>
         <p>Minis, dice towers, terrain, card organizers and upgrades for your game night.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
       </a>
       <a class="card" href="home-decor-gifts.html">
         <strong>Home decor &amp; gifts</strong>
         <p>Lithophane photo lamps, planters, vases, wall art and personalized plaques.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
       </a>
-      <a class="card" href="quote.html">
-        <strong>Your idea here</strong>
-        <p>A broken part, a gift, a wild idea &mdash; if you can dream it, we can print it. You&rsquo;re number one.</p>
+      <a class="card" href="wall-art-plaques.html">
+        <strong>Wall art &amp; plaques</strong>
+        <p>Die-cut character plaques, custom name signs, and wall art &mdash; made to order in Lincoln.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
+      </a>
+      <a class="card" href="car-parts.html">
+        <strong>Car parts</strong>
+        <p>Brackets, mounts, adapters, clips and bezels for classic American cars &mdash; Monte Carlo, Cutlass, Regal, and more.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
+      </a>
+      <a class="card" href="plaques.html">
+        <strong>Custom plaques</strong>
+        <p>Custom name signs and plaques &mdash; preview an AI mockup, approve it, we print.</p>
+        <span class="card-link">Check out the selection &rarr;</span>
       </a>
     </div>
   </section>
-<section class="wrap" id="car-parts">
-    <h2 class="section-title">Car Parts</h2>
-    <p class="section-sub">Brackets, mounts, adapters, clips and bezels for classic American cars &mdash; printed right here in Lincoln. Monte Carlo, Cutlass, Regal, Grand Prix, El Camino, Malibu, Camaro, Mustang, Charger, and more. Don&rsquo;t see your car? Tell us what you need &mdash; we&rsquo;ll research it and track the part down for you.</p>
-    <div class="what-grid">
-      <a class="card" href="car-parts.html">
-        <strong>Dash bezels &amp; gauge pods</strong>
-        <p>Gauge bezels, radio bezels and dash mounts for classic GM, Ford and Chrysler cars.</p>
-      </a>
-      <a class="card" href="car-parts.html">
-        <strong>Speaker &amp; interior adapters</strong>
-        <p>6x9 rear-deck speaker adapters, cup holders, trim clips and interior bits that are getting hard to find.</p>
-      </a>
-      <a class="card" href="car-parts.html">
-        <strong>Engine bay parts</strong>
-        <p>Spark plug wire looms, brackets and engine-bay parts &mdash; printed in ASA and PETG for the heat.</p>
-      </a>
-    </div>
-    <div class="actions" style="margin-top:18px">
-      <a class="btn btn-primary" href="car-parts.html">See all car parts</a>
-      <a class="btn btn-ghost" href="quote.html">Request a part</a>
-    </div>
-  </section>
-<section class="wrap" id="what">
-    <h2 class="section-title">What we can do</h2>
-    <p class="section-sub">Functional parts, props, gifts, replacements — drop a file and we’ll take it from there.</p>
-    <div class="what-grid">
-      <div class="card">
-        <strong>Up to 4 colors per print</strong>
-        <p>Multi-color in one go — logos, figures, and fun color swaps without painting.</p>
-      </div>
-      <div class="card">
-        <strong>Big build volume</strong>
-        <p>Up to 420 × 420 × 480 mm. Room for large props, panels, and oversized parts.</p>
-      </div>
-      <div class="card">
-        <strong>Instant STL quotes</strong>
-        <p>Drop a file, see grams, time, and a dollar estimate before you text. Math runs in your browser.</p>
-      </div>
-    </div>
-    <div class="what-grid" style="margin-top:16px">
-      <div class="card">
-        <strong>Pick up, delivery, or mailed</strong>
-        <p>Grab it at 1717 O St, Lincoln when it’s ready, get it delivered in town, or have it shipped. Delivery fee and shipping confirmed after we see the file.</p>
-      </div>
-      <div class="card">
-        <strong>Simple pricing</strong>
-        <p>From $0.25/g by material. $15 minimum. Final price locked by text before we print. <a href="pricing.html" style="text-decoration:underline">See pricing</a></p>
-      </div>
-      <div class="card">
-        <strong>Material menu</strong>
-        <p>PLA, PETG, TPU, ABS, ASA, nylon, and more — pick what fits the job in the quote tool.</p>
+<section class="wrap" id="quote-cta">
+    <div class="card" style="text-align:center;padding:32px 22px">
+      <h2 class="section-title">Got a file or an idea?</h2>
+      <p class="section-sub" style="margin:0 auto 18px">Drop your STL and get an instant quote in your browser &mdash; then text us to lock it in. Pick up at 1717 O St, get it delivered in town, or we can mail it.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn btn-primary" href="quote.html">Get an instant quote</a>
+        <a class="btn btn-ghost" href="payment.html">Go to checkout</a>
       </div>
     </div>
   </section>

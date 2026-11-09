@@ -278,7 +278,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="car-parts.html">Car Parts</a></li> <li><a href="index.html#what">What we print</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html" aria-current="page">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html" aria-current="page">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
   </div>
 </header>
@@ -357,8 +357,35 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           </div>
         </div>
 
+        <div>
+          <h3 style="margin-bottom:10px">4. Finishing</h3>
+          <div class="fulfill" id="finish">
+            <label class="is-on">
+              <input type="radio" name="finish" value="raw" checked />
+              <span><strong style="color:#fff">Raw print — included</strong><br />As-printed, supports off</span>
+            </label>
+            <label>
+              <input type="radio" name="finish" value="assembled" />
+              <span><strong style="color:#fff">Assembled — +$18</strong><br />Multi-part glued/joined (+$10–$25)</span>
+            </label>
+            <label>
+              <input type="radio" name="finish" value="sanded" />
+              <span><strong style="color:#fff">Sanded + primed — +$22</strong><br />Sanded smooth and primed, ready to paint (+$15–$30)</span>
+            </label>
+            <label>
+              <input type="radio" name="finish" value="painted" />
+              <span><strong style="color:#fff">Painted — quoted</strong><br />Painted per job, $25 and up — Matt confirms the price by text</span>
+            </label>
+          </div>
+          <label style="display:flex;gap:10px;align-items:flex-start;margin-top:12px;cursor:pointer">
+            <input type="checkbox" id="specialty-box" style="margin-top:4px;accent-color:#fff" />
+            <span><strong style="color:#fff">Specialty filament (silk/metallic) +$0.05/g</strong><br /><span style="color:var(--muted)">Shiny silk or metallic filament — exact amount depends on weight, confirmed by text.</span></span>
+          </label>
+        </div>
+
         <div class="actions" style="margin-top:4px">
           <a class="btn btn-primary" id="btn-request" href="#" aria-disabled="true">Request this print</a>
+          <button class="btn btn-ghost" id="btn-add-cart" type="button">Add to cart</button>
           <a class="btn btn-ghost" id="btn-email" href="mailto:contact@lincolnprintlab.com">Email instead</a>
         </div>
         <div class="request-panel" id="request-panel">
@@ -432,6 +459,14 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     ASA:   { density: 1.07, rate: 0.32, label: 'ASA' },
     Nylon: { density: 1.14, rate: 0.40, label: 'Nylon' }
   };
+  /* Finishing tiers — same numbers as pricing.html and the checkout. */
+  var FINISH_FEES = { raw: 0, assembled: 18, sanded: 22, painted: 0 };
+  var FINISH_LABELS = {
+    raw: 'Raw print',
+    assembled: 'Assembled (+$18)',
+    sanded: 'Sanded + primed (+$22)',
+    painted: 'Painted (quoted)'
+  };
   /* ============================ */
 
   var dropzone = document.getElementById('dropzone');
@@ -441,6 +476,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   var blurbEl = document.getElementById('blurb');
   var btnRequest = document.getElementById('btn-request');
   var btnEmail = document.getElementById('btn-email');
+  var btnAddCart = document.getElementById('btn-add-cart');
   var requestPanel = document.getElementById('request-panel');
   var requestText = document.getElementById('request-text');
   var btnCopy = document.getElementById('btn-copy');
@@ -593,25 +629,42 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     return dims[0] <= bedSorted[0] && dims[1] <= bedSorted[1] && dims[2] <= bedSorted[2];
   }
 
+  function finishVal(){
+    var r = document.querySelector('input[name="finish"]:checked');
+    return r ? r.value : 'raw';
+  }
+  function finishFee(){
+    return FINISH_FEES[finishVal()] || 0;
+  }
+  function specialtyOn(){
+    var b = document.getElementById('specialty-box');
+    return !!(b && b.checked);
+  }
+
   function computeQuote(mesh, filename){
     var mat = currentMaterial();
     var grams = mesh.solidCm3 * mat.density * FILL_FACTOR;
     var hours = grams / GRAMS_PER_HOUR;
-    var raw = grams * mat.rate;
-    var price = roundMoney(raw);
+    var rate = mat.rate + (specialtyOn() ? 0.05 : 0);
+    var raw = grams * rate;
+    var fee = finishFee();
+    var price = roundMoney(raw + fee);
     var size = mesh.sizeMm;
     var fits = dimsFit(size, BED_MM);
     return {
       filename: filename,
       material: mat.label,
       density: mat.density,
-      rate: mat.rate,
+      rate: rate,
       colors: currentColors,
       sizeMm: size,
       grams: grams,
       hours: hours,
       price: price,
       raw: raw,
+      finish: finishVal(),
+      finishFee: fee,
+      specialty: specialtyOn(),
       fits: fits,
       solidCm3: mesh.solidCm3,
       triCount: mesh.triCount
@@ -633,6 +686,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       ' · ~' + fmtG(q.grams) + ' g' +
       ' · ~' + fmtH(q.hours) +
       (q.colors > 1 ? ' · ' + q.colors + ' colors · base estimate $' + q.price + ' (multi-color quoted)' : ' · estimate $' + q.price) +
+      ' · ' + (FINISH_LABELS[q.finish] || 'Raw print') +
+      (q.specialty ? ' · specialty filament (silk/metallic, +$0.05/g)' : '') +
       ' · ' + fulfillLabel() +
       (q.fits ? '' : ' · MAY NEED SPLIT / larger bed')
     );
@@ -671,7 +726,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       (multi ? q.colors + ' colors: final price quoted, depends on size and design · ' : '') +
       '$' + q.rate.toFixed(2) + '/g · min $' + MIN_PRICE +
       ' · ' + q.material + ' @ ' + q.density + ' g/cm³' +
-      ' · raw $' + q.raw.toFixed(2) + ' → rounded $' + q.price +
+      ' · raw $' + q.raw.toFixed(2) +
+      (q.finishFee > 0 ? ' + finish $' + q.finishFee : '') +
+      (q.finish === 'painted' ? ' · painted quoted per job ($25+)' : '') +
+      (q.specialty ? ' · specialty filament +$0.05/g' : '') +
+      ' → rounded $' + q.price +
       ' · ' + q.triCount.toLocaleString() + ' tris';
     updateLinks(q);
     fetchBlurb(q);
@@ -809,6 +868,25 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     recomputeIfReady();
+  });
+
+  if(btnAddCart) btnAddCart.addEventListener('click', function(){
+    if(!lastQuote){
+      setStatus('Upload a file first.', 'err');
+      return;
+    }
+    var q = lastQuote;
+    if(!window.LPLCart){
+      setStatus('Cart is not available right now — try refreshing the page.', 'err');
+      return;
+    }
+    var detail = q.material + ' · ~' + fmtG(q.grams) + ' g · ' + q.colors + ' color' + (q.colors > 1 ? 's' : '') +
+      ' · ' + (FINISH_LABELS[q.finish] || 'Raw print') +
+      (q.specialty ? ' · specialty filament' : '') + ' · ' + fulfillLabel();
+    window.LPLCart.addItem('Custom print — ' + q.filename, q.price, true, detail);
+    btnAddCart.textContent = 'Added to cart \u2713';
+    setTimeout(function(){ btnAddCart.textContent = 'Add to cart'; }, 2000);
+    setStatus('Added to cart — see the cart up top to check out.', 'ok');
   });
 
   btnRequest.addEventListener('click', function(e){
