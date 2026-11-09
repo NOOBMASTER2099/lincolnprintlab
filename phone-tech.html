@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Phone &amp; Tech Accessories | Lincoln Print Lab &mdash; Lincoln, NE</title>
+<meta name="description" content="Lincoln Print Lab &mdash; 3D-printed phone &amp; tech accessories in Lincoln, NE. Download the model or get a quote." />
+<link rel="icon" href="logo.jpg" type="image/jpeg" />
+<link rel="apple-touch-icon" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#000000;
+  --panel:#121214;
+  --accent:#f4f1ea;
+  --accent-hot:#ffffff;
+  --ink:#f4f1ea;
+  --muted:#a8a59c;
+  --line:#2a2a2e;
+  --glow:rgba(255,255,255,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  background-image:none;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(0,0,0,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.brand-name{font-family:Bangers,cursive;font-size:24px;letter-spacing:1.5px;line-height:1}
+.brand-name span{color:var(--accent-hot);opacity:.85}
+nav ul{display:flex;gap:16px;list-style:none;flex-wrap:wrap}
+nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
+nav a:hover{color:#fff}
+.cart-chip{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px;
+  color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+  white-space:nowrap;flex-shrink:0;
+}
+.cart-chip:hover{border-color:#fff;color:#fff}
+.cart-chip.has-items{border-color:rgba(255,255,255,.55);color:#fff}
+.add-cart-btn{
+  margin-top:12px;display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);
+  background:transparent;color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-weight:600;font-size:13px;cursor:pointer;
+}
+.add-cart-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.add-cart-btn.is-added{border-color:#9dffa8;color:#9dffa8}
+
+.kicker{
+  font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);font-size:13px;margin-bottom:12px;
+}
+h1{
+  font-family:Bangers,cursive;
+  font-size:clamp(46px,7vw,80px);
+  line-height:.92;letter-spacing:2px;margin-bottom:18px;
+}
+.lede{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:999px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;
+}
+.btn-primary{background:var(--accent-hot);color:#070708}
+.btn-primary:hover{background:#e8e4da}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+section{padding:48px 0}
+.section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:18px;max-width:720px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card img { width: 100%; border-radius: 12px; margin-bottom: 12px; aspect-ratio: 4/3; object-fit: cover; background: #0a0a0c; display: block;}
+.card h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:8px;color:#fff;
+}
+.card p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:14px;align-items:flex-start}
+.foot-brand img{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#000;border:0}
+.foot-brand strong{color:#fff}
+.foot-brand a{color:var(--muted)}
+.foot-brand a:hover{color:#fff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:720px;justify-content:flex-end}
+.pills a{
+  color:var(--ink);font-family:Oswald,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;font-size:13px;
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+}
+.pills a:hover{border-color:#fff;color:#fff}
+.prod-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
+}
+.prod-grid .card strong{
+  display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:6px;
+}
+.order-block{
+  margin-top:20px;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:28px;
+}
+.order-block h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;margin-bottom:8px;
+}
+.order-block > p{color:var(--muted);margin-bottom:18px;max-width:640px}
+@media(max-width:860px){
+  nav ul{display:none}
+  .pills{justify-content:flex-start}
+  .prod-grid{grid-template-columns:1fr}
+}
+/* Car Parts page extras */
+.fits{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;
+  font-size:13px;color:#fff;margin-top:10px;
+}
+.part-note{font-size:13px;font-style:italic;margin-top:6px}
+.part-link{
+  display:inline-block;margin-top:12px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  font-size:13px;color:#fff;text-decoration:underline;
+}
+.part-link:hover{color:#e8e4da}
+.tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;
+  letter-spacing:.08em;font-size:11px;border:1px solid rgba(255,255,255,.28);
+  color:var(--muted);border-radius:999px;padding:3px 9px;margin:0 6px 10px 0;
+}
+.tag.hot{border-color:#fff;color:#fff}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
+    </a>
+    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+  </div>
+</header>
+<main id="top">
+<section class="wrap" id="phone-tech">
+    <h2 class="section-title">Phone &amp; Tech Accessories</h2>
+    <p class="section-sub">Pick from our inventory — phone stands, cable holders, headphone stands, tablet stands and more. Download the model you like, then send us the file and we'll give you an exact quote. Practical desk and tech prints. Don't see what you need? Tell us what you're looking for — we'll research it and track it down for you.</p>
+    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
+    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+
+    <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
+      <a href="#phone-stands">Phone Stands &amp; Holders</a>
+      <a href="#charging-docks">Charging Docks &amp; Watch Stands</a>
+      <a href="#cable-management">Cable Management &amp; Organizers</a>
+      <a href="#headphone-audio">Headphone &amp; Audio Stands</a>
+      <a href="#tablet-laptop">Tablet &amp; Laptop Stands</a>
+      <a href="#controllers-webcam">Controllers, Webcam &amp; Desk Tech</a>
+    </div>
+  </section>
+
+<section class="wrap" id="phone-stands">
+    <h2 class="section-title">Phone Stands &amp; Holders</h2>
+    <p class="section-sub">Adjustable, folding, and print-in-place phone stands for desk, bedside, and travel.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/373624/images/3163303_31721263-4ccb-45ed-808f-4d2af4f23c57/thumbs/inside/1280x960/jpeg/image-45.webp" alt="Compliant Phone Stand (Fully 3D Printed)" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Compliant Phone Stand (Fully 3D Printed)</strong>
+        <p>Adjustable phone stand using a compliant spring and control surface to hold stable at 11-degree intervals; lightweight, strong, and compact.</p>
+        <p class="fits">Printables &middot; by MW-Mechanical &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Adjusts in 11-degree steps; ~3h30m print; snap bolt + spring assembly</p>
+        <a class="part-link" href="https://www.printables.com/model/373624-compliant-phone-stand-fully-3d-printed" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/532030/images/4295579_911c0a8d-9976-458c-98d4-e7f2b5fc5e48/thumbs/inside/1280x960/jpg/20230720_220348.webp" alt="Parametric Adjustable Phone/Tablet Stand" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Parametric Adjustable Phone/Tablet Stand</strong>
+        <p>Fully parametric phone or tablet stand — tilt, depth, width, and device thickness can all be tuned to suit your device.</p>
+        <p class="fits">Printables &middot; by smartroad &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fully parametric in OnShape; demo parts for phones included</p>
+        <a class="part-link" href="https://www.printables.com/model/532030-parametric-adjustable-phonetablet-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/781373/stls/6067735_0b1cb29b-ab2d-4ca1-af2a-2c59638cf2a7_a35d3d40-ef7d-4f5c-a3e4-40eb74809efd/thumbs/inside/1280x960/png/keychain-stand_preview.webp" alt="Compact Adjustable Phone Stand for Keychain" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Compact Adjustable Phone Stand for Keychain</strong>
+        <p>Tiny portable phone stand that rides on a keychain; adjustable to fit different phone sizes and viewing angles.</p>
+        <p class="fits">Printables &middot; by danec &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 1x M3 nut + 5mm M3 screw; print in PETG</p>
+        <a class="part-link" href="https://www.printables.com/model/781373-compact-adjustable-phone-stand-for-keychain" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/172807/images/1626246_69ebaad5-7a49-4b15-a2ac-2d029b04a44d/thumbs/inside/1280x960/jpg/sextant2.webp" alt="Sextant Tilt/Roll Phone Cradle" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Sextant Tilt/Roll Phone Cradle</strong>
+        <p>Phone stand with a nautical flair — adjust the tilt angle and roll the phone left or right into landscape mode.</p>
+        <p class="fits">Printables &middot; by LoboCNC &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 2 small rubber bands; sized for 75-82mm wide phones</p>
+        <a class="part-link" href="https://www.printables.com/model/172807-sextant-tiltroll-phone-cradle" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/436380/images/3638878_34018873-0c0c-4cda-ac9a-fff46aeb6e76/thumbs/inside/1280x960/jpeg/img_9836.webp" alt="Jimmy's Adjustable Phone and Tablet Stand" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Jimmy's Adjustable Phone and Tablet Stand</strong>
+        <p>Fully printable stand with an adjustable angle, charging cable cutaways, and sound-passing channels; scales from phones to iPad Pro.</p>
+        <p class="fits">Printables &middot; by Cupcake155 &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Printable screw; cable cutaways and sound holes; scale to 75% for phones</p>
+        <a class="part-link" href="https://www.printables.com/model/436380-jimmys-adjustable-phone-and-tablet-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/574648/images/4745634_48baa653-b46a-4c1c-8df9-d67ca042b809_aba201dd-7d6a-46fb-9e36-f51e474affc9/thumbs/inside/1280x960/jpg/fold-cover.webp" alt="FOLDY 2.0 - The Foldable and Adjustable Phone Holder" loading="lazy" onerror="this.style.display='none'" />
+        <strong>FOLDY 2.0 - The Foldable and Adjustable Phone Holder</strong>
+        <p>Foldable, adjustable phone holder that collapses to fit in a pocket or bag; holds phones vertically or horizontally, plus tablets and Switch.</p>
+        <p class="fits">Printables &middot; by MadMango &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Folds flat for travel; holds phones, tablets and Switch; locking hooks</p>
+        <a class="part-link" href="https://www.printables.com/model/574648-foldy-20-the-foldable-and-adjustable-phone-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/247389/images/2227864_950bd942-c84b-44c8-9bb1-23cbb3313fcf/thumbs/inside/1280x960/jpg/20220106_194825.webp" alt="Adjustable Phone Stand" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Adjustable Phone Stand</strong>
+        <p>Simple phone stand with a slotted wedge that sets several viewing angles; keeps the phone still for videos and video calls.</p>
+        <p class="fits">Printables &middot; by Materialistic_3D &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Wedge slots into several holes for multiple angles; ~1h30m print; no supports</p>
+        <a class="part-link" href="https://www.printables.com/model/247389-adjustable-phone-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/36775/images/362968_f3022b0e-9bac-40ee-924e-ed72a6f162e6/thumbs/inside/1280x960/jpg/1c.webp" alt="Wireless Charging Adjustable Phone Stand" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Wireless Charging Adjustable Phone Stand</strong>
+        <p>Print-in-place hinged stand that is fully adjustable and supports wireless charging in portrait and landscape; also handy for charging AirPods.</p>
+        <p class="fits">Printables &middot; by Steven Erickson &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print-in-place hinge; fits a wireless charging pad (pad not included); also charges AirPods</p>
+        <a class="part-link" href="https://www.printables.com/model/36775-wireless-charging-adjustable-phone-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/827267/images/6382090_a35c41e8-e682-4675-8d0f-d790bd7a5802_ce0ad5a7-46db-4b91-97e7-3ac555e36744/thumbs/inside/1280x960/png/phone-holder-transparent.webp" alt="Modern Phone Holder With Airpods Side Tray" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Modern Phone Holder With Airpods Side Tray</strong>
+        <p>Sleek modern phone stand with a built-in hole for the charger cable and a side tray for AirPods.</p>
+        <p class="fits">Printables &middot; by 3DPrintex &middot; Free download</p>
+        <p class="part-note">License: Creative Commons 4.0 (variant not stated on page fetch) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Cable hole + AirPods side tray; print sideways to cut supports</p>
+        <a class="part-link" href="https://www.printables.com/model/827267-modern-phone-holder-with-airpods-side-tray" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/947403/images/7232339_51ffa78d-ca64-4c8b-949c-8e5dbff1471f_3dba9382-6b59-4741-a995-edf33ec5e499/thumbs/inside/1280x960/jpg/large_display_b15fa79f-df86-4ee4-8fcc-451d660d2a18_947403.webp" alt="Low Poly Hand Phone Stand &amp; Controller Holder – Support-Free Print" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Low Poly Hand Phone Stand &amp; Controller Holder – Support-Free Print</strong>
+        <p>Low-poly hand that holds a phone or a game controller on your desk; support-free print, modern gaming-setup look.</p>
+        <p class="fits">Printables &middot; by RyGuy Design &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Support-free; holds phone or Xbox/PS5/Switch controller</p>
+        <a class="part-link" href="https://www.printables.com/model/947403-low-poly-hand-phone-stand-controller-holder-suppor" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="charging-docks">
+    <h2 class="section-title">Charging Docks &amp; Watch Stands</h2>
+    <p class="section-sub">MagSafe docks, 3-in-1 charging stations, and Apple Watch stands — most need the customer's own charging pucks.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US618d0206a46d97/design/0c731e88c6182ec5.jpg" alt="Magsafe Wireless Phone Charging Stand - Pixel Snap" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Magsafe Wireless Phone Charging Stand - Pixel Snap</strong>
+        <p>Dual wireless charger stand: MagSafe/Pixel Snap phone upright plus a base pad for AirPods or other wireless-charging earbuds.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs MagSafe/Pixel Snap charger puck and Qi earbud puck (not included)</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2565122-magsafe-wireless-phone-charging-stand-pixel-snap" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US41566c92948d46/design/24a63d738e696eb4.png" alt="DRIFTROOT – Organic Sculpted Phone Stand &amp; Charger" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>DRIFTROOT – Organic Sculpted Phone Stand &amp; Charger</strong>
+        <p>Sculptural phone dock inspired by tangled roots and driftwood, with an open bottom for charging cord access while docked.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Open bottom for charging cord access; universal fit for most smartphones</p>
+        <a class="part-link" href="https://makerworld.com/en/models/3001131-driftroot-organic-sculpted-phone-stand-charger" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US12a1cd132d9adf/design/2025-12-19_9ad37cf4c23fc8.jpeg" alt="GameDock Pro–MagSafe iPhone &amp; Android ChargingBase" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>GameDock Pro–MagSafe iPhone &amp; Android ChargingBase</strong>
+        <p>Gaming-inspired universal MagSafe wireless charging stand for iPhone 12+ and MagSafe-compatible Android phones.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits standard Apple MagSafe charger (56mm); phones up to 78mm wide with case</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2133760-gamedock-pro-magsafe-iphone-android-chargingbase" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US819b165acc2222/design/2025-06-23_824bd047d16938.jpeg" alt="The Orchard Dock" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>The Orchard Dock</strong>
+        <p>Clean, compact 3-in-1 charging station for iPhone, Apple Watch, and AirPods, with dual-orientation phone mount for StandBy mode.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 3-in-1: iPhone + Apple Watch + AirPods; needs charging pucks and USB hub (not included)</p>
+        <a class="part-link" href="https://makerworld.com/en/models/1545979-the-orchard-dock" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USa7591a51bb542/design/bea21846b546a3e6.jpg" alt="Aero Dock MagSafe Charger" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Aero Dock MagSafe Charger</strong>
+        <p>Minimal MagSafe phone stand and charging dock with built-in cable management; fully parametric so the charger opening can be sized before printing.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Parametric — adjust charger opening before printing; fits official Apple MagSafe charger</p>
+        <a class="part-link" href="https://makerworld.com/en/models/3025327-aero-dock-magsafe-charger" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US44afb16cf9fe24/design/3ab62c899fd562d7.jpg" alt="Bonsai MagSafe Charger Phone Dock (no AMS needed)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Bonsai MagSafe Charger Phone Dock (no AMS needed)</strong>
+        <p>Bonsai-inspired MagSafe stand for desk or nightstand; the charger press-fits into the trunk and the cable routes out the back.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No AMS needed; fits latest Apple MagSafe charger (braided cable, 25W); 22cm tall</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2542586-bonsai-magsafe-charger-phone-dock-no-ams-needed" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/279517/previews/thumbs/inside/1280x960/png/b711ce36-3e3d-4096-802e-9e71ad4fa5a8.webp" alt="3-in-1 Phone, Watch, and Airpods Charger Dock" loading="lazy" onerror="this.style.display='none'" />
+        <strong>3-in-1 Phone, Watch, and Airpods Charger Dock</strong>
+        <p>3-in-1 dock for a Yootech wireless charger, Apple Watch, and 2nd-gen AirPods; straightforward print with minimal supports.</p>
+        <p class="fits">Printables &middot; by ShlimDogMillionaire &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs Yootech wireless charger + Apple Watch USB-C cable; phones under 80mm wide</p>
+        <a class="part-link" href="https://www.printables.com/model/279517-3-in-1-phone-watch-and-airpods-charger-dock" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/753876/images/5882787_9b1558d9-0d0f-448b-a308-60c75d96a9de_b4a3d479-3d66-4b34-9e2f-12cd9298ba24/thumbs/inside/1280x960/jpeg/img_8837.webp" alt="Apple Watch Charging Stand" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Apple Watch Charging Stand</strong>
+        <p>Clean Apple Watch charging stand for any model, old or new, with a built-in cable channel to keep the nightstand tidy.</p>
+        <p class="fits">Printables &middot; by chrisebryan &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits all Apple Watch models; built-in cable channel</p>
+        <a class="part-link" href="https://www.printables.com/model/753876-apple-watch-charging-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/1283514/previews/thumbs/inside/1280x960/png/c9ea12f0-49fa-44c3-ac7d-285bd3ba6e86.webp" alt="Magnetic Charging Stand for iPhone, Apple Watch &amp; AirPods - MagSafe - Four Versions" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Magnetic Charging Stand for iPhone, Apple Watch &amp; AirPods - MagSafe - Four Versions</strong>
+        <p>MagSafe charging stand for iPhone Pro Max, Apple Watch, and AirPods Pro in four versions — phone only, phone + watch, phone + AirPods, or all three.</p>
+        <p class="fits">Printables &middot; by STORM DESIGN &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Four versions (iPhone only / +Watch / +AirPods / all three); optional colour overlay for the MagSafe charger; specific charger models only — check page</p>
+        <a class="part-link" href="https://www.printables.com/model/1283514-magnetic-charging-stand-for-iphone-apple-watch-air" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/152251/images/2157608_da5286d4-acc5-48f0-b22b-2aae2b44f761/thumbs/inside/1280x960/jpg/stand2.webp" alt="New Version: 3 in 1 Apple iPhone Magsafe Charger with Apple Watch and Airpod charger" loading="lazy" onerror="this.style.display='none'" />
+        <strong>New Version: 3 in 1 Apple iPhone Magsafe Charger with Apple Watch and Airpod charger</strong>
+        <p>Desktop stand holding an iPhone MagSafe charger, Apple Watch charger, and AirPods Lightning charger; Max and non-Max versions.</p>
+        <p class="fits">Printables &middot; by JoeMikeMakes &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Max and non-Max versions; needs MagSafe-compatible case; OEM Apple USB-A to Lightning cable only</p>
+        <a class="part-link" href="https://www.printables.com/model/152251-new-version-3-in-1-apple-iphone-magsafe-charger-wi" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="cable-management">
+    <h2 class="section-title">Cable Management &amp; Organizers</h2>
+    <p class="section-sub">Cable holders, winders, trays, and under-desk organizers to tame charger and desk cables.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/7cd76684-3dd2-44d4-8455-32bcdae45914/images/11886373_e2941951-1952-41b7-9536-097fdc14a233_93bd3030-1e9a-4b37-a7de-cd4a00e78631/thumbs/inside/1280x960/png/gemini_generated_image_tb925ptb925ptb92.webp" alt="Charger Cable Organizer final edition" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Charger Cable Organizer final edition</strong>
+        <p>Polished print-in-place cable organizer for phone charger cords and USB cables; two slot sizes fit USB-A, USB-C, Lightning, and micro-USB.</p>
+        <p class="fits">Printables &middot; by DFV Tech &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print-in-place; fits USB-A, USB-C, Lightning and micro-USB</p>
+        <a class="part-link" href="https://www.printables.com/model/1482294-charger-cable-organizer-final-edition" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/1456960/previews/thumbs/inside/1280x960/png/204a173a-50ec-4c60-8d32-02389a8e9bdb.webp" alt="Stackable Cable Winder – Smart Desk Cable Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Stackable Cable Winder – Smart Desk Cable Organizer</strong>
+        <p>Stackable cable winder that keeps charging cords, earphones, and USB cables neat in a compact tower; Standard and Large sizes.</p>
+        <p class="fits">Printables &middot; by AJK &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Stackable tower; Standard fits cables to ~1.5m, Large to ~2.0m</p>
+        <a class="part-link" href="https://www.printables.com/model/1456960-stackable-cable-winder-smart-desk-cable-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/122972/images/1187391_241bf068-fc07-45d5-97e1-24c9888de73b/thumbs/inside/1280x960/jpg/lr-20220123-002.webp" alt="Cable Organizer with Slide-in Lock – Various Sizes" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Cable Organizer with Slide-in Lock – Various Sizes</strong>
+        <p>Round cable organizer with a sideways slide-in lock for power and network cables; screws to a wall, ceiling, or under a desk.</p>
+        <p class="fits">Printables &middot; by Metikumi &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print in PETG or ASA, not PLA; screws to wall, ceiling or under desk</p>
+        <a class="part-link" href="https://www.printables.com/model/122972-cable-organizer-with-slide-in-lock-various-sizes" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/387909/images/3851548_0e068e4f-1b77-48c6-b5f3-fefae9b36556/thumbs/inside/1280x960/png/cable-organiser-rendering-hohe-qualitat.webp" alt="Improved Clamp on Desk Parametric Cable Organizer (Remix)" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Improved Clamp on Desk Parametric Cable Organizer (Remix)</strong>
+        <p>Parametric cable organizer that clamps to the desk edge with a printed screw — no drilling into the table.</p>
+        <p class="fits">Printables &middot; by Bene &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Clamps desks 16-28mm thick; printed M8 screw</p>
+        <a class="part-link" href="https://www.printables.com/model/387909-improved-clamp-on-desk-parametric-cable-organizerr" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/bbaf741d-b41b-410a-981a-650226a43a88/images/11826149_898854ca-c2af-4b40-9e1b-7f7f8690198c_8cb51678-3744-4f68-a50f-d0d0a7276855/thumbs/inside/1280x960/png/generated-image-january-24-2026-11_19pm.webp" alt="Cable Holder / Cable Organizer – Minimalist Desk Solution" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Cable Holder / Cable Organizer – Minimalist Desk Solution</strong>
+        <p>Simple minimalist cable holder for charging cables, USB cables, and headphones on a desk, nightstand, or workbench.</p>
+        <p class="fits">Printables &middot; by ANY3D &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No supports; PLA or PETG</p>
+        <a class="part-link" href="https://www.printables.com/model/1569662-cable-holder-cable-organizer-minimalist-desk-solut" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/126324/images/1218242_b8e2f9cf-cd80-4615-b237-88e3b9c66664/thumbs/inside/1280x960/jpg/clamp-on_holder1_new.webp" alt="Clamp-on Cable Holder/Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Clamp-on Cable Holder/Organizer</strong>
+        <p>Non-invasive cable organizer that clamps onto a desk, workbench, or shelf — no adhesive, no screws, no damage to furniture.</p>
+        <p class="fits">Printables &middot; by Schrittmotor &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Clamps plates up to 4cm thick; no drilling or adhesive</p>
+        <a class="part-link" href="https://www.printables.com/model/126324-clamp-on-cable-holderorganizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/127013/stls/1220326_dfe68959-202a-4742-ac63-c3f748e4af93/thumbs/inside/1280x960/png/minimalistic-cable-tie-down-organizer_preview.webp" alt="Minimalistic Zip Tie Under Desk Cable Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Minimalistic Zip Tie Under Desk Cable Organizer</strong>
+        <p>Tiny under-desk cable organizer with two zip-tie slots; screws or sticks under the desk and prints in under 20 minutes.</p>
+        <p class="fits">Printables &middot; by Luke &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $15 &middot; 5.5g per piece; under 20 minutes; needs zip ties + #6 screws or Command strips</p>
+        <a class="part-link" href="https://www.printables.com/model/127013-minimalistic-zip-tie-under-desk-cable-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/917558/previews/thumbs/inside/1280x960/png/d4653c06fec5b6762e59d83603dd84cc455d161f.webp" alt="Desk Cable Tray" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Desk Cable Tray</strong>
+        <p>Large under-desk cable tray for cables, power bricks, and surge protectors; 200mm pieces join side by side to any length.</p>
+        <p class="fits">Printables &middot; by Rawkish &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; PLA $35 &middot; PETG $39 &middot; 200mm long; pieces join side by side; holds surge protectors and power bricks</p>
+        <a class="part-link" href="https://www.printables.com/model/917558-desk-cable-tray" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="headphone-audio">
+    <h2 class="section-title">Headphone &amp; Audio Stands</h2>
+    <p class="section-sub">Desktop headphone stands, headset holders, and AirPods docks.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/111205/images/1096570_be1a30e8-9385-4212-94b0-c8f798c03966/thumbs/inside/1280x960/jpg/no-logo.webp" alt="Airpod Holder (First and Second Generation)" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Airpod Holder (First and Second Generation)</strong>
+        <p>Desktop stand/holder for 1st- and 2nd-generation AirPods cases; blank-face version included for custom logos.</p>
+        <p class="fits">Printables &middot; by LayerByLayerDesign &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits AirPods 1st and 2nd gen cases; blank-face version for custom logos</p>
+        <a class="part-link" href="https://www.printables.com/model/111205-airpod-holder-first-and-second-generation" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/707021/images/5546584_91a0b9d4-fdad-4f50-b491-7bda323a477a_86764db4-23f2-42df-a986-742cd4fb5753/thumbs/inside/1280x960/jpg/pebblely-21.webp" alt="Airpods Max Stand, Holder, Dock, Deep Sleep Mode" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Airpods Max Stand, Holder, Dock, Deep Sleep Mode</strong>
+        <p>Adjustable-height stand and dock for AirPods Max with a deep sleep mode; Standard and Slim versions included.</p>
+        <p class="fits">Printables &middot; by Levytek &middot; Free download</p>
+        <p class="part-note">License: Personal use only — commercial licence via Levytek shop/membership &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 2x 10x5mm magnets; Standard and Slim versions; deep sleep mode</p>
+        <a class="part-link" href="https://www.printables.com/model/707021-airpods-max-stand-holder-dock-deep-sleep-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/461777/images/3789557_791ba37f-3a9d-4878-aeae-1d802d7707e6/thumbs/inside/1280x960/jpg/iso_assembled_headset.webp" alt="Headphone stand" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Headphone stand</strong>
+        <p>Sleek, sturdy headphone stand for headphones of different sizes; uses under 100g of filament and fits on a Prusa Mini+.</p>
+        <p class="fits">Printables &middot; by twothingies &middot; Free download</p>
+        <p class="part-note">License: Personal use only — commercial licence via membership &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Under 100g filament; largest part 180mm — fits Prusa Mini+</p>
+        <a class="part-link" href="https://www.printables.com/model/461777-headphone-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/793818/images/6860186_02f0f142-290b-4a03-9a91-e2f10f9a80f8/thumbs/inside/1280x960/jpg/dscf9913.webp" alt="Headphone Stand - Industrial" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Headphone Stand - Industrial</strong>
+        <p>Headphone stand with industrial styling, built for larger headphones; Bambu Studio project file included.</p>
+        <p class="fits">Printables &middot; by Josh-3d &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs M4 screws; industrial styling; fits larger headphones</p>
+        <a class="part-link" href="https://www.printables.com/model/793818-headphone-stand-industrial" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/944118/images/7988767_dc256462-a0e2-46ba-87ba-59bda7b526b3/thumbs/inside/1280x960/jpg/ces6.webp" alt="Curvy Headphone Stand" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Curvy Headphone Stand</strong>
+        <p>Elegant curved headphone holder, 230mm tall, with a decorative colour profile that prints separately and snaps into a groove.</p>
+        <p class="fits">Printables &middot; by Sparks3D &middot; Free download</p>
+        <p class="part-note">License: Creative Commons 4.0 (variant not stated on page fetch) &middot; PLA $16 &middot; PETG $18 &middot; Multicolor &middot; 65g no-walls version, 135g walled version; decorative colour profile prints separately</p>
+        <a class="part-link" href="https://www.printables.com/model/944118-curvy-headphone-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/1130671/images/9750303_3baff5ce-8f40-4220-812e-9ecb893e2219/thumbs/inside/1280x960/jpg/side.webp" alt="Lander Headset Stand" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Lander Headset Stand</strong>
+        <p>Headset stand with a lunar lander theme — the design of the body carries through into the legs.</p>
+        <p class="fits">Printables &middot; by Adrian West &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Lunar lander theme; needs rubber feet + M2 thread-forming screws</p>
+        <a class="part-link" href="https://www.printables.com/model/1130671-lander-headset-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/16436/stls/156585_fbd883e0-968f-4939-9731-0831e64f1ee5/thumbs/inside/1280x960/png/headphone_stand_v2_addon_for_wires_preview.webp" alt="Headphone stand" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Headphone stand</strong>
+        <p>Classic desktop headphone stand, 15 x 15 x 22.7cm; simple print with optional add-on parts.</p>
+        <p class="fits">Printables &middot; by Merkif &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 15 x 15 x 22.7cm; ~10 hour print</p>
+        <a class="part-link" href="https://www.printables.com/model/16436-headphone-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/511596/stls/4183565_8bc62e56-e0e0-4e31-9ec1-cfab02a9ba60/thumbs/inside/1280x960/png/headphonemount-v19_preview.webp" alt="Albert Einstein Headphone Stand - Support Free" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Albert Einstein Headphone Stand - Support Free</strong>
+        <p>Support-free headphone stand built from an Albert Einstein bust; prints in about 10.8 hours at 100% scale.</p>
+        <p class="fits">Printables &middot; by ntalekt &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; PLA $61 &middot; PETG $69 &middot; Bust of a real person (Albert Einstein) — display only; 10.8h print at 100% scale; marble PLA in photos</p>
+        <a class="part-link" href="https://www.printables.com/model/511596-albert-einstein-headphone-stand-support-free" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="tablet-laptop">
+    <h2 class="section-title">Tablet &amp; Laptop Stands</h2>
+    <p class="section-sub">Tablet holders, car mounts, wall mounts, and laptop risers for desk and travel.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/848165/images/7076000_8c290e8b-6016-4f1e-9017-047eb47c8616/thumbs/inside/1280x960/jpg/img_9933.webp" alt="Foldable adjusting tablet stand/holder" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Foldable adjusting tablet stand/holder</strong>
+        <p>Foldable, adjustable stand for iPad Air or any similar-size tablet; no supports needed.</p>
+        <p class="fits">Printables &middot; by kinkis &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 4x M3x20 screws; tablet holder body prints twice</p>
+        <a class="part-link" href="https://www.printables.com/model/848165-foldable-adjusting-tablet-standholder" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/1b4167c3-98f3-4cd8-8e1c-79f5a9ceeb51/previews/thumbs/inside/1280x960/png/f059d101-c005-47f7-a4b4-94353f1a604c.webp" alt="Car Tablet Mount (All sizes collection)" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Car Tablet Mount (All sizes collection)</strong>
+        <p>Tablet holder that snaps onto car headrest posts for back-seat viewing; sizes for iPad and Android tablets, 8in and up.</p>
+        <p class="fits">Printables &middot; by Matyáš Grohmann &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Snaps onto car headrest posts; sizes for iPad and Android, 8in and up</p>
+        <a class="part-link" href="https://www.printables.com/model/1608425-car-tablet-mount-all-sizes-collection" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/852735/previews/thumbs/inside/1280x960/png/e2bcae7fd870784fc59ec08c5508bca7b3f1f937.webp" alt="Ipad/Android Tablet &amp; Phone Simple Wall Mount" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Ipad/Android Tablet &amp; Phone Simple Wall Mount</strong>
+        <p>Simple wall mount for tablets and phones — slide the device in for charging or easy touch-screen access.</p>
+        <p class="fits">Printables &middot; by 3dcdesign &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Screws to wall; 9.5mm slot fits tablets and phones with covers</p>
+        <a class="part-link" href="https://www.printables.com/model/852735-ipadandroid-tablet-phone-simple-wall-mount" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/671183/stls/5277454_1c94c217-27f8-41c1-b348-c77fdc200871_8a6fcb5e-ff44-46e7-b36c-0b80e34f963f/thumbs/inside/1280x960/png/tablet-stand-remix-with-side-grips_preview.webp" alt="Tablet stand/holder with side grips" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Tablet stand/holder with side grips</strong>
+        <p>Tablet stand with side grips so the tablet can't slide out sideways, and a grip on the back to carry tablet and stand one-handed.</p>
+        <p class="fits">Printables &middot; by dbw_dad &middot; Free download</p>
+        <p class="part-note">License: CC BY-NC 4.0 &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Remix with side grips so tablet can't slide out; scale to your tablet length</p>
+        <a class="part-link" href="https://www.printables.com/model/671183-tablet-standholder-with-side-grips" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/177620/stls/1664633_fdfdc0bb-95d9-4880-8ff4-5f3e756ca4e4/thumbs/inside/1280x960/png/ipadholder_preview.webp" alt="Magic Keyboard inspired magnetic iPad Pro 11″, Air 4. and 5 Generation holder" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Magic Keyboard inspired magnetic iPad Pro 11″, Air 4. and 5 Generation holder</strong>
+        <p>Thin magnetic iPad holder inspired by the Magic Keyboard; uses 26 small magnets to hold an iPad Pro 11in or iPad Air 4/5.</p>
+        <p class="fits">Printables &middot; by MasonVX &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 26x 4x4mm magnets; iPad Pro 11in / Air 4 and 5</p>
+        <a class="part-link" href="https://www.printables.com/model/177620-magic-keyboard-inspired-magnetic-ipad-pro-11-air-4" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USd5f1484dcd6b8b/design/1f28712d8de44489.png" alt="XTAND - a versatile stand for any device" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>XTAND - a versatile stand for any device</strong>
+        <p>Universal extendable stand for laptops, tablets, synthesizers, and keyboards; 6 ready-to-print sizes plus a fully parametric configurator.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 6 sizes (S-XXL); fully parametric; snap-fit, no glue</p>
+        <a class="part-link" href="https://makerworld.com/en/models/3080974-xtand-a-versatile-stand-for-any-device" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US3ec306c4956654/design/8ecc26266b866bd4.jpeg" alt="Laptop stand or riser - wave style" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Laptop stand or riser - wave style</strong>
+        <p>Wave-style laptop stand or riser; the wave crests suit laptops of many depths, and each piece is 50mm wide.</p>
+        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
+        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 50mm wide per piece; matching wave-style phone/tablet stand also available</p>
+        <a class="part-link" href="https://makerworld.com/en/models/2930682-laptop-stand-or-riser-wave-style" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap" id="controllers-webcam">
+    <h2 class="section-title">Controllers, Webcam &amp; Desk Tech</h2>
+    <p class="section-sub">Game controller stands, webcam privacy covers, and small desk-tech prints.</p>
+    <div class="prod-grid">
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/528389/images/4273624_a62a8098-7405-4a0d-af40-3809fb9e8202/thumbs/inside/1280x960/jpg/img_7771.webp" alt="Game Controller Stand - Kit Card" loading="lazy" onerror="this.style.display='none'" />
+        <span class="tag">Display only</span>
+        <strong>Game Controller Stand - Kit Card</strong>
+        <p>Controller stand in a kit-card layout with detachable nubs and part labelling; designed for Xbox Series S/X and Xbox One.</p>
+        <p class="fits">Printables &middot; by Cherry Hill Tech &middot; Free download</p>
+        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Kit-card layout; 3 parts; designed for Xbox Series S/X and One</p>
+        <a class="part-link" href="https://www.printables.com/model/528389-game-controller-stand-kit-card" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/419592/images/3478432_6b4587c9-5ea2-41e4-bd1f-0a5c1d7873cb/thumbs/inside/1280x960/jpg/img_6058.webp" alt="Minimalistic Xbox Controller Stand" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Minimalistic Xbox Controller Stand</strong>
+        <p>Space-saving minimalist controller stand that holds the controller vertically; two widths (40mm and 58mm), no supports.</p>
+        <p class="fits">Printables &middot; by Cherry Hill Tech &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 40mm and 58mm wide versions; ~1h26m print; no supports</p>
+        <a class="part-link" href="https://www.printables.com/model/419592-minimalistic-xbox-controller-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/209988/images/1926878_e355f2e3-2ab3-4e96-b7f0-bad1771baec6/thumbs/inside/1280x960/jpg/xbox-controller-couch-view-front.webp" alt="The Controller Couch: a stand for multiple XBox controllers" loading="lazy" onerror="this.style.display='none'" />
+        <strong>The Controller Couch: a stand for multiple XBox controllers</strong>
+        <p>Modular controller stand that displays 1 to 4 (or more) Xbox Series X controllers, with a finger well and a user-selectable accent colour.</p>
+        <p class="fits">Printables &middot; by calipsoii &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Modular — print 1-4+ controller bays; accent colour behind Xbox logo</p>
+        <a class="part-link" href="https://www.printables.com/model/209988-the-controller-couch-a-stand-for-multiple-xbox-con" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/857327/images/6606605_d8a12fd1-5582-4756-8091-84951739b0f4_7fc0232a-f90c-40e9-93e9-aff0e76479ff/thumbs/inside/1280x960/jpg/img_20240427_215319.webp" alt="Console Controller Stand" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Console Controller Stand</strong>
+        <p>Controller stand that fits 4 controllers with an insert for a TV remote, Wii controller, or similar; fuzzy-skin texture option.</p>
+        <p class="fits">Printables &middot; by Berbelucha &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Holds 4 controllers + TV remote slot; 27 x 27cm footprint</p>
+        <a class="part-link" href="https://www.printables.com/model/857327-console-controller-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/685314/stls/5383454_b91c85b4-0991-4a60-953c-5e2abcbb96c2_114fcd68-4e4c-4fdc-9592-fc56374c9188/thumbs/inside/1280x960/png/cover_flat_preview.webp" alt="Logitech C270 webcam privacy cover" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Logitech C270 webcam privacy cover</strong>
+        <p>Slide privacy cover for the Logitech C270 webcam; mounts with double-sided tape, slider moves to cover or reveal the lens.</p>
+        <p class="fits">Printables &middot; by UrcH &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Slide cover for Logitech C270; mounts with double-sided tape</p>
+        <a class="part-link" href="https://www.printables.com/model/685314-logitech-c270-webcam-privacy-cover" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/753930/stls/5891224_b73b5eb1-fe78-4db3-ad87-ec4101e24547_455316af-321f-4101-bb10-0373c4038478/thumbs/inside/1280x960/png/assem-ver4_preview.webp" alt="MacBook M1 Pro Sliding Webcam Cover (Slim)" loading="lazy" onerror="this.style.display='none'" />
+        <strong>MacBook M1 Pro Sliding Webcam Cover (Slim)</strong>
+        <p>Slim two-part sliding webcam privacy cover for the MacBook M1 Pro; snap-fit base and slider, mounts with double-sided tape.</p>
+        <p class="fits">Printables &middot; by danec &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Slim sliding cover for MacBook M1 Pro; PETG; double-sided tape mount</p>
+        <a class="part-link" href="https://www.printables.com/model/753930-macbook-m1-pro-sliding-webcam-cover-slim" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/125979/stls/1211924_ee5bae58-0b47-42a9-a14f-c6db3cc37995/thumbs/inside/1280x960/png/shutter_preview.webp" alt="Privacy Shutter for Laptop or tablet" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Privacy Shutter for Laptop or tablet</strong>
+        <p>Slim 1.2mm sliding camera cover for a laptop or tablet webcam; thin enough not to interfere with closing the laptop.</p>
+        <p class="fits">Printables &middot; by rb &middot; Free download</p>
+        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 1.2mm thick sliding shutter; fits most laptops and tablets</p>
+        <a class="part-link" href="https://www.printables.com/model/125979-privacy-shutter-for-laptop-or-tablet" target="_blank" rel="noopener">Download the model &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+<section class="wrap">
+    <div class="order-block">
+      <h3>Can't find your tech accessory?</h3>
+      <p>Text us at (402) 413-5332 or get an exact quote — tell us the tech accessory you're after and we'll track down the file and print it for you.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="quote.html">Get an instant quote</a>
+        <a class="btn btn-ghost" href="sms:+14024135332">Text 402-413-5332</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="logo.jpg" alt="Lincoln Print Lab" />
+      <div>
+        <strong>Lincoln Print Lab</strong><br />
+        Lincoln, NE<br />
+        Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
+        <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+        · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+        · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+        · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+        · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
+      </div>
+    </div>
+    <div class="pills">
+      <a href="products.html">Products</a>
+      <a href="car-parts.html">Car Parts</a>
+      <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
+      <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
+      <a href="larp-gear.html">LARP Gear</a>
+      <a href="tabletop-gaming.html">Tabletop &amp; Gaming</a>
+      <a href="home-decor-gifts.html">Home Decor &amp; Gifts</a>
+      <a href="wall-art-plaques.html">Wall Art &amp; Plaques</a>
+      <a href="business-office.html">Business, Conventions &amp; Office</a>
+      <a href="fidgets.html">Fidgets</a>
+      <a href="kids.html">Kids Stuff</a>
+      <a href="dragons-creatures.html">Dragons &amp; Creatures</a>
+      <a href="kitchen.html">Kitchen Gadgets &amp; Accessories</a>
+      <a href="pets.html">Pet Supplies</a>
+      <a href="seasonal-holiday.html">Seasonal &amp; Holiday</a>
+      <a href="garden-outdoor.html">Garden &amp; Outdoor</a>
+      <a href="phone-tech.html">Phone &amp; Tech Accessories</a>
+      <a href="tools-workshop.html">Tools &amp; Workshop</a>
+      <a href="plaques.html">Custom Plaques</a>
+      <a href="quote.html">Quote</a>
+      <a href="payment.html">Checkout</a>
+      <a href="materials.html">Materials</a>
+      <a href="contact.html">Contact</a>
+      <a href="tel:+14024135332">402-413-5332</a>
+      <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
+      <a href="mailto:contact@lincolnprintlab.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script>
+/* Lincoln Print Lab — shared cart. localStorage cart + header chip + Add to cart buttons. */
+(function(){
+  var KEY='lpl-cart-v1';
+  function load(){ try{ var c=JSON.parse(localStorage.getItem(KEY)); return Array.isArray(c)?c:[]; }catch(e){ return []; } }
+  function save(c){ try{ localStorage.setItem(KEY, JSON.stringify(c)); }catch(e){} }
+  function money(v){ return '$'+Math.round(v); }
+  function totals(c){ var n=0,t=0; c.forEach(function(i){ n+=i.qty; t+=i.qty*i.price; }); return {count:n,total:t}; }
+  function renderChip(){
+    var chip=document.getElementById('cart-chip');
+    if(!chip) return;
+    var tt=totals(load());
+    chip.textContent='\uD83D\uDED2 Cart ('+tt.count+') \u2014 '+money(tt.total);
+    chip.classList.toggle('has-items', tt.count>0);
+  }
+  function parsePrice(card){
+    var note=card.querySelector('.part-note');
+    var txt=note?note.textContent:'';
+    var m=txt.match(/PLA\s*\$([\d,]+(?:\.\d+)?)/);
+    if(m) return {price:parseFloat(m[1].replace(/,/g,'')), est:false};
+    var m2=txt.match(/\$([\d,]+(?:\.\d+)?)/);
+    if(m2) return {price:parseFloat(m2[1].replace(/,/g,'')), est:true};
+    return {price:15, est:true};
+  }
+  function isDisplayOnly(card){
+    var tag=card.querySelector('.tag');
+    if(tag && /display only/i.test(tag.textContent)) return true;
+    var note=card.querySelector('.part-note');
+    if(note && /display only/i.test(note.textContent)) return true;
+    return false;
+  }
+  function addItem(name, price, est){
+    var c=load();
+    var found=null;
+    c.forEach(function(i){ if(i.name===name && i.price===price) found=i; });
+    if(found){ found.qty+=1; } else { c.push({name:name, price:price, est:!!est, qty:1}); }
+    save(c); renderChip();
+  }
+  function removeItem(idx){ var c=load(); if(idx>=0 && idx<c.length){ c.splice(idx,1); save(c); renderChip(); } }
+  function setQty(idx, qty){
+    var c=load();
+    if(idx>=0 && idx<c.length){
+      qty=Math.max(0, Math.floor(qty));
+      if(qty===0){ c.splice(idx,1); } else { c[idx].qty=qty; }
+      save(c); renderChip();
+    }
+  }
+  function clearCart(){ save([]); renderChip(); }
+  var grids=document.querySelectorAll('.prod-grid');
+  grids.forEach(function(grid){
+    Array.prototype.forEach.call(grid.children, function(card){
+      if(!card.classList || !card.classList.contains('card')) return;
+      if(isDisplayOnly(card)) return;
+      var nameEl=card.querySelector('strong');
+      var note=card.querySelector('.part-note');
+      if(!nameEl || !note) return;
+      if(card.querySelector('.add-cart-btn')) return;
+      var name=nameEl.textContent.trim();
+      var pr=parsePrice(card);
+      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
+      var btn=document.createElement('button');
+      btn.type='button';
+      btn.className='add-cart-btn';
+      btn.textContent=label;
+      btn.addEventListener('click', function(){
+        addItem(name, pr.price, pr.est);
+        btn.textContent='Added \u2713';
+        btn.classList.add('is-added');
+        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
+      });
+      card.appendChild(btn);
+    });
+  });
+  renderChip();
+  window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
+    addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};
+})();
+</script>
+</body>
+</html>
