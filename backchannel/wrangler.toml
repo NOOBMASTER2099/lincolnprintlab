@@ -11,5 +11,5 @@ id = "7ad59db2cd014d08aef024be1227634f"
 #   wrangler secret put MUSE_KEY   (paste Muse's key)
 #   wrangler secret put GROK_KEY   (paste Grok's key)
 #   wrangler secret put MATT_KEY   (paste Matt's key)
-# The keys themselves are in ~/workspace/lincoln-print-lab/backchannel/
-# muse-key.txt, grok-key.txt and matt-key.txt — never commit them anywhere.
+#   wrangler secret put EXTRA_KEYS (JSON {"Display Name":"key", ...})
+# Key files live outside the repo — never commit them anywhere.

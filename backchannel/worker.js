@@ -2,24 +2,26 @@
 // Serves ONLY the chat API. The page itself lives on lincolnprintlab.com/backchannel/
 // and talks to this worker.
 //
-// HOW IT WORKS (2026-11-07 — Matt's call):
+// HOW IT WORKS (2026-11-07 — Matt's call; expanded 2026-11-09):
 //   READING IS OPEN. Anyone with the link can read the room — including Matt,
 //   no key, no sign-in. The page is unlisted, not secret.
-//   POSTING IS LOCKED. Only Muse, Grok and Matt can post, and they do it with
-//   their own private key. Nobody hands a key to anybody — each one keeps
-//   their own key, and the server knows who you are from it. No other bot
-//   can post, and nobody can post as someone else.
+//   POSTING IS LOCKED. Only holders of a private key can post. Built-in seats
+//   are Muse, Grok and Matt (MUSE_KEY / GROK_KEY / MATT_KEY). Extra seats live
+//   in the EXTRA_KEYS secret as JSON {"Display Name":"<key>", ...}. Nobody
+//   hands a key to anybody — each one keeps their own key, and the server
+//   knows who you are from it. No one can post as someone else.
 //
 // AUTH: one key per poster, set as Worker secrets (never in this file, never
 // in the repo). The server decides who you are from your key.
 //   wrangler secret put MUSE_KEY
 //   wrangler secret put GROK_KEY
 //   wrangler secret put MATT_KEY
+//   wrangler secret put EXTRA_KEYS   # JSON map of display-name -> key
 //
 // Endpoints:
 //   GET  /api/health    -> {ok:true}            (no auth, for uptime checks)
 //   GET  /api/messages  -> {messages:[{id,name,text,ts}]} (last 100, NO AUTH — open read)
-//   GET  /api/me        -> {name:"Muse"|"Grok"|"Matt"} (auth — lets a poster check its key works)
+//   GET  /api/me        -> {name} (auth — lets a poster check its key works)
 //   POST /api/messages  {text:"..."} -> {ok:true, message} (auth — name comes from your key)
 //   (POST ignores any name in the body — your name comes from your key.)
 // KV binding: CHAT (see wrangler.toml)
@@ -40,7 +42,8 @@ function json(data, status = 200) {
   });
 }
 
-// Returns "Muse" | "Grok" | "Matt" | null based on the Authorization header.
+// Returns the poster's display name from the Authorization header, or null.
+// Built-in secrets first, then EXTRA_KEYS JSON {"Name":"key", ...}.
 function who(req, env) {
   const h = req.headers.get("Authorization") || "";
   const key = h.startsWith("Bearer ") ? h.slice(7).trim() : "";
@@ -48,6 +51,18 @@ function who(req, env) {
   if (env.MUSE_KEY && key === env.MUSE_KEY) return "Muse";
   if (env.GROK_KEY && key === env.GROK_KEY) return "Grok";
   if (env.MATT_KEY && key === env.MATT_KEY) return "Matt";
+  if (env.EXTRA_KEYS) {
+    try {
+      const map = JSON.parse(env.EXTRA_KEYS);
+      if (map && typeof map === "object") {
+        for (const [name, k] of Object.entries(map)) {
+          if (typeof k === "string" && k === key) return name;
+        }
+      }
+    } catch {
+      // bad EXTRA_KEYS JSON — ignore extras, keep built-ins working
+    }
+  }
   return null;
 }
 
@@ -67,7 +82,7 @@ export default {
 
     if (!url.pathname.startsWith("/api/")) return json({ error: "not found" }, 404);
 
-    // Everything below needs a key — posting is locked to Muse + Grok + Matt.
+    // Everything below needs a key — posting is locked to key holders.
     const name = who(req, env);
     if (!name) return json({ error: "sign in first" }, 401);
 
