@@ -225,6 +225,23 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 @media(min-width:861px) and (max-width:980px){
   .mat-grid,.contact-row{grid-template-columns:1fr 1fr}
 }
+.open-status{
+  display:inline-block;
+  font-family:Oswald,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:14px;
+  margin-bottom:22px;
+}
+.open-status.is-open{color:#6fdf8a}
+.open-status.is-closed{color:var(--muted)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+iframe.map{width:100%;height:320px;border:0;border-radius:16px;filter:grayscale(.15) contrast(1.05)}
+.hours{list-style:none}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+@media(max-width:860px){
+  .split{grid-template-columns:1fr}
+}
 
 .prod-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
@@ -303,6 +320,22 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </div>
     </div>
   </section>
+
+  <section class="wrap split" id="visit" style="padding-bottom:24px">
+    <div>
+      <h2 class="section-title">Find us</h2>
+      <p class="section-sub">Pick up your prints inside Timeless Treasures, 1717 O St, Lincoln — look for the Nebraska Comics booths.</p>
+      <div class="open-status" id="open-status">Mon–Sat 10:00 AM–6:00 PM · Sun 12:00 PM–5:00 PM</div>
+      <ul class="hours">
+        <li><span>Monday – Saturday</span><b>10:00 AM – 6:00 PM</b></li>
+        <li><span>Sunday</span><b>12:00 PM – 5:00 PM</b></li>
+        <li><span>Address</span><b>1717 O St, Lincoln, NE 68508</b></li>
+        <li><span>Phone</span><b><a href="tel:+14024135332">402-413-5332</a></b></li>
+      </ul>
+      <div class="actions" style="margin-top:18px"><a class="btn btn-primary" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Get directions</a></div>
+    </div>
+    <iframe class="map" title="Map" src="https://maps.google.com/maps?q=1717%20O%20St%2C%20Lincoln%2C%20NE%2068508&output=embed"></iframe>
+  </section>
 </main>
 <footer>
   <div class="wrap foot">
@@ -338,6 +371,47 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </div>
   </div>
 </footer>
+<script>
+/* Open / closed status for Timeless Treasures pickup hours (America/Chicago). */
+(function(){
+  var el = document.getElementById('open-status');
+  if(!el) return;
+  var parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    weekday: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23'
+  }).formatToParts(new Date());
+  var weekday = parts.find(function(p){ return p.type === 'weekday'; }).value;
+  var hour = parseInt(parts.find(function(p){ return p.type === 'hour'; }).value, 10);
+  var minute = parseInt(parts.find(function(p){ return p.type === 'minute'; }).value, 10);
+  var mins = hour * 60 + minute;
+  var order = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var names = {Sun:'Sunday',Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday',Sat:'Saturday'};
+  function hoursFor(day){
+    if(day === 'Sun') return {open:12*60, close:17*60, openLabel:'12:00 PM', closeLabel:'5:00 PM'};
+    return {open:10*60, close:18*60, openLabel:'10:00 AM', closeLabel:'6:00 PM'};
+  }
+  var today = hoursFor(weekday);
+  if(mins >= today.open && mins < today.close){
+    el.textContent = 'Open now · closes ' + today.closeLabel;
+    el.classList.add('is-open');
+    return;
+  }
+  var nextDay = weekday;
+  var nextHours = today;
+  var when = 'today';
+  if(mins >= today.close){
+    var idx = (order.indexOf(weekday) + 1) % 7;
+    nextDay = order[idx];
+    nextHours = hoursFor(nextDay);
+    when = names[nextDay];
+  }
+  el.textContent = 'Closed · opens ' + when + ' ' + nextHours.openLabel;
+  el.classList.add('is-closed');
+})();
+</script>
 <script>
 /* Lincoln Print Lab — shared cart. localStorage cart + header chip + Add to cart buttons. */
 (function(){
