@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -229,10 +266,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 
 <main id="top">
 <section class="wrap" id="car-parts">
-    <h2 class="section-title">Car Parts</h2>
+    <h1>Car Parts</h1>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Old-school American cars break the little plastic bits first &mdash; the clips, bezels, vents, and mounts nobody makes anymore. We print them. Adapters, mounts, brackets, emblems, gauge pods, cup holders, speaker adapters, and wire looms &mdash; if it&rsquo;s plastic and it fits your car, we can probably make it. Don&rsquo;t see your car on this page? Tell us what you drive and what you need &mdash; we&rsquo;ll research it and track the part down for you.</p>
     <p class="section-sub">Best bets to start with: the dash bezel for GloShift gauges, the 6&times;9 rear-deck speaker adapter, the spark plug wire loom kit, and the El Camino bed molding clips. Most small parts start at our $15 minimum &mdash; <a href="quote.html" style="text-decoration:underline">get an instant quote</a> with your file, or text us for a price. Bring your own model file, or just tell us what broke and we&rsquo;ll design it.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
       <a href="#gm-classic">Classic GM 1978&ndash;1988</a>
@@ -250,78 +289,101 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/assets/d2/f5/3a/db/71/3e2c8104-999f-40f0-b5ce-cbcf0973699f.png&amp;w=1024&amp;h=1024&amp;fit=inside&amp;n=-1" alt="Dash bezel for GloShift gauges" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag hot">Best bet</span>
+        <span class="draft-tag">Gauge pod</span>
         <strong>Dash bezel for GloShift gauges</strong>
         <p>Dash bezel and gauge cluster insert made to fit GloShift gauges and Amazon accessory gauges.</p>
         <p class="fits">Fits: 1978&ndash;88 Monte Carlo, Cutlass Supreme, El Camino, and more 80s GM cars</p>
         <p class="part-note">Big part &mdash; printed on our large-format printer. Finished bezels like this sell for $150&ndash;$228.</p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:5420772" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:5420772" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/caefc9fb-1d3f-44df-b0c9-bf56e94bdf4e/images/10158302_3080ff44-58f0-4dec-b36c-5ae38e54e35a_c4662763-474f-4952-b0b0-ad3d9586c165/thumbs/inside/1280x960/jpg/20250703_144857.webp" alt="Rear-deck 6&amp;times;9 speaker adapter" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag hot">Best bet</span>
+        <span class="draft-tag">Adapter</span>
         <strong>Rear-deck 6&times;9 speaker adapter</strong>
         <p>Adapter that fits modern 6&times;9 speakers into the factory 4&times;10 rear-deck spots. No cutting, no drilling.</p>
         <p class="fits">Fits: 1986 Monte Carlo SS; most 1978&ndash;88 GM cars</p>
         <p class="part-note">Print in CF PETG at 100% infill, per the designer.</p>
-        <a class="part-link" href="https://www.printables.com/model/1346146-g-body-rear-deck-speaker-adapter-6x9" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1346146-g-body-rear-deck-speaker-adapter-6x9" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/2ff06658-0dd8-4b28-937d-e411706019b3/images/10568478_1761f931-0254-4ae5-add7-64b87ef4511b_9e323da3-3617-40b7-a3b7-7c6e1d7bf2eb/thumbs/inside/1280x960/jpg/unnamed-7.webp" alt="El Camino bed molding &amp;amp; tailgate trim clip" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag hot">Best bet</span>
+        <span class="draft-tag">Clip</span>
         <strong>El Camino bed molding &amp; tailgate trim clip</strong>
         <p>Replacement clips that hold the upper bed and tailgate trim in place. Reuses the original metal spring clip.</p>
         <p class="fits">Fits: 1978&ndash;87 Chevrolet El Camino</p>
         <p class="part-note">Also fits 1978&ndash;87 GMC Caballero. Repro part # OPR 08-3720-I. Print in ASA at 100% infill.</p>
-        <a class="part-link" href="https://www.printables.com/model/1399915-1978-87-el-camino-bed-molding-tailgate-trim-clip" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1399915-1978-87-el-camino-bed-molding-tailgate-trim-clip" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/3e4c31ff-7e3c-4e24-a42f-12d40f5cdb7f/images/13043644_d8689b8d-b6c0-44e8-9573-f77be1d88edd_4538900d-807e-4da3-ba89-425cc351bb81/thumbs/inside/1280x960/jpg/img_20260530_174713716_hdr1.webp" alt="Indicator light gasket" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Gasket</span>
         <strong>Indicator light gasket</strong>
         <p>Replacement gasket for the &ldquo;Choke&rdquo;, &ldquo;Service Engine Soon&rdquo;, and &ldquo;Fasten Seat Belt&rdquo; indicator lights.</p>
         <p class="fits">Fits: 1978&ndash;88 GM cars</p>
         <p class="part-note">Print in ABS, not PLA.</p>
-        <a class="part-link" href="https://www.printables.com/model/1740408-gm-g-body-indicator-light-gasket" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1740408-gm-g-body-indicator-light-gasket" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/f1a2a54d-bf5c-4d2f-9844-d9f6acf2e98b/images/13043531_ed4fb0a9-a8c6-4f85-b010-33c648a49675_dc82b20b-f57c-4f1f-a3a9-407dca58af08/thumbs/inside/1280x960/jpg/img_20260530_1744030191.webp" alt="Bucket seat / console foldable cup holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Bucket seat / console foldable cup holder</strong>
         <p>Foldable cup holder that mounts inside the center console with Velcro. Fits a soda can or a small coffee.</p>
         <p class="fits">Fits: 1978&ndash;87 GM cars with bucket seats</p>
-        <a class="part-link" href="https://www.printables.com/model/1740397-gm-g-body-bucket-seatconsole-foldable-cup-holder" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1740397-gm-g-body-bucket-seatconsole-foldable-cup-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/4a482c1e-8df8-482b-a3b1-63eef701a7c6/images/11642608_2859fc9f-aeca-4211-bf27-aeec560bc2ee_f8c4a1a2-1402-457c-ab83-af1f6b554f44/thumbs/inside/1280x960/jpg/img_20260104_185847625.webp" alt="Stereo lower mount patches" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Stereo lower mount patches</strong>
         <p>Glue-on patches that repair blown-out lower stereo mount screw tabs.</p>
         <p class="fits">Fits: 1978&ndash;87 GM cars</p>
         <p class="part-note">Print in ABS, not PLA.</p>
-        <a class="part-link" href="https://www.printables.com/model/1544154-1978-1987-gm-g-body-stereo-lower-mount-patches" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1544154-1978-1987-gm-g-body-stereo-lower-mount-patches" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/assets/eb/b2/10/b5/7c/Monte_Carlo.jpg&amp;w=1024&amp;h=1024&amp;fit=inside&amp;n=-1" alt="Monte Carlo emblem" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Emblem</span>
         <strong>Monte Carlo emblem</strong>
-        <p>Monte Carlo emblem and badge &mdash; a printable replacement or display piece. Matt already printed this one.</p>
+        <p>Monte Carlo emblem and badge &mdash; a printable replacement or display piece. We already printed this one.</p>
         <p class="fits">Fits: Chevrolet Monte Carlo</p>
         <p class="part-note">Display only &mdash; trademarked emblem, no price.</p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:5157218" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:5157218" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/user/2616958688/collection/a6461e00-1ca5-11f0-8da4-c7a905147628.jpg" alt="1984 Monte Carlo SS wall art" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Wall art</span>
         <strong>1984 Monte Carlo SS wall art</strong>
         <p>Flat 2D silhouette wall art of the &rsquo;84 Monte Carlo SS. Booth and garage display piece.</p>
         <p class="fits">Fits: Display &mdash; any wall</p>
         <p class="part-note">Search &ldquo;Monte Carlo SS&rdquo; inside the collection.</p>
-        <a class="part-link" href="https://www.makerworld.com/en/collections/6015018-2d-wall-art-cars" target="_blank" rel="noopener">View the collection &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.makerworld.com/en/collections/6015018-2d-wall-art-cars" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/assets/bb/f3/2d/b4/91/20200305_143515.jpg&amp;w=1024&amp;h=1024&amp;fit=inside&amp;n=-1" alt="Childs Play emblem — 1980 El Camino" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Emblem</span>
         <strong>Childs Play emblem &mdash; 1980 El Camino</strong>
         <p>Custom replacement for the Chevrolet badge, spun on the designer&rsquo;s surname &ldquo;Childs&rdquo;.</p>
         <p class="fits">Fits: 1980 El Camino (designer unsure of other years)</p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:4218126" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:4218126" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -332,59 +394,79 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/4a80769f-0435-4c08-8653-5201b6d656db/previews/thumbs/inside/1280x960/png/b8440eaa-adc0-4302-959e-99f2f6ee848b.webp" alt="&amp;rsquo;73&amp;ndash;&amp;rsquo;77 El Camino upper bed molding clip" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag hot">Best bet</span>
+        <span class="draft-tag">Clip</span>
         <strong>&rsquo;73&ndash;&rsquo;77 El Camino upper bed molding clip</strong>
         <p>Clips that fit the factory nubs over the rear window and hold the chrome trim. About 1 g of filament each, 5 needed per car.</p>
         <p class="fits">Fits: 1973&ndash;77 Chevrolet El Camino</p>
         <p class="part-note">Repro part # OPR 08-3710. Print in ABS with a 5 mm brim.</p>
-        <a class="part-link" href="https://www.printables.com/model/1758147-1973-77-chevrolet-el-camino-upper-bed-molding-clip" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1758147-1973-77-chevrolet-el-camino-upper-bed-molding-clip" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US88a5a0bc018ff3/design/908a86c10bf76566.jpg" alt="&amp;rsquo;68 Chevelle ashtray cup holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>&rsquo;68 Chevelle ashtray cup holder</strong>
         <p>Cup holder inlay that drops into the original ashtray. Optional magnets, plus a coin slot.</p>
         <p class="fits">Fits: 1968 Chevrolet Chevelle</p>
-        <a class="part-link" href="https://makerworld.com/en/models/631994-68-chevrolet-chevelle-cup-holder-updated?from=search" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/631994-68-chevrolet-chevelle-cup-holder-updated?from=search" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1780704/previews/thumbs/inside/1280x960/png/804d15d1-f79f-4dbf-81a4-4a85ad7725e2.webp" alt="&amp;rsquo;75/&amp;rsquo;76 Chevelle Laguna S-3 license plate mount" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>&rsquo;75/&rsquo;76 Chevelle Laguna S-3 license plate mount</strong>
         <p>Front license plate mount that uses the pre-existing holes at the bottom center.</p>
         <p class="fits">Fits: 1975&ndash;76 Chevelle Laguna S-3</p>
         <p class="part-note">Print in PETG, ASA, or ABS.</p>
-        <a class="part-link" href="https://www.printables.com/model/1780704-197576-chevelle-laguna-s-3-license-plate-mount" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1780704-197576-chevelle-laguna-s-3-license-plate-mount" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/842140/images/6484409_fe24af0d-0502-4e2f-8527-420ceadfbbcd_decd5222-6cdc-4de6-8ebc-459ef883875c/thumbs/inside/1280x960/png/img_6587.webp" alt="8mm spark plug wire loom kit" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag hot">Best bet</span>
+        <span class="draft-tag">Wire loom</span>
         <strong>8mm spark plug wire loom kit</strong>
         <p>Wire loom kit that holds 8 mm spark plug wires on the valve cover.</p>
         <p class="fits">Fits: 1960s&ndash;70s Chevrolet big blocks (designed for a &rsquo;70s Chevelle)</p>
         <p class="part-note">Print in ASA, PETG, or nylon &mdash; engine-bay heat. Not PLA.</p>
-        <a class="part-link" href="https://www.printables.com/model/842140-8mm-spark-plug-wire-loom-kit-for-60s-and-70s-chevr" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/842140-8mm-spark-plug-wire-loom-kit-for-60s-and-70s-chevr" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/renders/28/d0/ce/46/a8/de149b57ef6766f37ef6ac4522518e28.png&amp;w=1024&amp;h=1024&amp;fit=inside&amp;n=-1" alt="2010 Camaro mirror to &amp;rsquo;68&amp;ndash;&amp;rsquo;73 A-body adapter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>2010 Camaro mirror to &rsquo;68&ndash;&rsquo;73 A-body adapter</strong>
         <p>Mirror adapters, spacers, and shims to mount 2010 Camaro side mirrors on A-body doors.</p>
         <p class="fits">Fits: 1968&ndash;73 Chevelle, El Camino, Sprint, and other GM A-body cars</p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:2275079" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:2275079" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/330223/images/2837402_941e993e-ca40-464e-8948-3409ca2316d1/thumbs/inside/1280x960/png/duct_intake.webp" alt="Edelbrock 1806/1906 duct intake" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Intake</span>
         <strong>Edelbrock 1806/1906 duct intake</strong>
         <p>Printable air-intake duct with a filter system for an Edelbrock 1806/1906 carb.</p>
         <p class="fits">Fits: 1976 Chevrolet Monte Carlo</p>
         <p class="part-note">Print in ASA &mdash; engine-bay heat. Filter is a hand-cut sheet over a 5 mm plate.</p>
-        <a class="part-link" href="https://www.printables.com/model/330223-edelbrock-18061906-duct-intake" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/330223-edelbrock-18061906-duct-intake" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/426629/images/3531029_183f4b84-6856-45fe-a7da-bd8386f31d74/thumbs/inside/1280x960/jpeg/image1-1.webp" alt="Speaker box (kick-panel)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Box</span>
         <strong>Speaker box (kick-panel)</strong>
         <p>Speaker box that replaces the kick-panel air vent.</p>
         <p class="fits">Fits: Chevelle and Pontiac GTO</p>
         <p class="part-note">Printed in sections on our large-format printer.</p>
-        <a class="part-link" href="https://www.printables.com/model/426629-speaker-box/remixes" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/426629-speaker-box/remixes" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -394,13 +476,14 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <p class="section-sub">Mustang, F-150, and the old Ford trucks.</p>
     <div class="prod-grid">
       <div class="card">
+        <span class="draft-tag">Mount</span>
         <strong>Foxbody Mustang Holley 12.3&quot; Pro Dash mount</strong>
         <p>Dash mount for a Holley 12.3-inch Pro Dash, made for the Foxbody instrument cluster opening.</p>
         <p class="fits">Fits: 1987&ndash;93 Ford Mustang</p>
         <p class="part-note">STL file available from the designer &mdash; ask us and we&rsquo;ll get it.</p>
-        <a class="part-link" href="https://www.instagram.com/reel/DZkWPMAt2zg/" target="_blank" rel="noopener">See the part &rarr;</a>
       </div>
       <div class="card">
+        <span class="draft-tag">Gauge pod</span>
         <strong>Ford trucks 1967&ndash;1979 parts catalog</strong>
         <p>A print farm&rsquo;s 150+ part catalog for classic Ford trucks &mdash; triple-gauge pillar pods, tail light buckets, glove box inserts, and more.</p>
         <p class="fits">Fits: 1967&ndash;79 Ford trucks</p>
@@ -424,19 +507,26 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/833454/images/6423779_cd3c7b6a-d081-4429-882c-b09ec65be13e_f2c95de0-6091-4964-9627-6880b8716a46/thumbs/inside/1280x960/png/cup1.webp" alt="Dodge Charger cup holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Dodge Charger cup holder</strong>
         <p>Cup holder for the Charger console.</p>
         <p class="fits">Fits: 2019 Dodge Charger Pursuit</p>
-        <a class="part-link" href="https://www.printables.com/model/833454-cup-holder-dodge-charger" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/833454-cup-holder-dodge-charger" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/322642/images/2784471_1cb9eb44-0e5b-45f9-8e5a-e07d1be3fa00/thumbs/inside/1280x960/png/capture3.webp" alt="1975 Dodge trim clip" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Clip</span>
         <strong>1975 Dodge trim clip</strong>
         <p>Replacement clip for the wide trim on 70s Dodge trucks.</p>
         <p class="fits">Fits: 1970s Dodge trucks</p>
-        <a class="part-link" href="https://www.printables.com/model/322642-1975-dodge-trim-clip" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/322642-1975-dodge-trim-clip" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
+        <span class="draft-tag">Vent</span>
         <strong>Mopar dash vents &mdash; 1970&ndash;74 Challenger &amp; Barracuda</strong>
         <p>Reproduction dash vents for the E-body cars.</p>
         <p class="fits">Fits: 1970&ndash;74 Dodge Challenger and Plymouth Barracuda</p>
@@ -445,6 +535,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </div>
       <div class="card">
         <img src="https://i.etsystatic.com/26374200/r/il/876092/3387921038/il_794xN.3387921038_59xp.jpg" alt="1st-gen Dodge Ram double-DIN radio kit" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>1st-gen Dodge Ram double-DIN radio kit</strong>
         <p>Double-DIN radio bezel with HVAC relocation mount.</p>
         <p class="fits">Fits: 1st-gen Dodge Ram</p>
@@ -453,10 +544,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </div>
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/assets/27/42/54/79/16/pod-01.JPG&amp;w=1024&amp;h=1024&amp;fit=inside&amp;n=-1" alt="2-inch (52mm) single gauge pod" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Gauge pod</span>
         <strong>2&quot; (52mm) single gauge pod</strong>
         <p>Single 52 mm gauge pod &mdash; the base model for custom gauge setups.</p>
         <p class="fits">Fits: Universal; shown on a 1987 Dodge Ramcharger</p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:1832214" target="_blank" rel="noopener">View the model &rarr;</a>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:1832214" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -466,6 +560,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <p class="section-sub">Chevy and GMC square-body, Silverado, and Sierra &mdash; the work trucks.</p>
     <div class="prod-grid">
       <div class="card">
+        <span class="draft-tag">Mount</span>
         <strong>&rsquo;81 square-body gauge pod adapter</strong>
         <p>Gauge pod adapter for the factory dash bezel. Gauges mount from behind and come out for wiring.</p>
         <p class="fits">Fits: 1981 Chevrolet square-body truck</p>
@@ -473,6 +568,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <a class="part-link" href="https://www.facebook.com/reel/28343505495309086/" target="_blank" rel="noopener">See the part &rarr;</a>
       </div>
       <div class="card">
+        <span class="draft-tag">Gauge pod</span>
         <strong>GMT800 center-console gauge pod insert</strong>
         <p>Center-console gauge pod insert, angled at the driver, for 52 mm gauges.</p>
         <p class="fits">Fits: 1999&ndash;2006 Chevrolet Silverado / GMC Sierra</p>
@@ -480,6 +576,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <a class="part-link" href="https://www.facebook.com/reel/1888308028742445/" target="_blank" rel="noopener">See the part &rarr;</a>
       </div>
       <div class="card">
+        <span class="draft-tag">Clip</span>
         <strong>&rsquo;99&ndash;&rsquo;06 Chevy/GMC dash-pocket adapter plate</strong>
         <p>Dash-pocket adapter plate for a 2-1/16&quot; gauge or module. Clips in with the factory clips.</p>
         <p class="fits">Fits: 1999&ndash;2006 Chevrolet/GMC trucks</p>
@@ -487,6 +584,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <a class="part-link" href="https://www.facebook.com/reel/1424008796334371/" target="_blank" rel="noopener">See the part &rarr;</a>
       </div>
       <div class="card">
+        <span class="draft-tag">Holder</span>
         <strong>Square-body C10 ashtray cup holder</strong>
         <p>Dual cup holder that drops into the ashtray slot.</p>
         <p class="fits">Fits: Chevrolet C10 square-body trucks</p>
@@ -503,123 +601,168 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US48868ec174b1de/design/ad79e6e3aa8d10be.jpg" alt="Cup Holder Trashcan" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Cup Holder Trashcan</strong>
         <p>Cup-holder trash can with a self-closing pivot lid and counterweight so it doesn&#x27;t rattle; keeps receipts and wrappers out of sight.</p>
         <p class="fits">Fits: Standard car cup holders</p>
-        <p class="part-note">From $15 — get an exact quote. Design by 3DPrototech. License not shown — check the model page before selling. Plain version only — the designer’s brand-logo lids are trademarked.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2808436-cup-holder-trashcan" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">by 3DPrototech · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2808436-cup-holder-trashcan" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US36ca5bb22773e1/67159591/instance/2024-04-11_e65797fabef4c.png" alt="Car Glasses Clip" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Clip</span>
         <strong>Car Glasses Clip</strong>
         <p>Simple sun-visor clip that holds sunglasses/glasses within reach; print in PETG or ASA for heat resistance.</p>
         <p class="fits">Fits: Any car sun visor</p>
-        <p class="part-note">From $15 — get an exact quote. Design by UniversalMaker. MakerWorld Standard — commercial prints need the designer’s membership.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/420775-car-glasses-clip" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">by UniversalMaker · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/420775-car-glasses-clip" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US4aed9eb110ba82/design/2025-02-01_ab6b71cb75b27.gif" alt="Gimbal Cup Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Gimbal Cup Holder</strong>
         <p>Self-leveling gimbal cup holder for 12oz/16oz cans that stays level on turns; fits standard cup holders, also works for kayak/ATV/stroller. Print in PETG.</p>
         <p class="fits">Fits: Standard car cup holders (also kayak, ATV, stroller)</p>
-        <p class="part-note">From $15 — get an exact quote. Design by nitroturd7856. License not shown — check the model page before selling. Print in PETG.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1062749-gimbal-cup-holder" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">by nitroturd7856 · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1062749-gimbal-cup-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US90d06b5263eb3a/design/2025-03-07_14bf56d7b793.jpg" alt="Car Cup Holder Expander" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Car Cup Holder Expander</strong>
         <p>Expander insert that lets oversized bottles and tumblers fit a standard car cup holder; includes a phone slit and a customizable version.</p>
         <p class="fits">Fits: Standard car cup holders</p>
-        <p class="part-note">From $15 — get an exact quote. License not shown — check the model page before selling.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1184702-car-cup-holder-expander" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1184702-car-cup-holder-expander" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US2155e9bd9aa83f/design/2025-05-12_ccb36ea27d1458.jpg" alt="Gravity Grip Car Phone Holder - Modular" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Gravity Grip Car Phone Holder - Modular</strong>
         <p>Air-vent phone holder that uses the phone&#x27;s own weight to grip it — no springs or metal parts; 20mm ball joint makes it modular, cup-holder base also available.</p>
         <p class="fits">Fits: Most car air vents</p>
-        <p class="part-note">From $15 — get an exact quote. License not shown — check the model page before selling. Remix — confirm the license on the model page.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1411227-gravity-grip-car-phone-holder-modular" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1411227-gravity-grip-car-phone-holder-modular" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USaa58302ce3f80e/design/ddd59a9d8dc0a869.png" alt="Universal Cup Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Universal Cup Holder</strong>
         <p>Clamp-on cup holder for strollers, wheelchairs, bikes, golf carts and more; fits bottles up to 85mm, with optional phone-holder and bag-hook attachments.</p>
         <p class="fits">Fits: Strollers, wheelchairs, bikes, golf carts — clamps on</p>
-        <p class="part-note">From $15 — get an exact quote. Design by RED_eleven. MakerWorld Standard — commercial prints need the designer&#x27;s Supporter membership.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1969980-universal-cup-holder" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">by RED_eleven · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1969980-universal-cup-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US2abb8f39961c2/design/53787cd7625842ef.gif" alt="Push Lid Car Door Pocket Trash Bin" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Push Lid Car Door Pocket Trash Bin</strong>
         <p>Small trash bin with a push lid that clips onto the car door side pocket for receipts and wrappers; one-hand toss, no supports needed.</p>
         <p class="fits">Fits: Car door side pockets</p>
-        <p class="part-note">From $15 — get an exact quote. Design by AzizMaker. MakerWorld Standard — commercial prints need the designer&#x27;s membership.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2599851-push-lid-car-door-pocket-trash-bin" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">by AzizMaker · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2599851-push-lid-car-door-pocket-trash-bin" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US6f2f515b778c35/design/0785872bb0838a84.png" alt="Car Accessories #03 - Air Freshener Set" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Air freshener</span>
         <strong>Car Accessories #03 - Air Freshener Set</strong>
         <p>Hanging air freshener that holds a standard 58mm cotton pad soaked in scented oil; includes a clean generic version plus brand-inspired versions (use the generic one for selling).</p>
         <p class="fits">Fits: Any car — hangs from the mirror</p>
-        <p class="part-note">From $15 — get an exact quote. License not shown — check the model page before selling. Generic version only.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3167861-car-accessories-03-air-freshener-set" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3167861-car-accessories-03-air-freshener-set" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USb2edb2e17092ea/design/2025-01-21_848f06e058ab7.jpg" alt="Car Vent Cup Holder v2" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Car Vent Cup Holder v2</strong>
         <p>Cup/bottle holder that hooks onto a car air vent; improved v2 with tree supports, 6 walls, lower height and shorter hangers.</p>
         <p class="fits">Fits: Most car air vents</p>
-        <p class="part-note">From $15 — get an exact quote. License not shown — check the model page before selling.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1020548-car-vent-cup-holder-v2" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1020548-car-vent-cup-holder-v2" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US56b022b0fb489/design/2023-09-30_047ceb4f57578.jpeg" alt="Tesla Model 3/Y Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Organizer</span>
         <strong>Tesla Model 3/Y Organizer</strong>
         <p>Center-console organizer for Tesla Model 3/Y with a charger-adapter slot, pill-bottle compartments, a hand-sanitizer pocket and an extra slot.</p>
         <p class="fits">Fits: Tesla Model 3/Y center console</p>
-        <p class="part-note">From $15 — get an exact quote. License not shown — check the model page before selling.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/30329-tesla-model-3-y-organizer" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/30329-tesla-model-3-y-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000197583/design/2024-02-22_jbvanb5jccnu.jpeg" alt="Tesla Model 3/Y 2021+ Center Console Tray" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Tray</span>
         <strong>Tesla Model 3/Y 2021+ Center Console Tray</strong>
         <p>Slim sliding tray for the 2021+ Tesla Model 3/Y center console (with Qi charger); deep enough for large phones, with a cable-routing hole.</p>
         <p class="fits">Fits: 2021+ Tesla Model 3/Y center console with Qi charger</p>
-        <p class="part-note">From $15 — get an exact quote. License not shown — check the model page before selling.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/197583-tesla-model-3-y-2021-center-console-tray" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/197583-tesla-model-3-y-2021-center-console-tray" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US3399aab054d17c/design/2024-04-13_2721273e4894b.png" alt="All in One Car Modular Headrest Cup Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>All in One Car Modular Headrest Cup Holder</strong>
         <p>Modular headrest-mounted hanger with a cup-holder attachment for drive-thru drinks, mugs and thermal cups; the same handle also takes headphone, bag and phone accessories.</p>
         <p class="fits">Fits: Headrest posts</p>
-        <p class="part-note">From $15 — get an exact quote. License not shown — check the model page before selling.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/425844-all-in-one-car-modular-headrest-cup-holder" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/425844-all-in-one-car-modular-headrest-cup-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USc9f64f06b2cfb8/design/2025-04-18_1823eafebdef3.jpg" alt="In-car Hook Automotive Rear Seat Hook" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Hook</span>
         <strong>In-car Hook Automotive Rear Seat Hook</strong>
         <p>Headrest-post hook for hanging bags, jackets and groceries off the back seat; comes in large and small sizes for different vehicles.</p>
         <p class="fits">Fits: Headrest posts — large and small sizes</p>
-        <p class="part-note">From $15 — get an exact quote. Design by user_3129958783. MakerWorld Standard — commercial prints need the designer’s membership.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1133544-in-car-hook-automotive-rear-seat-hook" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">by user_3129958783 · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1133544-in-car-hook-automotive-rear-seat-hook" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USf50b5cc4fd1560/design/2025-05-06_d0365bbfa80578.jpg" alt="Clip-On Car Holder – Polestar 2, 4 &amp; Universal" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Clip-On Car Holder – Polestar 2, 4 &amp; Universal</strong>
         <p>Universal clip-on holder for side pockets and console trim — works as a bottle holder, slim-can holder or mini trash bin; also fits Tesla, Volvo, BMW, VW and Audi.</p>
         <p class="fits">Fits: Side pockets and console trim — Polestar 2, 4 and most cars</p>
-        <p class="part-note">From $15 — get an exact quote. Design by Lenteh. License not shown — check the model page before selling.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1389530-clip-on-car-holder-polestar-2-4-universal" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">by Lenteh · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1389530-clip-on-car-holder-polestar-2-4-universal" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USb345002e6148cf/design/2025-10-23_a5525b6d882c78.gif" alt="Car Cup Phone Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Car Cup Phone Holder</strong>
         <p>Cup-holder insert with a rotating phone holder on top; when the phone is out, standard cups still fit inside. Scales 20% up or down. Companion to the Car Cup Holder Expander.</p>
         <p class="fits">Fits: Standard car cup holders</p>
-        <p class="part-note">From $15 — get an exact quote. License not shown — check the model page before selling.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1918083-car-cup-phone-holder" target="_blank" rel="noopener">View the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1918083-car-cup-phone-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -646,14 +789,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -679,7 +821,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -734,31 +875,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

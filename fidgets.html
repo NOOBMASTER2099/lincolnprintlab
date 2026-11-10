@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -230,9 +267,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <main id="top">
 <section class="wrap" id="fidgets">
     <h2 class="section-title">Fidgets</h2>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory — infinity cubes, fidget cubes, clickers, sliders, gear spinners, mazes and worry stones. Download the model you like, then send us the file and we'll give you an exact quote. Most of these are small, quick prints — great booth and market stock, and they make great giveaways in bulk. Don't see what you need? Tell us what you're looking for — we'll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
       <a href="#cubes-clickers">Infinity Cubes, Fidget Cubes &amp; Clickers</a>
@@ -247,144 +286,174 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/404460/images/3369074_4aab4b3e-c8bb-4842-9985-b45fcef674e3/thumbs/inside/1280x960/jpg/20230220_143519.webp" alt="Infinity Fidget Cube (Snap-Together, Rugged &amp; Parameterized)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Infinity cube</span>
         <strong>Infinity Fidget Cube (Snap-Together, Rugged &amp; Parameterized)</strong>
         <p>An infinity cube with snap-together connector joints in four sizes (15/20/25/30 mm); a parametric Fusion 360 file is included.</p>
-        <p class="fits">Printables &middot; by squinn &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print 4 Cube Left + 4 Cube Right + 8 connectors</p>
-        <a class="part-link" href="https://www.printables.com/model/404460-infinity-fidget-cube-snap-together-rugged-paramete" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by squinn · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/404460-infinity-fidget-cube-snap-together-rugged-paramete" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/34059/images/336124_79d9dc26-ae90-4fe5-b8de-d736025af06b/thumbs/inside/1280x960/jpg/d2b5ca33bd970f64a6301fa75ae2eb22_display_large_34.webp" alt="Infinity Cube (fidget cube) with interchangeable hinges" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Infinity Cube (fidget cube) with interchangeable hinges</strong>
         <p>An infinity cube with individually printed cubes in different colours and materials; it disassembles for repair if a hinge breaks.</p>
-        <p class="fits">Printables &middot; by schuetzi99 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Print 4 cubes + 4 mirrored cubes + 8 hinges</p>
-        <a class="part-link" href="https://www.printables.com/model/34059-infinity-cube-fidget-cube-with-interchangeable-hin" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by schuetzi99 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/34059-infinity-cube-fidget-cube-with-interchangeable-hin" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US34079f4b370254/design/f2ddda3fd66e2422.png" alt="Ultimate Infinity Cube Fidget Toy (Print in Place)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Print-in-place</span>
         <strong>Ultimate Infinity Cube Fidget Toy (Print in Place)</strong>
         <p>A print-in-place infinity cube: eight cubes on hinge joints that flip and fold endlessly; a 68-minute print, zero assembly.</p>
-        <p class="fits">MakerWorld &middot; by Not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $15 &middot; PETG $15 &middot; Commercial licence via the designer's membership program</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3148518-ultimate-infinity-cube-fidget-toy-print-in-place" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3148518-ultimate-infinity-cube-fidget-toy-print-in-place" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US61fad4a6664c5a/design/2025-11-19_5c433085b09bb8.jpeg" alt="Mini Pocket Sized Fidget Infinity Cube" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Infinity cube</span>
         <strong>Mini Pocket Sized Fidget Infinity Cube</strong>
         <p>A mini infinity cube, about 48 mm end to end when flat; print at 0.12 mm layer height so the hinges move freely.</p>
-        <p class="fits">MakerWorld &middot; by HeatherMacAnanny &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence via membership; hinges loosen with use</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2015474-mini-pocket-sized-fidget-infinity-cube" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by HeatherMacAnanny · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2015474-mini-pocket-sized-fidget-infinity-cube" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/346238/images/2947769_086b0679-97d2-488c-a0fb-64866422d063/thumbs/inside/1280x960/jpeg/5a226b2cd51ccafd64f3021e1e935203_display_large_346238.webp" alt="Another Fidget Cube" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Another Fidget Cube</strong>
         <p>A print-in-place fidget cube with joints that free up after printing; 33% infill gives it a satisfying heft.</p>
-        <p class="fits">Printables &middot; by Mistertech &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print flat with 4 joints facing up; no supports</p>
-        <a class="part-link" href="https://www.printables.com/model/346238-another-fidget-cube" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Mistertech · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/346238-another-fidget-cube" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/346257/images/2947977_caca28cc-477a-4fcc-9b73-5891c35b7949/thumbs/inside/1280x960/jpg/4d41394ea57ed9c63bd112a12c11eebc_display_large_346257.webp" alt="Fidget Cube (with rounded edges now, remix)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Fidget</span>
         <strong>Fidget Cube (with rounded edges now, remix)</strong>
         <p>A remix of the classic Kobayashi-style fidget cube with rounded edges; prints without supports, scales down ~20%.</p>
-        <p class="fits">Printables &middot; by Mistertech &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/346257-fidget-cube-with-rounded-edges-now-remix" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Mistertech · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/346257-fidget-cube-with-rounded-edges-now-remix" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/34040/images/335863_c051277a-af72-41c9-8492-5675659227c5/thumbs/inside/1280x960/jpg/d2b5ca33bd970f64a6301fa75ae2eb22_display_large_34.webp" alt="Fidget Cube with Flexible Hinges" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Infinity cube</span>
         <strong>Fidget Cube with Flexible Hinges</strong>
         <p>An infinity cube with PLA cubes and flexible TPU hinges — print the cubes in any colour, the hinges in flex.</p>
-        <p class="fits">Printables &middot; by schuetzi99 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $15 &middot; Hinges print in Flex/TPU (4 g); cubes in PLA (32 g)</p>
-        <a class="part-link" href="https://www.printables.com/model/34040-fidget-cube-with-flexible-hinges" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by schuetzi99 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/34040-fidget-cube-with-flexible-hinges" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/321283/images/2774428_e7c9077d-fef7-466e-9159-11362f1b86a0/thumbs/inside/1280x960/png/megaclicker9000.webp" alt="MegaClicker 9000" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Print-in-place</span>
         <strong>MegaClicker 9000</strong>
         <p>A print-in-place clicker with three snap clearances (Tight, Easy, Easiest Snap) so any printer gets the perfect click.</p>
-        <p class="fits">Printables &middot; by ThinAir3D &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence via ThinAir3D Patreon; start with Easy Snap</p>
-        <a class="part-link" href="https://www.printables.com/model/321283-megaclicker-9000" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ThinAir3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/321283-megaclicker-9000" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/232031/images/2108872_d3cc4626-c725-41d5-8da0-534936b47f75/thumbs/inside/1280x960/jpg/dsc_0504.webp" alt="Compliant Fidget Clicker" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Keychain</span>
         <strong>Compliant Fidget Clicker</strong>
         <p>A bi-stable clicker that snaps between two positions on living hinges; add a keychain hole and carry it anywhere.</p>
-        <p class="fits">Printables &middot; by shakeNbake08 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Remix of Thingiverse thing:2988576; actuate once while warm; PLA+ recommended</p>
-        <a class="part-link" href="https://www.printables.com/model/232031-compliant-fidget-clicker" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by shakeNbake08 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/232031-compliant-fidget-clicker" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/6668deb5-5b44-44e4-b3ff-1b0c00cf5225/images/12342796_e176202f-6c03-47fc-bea0-81cb62b0c210_13bc3730-5209-421e-8882-236caccd610b/thumbs/inside/1280x960/png/40b817odtysmd906.webp" alt="Clickable - UI Slider Fidget – Fast Print, No Supports, Simple 2-Piece Snap Slider" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Clickable - UI Slider Fidget – Fast Print, No Supports, Simple 2-Piece Snap Slider</strong>
         <p>A compact fidget with three smooth UI-style sliders on rails; fast, support-free, snaps together in seconds.</p>
-        <p class="fits">Printables &middot; by Fonn Prints &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PLA or PETG; TPU sliders optional</p>
-        <a class="part-link" href="https://www.printables.com/model/1640878-clickable-ui-slider-fidget-fast-print-no-supports" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Fonn Prints · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1640878-clickable-ui-slider-fidget-fast-print-no-supports" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/234930/images/2130917_1f13bacb-b0f5-45ea-98ef-e3456cc5058f/thumbs/inside/1280x960/jpg/img_1099.webp" alt="The Ultimate Fidget Cube" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>The Ultimate Fidget Cube</strong>
         <p>A fidget cube that packs many fidgets into one: buttons, gears, a slider switch, rocker switches, and a light-switch side — it even unscrews into a spinny top.</p>
-        <p class="fits">Printables &middot; by corrado33 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Print at 0.1 mm layers for the small parts; two files need supports, the rest print support-free</p>
-        <a class="part-link" href="https://www.printables.com/model/234930-the-ultimate-fidget-cube" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by corrado33 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/234930-the-ultimate-fidget-cube" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USe640fc11c1fe00/design/bcc45b2337efc3c7.png" alt="Infinity Cube Fidget (Print-in-place)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Print-in-place</span>
         <strong>Infinity Cube Fidget (Print-in-place)</strong>
         <p>A print-in-place infinity cube with tactile sensory textures on each face; eight connected cubes that fold endlessly, no assembly.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC 4.0 — personal use, not for resale &middot; PLA $15 &middot; PETG $15 &middot; 1.3 h print; 0.2 mm layers, 10% infill</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2780833-infinity-cube-fidget-print-in-place" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2780833-infinity-cube-fidget-print-in-place" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USf9f7b9437dd024/design/2025-01-19_fe2ffe0c782f3.gif" alt="Worlds smallest print in place infinity cube - 7g" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Print-in-place</span>
         <strong>Worlds smallest print in place infinity cube - 7g</strong>
         <p>A pocket-size print-in-place infinity cube, the size of a single cube from a regular infinity cube; tight tolerances make it smooth and rattle-free.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $15 &middot; PETG $15 &middot; Use the designer's built-in print profile (Arachne wall generator); commercial licence via the designer's membership</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1021864-worlds-smallest-print-in-place-infinity-cube-7g" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1021864-worlds-smallest-print-in-place-infinity-cube-7g" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/71100/images/651500_38c7e0c0-a4f1-427c-85b4-8f6bb8e9e1a6/thumbs/inside/1280x960/jpg/img_20200915_182700_2.webp" alt="Mechanical Switch Fidget Click" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Fidget</span>
         <strong>Mechanical Switch Fidget Click</strong>
         <p>A fidget that works like a mechanical keyboard switch: a real audible and tactile click on press and release, with no electronics at all.</p>
-        <p class="fits">Printables &middot; by kriswillcode &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 1x pen spring from a retractable ballpoint pen; 7 printed pieces, tricky small-part print</p>
-        <a class="part-link" href="https://www.printables.com/model/71100-mechanical-switch-fidget-click" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by kriswillcode · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/71100-mechanical-switch-fidget-click" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/205599/stls/1889722_a9293839-eebc-4e09-9314-aea8fce294a2/thumbs/inside/1280x960/png/top_preview.webp" alt="Itty Bitty Fidget" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Fidget</span>
         <strong>Itty Bitty Fidget</strong>
         <p>A super-tiny sliding click fidget that uses under 1.5 m of filament; magnet versions (3x3 to 10x3 mm) or a no-magnet version that stays clicky.</p>
-        <p class="fits">Printables &middot; by 3D Printy &middot; Free download</p>
-        <p class="part-note">License: CC BY 4.0 &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Sellable with attribution to 3D Printy; 6x3 mm magnets recommended for the strongest click; print slowly, tight clearances</p>
-        <a class="part-link" href="https://www.printables.com/model/205599-itty-bitty-fidget" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3D Printy · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/205599-itty-bitty-fidget" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/793902/stls/6150229_50f34e6d-a104-4400-9ff3-41ae94da7fec_defa2ce1-e733-4e26-a5a2-b5254095cde0/thumbs/inside/1280x960/png/slider-indent_preview.webp" alt="Magnetic Fidget Switch" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Magnetic</span>
         <strong>Magnetic Fidget Switch</strong>
         <p>A bistable fidget switch that snaps sharply side to side on magnets instead of a plastic detent, so it never wears out; small and large sizes, three slider styles.</p>
-        <p class="fits">Printables &middot; by Darkextratoasty &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 4x 5 mm cube magnets per device; loud in PLA, print in TPU to dampen the noise</p>
-        <a class="part-link" href="https://www.printables.com/model/793902-magnetic-fidget-switch" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Darkextratoasty · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/793902-magnetic-fidget-switch" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/230835/images/2122096_8589ec22-b74c-439a-bfb6-b39db5846dcd/thumbs/inside/1280x960/jpg/pxl_20220629_164539700.webp" alt="Bistable Compliant Fidget Clicker" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Clicker</span>
         <strong>Bistable Compliant Fidget Clicker</strong>
         <p>A remix of the BYU compliant-mechanism clicker: a solid moving piece that snaps against both edges of its frame with a loud, satisfying click.</p>
-        <p class="fits">Printables &middot; by layer.works &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Noisy — not for discreet fidgeting; limited lifespan of many hundreds of cycles; remix of the BYU CMR design</p>
-        <a class="part-link" href="https://www.printables.com/model/230835-bistable-compliant-fidget-clicker" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by layer.works · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/230835-bistable-compliant-fidget-clicker" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -395,183 +464,224 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/318113/images/2750906_25126164-8654-499a-aecd-80c4dc76577c/thumbs/inside/1280x960/jpg/gear-chain-fidget.webp" alt="Fully 3D Printed Bike Chain Gear Fidget Toy/Spinner" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Fully 3D Printed Bike Chain Gear Fidget Toy/Spinner</strong>
         <p>A working bike-chain fidget with 15 chain links and two sprockets with print-in-place bearings; no supports, no lube.</p>
-        <p class="fits">Printables &middot; by Joshua Jones &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Two sprocket clearances (0.225 in / 0.15 in); large clearance fits all printers</p>
-        <a class="part-link" href="https://www.printables.com/model/318113-fully-3d-printed-bike-chain-gear-fidget-toyspinner" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Joshua Jones · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/318113-fully-3d-printed-bike-chain-gear-fidget-toyspinner" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/5863dd87-7446-4f5e-a6d1-5221b3fb63b0/images/11474421_898d74cb-3345-4b06-903e-4a3fcf21da25_793bb39c-cb29-409a-adeb-798468698d02/thumbs/inside/1280x960/png/gemini_generated_image_knlyiknlyiknlyik.webp" alt="Ball-Bearing Fidget Spinner [EASY to Print]" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Ball-Bearing Fidget Spinner [EASY to Print]</strong>
         <p>An orbital gear spinner with a rugged outer gear ring and a high-contrast core; support-free, silk PLA looks great on the bearing balls.</p>
-        <p class="fits">Printables &middot; by Hducke &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Print-in-place friendly</p>
-        <a class="part-link" href="https://www.printables.com/model/1523180-ball-bearing-fidget-spinner-easy-to-print" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Hducke · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1523180-ball-bearing-fidget-spinner-easy-to-print" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/84fa0253-ed61-4671-9e4d-1cc4b149a4c5/images/13478951_f9a6f686-e1ab-493c-bed6-d36628caca63_09afde9f-497b-49c5-b489-64cfab29f12a/thumbs/inside/1280x960/png/gear_2026-aug-02_04-54-46am-000_customizedview4787833093.webp" alt="Tri-Orbit Planetary Gear Spinner" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Spinner</span>
         <strong>Tri-Orbit Planetary Gear Spinner</strong>
         <p>A 90 mm planetary gear spinner: sun gear, three planet gears, and an outer ring gear turning at different ratios.</p>
-        <p class="fits">Printables &middot; by Prit Mungalpara &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 1x 608 bearing (22 x 7 x 7 mm)</p>
-        <a class="part-link" href="https://www.printables.com/model/1797665-tri-orbit-planetary-gear-spinner" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Prit Mungalpara · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1797665-tri-orbit-planetary-gear-spinner" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/927564/images/7073732_e7d9915d-aeb6-46f7-9e85-7e401167e575_e21dec23-0837-465e-8dc8-b0bdb2b5938f/ezgif-5-6df36a34eb.gif" alt="GEAR FIDGET SPINNER - BASIC CUBE &amp; SPHERE / KEYCHAIN" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>GEAR FIDGET SPINNER - BASIC CUBE &amp; SPHERE / KEYCHAIN</strong>
         <p>A bevelled helical-gear fidget spinner in cube and sphere versions, plus mini keychain versions; assembles in about a minute.</p>
-        <p class="fits">Printables &middot; by FilliFuu &middot; Paid — $5.00</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Print 4x piece 1 + 4x piece 2 + middle section + centre pins; no glue or extra parts</p>
-        <a class="part-link" href="https://www.printables.com/model/927564-gear-fidget-spinner-basic-cube-sphere-keychain" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by FilliFuu · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/927564-gear-fidget-spinner-basic-cube-sphere-keychain" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/bf2f7de7-e040-42ff-8d59-7714f9a79fac/images/13627688_b9c1be7b-226d-4783-b10f-12a8756bbd3e_1b23f800-8fc3-40ba-860c-9fb675804ce6/thumbs/inside/1280x960/png/new-project-3.webp" alt="Meshing Gears Finger Fidget - (2x Video included) modular!" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Meshing Gears Finger Fidget - (2x Video included) modular!</strong>
         <p>Four herringbone gears meshed across four finger rings — move one finger and the rest follow; modular, make the chain as long as you like.</p>
-        <p class="fits">Printables &middot; by quibeck &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Snap-fit gear rings click into the finger holders</p>
-        <a class="part-link" href="https://www.printables.com/model/1818007-meshing-gears-finger-fidget-2x-video-included-modu" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by quibeck · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1818007-meshing-gears-finger-fidget-2x-video-included-modu" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/c3f2f8df-7518-45cb-ad4c-37785dae881e/images/9963525_a3b7e871-93b9-4760-b4d8-c28adce4b79b_e564af23-c5a3-40c7-9832-2e4fcbe6ffe8/thumbs/inside/1280x960/jpg/img_239043.webp" alt="Fidget Chain – Print-in-Place Articulated Desk Toy" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Fidget Chain – Print-in-Place Articulated Desk Toy</strong>
         <p>An articulated fidget chain with ergonomic finger grips, in 12/14/16/18-link lengths; swing, twist, and click it.</p>
-        <p class="fits">Printables &middot; by wiste95 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; V2 prints with no supports; print in PLA or PLA+</p>
-        <a class="part-link" href="https://www.printables.com/model/1317333-fidget-chain-print-in-place-articulated-desk-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by wiste95 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1317333-fidget-chain-print-in-place-articulated-desk-toy" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/cddb180a-2af6-4679-9878-c5872093a727/images/12915465_845f7c86-1704-453e-a536-f2da346b7f3a_6231bcd1-53b9-49ae-8bca-889703480b79/thumbs/inside/1280x960/jpeg/marble-maze-foto-2.webp" alt="Incredible Round Marble Maze" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Incredible Round Marble Maze</strong>
         <p>A handheld round marble maze: guide the marble to the centre hole and it rolls back to the start through a hidden tunnel.</p>
-        <p class="fits">Printables &middot; by vmLOGIC &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs a 1/4 in marble (printable) or steel/glass/ceramic; V3 has a bottom opening to swap the marble</p>
-        <a class="part-link" href="https://www.printables.com/model/1721810-incredible-round-marble-maze" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by vmLOGIC · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1721810-incredible-round-marble-maze" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/233288/images/2118484_b7b18479-a599-477e-b836-521730e0befa/thumbs/inside/1280x960/jpg/pxl_20220628_160050801.webp" alt="3x3x3 Fidget Maze Puzzle" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>3x3x3 Fidget Maze Puzzle</strong>
         <p>A 3D maze cube that is pleasant to fidget with; open, closed, and print-in-place versions, fits a 10 mm marble.</p>
-        <p class="fits">Printables &middot; by FLWE &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print-in-place version prints with the marble captured inside</p>
-        <a class="part-link" href="https://www.printables.com/model/233288-3x3x3-fidget-maze-puzzle" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by FLWE · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/233288-3x3x3-fidget-maze-puzzle" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/344278/images/2933824_7f5c6f37-43f3-43ab-9f9a-e39e13bdcd31/thumbs/inside/1280x960/jpg/pxl_20221219_130758010portrait.webp" alt="Grandpa's Greatest Worry Stone Fidget" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Fidget</span>
         <strong>Grandpa's Greatest Worry Stone Fidget</strong>
         <p>A simple pocket worry stone that prints in about 35 minutes; 0% infill and 3 walls, or solid infill for more heft.</p>
-        <p class="fits">Printables &middot; by Grandpa 3DPrints &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; The cheapest, fastest booth filler in the catalog</p>
-        <a class="part-link" href="https://www.printables.com/model/344278-grandpas-greatest-worry-stone-fidget" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Grandpa 3DPrints · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/344278-grandpas-greatest-worry-stone-fidget" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/58198/images/610274_4f72c73d-827d-4e6d-b6d4-08d34ca1e04a/thumbs/inside/1280x960/jpg/large_display_screen_shot_2021-02-24_at_35130_pm_.webp" alt="Fidget Stone (REMIX)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Fidget Stone (REMIX)</strong>
         <p>A textured fidget worry stone remixed from OBconcepts' Worry Stone; prints dimples-down with no supports.</p>
-        <p class="fits">Printables &middot; by Tykomyk &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $15</p>
-        <a class="part-link" href="https://www.printables.com/model/58198-fidget-stone-remix" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Tykomyk · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/58198-fidget-stone-remix" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/650237/stls/5129270_f03f708d-ae0a-420f-b098-3dee4823ea9d_738d81b4-86d9-471c-8ef7-9c188ee4364a/thumbs/inside/1280x960/png/square-fidget-spinner_preview.webp" alt="Square Fidget Spinner" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Square Fidget Spinner</strong>
         <p>A print-in-place square fidget spinner that spins with no external bearing; each square frame is removable so you can print it in the colours you like.</p>
-        <p class="fits">Printables &middot; by Randomizy &middot; Free download</p>
-        <p class="part-note">License: Personal use only — commercial licence via designer's Printables Club &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; 7 x 7 x 1 cm; a drop of light oil in the centre handle makes it spin faster</p>
-        <a class="part-link" href="https://www.printables.com/model/650237-square-fidget-spinner" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Randomizy · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/650237-square-fidget-spinner" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/656953/stls/5178462_3787b290-db2b-4601-b4d7-a5a6b49253ac_af663e78-ebd2-441a-87ac-2fdf5aecf316/thumbs/inside/1280x960/png/gear-print-in-place-pencil-spinner-frikarte3d_preview.webp" alt="GearSpin Pencil Spinner – Print-in-Place Fidget Topper" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Silk-friendly</span>
         <strong>GearSpin Pencil Spinner – Print-in-Place Fidget Topper</strong>
         <p>An 8-tooth spinning gear that slides onto a pencil and turns it into a fidget spinner; print-in-place, no assembly, no glue.</p>
-        <p class="fits">Printables &middot; by Frikarte3D &middot; Free download</p>
-        <p class="part-note">License: Personal use only — strictly non-commercial &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Looks great in silver silk PLA</p>
-        <a class="part-link" href="https://www.printables.com/model/656953-gearspin-pencil-spinner-print-in-place-fidget-topp" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Frikarte3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/656953-gearspin-pencil-spinner-print-in-place-fidget-topp" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/295128/images/2589737_0e6a9276-e124-46b0-ab25-0d24eb299f62/thumbs/inside/1280x960/jpg/img_7313.webp" alt="Bug Spinner" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Magnetic</span>
         <strong>Bug Spinner</strong>
         <p>A magnetic bug-shaped spinner inspired by the Gobigger pillbug fidget: six wings, a spinning ring, and magnets that snap it into place.</p>
-        <p class="fits">Printables &middot; by Fra085 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 12x 5x5 mm cylinder magnets + 1x 8x22x7 mm bearing; wings need supports</p>
-        <a class="part-link" href="https://www.printables.com/model/295128-bug-spinner" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Fra085 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/295128-bug-spinner" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/714347/stls/5602040_a2be4a6d-3fe8-4fc9-b014-da8f5539a641_669db350-a748-4993-bf14-75c883347b90/thumbs/inside/1280x960/png/spinner_025tolerance_preview.webp" alt="SPINNER | Print-in-place fidget hand spinner" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>SPINNER | Print-in-place fidget hand spinner</strong>
         <p>A 100% print-in-place fidget spinner, 90 mm across, with three tolerance versions (0.2/0.25/0.3 mm) so any printer gets a free-spinning fit.</p>
-        <p class="fits">Printables &middot; by Charles Regaud &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; ~1.5 h print; no supports, no brim; 30–50% gyroid infill</p>
-        <a class="part-link" href="https://www.printables.com/model/714347-spinner-print-in-place-fidget-hand-spinner" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Charles Regaud · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/714347-spinner-print-in-place-fidget-hand-spinner" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/18517/stls/180146_b3a3a425-dd4a-4e44-9602-d1810d7ca644/thumbs/inside/1280x960/png/wheel_preview.webp" alt="Wheel fidget spinner - complete with tire" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Wheel fidget spinner - complete with tire</strong>
         <p>A wheel-and-tire fidget spinner with a two-part construction: a flexible tire that slips over the wheel, weighted with trapped pennies for long spins.</p>
-        <p class="fits">Printables &middot; by Dan the 3D Printing Dad &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Uses 21 pennies (7 sections of 3) for weight + a bearing; print the tire in flexible filament</p>
-        <a class="part-link" href="https://www.printables.com/model/18517-wheel-fidget-spinner-complete-with-tire" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Dan the 3D Printing Dad · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/18517-wheel-fidget-spinner-complete-with-tire" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/468658/images/3852852_97eb3e12-87b8-4931-82f9-82f812eb10c0/thumbs/inside/1280x960/png/c54c8050-5514-4339-ab7a-9747d204e421.webp" alt="The Bolty - (probably) The Best Fidget Spinner Ever" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>The Bolty - (probably) The Best Fidget Spinner Ever</strong>
         <p>A chunky nut-and-bolt fidget spinner big enough to fill your hand, with a satisfying weighted spin; a colour change on layer 8 adds a two-tone look.</p>
-        <p class="fits">Printables &middot; by PlanetV3D &middot; Free download</p>
-        <p class="part-note">License: CC BY 4.0 &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Works best in glossy PLA at 25% infill; 0.2 mm layers, 0.4 mm nozzle</p>
-        <a class="part-link" href="https://www.printables.com/model/468658-the-bolty-probably-the-best-fidget-spinner-ever" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PlanetV3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/468658-the-bolty-probably-the-best-fidget-spinner-ever" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/15c6d51a-404a-43b1-af78-409c3443061e/images/13440982_288b2314-fc42-489b-ab99-f60e75c163a0_9d7ce7ac-f5fd-4046-9611-12b4bf71dff9/thumbs/inside/1280x960/jpg/gear-shuriken1.webp" alt="Ninja Star Fidget Gear Spinner" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Ninja Star Fidget Gear Spinner</strong>
         <p>A shuriken-shaped fidget spinner with a print-in-place herringbone planetary gear inside; rounded, finger-friendly tips — not for throwing.</p>
-        <p class="fits">Printables &middot; by DrJones &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Two ring sizes (16 mm and 18 mm); 3MF split into 5 parts for multi-colour printing</p>
-        <a class="part-link" href="https://www.printables.com/model/1792865-ninja-star-fidget-gear-spinner" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DrJones · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1792865-ninja-star-fidget-gear-spinner" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/617542/images/4900455_9a53a3df-2465-4e7d-be51-f9bbb46f98de_001ce8a5-6b5d-4634-bd90-b8b13250c6ad/thumbs/inside/1280x960/jpg/container_ninja-star-fidget-spinner-for-children-3d-printing-162394.webp" alt="Ninja Star Fidget Spinner" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Ninja Star Fidget Spinner</strong>
         <p>A simple ninja-star fidget spinner with holes for 1/4 in steel balls that add weight for faster, longer spins; blunt tips, safe for small hands.</p>
-        <p class="fits">Printables &middot; by techgems &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 1/4 in steel balls for weight; no supports, any material works</p>
-        <a class="part-link" href="https://www.printables.com/model/617542-ninja-star-fidget-spinner" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by techgems · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/617542-ninja-star-fidget-spinner" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/38432/images/379676_ca7a90b0-c7c5-48ee-b4b0-a97de5acb4c7/thumbs/inside/1280x960/png/large_display_gear_fidget_toy_05_-_hexa_-_render_.webp" alt="Gear Fidget Toy 05 - The Flat Hexagon With a Spin" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Gear Fidget Toy 05 - The Flat Hexagon With a Spin</strong>
         <p>A flat hexagonal gear fidget with a spinning centre and two knobs; a long-running favourite with 135+ ratings on Printables.</p>
-        <p class="fits">Printables &middot; by Whity &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs two knobs (filament pin through the hole); prints well in silk PLA or ASA</p>
-        <a class="part-link" href="https://www.printables.com/model/38432-gear-fidget-toy-05-the-flat-hexagon-with-a-spin" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Whity · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/38432-gear-fidget-toy-05-the-flat-hexagon-with-a-spin" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/f3c9bbaa-71ac-4d7a-b976-bc9c2afdc39d/images/12900286_5decba73-c5bf-4f2d-b5f0-2489bd38440d_016aa8fd-6112-4b2e-b774-88a44dcd0d56/thumbs/inside/1280x960/jpeg/donut.webp" alt="Donut Marble Fidget Keychain" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Keychain</span>
         <strong>Donut Marble Fidget Keychain</strong>
         <p>A donut-shaped pocket fidget with a 1/2 in marble trapped inside a circular track; print it plain or as a keychain version.</p>
-        <p class="fits">Printables &middot; by vmLOGIC &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Pause at layer 62 / 12.40 mm to drop in the marble (printable, or real 1/2 in steel/glass/ceramic)</p>
-        <a class="part-link" href="https://www.printables.com/model/1719591-donut-marble-fidget-keychain" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by vmLOGIC · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1719591-donut-marble-fidget-keychain" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US17d187a45795a3/design/2024-12-14_93cff22e6eaa1.jpg" alt="Marble loop fidget toy" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Marble loop fidget toy</strong>
         <p>A loop-track marble fidget: guide an 8 mm marble or steel ball around the loop and through the bypass behind the boost ring.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs an 8 mm marble or steel ball; single- or multi-colour versions, no AMS needed</p>
-        <a class="part-link" href="https://makerworld.com/en/models/879167-marble-loop-fidget-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/879167-marble-loop-fidget-toy" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USbcc40ea168d9c2/design/454544618299c0cf.jpg" alt="Race wheel and tire clicky spinner fidget one hand" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Race wheel and tire clicky spinner fidget one hand</strong>
         <p>A race wheel and tire that clicks in both directions and spins one-handed; keychain and regular versions, AMS and non-AMS plates.</p>
-        <p class="fits">MakerWorld &middot; by Bobbond000 &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; No glue; clip the clicker into the wheel, then thread the wheel front on — tighten gently</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2533171-race-wheel-and-tire-clicky-spinner-fidget-one-hand" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Bobbond000 · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2533171-race-wheel-and-tire-clicky-spinner-fidget-one-hand" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -582,98 +692,113 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/77894/stls/843952_525f4471-a32a-4c8a-8dda-f30e318e23af/thumbs/inside/1280x960/png/2021-10_fidget-slider_reve_preview.webp" alt="Lucky Clover Magnetic Fidget Slider w/Captured Magnets (6x2mm)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Magnetic</span>
         <strong>Lucky Clover Magnetic Fidget Slider w/Captured Magnets (6x2mm)</strong>
         <p>A clover-shaped magnetic fidget slider with the magnets captured inside the print; convex grip and debossed clover leaves for comfortable one-hand play.</p>
-        <p class="fits">Printables &middot; by Teque5 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 10x 6x2 mm magnets; pause at 2.6 mm to insert them (pause in the supplied 3MF)</p>
-        <a class="part-link" href="https://www.printables.com/model/77894-lucky-clover-magnetic-fidget-slider-wcaptured-magn" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Teque5 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/77894-lucky-clover-magnetic-fidget-slider-wcaptured-magn" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/559408/images/4485050_e5753248-88e5-4475-8d3f-094984e5a1fe/thumbs/inside/1280x960/png/3378bc22-07de-49ca-bdf8-33018545fd0e.webp" alt="Fidget Slider &quot;The Spade&quot;" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Fidget Slider "The Spade"</strong>
         <p>A very clicky, responsive magnetic fidget slider shaped like a spade; great in the hand and good for learning slider tricks.</p>
-        <p class="fits">Printables &middot; by MyNameIsHate &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs 16x 6x3 mm magnets inserted mid-print (pause at layer 21); filament change at layer 30 for the spade inlay</p>
-        <a class="part-link" href="https://www.printables.com/model/559408-fidget-slider-the-spade" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MyNameIsHate · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/559408-fidget-slider-the-spade" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/459232/stls/3781593_41dda7ac-a21f-4e33-a77b-c4c9315dc5ef/thumbs/inside/1280x960/png/fidget-button-4x1mm_preview.webp" alt="Magnetic sliding fidget" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Magnetic</span>
         <strong>Magnetic sliding fidget</strong>
         <p>A three-part magnetic sliding fidget in Classic (magnets exposed) and Covered (magnets embedded) versions, in 10 magnet sizes.</p>
-        <p class="fits">Printables &middot; by Luca Bartoli &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 7x 6x2 mm neodymium magnets; small parts — keep away from small children (swallowing hazard)</p>
-        <a class="part-link" href="https://www.printables.com/model/459232-magnetic-sliding-fidget" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Luca Bartoli · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/459232-magnetic-sliding-fidget" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/818968/images/6325479_7159e68c-2404-41ba-83fc-244039395b50_3a1cc195-d59e-4a43-9fd8-e9e6a45bebb0/thumbs/inside/1280x960/jpg/20240325_010941.webp" alt="Hexagon Fidget Toy With Embedded Magnets Strong Satisfying Snap To Positions" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Hexagon Fidget Toy With Embedded Magnets Strong Satisfying Snap To Positions</strong>
         <p>A hexagonal magnetic sliding fidget with 26 embedded magnets that snaps to 36 positions as the two halves slide, rotate, and click against each other.</p>
-        <p class="fits">Printables &middot; by blueridgeprintco &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs 26x 5x2 mm magnets; pause at layer 12 to embed them; two face designs, mix and match colours</p>
-        <a class="part-link" href="https://www.printables.com/model/818968-hexagon-fidget-toy-with-embedded-magnets-strong-sa" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by blueridgeprintco · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/818968-hexagon-fidget-toy-with-embedded-magnets-strong-sa" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US44a50637a12df0/design/2025-12-30_d4bee115ef8798.jpg" alt="Fidget-Fuse Grenade 5-in-1 Snap-Fit Fidget Toy" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Fidget-Fuse Grenade 5-in-1 Snap-Fit Fidget Toy</strong>
         <p>A grenade-shaped 5-in-1 fidget: free spin, rattling gear clicks, crisp slider clicks, tactile rotations, and a handle clack — snap-fit, no tools.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 24 numbered STL files, print in order and snap together; no supports; v3.0 — see also the 7-in-1 Tactical version</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1660998-fidget-fuse-grenade-5-in-1-snap-fit-fidget-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1660998-fidget-fuse-grenade-5-in-1-snap-fit-fidget-toy" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US4f75ed5e5f1e9b/design/2025-12-28_fbd8bca8bfe4d.jpg" alt="Magnetic Fidget Slider/Spinner" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Magnetic Fidget Slider/Spinner</strong>
         <p>Two magnetic halves that latch with 8x3 mm magnets and rotate, slide, and pivot around each other, ending each move with a quiet tactile click.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs 6x 8x3 mm neodymium magnets per fidget; ~45 min per pair when printing 5 at a time; pocket-size and quiet</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2168991-magnetic-fidget-slider-spinner" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2168991-magnetic-fidget-slider-spinner" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USa8fd19def474f0/design/eeba4ecb840e9b3d.jpg" alt="Alpha Fidget- 5 in 1 Print in Place Fidget Toy" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Print-in-place</span>
         <strong>Alpha Fidget- 5 in 1 Print in Place Fidget Toy</strong>
         <p>A 5-in-1 print-in-place fidget: clicker on top, slider on one side, switch on the other, a spinning ring at the bottom, and a gear ratchet wheel.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print-in-place, no assembly; the bottom ring actually spins</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1049589-alpha-fidget-5-in-1-print-in-place-fidget-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1049589-alpha-fidget-5-in-1-print-in-place-fidget-toy" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US43bef941b9db90/design/2025-01-01_dd47b5730e2b6.jpg" alt="Oreo fidget slider" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Oreo fidget slider</strong>
         <p>A three-layer Oreo-cookie fidget slider: black halves and a white filling, holding 9 magnets snugly with no glue.</p>
-        <p class="fits">MakerWorld &middot; by 3deeznuts &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs 9x 5x2 mm magnets; pause at layer 12 (shell) / 15 (filling) to insert them</p>
-        <a class="part-link" href="https://makerworld.com/en/models/936763-oreo-fidget-slider" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3deeznuts · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/936763-oreo-fidget-slider" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US5084ddeee9e2b8/design/168b61961fc82b9a.png" alt="Fidget Clicker - Tako Sweet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Fidget Clicker - Tako Sweet</strong>
         <p>A mechanical slider/clicker inspired by Tako, a Thai dessert; smooth sliding with excellent tactile feedback, no supports.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended for the housing; 3–4 wall loops; 0.2 mm tolerance in the slider tracks</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2879205-fidget-clicker-tako-sweet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2879205-fidget-clicker-tako-sweet" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US6d246f3e440cde/design/2025-01-16_6580313a1dc97.png" alt="The CLICKER ( Fidget)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Clicker</span>
         <strong>The CLICKER ( Fidget)</strong>
         <p>A simple slider clicker: slide it back and forth for a soothing click, with a spacer plate and press-fit click bar.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — choking hazard, keep away from small children</p>
-        <a class="part-link" href="https://makerworld.com/en/models/998090-the-clicker-fidget" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/998090-the-clicker-fidget" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USfaa3c6abcb7372/design/2025-07-31_b303c10fcd78.gif" alt="RushSlider 15-Minute Fidget" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Magnetic</span>
         <strong>RushSlider 15-Minute Fidget</strong>
         <p>A magnetic fidget slider that prints in about 15 minutes: click, slide, and stack the plates; four plate variations per magnet size.</p>
-        <p class="fits">MakerWorld &middot; by 3dPrintInPlace &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Uses 6x3 mm or 8x2 mm magnets; commercial licence via the designer's membership</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1656901-rushslider-15-minute-fidget" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3dPrintInPlace · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1656901-rushslider-15-minute-fidget" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -699,14 +824,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -732,7 +856,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -787,31 +910,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

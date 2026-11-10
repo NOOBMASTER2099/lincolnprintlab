@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -229,10 +266,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 
 <main id="top">
 <section class="wrap" id="larp-gear">
-    <h2 class="section-title">LARP Gear</h2>
+    <h1>LARP Gear</h1>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory &mdash; swords, axes, shields, armor, and tavern gear for live-action roleplay: printed props, handles, and soft-TPU builds. Download the model you like, then send us the file and we&rsquo;ll give you an exact quote. These are costume props, not real weapons. Don&rsquo;t see what you need? Tell us what you&rsquo;re looking for &mdash; we&rsquo;ll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <p class="section-sub">Not sure of your size? <a href="fit-scale.html" style="text-decoration:underline">Check the Helmet Sizing guide</a> &mdash; the LincolnPrintLab Scale matches your hat size to the right print size.</p>
 
@@ -253,122 +292,144 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/679963/images/5344430_1dd377c4-b371-47e8-8d00-45fa175d0a31_0822d6c9-fff0-414f-aa67-5d8e96749e8d/thumbs/cover/1200x630/jpg/20231213_160017.jpg" alt="LARP Boffer Sword Pommel Base and Handle" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Sword</span>
         <strong>LARP Boffer Sword Pommel Base and Handle</strong>
         <p>Printed handle sections and pommel bases that slip over a skinny sword core so a foam (boffer) sword feels right in the hand and passes pommel-size rules; fits kitespar, fiberglass, bamboo, and PVC cores.</p>
-        <p class="fits">Printables &middot; by rmwphd &middot; Free download</p>
-        <p class="part-note">License: CC BY-SA &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/679963-larp-boffer-sword-pommel-base-and-handle" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by rmwphd · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/679963-larp-boffer-sword-pommel-base-and-handle" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/246992/images/2224513_31655374-417a-4756-9f60-95ba186344ae/thumbs/inside/1280x960/jpeg/img_0772.webp" alt="3D Printed LARP Safe Parrying Dagger" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dagger</span>
         <strong>3D Printed LARP Safe Parrying Dagger</strong>
         <p>A full dagger designed to be printed in soft TPU so it is safe to hit people with and safe to be hit by other blades; fiberglass rod core, printed knucklebow and crossguard, wood-look grip.</p>
-        <p class="fits">Printables &middot; by Egghebrecht &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/246992-3d-printed-larp-safe-parrying-dagger" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Egghebrecht · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/246992-3d-printed-larp-safe-parrying-dagger" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/577161/images/4611168_30978c87-ca28-4c46-9e0d-98a5122167e5/thumbs/cover/1200x630/gif/tempimagedxfefp.gif" alt="Kids Play Sword Hilt" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Sword</span>
         <strong>Kids Play Sword Hilt</strong>
         <p>A child-size sword hilt; slide in a piece of packing foam or folded cardboard as the blade for safe pretend swordplay.</p>
-        <p class="fits">Printables &middot; by DVs3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/577161-kids-play-sword-hilt" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DVs3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/577161-kids-play-sword-hilt" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/874657/images/7499000_a0efbb16-bddc-4667-b8f8-0d7eb0d4ff9d/thumbs/inside/1280x960/jpg/2.webp" alt="Pool Noodle Sword" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Sword</span>
         <strong>Pool Noodle Sword</strong>
         <p>A printed sword handle that a pool noodle slides into, making a soft foam sword for backyard play.</p>
-        <p class="fits">Printables &middot; by Faceless dave &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/874657-pool-noodle-sword" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Faceless dave · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/874657-pool-noodle-sword" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1618092/images/13712324_ae04f7d6-cd8d-42e9-a4f8-aa6f1f8efdb6/thumbs/inside/1280x960/jpg/img_1140.webp" alt="HEMA Easy Build Indoor Longsword Trainer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Sword</span>
         <strong>HEMA Easy Build Indoor Longsword Trainer</strong>
         <p>A simple two-handed longsword trainer, about the size of a tournament practice sword, built from printed parts plus a threaded rod; glue-only assembly works as a costume prop.</p>
-        <p class="fits">Printables &middot; by frogstompr &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1618092-hema-easy-build-indoor-longsword-trainer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by frogstompr · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1618092-hema-easy-build-indoor-longsword-trainer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/442829/images/3657458_56ed670f-031f-4d76-a11c-c8cbb350eea5/thumbs/cover/1200x630/jpg/large_display_pxl_20220419_151601325resized_442829.jpg" alt="Collapsible Katana V2" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Vase</span>
         <strong>Collapsible Katana V2</strong>
         <p>A katana whose blade slides out of the handle in sections (vase-mode print), collapsing down small and extending to full length; a fun prop, not a fighting weapon.</p>
-        <p class="fits">Printables &middot; by ekalfwonS &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/442829-collapsible-katana-v2" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ekalfwonS · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/442829-collapsible-katana-v2" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/3719/images/23841_56d8f9d2-9635-4ae5-a4e9-93a182614595/thumbs/cover/1200x630/png/katana.png" alt="Collapsing Katana (Print in Place)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Collapsing Katana (Print in Place)</strong>
         <p>A print-in-place katana that prints as one piece and telescopes out to over 825 mm long; no supports needed.</p>
-        <p class="fits">Printables &middot; by 3D Printing World &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/3719-collapsing-katana-print-in-place" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3D Printing World · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/3719-collapsing-katana-print-in-place" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://fbi.cults3d.com/uploaders/12510347/illustration-file/0ed50efb-78b5-490e-b445-a57269d2d912/kingdome-come-sword-3demon-3dprint-free-stl.427.jpg" alt="Medieval Longsword — Kingdom Come: Deliverance, Sir Radzig Kobyla&#x27;s Sword" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Sword</span>
         <strong>Medieval Longsword — Kingdom Come: Deliverance, Sir Radzig Kobyla&#x27;s Sword</strong>
         <p>Full-size (1 m) longsword carried by Henry in the Kingdom Come game, cut into pieces for a 200 mm print bed, with a rod channel for strength.</p>
-        <p class="fits">Printables &middot; by 3Demon &middot; Free download</p>
-        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/961793-medieval-longsword-kingdom-come-sir-radzig-kobyla" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3Demon · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/961793-medieval-longsword-kingdom-come-sir-radzig-kobyla" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/777612/images/6042610_adcf8aa4-1498-4d2c-9581-560c36c86d9e_d877c56b-af79-4fed-aba6-6c40b0a6f035/narsil_render_3demon257.jpg" alt="Narsil Sword — The Lord of the Rings" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Sword</span>
         <strong>Narsil Sword — The Lord of the Rings</strong>
         <p>Full-size replica of King Elendil&#x27;s longsword Narsil (later reforged as Andúril), in whole and broken versions, cut for a 200 mm print bed.</p>
-        <p class="fits">Printables &middot; by 3Demon &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/777612-narsil-sword-the-lord-of-the-rings" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3Demon · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/777612-narsil-sword-the-lord-of-the-rings" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/709112/images/5562518_835b1f20-f22a-4dc5-a614-5c100f6661fc_8da00c31-bd1d-4986-97da-6a142af6bdb5/thumbs/cover/1200x630/jpeg/img_3408.jpg" alt="Katana Sword Prop with Sword Rack" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Katana Sword Prop with Sword Rack</strong>
         <p>A detailed katana modeled on the Bride&#x27;s sword from Kill Bill, with a printed display rack; ABS/ASA recommended for the blade so it can be sanded smooth.</p>
-        <p class="fits">Printables &middot; by LCruz3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/709112-katana-sword-prop-with-sword-rack" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by LCruz3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/709112-katana-sword-prop-with-sword-rack" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/715650/images/6122005_1b1fba5e-ef0a-40d1-980c-ebfaac0d4f9d/thumbs/inside/1280x960/jpg/rengoku-collapsing-katana-1.webp" alt="Rengoku&#x27;s Multi-Part Collapsing Katana" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Rengoku&#x27;s Multi-Part Collapsing Katana</strong>
         <p>A collapsing katana in separate parts so each can be printed in a different color and glued together; the cap pops off so blades can be swapped.</p>
-        <p class="fits">Printables &middot; by 3D Printing World &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/715650-rengokus-multi-part-collapsing-katana" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3D Printing World · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/715650-rengokus-multi-part-collapsing-katana" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1761202/images/15320035_7c3e3c54-95ee-41e8-8ae4-d5dfa4f5bb1a/thumbs/inside/1280x960/jpg/kagurabachi-enchanted-blade-1.webp" alt="Kagurabachi — Enchanted Blade" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Blade</span>
         <strong>Kagurabachi — Enchanted Blade</strong>
         <p>The enchanted katana from the Kagurabachi manga, with sheath and all guard designs, built around a 4 mm metal rod.</p>
-        <p class="fits">Printables &middot; by endspire &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1761202-kagurabachi-enchanted-blade" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by endspire · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1761202-kagurabachi-enchanted-blade" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/307095/images/2673966_43a902f5-dd79-451d-83a1-2e4e0817c5bb/thumbs/inside/1280x960/jpg/view-down-blade.webp" alt="Brooks Cane Sword — Soul Solid" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Sword</span>
         <strong>Brooks Cane Sword — Soul Solid</strong>
         <p>Brook&#x27;s cane sword from One Piece, with scabbard; the sword slides inside the cane-style scabbard.</p>
-        <p class="fits">Printables &middot; by DaBeast_6074 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/307095-brooks-cane-sword-soul-solid" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DaBeast_6074 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/307095-brooks-cane-sword-soul-solid" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/assets/d6/97/1e/ac/6d/8d793251-97e9-41a9-8a3c-493879968ce1.png&amp;w=628&amp;h=472&amp;fit=contain&amp;cbg=white&amp;n=-1" alt="Inverted Spear of Heaven" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Spear</span>
         <strong>Inverted Spear of Heaven</strong>
         <p>Toji&#x27;s spear-dagger weapon from Jujutsu Kaisen, 50 cm long, with clean and battle-damaged blade options and two hilt options.</p>
-        <p class="fits">Thingiverse &middot; by Mave3Dprints &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:6443121" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Mave3Dprints · Thingiverse</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:6443121" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -379,60 +440,72 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/247127/images/2225863_14e8acce-154b-49c1-866b-d563f3401540/thumbs/inside/1280x960/jpg/parts.webp" alt="Destiny Battle Axe" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Axe</span>
         <strong>Destiny Battle Axe</strong>
         <p>A large two-handed battle axe from Destiny, printed in halves that join over plastic pipe for strength; about 1 kg of plastic.</p>
-        <p class="fits">Printables &middot; by PRINTSY &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; PLA $250 &middot; PETG $280</p>
-        <a class="part-link" href="https://www.printables.com/model/247127-destiny-battle-axe" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PRINTSY · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/247127-destiny-battle-axe" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/921189/previews/thumbs/inside/1280x960/png/5882881f7a62c321865121c73d1d20b6e5093f2b.webp" alt="War Hammer" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Prop</span>
         <strong>War Hammer</strong>
         <p>A medieval prop war hammer with engraved compass and hammer emblems; print flat or split and glue.</p>
-        <p class="fits">Printables &middot; by Sam Hain &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/921189-war-hammer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Sam Hain · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/921189-war-hammer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/08420e5a-9ce7-4ec4-8494-1bf3f68a8718/images/13410960_fd49cc60-95e5-478b-8759-0e56f084187e_0118e5c3-ca6e-4407-a1e9-a821a21ee06b/thumbs/inside/1280x960/jpg/20260722_115954.webp" alt="POLEHAMMER (Azza / Bec de Corbin / Lucerne Hammer)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>POLEHAMMER (Azza / Bec de Corbin / Lucerne Hammer)</strong>
         <p>A full-size 180 cm polearm with a pointed tip, hammer head, and curved spike, modeled on 16th-century infantry polearms; a detailed historical prop replica, not for combat.</p>
-        <p class="fits">Printables &middot; by Nessuno0505 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1789065-polehammer-azza-bec-de-corbin-lucerne-hammer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Nessuno0505 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1789065-polehammer-azza-bec-de-corbin-lucerne-hammer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1061804/images/8036439_8b32af7a-b8f0-4ead-91a3-59562dbd325f_4fb0a586-88a1-4e61-afc7-3f10a23a8c85/thumbs/inside/1280x960/jpg/2024-11-01-190941.webp" alt="Large Battle Axe" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>Large Battle Axe</strong>
         <p>A 110 cm tall battle axe in 4 parts (3 handle sections + head), a big display/costume prop.</p>
-        <p class="fits">Printables &middot; by MIC1980 &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; PLA $327</p>
-        <a class="part-link" href="https://www.printables.com/model/1061804-grosse-streitaxt-large-battle-axe" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MIC1980 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1061804-grosse-streitaxt-large-battle-axe" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://fbi.cults3d.com/uploaders/24316210/illustration-file/5ecbf9c5-a9bc-4ac6-a6f2-6b136e63ec1b/20220702_134107.jpg" alt="Sokyra — A Modern Combat Axe (LARP)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Clip</span>
         <strong>Sokyra — A Modern Combat Axe (LARP)</strong>
         <p>A modern-style combat axe with a soft TPU head and a sheath that clips to a belt or MOLLE strap; needs a large printer at full size.</p>
-        <p class="fits">Cults3D &middot; by Designer not listed &middot; Paid file — price on page</p>
-        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/fashion/sokyra-a-modern-combat-axe-larp" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/fashion/sokyra-a-modern-combat-axe-larp" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://images.cults3d.com/IX1eRXHLxfBOyF771hYt85z6Bww=/https://preview3d-images.cults3d.com/0oputedl1ni6kbm9t9w4zxq3vyks" alt="&quot;War&quot; Axe Head for HEMA / SCA" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Axe</span>
         <strong>&quot;War&quot; Axe Head for HEMA / SCA</strong>
         <p>Printable molds for pouring a soft rubber &quot;war&quot; axe head (oversize medieval hand axe); also works printed in TPU or cast in self-skinning foam for LARP.</p>
-        <p class="fits">Cults3D &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/tool/war-axe-head-for-hema-sca" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/tool/war-axe-head-for-hema-sca" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
+        <span class="draft-tag">Axe</span>
         <strong>GallowGlass Axe Head for HEMA / SCA</strong>
         <p>Printable molds for a Gallowglass-style axe head (Dane-axe style polearm head) for rubber casting or TPU printing; tested for sparring use.</p>
-        <p class="fits">Cults3D &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/tool/gallowglass-axe-head-for-hema-sca-rubber-mold-sparring-safe" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/tool/gallowglass-axe-head-for-hema-sca-rubber-mold-sparring-safe" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -443,19 +516,23 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://fbi.cults3d.com/uploaders/342260/illustration-file/27a8a373-f03a-45d5-8fd3-c975601ac3ac/Recurve-Bow-Complete.jpg" alt="Kids Takedown Recurve Bow" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Bow</span>
         <strong>Kids Takedown Recurve Bow</strong>
         <p>A small take-down recurve bow that prints in pieces and bolts together; strength depends on material and infill, sized for a child.</p>
-        <p class="fits">Printables &middot; by Atle &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/287352-kids-takedown-recurve-bow" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Atle · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/287352-kids-takedown-recurve-bow" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/assets/01/79/a8/9f/34/total_01.jpg&amp;w=628&amp;h=472&amp;fit=contain&amp;cbg=white&amp;n=-1" alt="3D Printed Miniature Compound Bow" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>3D Printed Miniature Compound Bow</strong>
         <p>A working miniature compound bow in 18 printed parts plus string and screws, firing wooden skewers; a fun desktop archer prop.</p>
-        <p class="fits">Thingiverse &middot; by DonStick3l &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:2764962" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DonStick3l · Thingiverse</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:2764962" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -466,37 +543,43 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://3dad.ru/uploads/models/993/2215993.webp" alt="Master Sword + Shield Complete Set" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Master Sword + Shield Complete Set</strong>
         <p>The Master Sword, its sheath, and the Hylian Shield from Zelda, cut into printable pieces with rod channels for strength; three handle styles.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2215993-master-sword-shield-complete-set" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2215993-master-sword-shield-complete-set" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000053643/design/2023-10-30_528d6bae56047.jpg" alt="Captain America Shield" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Captain America Shield</strong>
         <p>A wearable Captain America shield with printed grips that bolt on with brass inserts and screws; color changes at 8 mm and 9 mm make the rings.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/53643-captain-america-shield" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/53643-captain-america-shield" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://images.cults3d.com/sFDANXd_UNr57D9GOTkutIYMmE8=/516x516/filters:no_upscale()/https://fbi.cults3d.com/uploaders/40851462/illustration-file/50ab7fa0-ca86-48a2-a1be-e14b25388209/1.png" alt="Viking Shield — Medieval Wooden Round Shield with Iron Boss" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Shield</span>
         <strong>Viking Shield — Medieval Wooden Round Shield with Iron Boss</strong>
         <p>A round wooden-plank Viking shield with a steel center boss and metal rim; sold as a game-ready model that includes an STL file.</p>
-        <p class="fits">Cults3D &middot; by InventiveWorld &middot; File: $4.61</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/art/viking-shield-3d-model-medieval-wooden-round-shield-with-iron-boss" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by InventiveWorld · Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/art/viking-shield-3d-model-medieval-wooden-round-shield-with-iron-boss" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/631083/images/4997988_e792ddfc-63e8-4966-a297-729ca61ad6bf_b14544bf-84fc-4b9f-943a-9099cc1e8a84/thumbs/inside/1280x960/jpg/pxl_20231030_014155706.webp" alt="Rawlings / Red Dragon Back Scabbard" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Sword</span>
         <strong>Rawlings / Red Dragon Back Scabbard</strong>
         <p>A U-shaped back scabbard for a Red Dragon synthetic training longsword, worn across the back or waist; the sword lifts out sideways so the draw stays short.</p>
-        <p class="fits">Printables &middot; by Spudhunter &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/631083-rawlingsred-dragon-back-scabbard" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Spudhunter · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/631083-rawlingsred-dragon-back-scabbard" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -507,100 +590,123 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USf48e87d34241f9/design/2024-09-16_528f10cec2e2f.jpg?x-oss-process=image/resize,w_400/format,webp" alt="Pauldron and Bracer Set — Wearable Costume Armor" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Pauldron and Bracer Set — Wearable Costume Armor</strong>
         <p>Articulated shoulder armor and forearm bracers with printed TPU straps to hold them on; comfortable, easy to print, sized for a 5&#x27;10&quot; frame (scale to fit).</p>
-        <p class="fits">MakerWorld &middot; by vorkosigan78 &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/646591" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by vorkosigan78 · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/646591" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/862/2446862.webp" alt="Roman Centurion Armor — Wearable Armor Set" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Wearable</span>
         <strong>Roman Centurion Armor — Wearable Armor Set</strong>
         <p>A full Roman centurion set with wolf emblems instead of the usual lions: crested helmet, muscle breastplate, shoulder guards, bracers, and belt with hanging straps; about 2.1 kg finished, fits a 6 ft frame.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $534 &middot; PETG $598</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2446862-roman-centurion-armor-wearable-armor-set" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2446862-roman-centurion-armor-wearable-armor-set" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US4530eb7e979e3f/design/e3f8c02b70bd22f6.jpg" alt="Immortal Phoenix, Armor of the Conqueror" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Immortal Phoenix, Armor of the Conqueror</strong>
         <p>A full 9-piece fantasy armor set (helmet, chest, shoulders, leg guards) in a brass-and-red &quot;phoenix&quot; style, sized for a 180 cm wearer, with split and one-piece versions of key parts.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1939728-immortal-phoenix-armor-of-the-conqueror-mwh" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1939728-immortal-phoenix-armor-of-the-conqueror-mwh" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/826/1944826.webp" alt="Static Layered Sentinel Pauldron — Shoulder Armor" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Armor</span>
         <strong>Static Layered Sentinel Pauldron — Shoulder Armor</strong>
         <p>A layered, overlapping-plate shoulder armor piece for sci-fi soldiers, city guards, or fantasy fighters; scale to fit your frame.</p>
-        <p class="fits">MakerWorld &middot; by Stephen Thorwart &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1944826-static-layered-sentinel-pauldron-shoulder-armor" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Stephen Thorwart · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1944826-static-layered-sentinel-pauldron-shoulder-armor" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US95507fae69ef1e/design/2026-01-04_7cd3f65bf23018.jpeg?x-oss-process=image/resize,w_400/format,webp" alt="Vambrace / Bracer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Armor</span>
         <strong>Vambrace / Bracer</strong>
         <p>A simple one-piece forearm armor guard, no frills, flexible enough to size to your arm.</p>
-        <p class="fits">MakerWorld &middot; by tristan.lrx &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $22</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2196670-vambrace-bracer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by tristan.lrx · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2196670-vambrace-bracer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/052/2497052.webp" alt="Baldurs Gate 3 Karlach Cosplay Bundle" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Baldurs Gate 3 Karlach Cosplay Bundle</strong>
         <p>Karlach&#x27;s full kit from Baldur&#x27;s Gate 3: a 140 cm Bloodsoaked Greataxe with a segmented handle, spiked arm guard, demon horns, belt buckles, and claws.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $400 &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2497052-baldurs-gate-3-karlach-cosplay-bundle" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2497052-baldurs-gate-3-karlach-cosplay-bundle" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/a4338f6e-0437-4c05-81c8-d29ac7a1047e/images/12423706_499b717e-1628-4b6b-830f-74da4dc2f2e9_cd3a05e5-2549-4aa7-b7f4-c4d5525c4c60/thumbs/inside/1280x960/jpg/c1.webp" alt="Interconnectable Truchet Armour Fabric" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Wearable</span>
         <strong>Interconnectable Truchet Armour Fabric</strong>
         <p>Flexible chainmail-style fabric panels that link together into larger sheets, so you can build wearable armor pieces bigger than your print bed.</p>
-        <p class="fits">Printables &middot; by Sean Liang &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1653153-interconnectable-truchet-armour-fabric" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Sean Liang · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1653153-interconnectable-truchet-armour-fabric" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/604626/images/4809475_427dcd17-2c72-46d0-aa8d-9634a7bb32c7_ffb59e92-d6b1-4b3f-8861-f4df993cefd2/thumbs/cover/1200x630/jpg/redfieldsquare_display_large_604626.jpg" alt="FlexMesh 1.0 — Flexible Chainmail Mesh" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Chainmail</span>
         <strong>FlexMesh 1.0 — Flexible Chainmail Mesh</strong>
         <p>A flexible printed mesh that behaves like chainmail cloth; the designer printed sheets up to 8.5 ft long.</p>
-        <p class="fits">Printables &middot; by neobobkrause &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/604626-flexmesh-10-flexible-chainmail-mesh" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by neobobkrause · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/604626-flexmesh-10-flexible-chainmail-mesh" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/304968/rich_content/7d771b4d-8506-4075-a6d4-2514d45a810c/1.jpg" alt="Tetrahedron Chainmail Fabric" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Tetrahedron Chainmail Fabric</strong>
         <p>A two-color chainmail fabric made of hexagon links and pyramid pieces; it folds in half, links together endlessly, and needs no supports.</p>
-        <p class="fits">Printables &middot; by Luke&#x27;s 3D &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/304968-tetrahedron-chainmail-fabric" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Luke's 3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/304968-tetrahedron-chainmail-fabric" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/8a0e3f29-dce9-4c0b-8ac1-bf7c20cf1ded/images/13192207_4c12de25-aff3-4a18-a917-bb1bf0682428_fbc712a4-6371-445e-9bd7-5714b854536b/thumbs/inside/1280x960/jpg/pxl_20260622_001353744mp.webp" alt="Modular Chainmail Fabric" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Modular Chainmail Fabric</strong>
         <p>A flexible printed fabric inspired by NASA chainmail, with links so you can join sheets into pieces bigger than your printer.</p>
-        <p class="fits">Printables &middot; by Dino DESIGNER &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1761110-modular-chainmail-fabric" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Dino DESIGNER · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1761110-modular-chainmail-fabric" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/287/images/2052_a3859a98-1bb5-4e01-b40d-03ad2744670a/ae79713a1583ffa44d348d0453ec8f44_preview_featured.jpg" alt="Chainmail — Dual Extrusion 3D Printable Fabric" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Chainmail — Dual Extrusion 3D Printable Fabric</strong>
         <p>A 195 × 195 mm chainmail sheet for dual/multi-color printers, with a small 60 × 60 mm test sample; several color layouts included.</p>
-        <p class="fits">Printables &middot; by Agustin Arroyo &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/287-chainmail-dual-extrusion-3d-printable-fabric" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Agustin Arroyo · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/287-chainmail-dual-extrusion-3d-printable-fabric" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/assets/15/c5/f3/19/78/Capture.PNG&amp;w=628&amp;h=472&amp;fit=contain&amp;cbg=white&amp;n=-1" alt="Scale Armor" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Scale Armor</strong>
         <p>Overlapping scale-armor shoulder pieces you print, paint, and tie together for a LARP or Halloween costume.</p>
-        <p class="fits">Thingiverse &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:1363042" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">Thingiverse</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:1363042" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -610,82 +716,101 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <p class="section-sub">Wizard kits, potion bottles, torches, tankards, and horns.</p>
     <div class="prod-grid">
       <div class="card">
+        <span class="draft-tag">Potion</span>
         <strong>Wizard Costume Accessories</strong>
         <p>An 11-piece wizard kit: light-up staff (top/middle/bottom), spell book, potion bottles and beaker, eye amulet, and a light-up gem amulet; add small LED lights for the glow.</p>
-        <p class="fits">Cults3D &middot; by westernwitch &middot; Paid file — price on page</p>
-        <p class="part-note">License: Cults3D personal use — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/fashion/wizard-costume-accessories-westernwitch" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by westernwitch · Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/fashion/wizard-costume-accessories-westernwitch" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
+        <span class="draft-tag">Seasonal</span>
         <strong>Skull Potion Bottle</strong>
         <p>A skull-shaped potion bottle with a removable stopper and hollow inside, for fantasy drinks, Halloween, or a wizard&#x27;s shelf; print in PETG if it will hold liquid.</p>
-        <p class="fits">Cults3D &middot; by DadGotTools &middot; Free download</p>
-        <p class="part-note">License: Cults3D personal use — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/home/skull-potion-bottle" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DadGotTools · Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/home/skull-potion-bottle" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://files.cults3d.com/uploaders/29923267/illustration-file/90c0aa35-790f-4970-88ca-a6fe0a3ac083/Saruman_render3.jpg" alt="Saruman&#x27;s Staff" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Saruman&#x27;s Staff</strong>
         <p>Saruman&#x27;s staff from The Lord of the Rings, in top/middle/bottom pieces with multicolored inserts so no paint is needed; add middle pieces and a rod to make it as tall as you want.</p>
-        <p class="fits">Cults3D &middot; by westernwitch &middot; File: $5.00</p>
-        <p class="part-note">License: Cults3D personal use — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/fashion/sarumans-staff" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by westernwitch · Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/fashion/sarumans-staff" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
+        <span class="draft-tag">Potion</span>
         <strong>Cute Potion Bottles Pack</strong>
         <p>A pack of small stylized fantasy potion bottles and flasks with cork stoppers and swirly &quot;liquid&quot; centers, for shelves, game tables, or a wizard costume.</p>
-        <p class="fits">Cults3D &middot; by Blendory3D &middot; Paid file — price on page</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/various/cute-potion-bottles-pack-stylized-fantasy-props-low-poly-3d-models-for-print" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Blendory3D · Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/various/cute-potion-bottles-pack-stylized-fantasy-props-low-poly-3d-models-for-print" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/38051/images/375303_34964a06-12c0-4ae3-a298-14288e625771/thumbs/inside/1280x960/jpg/img_20200811_170906_1.webp" alt="Medieval Torch" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Medieval Torch</strong>
         <p>A medieval torch prop with a cage top and screw-in handle, built to hold a homemade silk flame with a small fan and lights; also works as plain Halloween decor.</p>
-        <p class="fits">Printables &middot; by Bugman_140 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/38051-medieval-torch" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Bugman_140 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/38051-medieval-torch" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/792163/images/6147541_2803c1ec-f25f-4e8e-83aa-eb57edb3c8b6_ec4aeb31-2131-422d-bf89-615dfc1a21ec/thumbs/cover/1200x630/jfif/mt-pic1.jpg" alt="Medieval Torch" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Medieval Torch</strong>
         <p>A 315 mm tall torch prop with a crown top and detailed handle, made to pair with a separate printed flame insert.</p>
-        <p class="fits">Printables &middot; by Jojo &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/792163-medieval-torch" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Jojo · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/792163-medieval-torch" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/304391/images/2655635_7a017312-b7bb-4fd6-a6da-5376af1ce434/thumbs/cover/1200x630/jpg/1.jpg" alt="Medieval Torch for Flame Bulb" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Lamp</span>
         <strong>Medieval Torch for Flame Bulb</strong>
         <p>A two-part torch (base + twist-lock cage) that takes a standard lamp socket and an LED flame bulb, for a porch or dungeon wall.</p>
-        <p class="fits">Printables &middot; by Doug Leary &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/304391-medieval-torch-for-flame-bulb" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Doug Leary · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/304391-medieval-torch-for-flame-bulb" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US9075f7ba8ec59b/design/2025-01-08_09fadc79d9416.jpg" alt="Medieval Torch as a Bedside Lamp" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Medieval Torch as a Bedside Lamp</strong>
         <p>A remix of a medieval torch that holds a Bambu LED light module and lays flat on a table as a bedside lamp; flame prints separately.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/940869-medieval-torch-as-a-bedside-lamp" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/940869-medieval-torch-as-a-bedside-lamp" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/496797/images/4044467_338ac8d6-827c-43ac-9ccd-f54b179fe260/thumbs/inside/1280x960/jpg/16857223357385768984338479857636.webp" alt="Medieval Tankard Solo Cup Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Medieval Tankard Solo Cup Holder</strong>
         <p>A medieval-style tankard that holds a standard party cup and keeps the drink insulated; made for Renaissance faires.</p>
-        <p class="fits">Printables &middot; by Purple Lion Prints &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/496797-medieval-tankard-solo-cup-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Purple Lion Prints · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/496797-medieval-tankard-solo-cup-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/443011/images/3658881_b8dbfdaa-84eb-4f7a-95b4-e289ee931799/thumbs/inside/1280x960/png/screenshot-2023-04-04-at-34757-pm.webp" alt="Viking Horn" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>Viking Horn</strong>
         <p>A full-size Viking blowing horn (can be scaled down); a classic LARP call-to-arms prop.</p>
-        <p class="fits">Printables &middot; by MoyYep &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/443011-viking-horn" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MoyYep · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/443011-viking-horn" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -696,11 +821,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/assets/37/83/48/fa/98/Template.png&amp;w=628&amp;h=472&amp;fit=contain&amp;cbg=white&amp;n=-1" alt="Belegarth / Dagorhir Weapon Template" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Template</span>
         <strong>Belegarth / Dagorhir Weapon Template</strong>
         <p>A flat weapon-check template for Belegarth and Dagorhir foam-fighting games: 2.5&quot; hole for stab tips, 2&quot; hole for pommels and non-striking parts, with a ruler edge.</p>
-        <p class="fits">Thingiverse &middot; by SuperDuperPooperTrooper &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:2929545" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by SuperDuperPooperTrooper · Thingiverse</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:2929545" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -726,14 +853,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -759,7 +885,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -814,31 +939,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -229,10 +266,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 
 <main id="top">
 <section class="wrap" id="business-office">
-    <h2 class="section-title">Business, Conventions &amp; Office</h2>
+    <h1>Business, Conventions &amp; Office</h1>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory — desk organizers, office gadgets, convention swag and booth gear for companies. Download the model you like, then send us the file and we'll give you an exact quote. Ordering for a whole team or a convention? Ask about bulk pricing — 25+ units 10% off, 50+ units 15% off. Don't see what you need? Tell us what you're looking for — we'll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
       <a href="#desk-organizers">Desk Organizers</a>
@@ -249,83 +288,103 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/fca9dcd0-3de7-46db-bb9a-28a236d2c6a9/images/13641124_07580dd3-5eaf-423f-bd1e-e15c716044e9_7e41c82e-048a-482d-8ad5-cada845c1feb/thumbs/inside/1280x960/jpg/01.webp" alt="HIDAKA - Compact Desktop Essentials Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>HIDAKA - Compact Desktop Essentials Organizer</strong>
         <p>A compact one-piece desk organizer for the items you actually reach for: pens, markers, scissors, a ruler slot, and a small front compartment; the designer's own unit has been in daily use for 2+ years.</p>
-        <p class="fits">Printables &middot; by HIDAKA &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PLA recommended; PETG also works. No supports.</p>
-        <a class="part-link" href="https://www.printables.com/model/1820097-hidaka-compact-desktop-essentials-organizer-practi" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by HIDAKA · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1820097-hidaka-compact-desktop-essentials-organizer-practi" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/3b0b213b-8a2b-4101-8361-9b626a3ef48b/images/10545403_fc54b18e-8e57-47e6-a843-27f4324ddd30_f89b9dc3-0522-494c-a04f-9925c7bb38dc/thumbs/inside/1280x960/png/chatgpt-image-aug-27-2025-at-12_32_34-pm.webp" alt="Modular Desk Organizer for Students – Back to School Helper" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Modular Desk Organizer for Students – Back to School Helper</strong>
         <p>A one-piece modular organizer with a pen/pencil compartment and a sticky-note slot, aimed at students but fine for any desk.</p>
-        <p class="fits">Printables &middot; by Gt &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PLA recommended.</p>
-        <a class="part-link" href="https://www.printables.com/model/1397016-modular-desk-organizer-for-students-back-to-school" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Gt · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1397016-modular-desk-organizer-for-students-back-to-school" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/7ee8d2c1-6c47-44b3-927a-a34de2ea2a34/images/13402631_9e0a7b9c-8ebc-49e1-9fb0-7cba5f4f6f2f_a1d0a9c6-4e0e-44b1-8f2e-6b5d3e4f9d25/thumbs/inside/1280x960/jpeg/img_20260705_174240_9a5deaa0-fc25-4b9f-8bb6-5cbfc9b3a5c6.webp" alt="Modern Geometric Desk Organizer / Plant Pot Cover" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Modern Geometric Desk Organizer / Plant Pot Cover</strong>
         <p>A simple cylindrical organizer with a geometric cube pattern; works as a pen holder, desk organizer, or small plant pot cover (95 mm inside diameter, 115 mm tall).</p>
-        <p class="fits">Printables &middot; by Tallat Mehmood &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PLA, PETG, or ABS; no supports.</p>
-        <a class="part-link" href="https://www.printables.com/model/1762974-modern-geometric-desk-organizer-plant-pot-cover" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Tallat Mehmood · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1762974-modern-geometric-desk-organizer-plant-pot-cover" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/489172/images/3991604_289c2ea2-f547-4c4c-a0c3-0dec9bf94374/thumbs/inside/1280x960/jpg/penflute-desk-organizer-by-slimprint.webp" alt="PEN FLUTE, desk organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>PEN FLUTE, desk organizer</strong>
         <p>A minimalist pen holder shaped like a pan flute, with five angled holes for pens or markers and a stepped top edge.</p>
-        <p class="fits">Printables &middot; by SLIMPRINT &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/489172-pen-flute-desk-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by SLIMPRINT · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/489172-pen-flute-desk-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/a423824d-faab-4248-a0d5-33402c3cb7a1/images/13840561_582b35bb-4e5b-4e62-8033-eca157e47000_103dc3bf-89be-4f58-bbe0-a8990b4afe49/thumbs/inside/1280x960/jpg/phone-stand.webp" alt="Clean Desk Organizer with Phone Stand &amp; Notepad Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Stand</span>
         <strong>Clean Desk Organizer with Phone Stand &amp; Notepad Holder</strong>
         <p>A clean all-in-one desk organizer: angled phone stand slot, sticky-note holder, pen/pencil cups, and a large cup for scissors or highlighters.</p>
-        <p class="fits">Printables &middot; by Donavan nel &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended for durability, PLA works too.</p>
-        <a class="part-link" href="https://www.printables.com/model/1845969-clean-desk-organizer-with-phone-stand-notepad-hold" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Donavan nel · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1845969-clean-desk-organizer-with-phone-stand-notepad-hold" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/f2bb6bb3-ae3b-4d50-a261-6fee6e5c09e3/images/13571257_87762896-3c10-4735-9cf8-fa15566f4e94_6c6a0c89-0b1f-4f52-bf27-9a8af1198f8c/thumbs/inside/1280x960/jpeg/making_collage_of_pen_holder_202608141753.webp" alt="Adjustable Desktop Pen &amp; USB Cable Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Adjustable Desktop Pen &amp; USB Cable Organizer</strong>
         <p>A tilting pen grid on side-locking knobs so you can dial in the exact angle, with a USB cable slot; grid, base, and knobs print as separate parts.</p>
-        <p class="fits">Printables &middot; by Tallat Mehmood &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Base, grid, and knobs print separately in different colors. Tool-less assembly.</p>
-        <a class="part-link" href="https://www.printables.com/model/1792478-adjustable-desktop-pen-usb-cable-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Tallat Mehmood · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1792478-adjustable-desktop-pen-usb-cable-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/6e7d3a8b-05ff-4e3e-8cb9-8f6bbdcf5a3c/images/12228164_6bdc04e4-03a9-4a04-8b18-7be33a4e3d4b_93a8e8a6-e58d-47d5-90b2-2cd4b8c7f7ae/thumbs/inside/1280x960/jpeg/1000061055.webp" alt="Skull Desk Tidy – Sculpted Gothic Pen Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Skull Desk Tidy – Sculpted Gothic Pen Holder</strong>
         <p>A detailed sculpted skull desk tidy for pens, pencils, and craft tools; a characterful desk piece for a workshop or gaming setup.</p>
-        <p class="fits">Printables &middot; by Darren J Young &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs tree supports; matte or marble PLA recommended.</p>
-        <a class="part-link" href="https://www.printables.com/model/1618724-skull-desk-tidy-sculpted-gothic-pen-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Darren J Young · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1618724-skull-desk-tidy-sculpted-gothic-pen-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/28a8dd54-1db2-4b5e-b6d2-ff6f2f6cb5e9/images/10601506_2d6fa7e9-6b3b-409b-8a5d-9d4c23a3db0e_bcebcfe7-2f17-4f1a-8bc1-5b1b0f8c8f5d/thumbs/inside/1280x960/png/1000011556.webp" alt="Dragon Castle Pen Holder – 3D Printable Fantasy Desk Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Dragon Castle Pen Holder – 3D Printable Fantasy Desk Organizer</strong>
         <p>A stone-tower castle pen holder guarded by a detailed dragon; a decorative pen/brush holder and desk display piece.</p>
-        <p class="fits">Printables &middot; by Rip282 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Supports likely (dragon wings); dark gray/black/metallic filament suits the stone look.</p>
-        <a class="part-link" href="https://www.printables.com/model/1402640-dragon-castle-pen-holder-3d-printable-fantasy-desk" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Rip282 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1402640-dragon-castle-pen-holder-3d-printable-fantasy-desk" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/e0f0e3e2-c4a6-4c8a-91a5-1b7eeff0efce/images/11598521_ee8caec3-f9b2-4b57-95bc-ef0c6cf4c39e_fde4c3ff-84d1-4074-bc9d-4bfa3ef2da9d/thumbs/inside/1280x960/jpeg/sweaterman.webp" alt="Sweater Man Pen Holder – Cute Minimal Desk Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Sweater Man Pen Holder – Cute Minimal Desk Organizer</strong>
         <p>A cute minimalist pen holder in a cozy sweater-man shape with a wide top opening for pens, pencils, markers, or small desk tools.</p>
-        <p class="fits">Printables &middot; by Botany Chic &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No supports; matte PLA or soft neutrals look best.</p>
-        <a class="part-link" href="https://www.printables.com/model/1527363-sweater-man-pen-holder-cute-minimal-desk-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Botany Chic · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1527363-sweater-man-pen-holder-cute-minimal-desk-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/363232/images/3072170_b61546e0-cb57-4b30-90a6-ab25700c4c64/thumbs/inside/1280x960/jpg/20230108_104710.webp" alt="Honeycomb inspired marker holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Honeycomb inspired marker holder</strong>
         <p>A small honeycomb-pattern pen/marker holder with a flat back for double-stick tape or hook-and-loop, so it sticks to a whiteboard, wall, or desk edge.</p>
-        <p class="fits">Printables &middot; by Gambit3le &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/363232-honeycomb-inspired-marker-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Gambit3le · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/363232-honeycomb-inspired-marker-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -336,83 +395,103 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/366491/images/3094110_d8c53eb9-8a42-482a-b61a-0e2438a40eba/thumbs/inside/1280x960/jpg/profile-resize.webp" alt="Prusa Mini Business Cards Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Prusa Mini Business Cards Holder</strong>
         <p>A business card holder shaped like a Prusa Mini 3D printer, holding ~7 cards in 90x50 or 85x55 sizes; a talking point for a print-shop counter.</p>
-        <p class="fits">Printables &middot; by Ag.3 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Black PLA with an orange accent is the intended look.</p>
-        <a class="part-link" href="https://www.printables.com/model/366491-prusa-mini-business-cards-holder-3d-printed-3d-pri" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ag.3 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/366491-prusa-mini-business-cards-holder-3d-printed-3d-pri" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/370307/images/3119951_b882b527-5b5b-4141-afd9-9e6a5aecaf45/thumbs/inside/1280x960/jpg/businesscardsholder-blenderrender.webp" alt="Business Cards Holder &quot;VOLCANO&quot;" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Business Cards Holder "VOLCANO"</strong>
         <p>A stylish business card holder for about 60 cards, shaped like a lava-spewing volcano, for 85x55 mm cards.</p>
-        <p class="fits">Printables &middot; by Windkanter &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Designer printed in PETG, 0.2 mm, 30% lightning infill.</p>
-        <a class="part-link" href="https://www.printables.com/model/370307-business-cards-holder-volcano" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Windkanter · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/370307-business-cards-holder-volcano" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/457250/images/3757346_47231377-0997-4bab-abbb-269abe7a26ee/thumbs/inside/1280x960/jpg/photo-apr-19-2023-1-04-19-pm.webp" alt="Sliding Business Card Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Sliding Business Card Holder</strong>
         <p>A minimal, compact sliding card holder for standard 3.5"x2" (90x51 mm) business cards, about 10 cards; rounded and squared corner versions included.</p>
-        <p class="fits">Printables &middot; by alexberkowitz &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; A good pocket-size convention handout.</p>
-        <a class="part-link" href="https://www.printables.com/model/457250-sliding-business-card-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by alexberkowitz · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/457250-sliding-business-card-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/369585/images/3114540_c5bdb6d6-201c-4ca1-b55f-be605c08d820/thumbs/inside/1280x960/jpg/1-thumbnail.webp" alt="Rubber band loaded Business Card Holder / Dispenser" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Rubber band loaded Business Card Holder / Dispenser</strong>
         <p>A spring-loaded card dispenser using rubber bands, for 76.2x50.8 mm cards; cards pop up ready to hand out.</p>
-        <p class="fits">Printables &middot; by Horacio &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 2x Ø56 mm or 4x Ø22 mm rubber bands (not printed).</p>
-        <a class="part-link" href="https://www.printables.com/model/369585-rubber-band-loaded-business-card-holder-dispenser" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Horacio · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/369585-rubber-band-loaded-business-card-holder-dispenser" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/809713/images/6310075_8bc62e29-5ba2-4b5d-9c9c-4a7d8aa4f0b4/thumbs/inside/1280x960/jpg/bch-title-jpg.webp" alt="Scissor Lift Business Card Holder!" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Scissor Lift Business Card Holder!</strong>
         <p>A novelty business card holder built like a scissor lift, with a platform that raises the cards; customize with your own label or printed text.</p>
-        <p class="fits">Printables &middot; by C3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print + glue assembly; 6–8 hours total.</p>
-        <a class="part-link" href="https://www.printables.com/model/809713-scissor-lift-business-card-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by C3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/809713-scissor-lift-business-card-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/361280/images/3072482_ff016aad-c5a6-4825-8bb2-0e730e4054b1/thumbs/inside/1280x960/jpg/presentation.webp" alt="CardMonster: The business card holder card" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>CardMonster: The business card holder card</strong>
         <p>The original flat-pack, print-in-place pop-up card holder: credit-card size, 0.6 mm thick, holds a stack of cards up to 15 mm thick; a ~20-minute PETG print.</p>
-        <p class="fits">Printables &middot; by XNDR &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended; a perfect cheap convention giveaway — print them by the dozen.</p>
-        <a class="part-link" href="https://www.printables.com/model/361280-cardmonster-the-business-card-holder-card" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by XNDR · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/361280-cardmonster-the-business-card-holder-card" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/8962/images/14579_3e2aae62-0a52-4cd8-a5fe-cd6a4b5d7dc5/thumbs/inside/1280x960/jpg/2017-11-02-08-04-33.webp" alt="Business card holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Business card holder</strong>
         <p>A business card holder that is a modification of the designer's Desktop Nameplate, so the card holder and nameplate match as a desk set; Google-font text options included.</p>
-        <p class="fits">Printables &middot; by Startrekfan2 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No supports; the hollow base can be weighted with aquarium gravel (pause at 16.4 mm to fill).</p>
-        <a class="part-link" href="https://www.printables.com/model/8962-business-card-holder?lang=en" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Startrekfan2 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/8962-business-card-holder?lang=en" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/221293/images/2022412_5d249640-1a9a-47a2-a469-62ce597c9677/thumbs/inside/1280x960/png/2022-06-06_19h27_06.webp" alt="Nameplate (1250 names included)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Nameplate (1250 names included)</strong>
         <p>A desktop nameplate with 1250 first names included as ready-to-print files, plus an OpenSCAD file to customize it to any name or two lines of text; prints in 2 colors with a filament change.</p>
-        <p class="fits">Printables &middot; by Makkuro &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Filament change at 23.6 mm. No supports; ironing recommended for a smooth face.</p>
-        <a class="part-link" href="https://www.printables.com/model/221293-nameplate-1250-names-included?lang=en" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Makkuro · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/221293-nameplate-1250-names-included?lang=en" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1190568/images/9022542_e0ca328c-23d3-4ad4-a0c3-a131848cf9a0_ee7c2b2f-16c0-465f-b621-bd40f42a6909/thumbs/inside/1280x960/jpg/20250221_130847.webp" alt="Nameplate / Name Plate / Name Plaque Holder &amp; Titles for Desk (Or Wherever)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Nameplate / Name Plate / Name Plaque Holder &amp; Titles for Desk (Or Wherever)</strong>
         <p>A simple print-in-place desk nameplate system: holders plus plates with job titles (and teacher versions K–6), a tri-holder for 3 plates, and a blank plate to personalize.</p>
-        <p class="fits">Printables &middot; by Topher &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Pause at layer 8 (1.60 mm) for a color change. Under one hour per plate.</p>
-        <a class="part-link" href="https://www.printables.com/model/1190568-nameplate-name-plate-name-plaque-holder-titles-for" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Topher · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1190568-nameplate-name-plate-name-plaque-holder-titles-for" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/220259/images/2025994_a07f1af0-0ab5-4dcd-8e72-caf81a642565/thumbs/inside/1280x960/jpeg/img_1338.webp" alt="3D Name Plate / Name Tag for Desk Modular" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>3D Name Plate / Name Tag for Desk Modular</strong>
         <p>A modular desk name tag: print the letters you want and customize it to make it your own; PET, 2 print files.</p>
-        <p class="fits">Printables &middot; by arcanelayers &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $34 &middot; PETG $38 &middot; Weight is for the designer's PET print; confirm with the quote tool for PLA.</p>
-        <a class="part-link" href="https://www.printables.com/model/220259-3d-name-plate-name-tag-for-desk-modular" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by arcanelayers · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/220259-3d-name-plate-name-tag-for-desk-modular" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -423,89 +502,103 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US4e55b4f4713ada/design/372c1be0b7446f9d.jpg" alt="SlimDock – Universal Phone Stand (No Supports)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>SlimDock – Universal Phone Stand (No Supports)</strong>
         <p>A sleek, ultra-minimalist single-piece phone stand for portrait and landscape viewing, video calls, and desk charging; zero supports, under 30 minutes to print.</p>
-        <p class="fits">MakerWorld &middot; by not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits phones up to iPhone 16 Pro Max / Galaxy Ultra size, with or without cases.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/816031-general-phone-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/816031-general-phone-stand" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USd1bf329363afaa/design/6c6e9adeff6b17e0.png" alt="DOKY Travel Phone Stand - Elevated Desk Dock" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Stand</span>
         <strong>DOKY Travel Phone Stand - Elevated Desk Dock</strong>
         <p>A compact, elevated travel phone dock for hotel rooms, Airbnbs, and temporary desks; freestanding, no assembly, landscape viewing for video calls.</p>
-        <p class="fits">MakerWorld &middot; by Pr.BELAMINE MakerLab &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial license available from designer (from $6.49/mo, no royalties). PLA/PLA+.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3131781-doky-travel-phone-stand-elevated-desk-dock" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Pr.BELAMINE MakerLab · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3131781-doky-travel-phone-stand-elevated-desk-dock" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US2d2716deff7858/design/d4aef03684074162.png" alt="Gravity Phone Stand | Auto Clamping Holder" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Modular</span>
         <strong>Gravity Phone Stand | Auto Clamping Holder</strong>
         <p>A mechanical phone stand that uses the phone's own weight to auto-grip it with side clamps; bold industrial look, part of a modular desk series.</p>
-        <p class="fits">MakerWorld &middot; by not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multi-part assembly.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3540197-gravity-phone-stand-auto-clamping-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3540197-gravity-phone-stand-auto-clamping-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US25c699c18c1370/design/225c9ba181b72571.png" alt="2-in-1 Floating Phone Stand &amp; Desk Organizer" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Stand</span>
         <strong>2-in-1 Floating Phone Stand &amp; Desk Organizer</strong>
         <p>A phone stand with "floating" tabs plus compartments for pens, SD cards, and office essentials, with a hidden cable channel underneath.</p>
-        <p class="fits">MakerWorld &middot; by not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Two print profiles (floating and non-floating phone rest).</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2786122-2-in-1-floating-phone-stand-desk-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2786122-2-in-1-floating-phone-stand-desk-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US3eb54e1e8f318f/design/cccb260c537ced4e.jpg" alt="Phone &amp; Tablet Stand | TriDock Pen Holder" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Phone &amp; Tablet Stand | TriDock Pen Holder</strong>
         <p>A phone and tablet stand with dual rear pen holders (sized for thick branded pens) and a charging cable opening; works with thick phone cases.</p>
-        <p class="fits">MakerWorld &middot; by not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Painted in Bambu Studio, also looks good single-color; no purge tower needed.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2800982-phone-tablet-stand-tridock-pen-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2800982-phone-tablet-stand-tridock-pen-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US6159ce09a982c/design/2025-12-28_3568a7ad4c9df8.jpg" alt="Adventure Phone Stand" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Adventure Phone Stand</strong>
         <p>A tilting phone stand with an adjustable-tilt mechanism and a compass-rose face, matching the designer's EDC tray series; no supports, works with wired charging.</p>
-        <p class="fits">MakerWorld &middot; by not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs a small screw/nut or glue for the tilt key. Designer sells commercial subscriptions.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2169453-adventure-phone-charging-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2169453-adventure-phone-charging-stand" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/76a6b706-8e3b-45ae-a3f8-39a0e11cbe28/images/13785534_5aaa74b9-32d9-4af6-b6e9-3ab9023a0765_be6426d1-9d31-4de6-a562-e345ffaa9ff5/thumbs/inside/1280x960/png/frame-316128519.webp" alt="Parametric Laptop Stand" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Stand</span>
         <strong>Parametric Laptop Stand</strong>
         <p>A fully parametric folding laptop stand (Shapr3D): set your display size and the model updates; adjustable height via angled notches, folds flat for storage.</p>
-        <p class="fits">Printables &middot; by Shapr3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print the elastic pins in PETG, not PLA.</p>
-        <a class="part-link" href="https://www.printables.com/model/1839122-parametric-laptop-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Shapr3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1839122-parametric-laptop-stand" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1146985/images/8658476_68eae619-26c0-4f06-97fa-6b8931a46609_f1b7882b-825e-4e3b-9737-ba1ef207d428/thumbs/inside/1280x960/png/img_8017.webp" alt="Adjustable Laptop Stand with max 60deg angle" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Adjustable Laptop Stand with max 60deg angle</strong>
         <p>A fully 3D-printable laptop stand for 13–14" laptops (15" feasible), tilting up to 60 degrees; STEP files included for custom sizing.</p>
-        <p class="fits">Printables &middot; by Moosybuilds &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG preferred; no supports; needs 2 paper pins (&lt;1 mm) for the hinges.</p>
-        <a class="part-link" href="https://www.printables.com/model/1146985-adjustable-laptop-stand-with-max-60deg-angle" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Moosybuilds · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1146985-adjustable-laptop-stand-with-max-60deg-angle" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/788123/images/6080018_7c3b2ff8-9fd6-443b-b1ad-23df3a2ffad5/thumbs/inside/1280x960/jpg/1.webp" alt="Adjustable Vertical Laptop Stand (10-30mm Thick Devices)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Stand</span>
         <strong>Adjustable Vertical Laptop Stand (10-30mm Thick Devices)</strong>
         <p>A vertical laptop dock that stands a closed laptop on its edge to save desk space; adjustable for 10–30 mm thick devices.</p>
-        <p class="fits">Printables &middot; by Nick &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 6x M3 heatset inserts + M3x8 screws.</p>
-        <a class="part-link" href="https://www.printables.com/model/788123-adjustable-vertical-laptop-stand-10-30mm-thick-dev" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Nick · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/788123-adjustable-vertical-laptop-stand-10-30mm-thick-dev" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/26491/images/265814_4bed9f99-e279-4be1-9810-8f00810eebf1/thumbs/inside/1280x960/jpg/1-cover.webp" alt="Adjustable laptop, tablet, and document stand" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Stand</span>
         <strong>Adjustable laptop, tablet, and document stand</strong>
         <p>A multi-purpose tilt-adjustable stand (from −63° to +63° in 1° steps) for laptops up to 16", tablets, books, and documents; document extenders included.</p>
-        <p class="fits">Printables &middot; by NLarson &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Designer printed in PETG; TPU bumpers included as anti-slip pads.</p>
-        <a class="part-link" href="https://www.printables.com/model/26491-adjustable-laptop-tablet-and-document-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by NLarson · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/26491-adjustable-laptop-tablet-and-document-stand" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -516,83 +609,103 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/c12f3f76-668b-47ad-937e-892eb6844d40/images/13882210_554cd4d4-11c5-4dd3-87e1-1954d1315b1d_78c771ab-3108-4481-b9eb-7759f6246bc5/thumbs/inside/1280x960/png/thumbnail.webp" alt="Desk-Edge Cable Clips - 3 Sizes, Support-Free Cable Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Organizer</span>
         <strong>Desk-Edge Cable Clips - 3 Sizes, Support-Free Cable Organizer</strong>
         <p>Slip-on cable clips that slide over desk edges up to 25 mm thick and route cables through a clean pass-through hole; 3 sizes (7/10/13 mm cable holes).</p>
-        <p class="fits">Printables &middot; by Tanush Reddy &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PLA or PETG; support-free. NOTE: CAD-only, not test-printed by the designer (images are renders) — test-print before selling.</p>
-        <a class="part-link" href="https://www.printables.com/model/1851842-desk-edge-cable-clips-3-sizes-support-free-cable-o" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Tanush Reddy · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1851842-desk-edge-cable-clips-3-sizes-support-free-cable-o" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/b833366a-2950-4431-92cf-bed0cebc93b4/images/13572589_72471df7-8c2e-41f4-9d99-44808d057f83_20ad596d-7e52-40e8-b6fa-27c6004cb8e5/thumbs/inside/1280x960/png/cableholder.webp" alt="Minimal Cable Holders – 3D Printable Cable Clips &amp; Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Minimal Cable Holders – 3D Printable Cable Clips &amp; Organizer</strong>
         <p>Minimalist rounded cable holders that keep charging and desk cables in place and stop them sliding off the desk; no supports.</p>
-        <p class="fits">Printables &middot; by 3DTimon &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PLA.</p>
-        <a class="part-link" href="https://www.printables.com/model/1810505-minimal-cable-holders-3d-printable-cable-clips-org" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3DTimon · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1810505-minimal-cable-holders-3d-printable-cable-clips-org" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/d26e4ca8-9daa-4a9e-a63c-1d1ae9d7b24f/images/10654150_2e3d3e7e-02d5-48c0-9512-51ba80d0b4b3_a2d8e70d-9c9c-4ca9-ae6a-fb8d2e51fe5d/thumbs/inside/1280x960/jpeg/p1110341.webp" alt="Strong Locking Cable Clip, Universal Desk Cable Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Strong Locking Cable Clip, Universal Desk Cable Holder</strong>
         <p>A thick, boxy locking cable clip that won't pop open on its own; 16 sizes (1–16 cable holes) and 4 mounting options (tape, screw, etc.).</p>
-        <p class="fits">Printables &middot; by neoyarus &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Remix of the Klamma clip with a compliant latch.</p>
-        <a class="part-link" href="https://www.printables.com/model/1408377-strong-locking-cable-clip-universal-desk-cable-hol" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by neoyarus · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1408377-strong-locking-cable-clip-universal-desk-cable-hol" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/b2c54efc-ee90-43e5-95cf-b2fbb00f3ea5/images/11210662_4d0c6b2d-9ea1-41b9-9b35-9ac2dcb4ec05_6feea4d0-9dfb-4b1d-8c26-7d3d8e7b8f9e/thumbs/inside/1280x960/jpeg/20251019_121840.webp" alt="Snap Cable Clip Organizer (Tool-Free)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Organizer</span>
         <strong>Snap Cable Clip Organizer (Tool-Free)</strong>
         <p>A snap-on cable clip organizer for 2–4 mm wires; squeeze to open, reusable, no adhesive, screws, or mounts.</p>
-        <p class="fits">Printables &middot; by Mateusz Tokarz &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PLA, PETG, ABS, or flex depending on grip wanted.</p>
-        <a class="part-link" href="https://www.printables.com/model/1473320-snap-cable-clip-organizer-tool-free" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Mateusz Tokarz · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1473320-snap-cable-clip-organizer-tool-free" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/0d1f6a7a-fc8c-47cf-9e34-cf8dccb6b0b1/images/13532245_a01a7dc9-c2a8-4cc9-97ed-24a34cd0d31c_5db8d06b-5cd3-4d94-8b0a-ff8bb5d2cf1c/thumbs/inside/1280x960/jpeg/cuffia_004.webp" alt="Modern Headphone Stand – Minimalist 3D Printed Desk Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Modern Headphone Stand – Minimalist 3D Printed Desk Organizer</strong>
         <p>A sleek, flowing headphone stand with a sturdy base and smooth curved profile that supports the headband evenly; no supports, minimal filament.</p>
-        <p class="fits">Printables &middot; by Roberto Gallocchio &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Two-color design via manual filament change or multicolor printer.</p>
-        <a class="part-link" href="https://www.printables.com/model/1789876-modern-headphone-stand-minimalist-3d-printed-desk" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Roberto Gallocchio · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1789876-modern-headphone-stand-minimalist-3d-printed-desk" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/517846/images/4194443_13c1cc71-a05a-4ab3-836b-32cd2445d189/thumbs/inside/1280x960/jpg/img_9229.webp" alt="Lil&#x27; Taper" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Fidget</span>
         <strong>Lil' Taper</strong>
         <p>A small, cute handheld/desk tape dispenser with spring-loaded roller knobs; available with cutting teeth or a 1 mm slot for metal teeth.</p>
-        <p class="fits">Printables &middot; by MerganMcFergan &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Optional ~8–10 mm metal spring in the roller for the fidget feel.</p>
-        <a class="part-link" href="https://www.printables.com/model/517846-lil-taper" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MerganMcFergan · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/517846-lil-taper" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1111135/images/8396444_21c67f39-d144-4dcf-983c-7a135f545b85_52f10e44-ee38-439d-afb3-a8846316f1bf/thumbs/inside/1280x960/jpg/img_20241215_214359.webp" alt="Tape Dispenser That Works" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Shelf</span>
         <strong>Tape Dispenser That Works</strong>
         <p>A desk-clamping tape dispenser (it clamps to the table so it stays put) with a tape shelf and a metal blade insert; the designer's long-tested claim is that this one actually works.</p>
-        <p class="fits">Printables &middot; by designStryc &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs a piece of hacksaw/utility blade as the cutter; PETG recommended (PLA creeps); set for a 23 mm desk.</p>
-        <a class="part-link" href="https://www.printables.com/model/1111135-tape-dispenser-that-works" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by designStryc · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1111135-tape-dispenser-that-works" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/228893/images/2119077_9b0a1ed7-773d-4a05-9abf-7016cca44f42/thumbs/inside/1280x960/jpg/pxl_20220215_163744327.webp" alt="128mm (~5 inch) Monitor Stand Riser" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Stand</span>
         <strong>128mm (~5 inch) Monitor Stand Riser</strong>
         <p>A parametric monitor riser that lifts a desk monitor 128 mm to align with a wall-mounted TV; fits a Prusa MK3S bed.</p>
-        <p class="fits">Printables &middot; by layer.works &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Designer printed in recycled PETG and it has held a ~6 kg monitor for 2+ years; PETG recommended.</p>
-        <a class="part-link" href="https://www.printables.com/model/228893-128mm-5-inch-monitor-stand-riser" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by layer.works · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/228893-128mm-5-inch-monitor-stand-riser" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/924419/images/7056802_32e47ced-203b-4ff1-843f-5f43a04281b4_7b47294b-13e4-47e3-83e0-3b3c4539a3b9/thumbs/inside/1280x960/jpg/20240627_084426.webp" alt="Monitor Riser with Drawers" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Riser</span>
         <strong>Monitor Riser with Drawers</strong>
         <p>A monitor riser that raises the monitor 130 mm, built from sets of drawers (2–3 sets across the width) for pens, USB drives, and desk clutter.</p>
-        <p class="fits">Printables &middot; by DylanMcC &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $97 &middot; PETG $109 &middot; Weight is per drawer set (2 sets = $194 PLA, 3 sets = $291 PLA). PLA, 20% infill; rotate the shell 90° to print on its back.</p>
-        <a class="part-link" href="https://www.printables.com/model/924419-monitor-riser-with-drawers" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DylanMcC · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/924419-monitor-riser-with-drawers" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/118365/images/1156128_c38ac441-3572-424c-b529-0b7ff56b7991/thumbs/inside/1280x960/jpg/img_3427.webp" alt="Whiteboard Marker Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Whiteboard Marker Holder</strong>
         <p>A simple screw-to-wall holder for 4 whiteboard markers (optimized for 18 mm diameter Staedtler markers), printed upright with a built-in support element.</p>
-        <p class="fits">Printables &middot; by 100prznt &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/118365-whiteboard-marker-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 100prznt · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/118365-whiteboard-marker-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -603,83 +716,103 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/418945/images/3473898_2f1aacbe-cfdc-4d81-8c5a-1edb505dc37d/thumbs/inside/1280x960/jpg/img_1950.webp" alt="Sign Hanger or Sign Stand" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Stand</span>
         <strong>Sign Hanger or Sign Stand</strong>
         <p>A stand/mount system that holds a display sign vertically (like an easel, but the sign rests vertical or slightly forward-leaning); built as a remix of a headphone stand for a real business sign.</p>
-        <p class="fits">Printables &middot; by RyanR &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Two sizes (standard and 75% XY); G-code for the designer's IDEX printer is on the matching Thingiverse page.</p>
-        <a class="part-link" href="https://www.printables.com/model/418945-sign-hanger-or-sign-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by RyanR · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/418945-sign-hanger-or-sign-stand" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/604795/images/4831050_8c3b8b39-6e60-45a3-9ba1-4d18dc2c4b03_1b7eeff0-6dcd-46ca-b9b4-3c2d1b6a7cf9/thumbs/inside/1280x960/jpg/img-0602.webp" alt="Gridfinity brochure stand/desk organizer with hanging trays" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Gridfinity</span>
         <strong>Gridfinity brochure stand/desk organizer with hanging trays</strong>
         <p>A Gridfinity-compatible brochure stand that holds A5 or half-letter paper, with modular hanging tray inserts for a booth counter or reception desk.</p>
-        <p class="fits">Printables &middot; by SeventhSeeker &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Gridfinity system — pairs with Gridfinity bins.</p>
-        <a class="part-link" href="https://www.printables.com/model/604795-gridfinity-brochure-standdesk-organizer-with-hangi" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by SeventhSeeker · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/604795-gridfinity-brochure-standdesk-organizer-with-hangi" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/519463/images/4203551_c25ce8c4-0312-4741-a531-f94e934de406/thumbs/inside/1280x960/png/caution-hot-sign-as-printed-flat.webp" alt="CAUTION! HOT! (sign)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>CAUTION! HOT! (sign)</strong>
         <p>A flat-printed sign that bends along a recessed "v" to form a freestanding tent sign — the template format for any booth table tent (swap in the customer's own text).</p>
-        <p class="fits">Printables &middot; by Sandy Wrestler &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $15 &middot; Multicolor &middot; One color change for text and border. Prints flat, 172.3x55 mm.</p>
-        <a class="part-link" href="https://www.printables.com/model/519463-caution-hot-sign" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Sandy Wrestler · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/519463-caution-hot-sign" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1cd87da5-63fd-4756-a22f-a8e09e7d1a38/images/10371272_0ca2183b-3d45-4a40-8c67-b092dab6ebed_851b09a5-3cb5-4d20-960b-f187bd117c5a/thumbs/inside/1280x960/jpeg/img_0150.webp" alt="FreeCAD Slim CR80 (85.6×54 mm) Badge Holder (Minimal, Supportless)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>FreeCAD Slim CR80 (85.6×54 mm) Badge Holder (Minimal, Supportless)</strong>
         <p>An ultra-slim, support-free holder for one CR80/ID-1 card (bank/ID/NFC), with a lanyard/clip slot and three mounting holes; OpenSCAD source for remixing.</p>
-        <p class="fits">Printables &middot; by Andrew &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 95.8x56.5 mm; a cheap bulk convention badge holder.</p>
-        <a class="part-link" href="https://www.printables.com/model/1373674-freecad-slim-cr80-856x54-mm-badge-holder-minimal-s" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Andrew · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1373674-freecad-slim-cr80-856x54-mm-badge-holder-minimal-s" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/884800/images/6781805_8c9ad0cb-e4d4-4a5b-9c9d-0c5a2e6b9c1f_8f7a6b5c-4d3e-2f1a-0b9c-8d7e6f5a4b3c/thumbs/inside/1280x960/jpg/best-1.webp" alt="Forever (ID) Badge Holder (Case)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Forever (ID) Badge Holder (Case)</strong>
         <p>A "forever" badge holder with no opening: the card is paused into the print mid-way, so it can never fall out; 6 versions (hook/ring/flat clip x vertical/horizontal), plus a 2025 version with a measuring tape and pen holder.</p>
-        <p class="fits">Printables &middot; by vsaggiomo &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Standard bank-card size (85.60x53.98 mm); removing the card means breaking the holder.</p>
-        <a class="part-link" href="https://www.printables.com/model/884800-forever-id-badge-holder-case" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by vsaggiomo · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/884800-forever-id-badge-holder-case" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/236283/images/2141634_39680b0c-758e-498d-acff-7da18545c629/thumbs/inside/1280x960/jpg/215d9c20bfe3cf6d053b46a1e17e3919_display_large_23.webp" alt="ID Badge &amp; Desk Key Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>ID Badge &amp; Desk Key Holder</strong>
         <p>A two-piece snap-together badge holder that also holds a Steelcase-style desk key in the back, with a vinyl snap loop for a lanyard or retractable clip; portrait and landscape versions.</p>
-        <p class="fits">Printables &middot; by az &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No supports; 50% infill.</p>
-        <a class="part-link" href="https://www.printables.com/model/236283-id-badge-desk-key-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by az · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/236283-id-badge-desk-key-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/50831/images/502387_05af2b1f-9037-4f79-9ca1-2e01b2d53c43/thumbs/inside/1280x960/jpg/82fe2a69ddc47c2e254b454bdbe90343_display_large_50.webp" alt="Lanyard Clip" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Lanyard Clip</strong>
         <p>A snap clip for a standard 20 mm lanyard strap and ID badge; prints clean with no supports, in 1-card and 3-card-wide versions.</p>
-        <p class="fits">Printables &middot; by MatthewGTaylor &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Designer uses PETG (leaves it in a hot car); print on its side.</p>
-        <a class="part-link" href="https://www.printables.com/model/50831-lanyard-clip" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MatthewGTaylor · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/50831-lanyard-clip" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/8667/images/14137_d1eb8a40-4bd4-4058-a6d8-b6b39be1a9a3/thumbs/inside/1280x960/jpg/dsc-0004.webp" alt="Belt retractable badge holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Belt retractable badge holder</strong>
         <p>A two-part belt mount for a standard retractable badge reel: an inner loop for a 40 mm belt and an outer part that screws on and holds the reel.</p>
-        <p class="fits">Printables &middot; by Altair &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; The retractable reel itself is not printed — this is the belt mount for one.</p>
-        <a class="part-link" href="https://www.printables.com/model/8667-belt-retractable-badge-holder?lang=en" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Altair · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/8667-belt-retractable-badge-holder?lang=en" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/85316/images/117123_8c9d3dc9-eb98-4458-bab9-4a8da0f9b8ef/thumbs/inside/1280x960/jpg/1.webp" alt="Logo Keychain with NFC - used as business card, WiFi-connector and many other" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Keychain</span>
         <strong>Logo Keychain with NFC - used as business card, WiFi-connector and many other</strong>
         <p>A keychain template for the customer's own logo with a 27 mm NFC tag embedded mid-print; tap it to share a website, WiFi login, or digital business card.</p>
-        <p class="fits">Printables &middot; by Discipulus Technologies &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs a 27 mm NFC tag (0.2 mm thick) and a pause at the tag layer; the logo is the customer's own, designed in Illustrator/Inkscape and imported to Fusion 360.</p>
-        <a class="part-link" href="https://www.printables.com/model/85316-logo-keychain-with-nfc-used-as-business-card-wifi-" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Discipulus Technologies · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/85316-logo-keychain-with-nfc-used-as-business-card-wifi-" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/52587/images/427239_5c0d2fb9-8e5a-4f1e-81e7-2f4b24c9a6b9/thumbs/inside/1280x960/jpg/mg-20200502-wa0003.webp" alt="Custom RFID keychain logo fob" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Custom RFID keychain logo fob</strong>
         <p>A parametric keychain fob for the customer's own logo with an 18 mm RFID tag embedded mid-print (two pauses: insert tag + key ring, then color change); Fusion 360 parameters adapt it to any tag/key-ring size.</p>
-        <p class="fits">Printables &middot; by whoppingpochard &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs an 18 mm 125 kHz RFID tag and a key ring; 10% infill, no supports.</p>
-        <a class="part-link" href="https://www.printables.com/model/52587-custom-rfid-keychain-logo-fob" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by whoppingpochard · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/52587-custom-rfid-keychain-logo-fob" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -705,14 +838,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -738,7 +870,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -793,31 +924,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

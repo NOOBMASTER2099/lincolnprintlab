@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -230,9 +267,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <main id="top">
 <section class="wrap" id="home-decor-gifts">
     <h2 class="section-title">Home Decor &amp; Gifts</h2>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory &mdash; planters, vases, lithophane photo lamps, coasters, shelves, and gifts for the house, made to order in Lincoln. Download the model you like, then send us the file and we&rsquo;ll give you an exact quote. Don&rsquo;t see what you need? Tell us what you&rsquo;re looking for &mdash; we&rsquo;ll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
       <a href="#planters">Planters &amp; Vases</a>
@@ -253,139 +292,173 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US5c2b1c769d4375/design/2025-05-14_840e17d654e33.png?x-oss-process=image/resize,w_1000/format,webp" alt="WaveVase" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Vase</span>
         <strong>WaveVase</strong>
         <p>Modern vase with organic wave lines — a sculptural centerpiece for any room. For dried flowers or as a decorative object; prints in vase mode.</p>
-        <p class="fits">MakerWorld &middot; by J.K. &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — commercial prints need the designer&rsquo;s membership &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1416820-wavevase" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by J.K. · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1416820-wavevase" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dprintworld.co.nz/cdn/225682/images/2068712_8b885d4e-92ed-45a8-ac39-455061089fa8/img_1567-small.jpg" alt="Hexagonal planter v2 (vase mode)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Hexagonal planter v2 (vase mode)</strong>
         <p>Six-sided planter that prints in one piece in vase mode, about an hour faster than the original two-piece version.</p>
-        <p class="fits">Printables &middot; by Catdad Workshop &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/225682-hexagonal-planter-v2-vase-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Catdad Workshop · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/225682-hexagonal-planter-v2-vase-mode" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dprintworld.co.nz/cdn/275318/images/2535874_acbbcc7a-d568-4db9-94ac-435ffa2d0ecf/img_0575-small.jpg" alt="Spiral planter with drainage (vase mode)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Spiral planter with drainage (vase mode)</strong>
         <p>Spiral planter sized for a 4-inch plant, with built-in drainage and a hidden water tray; scales to 3-inch or 6-inch.</p>
-        <p class="fits">Printables &middot; by Catdad Workshop &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $27 &middot; PETG $30</p>
-        <a class="part-link" href="https://www.printables.com/model/275318-spiral-planter-with-drainage-vase-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Catdad Workshop · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/275318-spiral-planter-with-drainage-vase-mode" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://storage.googleapis.com/production-thangs-public/uploads/attachments/ccfb09cb-81ae-4056-9a5f-1b8e492cefc1/IMG_3802.jpg" alt="Organic Planter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Organic Planter</strong>
         <p>Planter/vase with an organic wavy pattern; comes with and without drainage holes, looks great in see-through filament.</p>
-        <p class="fits">Printables &middot; by BakedBean3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/924015-organic-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by BakedBean3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/924015-organic-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/64617/images/4118581_889ada54-ce28-477f-a886-3a6f39974f1d/thumbs/cover/1200x630/jpg/twisted-planter-with-legs-slimprint.jpg" alt="Twisted Planter with Legs, Vase Mode" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Twisted Planter with Legs, Vase Mode</strong>
         <p>Twisted planter on legs, prints in 2 parts (planter in vase mode, legs normal mode); for indoor or outdoor use, ~9 x 11 cm.</p>
-        <p class="fits">Printables &middot; by SLIMPRINT &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/64617-twisted-planter-with-legs-vase-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by SLIMPRINT · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/64617-twisted-planter-with-legs-vase-mode" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/172331/images/1622488_fdb00c68-a171-4079-bd3b-8e8543a70098/thumbs/cover/1200x630/jpg/20220415_112759.jpg" alt="Flower Pot | Planter With Saucer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Flower Pot | Planter With Saucer</strong>
         <p>Plain flower pot with a matching saucer (versions with and without drainage holes); inside is 110 mm tall, 128 mm across the top — fits a basil plant.</p>
-        <p class="fits">Printables &middot; by Extrutim &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/172331-flower-pot-planter-with-saucer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Extrutim · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/172331-flower-pot-planter-with-saucer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/661364/images/5209742_e4b9648c-627b-4bca-9b40-704bdf420860_553d4cf5-61b7-49b3-8fe2-4ebaa12169cb/thumbs/inside/1280x960/jpg/planter.webp" alt="Simple Vase Planter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Simple Vase Planter</strong>
         <p>Simple round vase/planter; designer gives tips for a watertight print (concentric bottom layers, wider extrusion).</p>
-        <p class="fits">Printables &middot; by KAPPA3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $71 &middot; PETG $79</p>
-        <a class="part-link" href="https://www.printables.com/model/661364-simple-vase-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by KAPPA3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/661364-simple-vase-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dprintworld.co.nz/cdn/290784/images/2558198_f9df13c6-c1dc-4656-b752-607aa17250f4/2preview-1-2.jpg" alt="&quot;Wave&quot; Vase &amp; Planter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>&quot;Wave&quot; Vase &amp; Planter</strong>
         <p>Vase and planter set with a traditional Japanese wave pattern; prints in vase mode.</p>
-        <p class="fits">Printables &middot; by orax &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/290784-wave-vase-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by orax · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/290784-wave-vase-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/810625/images/6267812_cb8e3ca2-634b-434b-b27a-e174f4cb852d_aa1b415e-68e1-4fd3-a056-bb4f0f570a14/thumbs/inside/1280x960/jpg/img_2846.webp" alt="Spiral Succulent Planter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Spiral Succulent Planter</strong>
         <p>Small spiral planter that holds a 60–65 mm succulent pot (the size sold at IKEA and Lowe&#x27;s).</p>
-        <p class="fits">Printables &middot; by Naren V &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/810625-spiral-succulent-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Naren V · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/810625-spiral-succulent-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/939397/images/7179115_669e2a14-c71f-482d-9954-ece543d0ac8a_6f436a22-0500-4e7f-92ae-959052313deb/thumbs/inside/1280x960/png/img_6753.webp" alt="Ribbed Planter - Vase Mode" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Ribbed Planter - Vase Mode</strong>
         <p>Simple elegant ribbed planter; also works as a desk organizer or home decor piece.</p>
-        <p class="fits">Printables &middot; by AlexT &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/939397-ribbed-planter-vase-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by AlexT · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/939397-ribbed-planter-vase-mode" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1595/images/10262_c6199d87-a177-4a97-ae76-04c6bcd55270/qg201uq.jpg" alt="Low-Poly Rose Vase" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Vase</span>
         <strong>Low-Poly Rose Vase</strong>
         <p>Twisted low-poly vase that catches the light as it turns; a longtime community favorite.</p>
-        <p class="fits">Printables &middot; by Riskable &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1595-low-poly-rose-vase" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Riskable · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1595-low-poly-rose-vase" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/205009/images/1884689_42fe8806-9d8a-471a-a076-950951cbe00d/thumbs/cover/1200x630/png/screenshot-2022-05-13-at-192020.png" alt="Pen pot / vase with secret compartment" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Vase</span>
         <strong>Pen pot / vase with secret compartment</strong>
         <p>Low-poly twisted pen pot / vase with a separate liner for pens, plus an optional hidden screw-together box underneath.</p>
-        <p class="fits">Printables &middot; by Simon &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/205009-pen-pot-vase-with-secret-compartment" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Simon · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/205009-pen-pot-vase-with-secret-compartment" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/282037/images/2495554_2b962019-1917-4f22-bbb5-a69cc1ee9128/thumbs/inside/1280x960/png/screen-shot-2022-09-23-at-104825-pm.webp" alt="Twisted 6-sided Vase Basic" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Vase</span>
         <strong>Twisted 6-sided Vase Basic</strong>
         <p>Tall (200 mm) six-sided twisted vase; a nice gift with a bunch of flowers.</p>
-        <p class="fits">Printables &middot; by Planboy &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/282037-twisted-6-sided-vase-basic" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Planboy · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/282037-twisted-6-sided-vase-basic" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://pic2-cdn.creality.com/comp/model/54d08d0710f6c528479ce391a0091df7.webp?x-oss-process=image/resize,w_1500/ignore-error,1" alt="Modern Spiral Vase" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Vase</span>
         <strong>Modern Spiral Vase</strong>
         <p>Stylish spiral vase with smooth twisted lines; looks good in any color.</p>
-        <p class="fits">Printables &middot; by KamoJawo &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1422925-modern-spiral-vase" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by KamoJawo · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1422925-modern-spiral-vase" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/382276/images/6271610_50939083-a56d-4237-b644-3f7a362181c8_9e41fd8d-e750-4cbf-a54d-daf0692a0de9/thumbs/inside/1280x960/jpg/macro-slimprint-5001.webp" alt="Tall Twisted Vase (Vase Mode)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Vase</span>
         <strong>Tall Twisted Vase (Vase Mode)</strong>
         <p>Tall twisted vase (5.4 x 20 cm) for dried flowers; add sand or pebbles at the bottom so it doesn&#x27;t tip over.</p>
-        <p class="fits">Printables &middot; by SLIMPRINT &middot; Free download</p>
-        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/382276-tall-twisted-vase-vase-mode" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by SLIMPRINT · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/382276-tall-twisted-vase-vase-mode" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/231024/stls/2101277_1a481bc7-c011-4023-a888-a7469a477958/thumbs/inside/1280x960/png/base-chamfered_preview.webp" alt="SELF WATERING PLANTER" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Self-watering</span>
         <strong>SELF WATERING PLANTER</strong>
         <p>Two-part self-watering planter: a base tank plus a planter with slots that draw water up from below; tested leak-free in PLA.</p>
-        <p class="fits">Printables &middot; by Plastic 3D &middot; Free download</p>
-        <p class="part-note">License: License — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/231024-self-watering-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Plastic 3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/231024-self-watering-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/556843/images/4466643_d28e55c7-51f7-42c2-ac95-03d07e540cba/thumbs/inside/1280x960/jpg/plant-2_display_large_display_large_556843.webp" alt="Wearable Planter Vase" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Wearable</span>
         <strong>Wearable Planter Vase</strong>
         <p>Tiny planter on a necklace cord — carry a small plant with you; originally an art project from 2011.</p>
-        <p class="fits">Printables &middot; by Colleen Jordan &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/556843-wearable-planter-vase" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Colleen Jordan · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/556843-wearable-planter-vase" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
     <h3 style="font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin:28px 0 4px;font-size:22px">Self-watering planters</h3>
@@ -393,83 +466,103 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/836728/images/6486535_d9de9518-2f6e-4a8a-800e-277544a58a72_08be9b5e-be62-4225-9461-0d35abe1b163/thumbs/inside/1280x960/jpeg/img_3003.webp" alt="Self Watering Semi Hydroponic Planter (Parametric)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Self Watering Semi Hydroponic Planter (Parametric)</strong>
         <p>Parametric wick-based semi-hydro system in various sizes (start with 125×125×125 mm); a rope wick carries water from the reservoir to the roots, and a floating indicator shows when to top up. All parts print in PETG, no supports.</p>
-        <p class="fits">Printables &middot; by Lorro &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended</p>
-        <a class="part-link" href="https://www.printables.com/model/836728-self-watering-semi-hydroponic-planter-parametric" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Lorro · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/836728-self-watering-semi-hydroponic-planter-parametric" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/60914/stls/638966_324a4875-4e7e-4773-bf57-7d2aaba377cc/thumbs/inside/1280x960/png/planter-medium_preview.webp" alt="Planter – Self Watering – Utilitarian" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Self-watering</span>
         <strong>Planter – Self Watering – Utilitarian</strong>
         <p>Tileable, connectable seedling planters (peppers, tomatoes) with optional printed wicks, connectors and a funnel; the reservoir lasts about a week indoors. Print waterproof — PETG recommended.</p>
-        <p class="fits">Printables &middot; by jack_hmr &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended</p>
-        <a class="part-link" href="https://www.printables.com/model/60914-planter-self-watering-utilitarian" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by jack_hmr · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/60914-planter-self-watering-utilitarian" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/228559/rich_content/c677ea93-34e1-45a6-b44a-2cbdb113d878/thumbs/cover/800x533/jpg/img_0975.webp" alt="E3D Nozzle Planter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Self-watering</span>
         <strong>E3D Nozzle Planter</strong>
         <p>Self-watering planter shaped like an E3D V6 3D-printer nozzle; the bottom basin holds water and a cotton-rope wick feeds the soil pot above. Two parts screw together; printed in PLA, about a 12-hour print.</p>
-        <p class="fits">Printables &middot; by GCV3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/228559-e3d-nozzle-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GCV3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/228559-e3d-nozzle-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/171522/images/1615427_418f1c5a-522c-4b88-b2b7-3201311261d2/thumbs/inside/1280x960/png/self_watering_planter_2022-apr-10_07-37-17am-000_.webp" alt="Self-Watering Planter Collection" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Self-watering</span>
         <strong>Self-Watering Planter Collection</strong>
         <p>A whole collection of small self-watering pots (about 98×98×98 mm, fits a 100 mm bed) in many styles and patterns sharing one reservoir and wicking system; pick any design, scale to 60–80%. PLA+ proven leak-free.</p>
-        <p class="fits">Printables &middot; by Joseph Clarke &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/171522-self-watering-planter-collection" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Joseph Clarke · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/171522-self-watering-planter-collection" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US61e138d998d4bf/design/f4aefbd770af465e.jpg" alt="Universal Semi-Hydro Planter System, 0.5L/16Oz Cup" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Universal Semi-Hydro Planter System, 0.5L/16Oz Cup</strong>
         <p>Modular wick-based semi-hydro system built around a standard 0.5 L / 16 oz disposable cup as a leak-proof reservoir, with a wick inner pot and 14 decorative outer-pot designs. About 70–80 g total, 2–2.5 hour print, no supports.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $20 &middot; PETG $22</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2972925-universal-semi-hydro-planter-system-0-5l-16oz-cup" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2972925-universal-semi-hydro-planter-system-0-5l-16oz-cup" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US5ad86921a740e6/design/215b4270963f50b9.jpg" alt="Self-watering modular hanging planter pot" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Self-watering</span>
         <strong>Self-watering modular hanging planter pot</strong>
         <p>Hanging planter with a hidden reservoir — the inner pot wicks water up by capillary action. Endlessly expandable cascade: pots hang below each other on printed chain links and a U-bracket, no screws, glue, or hardware.</p>
-        <p class="fits">MakerWorld &middot; by GUECOM &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3412057-self-watering-modular-hanging-planter-pot" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GUECOM · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3412057-self-watering-modular-hanging-planter-pot" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USe190d339e4b839/design/1f9035c0256e1ad7.jpeg" alt="Self Watering System (1L, inverted-bottle principle)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Self-watering</span>
         <strong>Self Watering System (1L, inverted-bottle principle)</strong>
         <p>Modular 3-part system (reservoir body, internal planting pot, base plate) with a tank over 1 L that works on the inverted-bottle vacuum principle, feeding a thin water film the soil wicks up as needed. Long intervals between refills.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2887190-self-watering-system" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2887190-self-watering-system" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US1d6f519b012ec9/design/2025-07-01_47085b5e4638b8.jpg" alt="Mimir — Self-Watering Planter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Mimir — Self-Watering Planter</strong>
         <p>Ø 120 × H 100 mm three-part planter (helical lattice shell, water bowl, perforated insert), no glue. The 110 mL reservoir keeps herbs and succulents moist 5–7 days; dual-colour friendly, all parts under 200 mm.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1567973-mimir-self-watering-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1567973-mimir-self-watering-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000002851934/design/4f4c6262af2f4703.jpg?x-oss-process=image/format,webp" alt="Self watering planter (water-level indicator, indoor/outdoor)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Self-watering</span>
         <strong>Self watering planter (water-level indicator, indoor/outdoor)</strong>
         <p>Bottom-reservoir planter using a 25 mm polypropylene ribbon as the wick, with a built-in water-level indicator and refill window. Indoor version and outdoor version with overflow release.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2851934-self-watering-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2851934-self-watering-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000003432486/design/cf3e7da500665725.jpg?x-oss-process=image/format,webp" alt="Dusk Shadow Wave Self-Watering Planter | Wabi-Sabi" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Self-watering</span>
         <strong>Dusk Shadow Wave Self-Watering Planter | Wabi-Sabi</strong>
         <p>Wabi-sabi planter with vertical waves that catch low side light; wick-fed reservoir tray with a centre wick bar. Small Ø 162×150 mm (140 mL reservoir) and Large Ø 253×250 mm (450 mL reservoir). Prints support-free, PLA Matte recommended.</p>
-        <p class="fits">MakerWorld &middot; by Ikigaiform &middot; Free download</p>
-        <p class="part-note">License: Free download — selling prints needs the designer&#x27;s $30/mo commercial membership &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/3432486-dusk-shadow-wave-self-watering-planter-wabi-sabi" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ikigaiform · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3432486-dusk-shadow-wave-self-watering-planter-wabi-sabi" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -480,83 +573,103 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/447068/images/3850661_ddc73dcf-b77e-4838-8f55-e7a55426b9e4/thumbs/inside/1280x960/jpg/onwoodborder.webp" alt="Invisible Plant Pot Stand" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Stand</span>
         <strong>Invisible Plant Pot Stand</strong>
         <p>Simple riser that lifts a pot off the ground or shelf and is barely visible under it. Size to just under the pot base; printed 20 mm high by the designer and tested on heavy pots.</p>
-        <p class="fits">Printables &middot; by Oliver Punter &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/447068-invisible-plant-pot-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Oliver Punter · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/447068-invisible-plant-pot-stand" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/157718/images/1474040_fc757dfd-212d-42d5-802c-7560661d2d6f/thumbs/inside/1280x960/jpg/pxl_20201020_114629418portrait-01cover.webp" alt="Low Poly Geometric Hanging Planter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Low Poly Geometric Hanging Planter</strong>
         <p>Geometric (pentakis dodecahedron) hanging planter for succulents and small houseplants, in two sizes; hangs by string from 5 holes or in a macramé sling. Pictured with String of Pearls.</p>
-        <p class="fits">Printables &middot; by willtree8 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/157718-low-poly-geometric-hanging-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by willtree8 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/157718-low-poly-geometric-hanging-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US1aaa08d08f6cfe/design/2025-08-09_b0d794c85f0108.jpg" alt="Watering Can (Modern)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Watering can</span>
         <strong>Watering Can (Modern)</strong>
         <p>Minimalist modern watering can with a precise small spout for indoor and outdoor plants; the handle is glued on (gel superglue recommended). Note: seal with epoxy if you want it fully waterproof.</p>
-        <p class="fits">MakerWorld &middot; by Epiq3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $58</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1685107-watering-can?from=search" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Epiq3D · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1685107-watering-can?from=search" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/199277/stls/1838350_de019863-b6e7-48fd-a5f4-88862050e640/thumbs/inside/1280x960/png/plant-tags-14_preview.webp" alt="Plant Tags/Markers - 15" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Plant marker</span>
         <strong>Plant Tags/Markers - 15</strong>
         <p>Set of 15 garden stake tags: cucumbers, strawberry, pepper, tomato, zucchini, potatoes, oregano, rosemary, chives, basil, thyme, carrots, radish, berry bush, plus a blank tag.</p>
-        <p class="fits">Printables &middot; by Bean Designs &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/199277-plant-tagsmarkers-15" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Bean Designs · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/199277-plant-tagsmarkers-15" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/570395/images/4564469_b5ab229a-d2f3-471b-9924-da00d5b6d815/thumbs/inside/1280x960/jpeg/img_6077.webp" alt="Phases of the Moon - Plant Support Trellis" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Phases of the Moon - Plant Support Trellis</strong>
         <p>Moon-phases trellis for indoor plants and ivy, about 210 mm (8.25 in) tall and 10 mm thick including soil spikes. No supports or brim; designer used matte PLA, 3–4 walls, 10% gyroid infill.</p>
-        <p class="fits">Printables &middot; by John Hoke &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/570395-phases-of-the-moon-plant-support-trellis" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by John Hoke · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/570395-phases-of-the-moon-plant-support-trellis" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM0000000852822/design/2024-12-06_e6d559839bf28.jpg" alt="Voronoi Moss Pole for Plants (modular)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Voronoi Moss Pole for Plants (modular)</strong>
         <p>Stackable Voronoi-pattern moss pole sections for Monstera, Philodendron, or Pothos; fill with moss for aerial-root attachment and print as many sections as you need.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/852822-voronoi-moss-pole-for-plants-modular" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/852822-voronoi-moss-pole-for-plants-modular" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000429668/design/2024-04-15_2ec2898cd1eb.jpg?x-oss-process=image/format,webp" alt="Test Tube holder for propagating plants" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Stand</span>
         <strong>Test Tube holder for propagating plants</strong>
         <p>Stand holding glass test tubes (designer used 22×100 mm, 25 ml tubes with cork stoppers) for propagating cuttings in water — Chinese money plant babies, for example. Glass tubes not included.</p>
-        <p class="fits">MakerWorld &middot; by KJ Designs &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $26</p>
-        <a class="part-link" href="https://makerworld.com/en/models/429668" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by KJ Designs · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/429668" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/147449/images/1388999_f911fa44-2bfe-4c6c-aabd-d26ef6d50ca6/thumbs/inside/1280x960/jpg/20220308_105319.webp" alt="Planter Pot Saucer/Coaster/Tray - Easily Scalable and Water-Proof" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Planter Pot Saucer/Coaster/Tray - Easily Scalable and Water-Proof</strong>
         <p>Simple round saucer for round pots, 100 mm diameter × 10 mm deep at 100% scale and scalable to any pot (scale about 4–5 mm larger than the pot). Designer found PLA waterproof; PETG also works and is more durable.</p>
-        <p class="fits">Printables &middot; by burkelarsen &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended</p>
-        <a class="part-link" href="https://www.printables.com/model/147449-planter-pot-saucercoastertray-easily-scalable-and-water-proof" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by burkelarsen · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/147449-planter-pot-saucercoastertray-easily-scalable-and-water-proof" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/204520/images/1880867_67262c73-0ee2-442e-af41-b958b81e8e9f/thumbs/inside/1280x960/jpg/large_display_pot_riser_thingiverse_2_204520.webp" alt="Plant Pot Risers" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Plant Pot Risers</strong>
         <p>Small feet/risers to keep pots off the ground for drainage and airflow; at least 3 per pot, more for elongated planters. Made for cacti and succulents but works for any potted plant that likes drier conditions. PLA, 10% infill, no supports.</p>
-        <p class="fits">Printables &middot; by kowabunga &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/204520-plant-pot-risers" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by kowabunga · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/204520-plant-pot-risers" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USfccd62f57a1eac/design/509b9a60292a337b.jpeg" alt="Parametric Self-Watering Globe for Houseplants" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Self-watering</span>
         <strong>Parametric Self-Watering Globe for Houseplants</strong>
         <p>Fully parametric self-watering globe/spike (about 110 ml at Ø60 mm sphere) that slowly releases water to the root zone; adjustable globe diameter, spike length, and hole size/count. 0.8–1.0 mm holes recommended for 3–15 day emptying. PETG strongly recommended — PLA can leak and degrade with moisture.</p>
-        <p class="fits">MakerWorld &middot; by Augustas &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG recommended</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2637048-parametric-self-watering-globe-for-houseplants" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Augustas · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2637048-parametric-self-watering-globe-for-houseplants" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -567,51 +680,63 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://3dad.ru/uploads/models/414/162414.webp" alt="Four-Panel Lithophane Lantern — Utilizes an E12 Bulb" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Lithophane</span>
         <strong>Four-Panel Lithophane Lantern — Utilizes an E12 Bulb</strong>
         <p>Four-sided lantern that takes 115 x 145 mm lithophane photo panels (make your own from any photo with a free online lithophane tool); lit by a screw-in E12 LED bulb.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/162414?from=search" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/162414?from=search" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/360/1999360.webp" alt="Lithophane Lantern" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Lithophane</span>
         <strong>Lithophane Lantern</strong>
         <p>Decorative lantern with swap-out side panels; fits the Bambu LED Lamp Kit, or a tea-light version is included.</p>
-        <p class="fits">MakerWorld &middot; by GulagHias &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1999360-lithophane-lantern" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GulagHias · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1999360-lithophane-lantern" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USfeb7dee9caaa6c/design/2025-01-08_7becd0c00ceba.png" alt="Lithophane Lamp / Light Box - MakerLab Compatible" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Lithophane</span>
         <strong>Lithophane Lamp / Light Box - MakerLab Compatible</strong>
         <p>Simple photo lamp box built to fit lithophanes made with MakerLab&#x27;s &quot;Make My Lithophane&quot; tool; adapters for an LED strip or the Bambu LED Lamp Kit included.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/968626-lithophane-lamp-light-box-makerlab-compatible" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/968626-lithophane-lamp-light-box-makerlab-compatible" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/973/696973.webp" alt="Cube Lamp Lithophane" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Lithophane</span>
         <strong>Cube Lamp Lithophane</strong>
         <p>Cube lamp with a lift-off top so lithophane panels swap easily; panels are 136 x 136 mm.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: Open license — verify on page &middot; PLA $42–48 &middot; PETG $47–54</p>
-        <a class="part-link" href="https://makerworld.com/en/models/696973-cube-lamp-lithophane" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/696973-cube-lamp-lithophane" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/937/2138937.webp" alt="Multi-Photo Lithophane Box (Holds 4 Images)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Lithophane</span>
         <strong>Multi-Photo Lithophane Box (Holds 4 Images)</strong>
         <p>Four-sided light box holding 4 personal photos (100 x 100 mm each); fits the Bambu LED Lamp Kit.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2138937-multi-photo-lithophane-box-holds-4-images" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2138937-multi-photo-lithophane-box-holds-4-images" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US73e2622c50f6aa/design/2025-04-20_7448c04319e83.jpeg" alt="Lithophane Sphere Magnetic Puzzle LED Kit 001" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Lithophane</span>
         <strong>Lithophane Sphere Magnetic Puzzle LED Kit 001</strong>
         <p>Soccer-ball-shaped photo globe (truncated icosahedron) that holds lithophane photos on its faces and lights up with an LED Kit 001; needs 110 small magnets (4 x 1.5 mm).</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1338025-lithophane-sphere-magnetic-puzzle-led-kit-001" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1338025-lithophane-sphere-magnetic-puzzle-led-kit-001" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -622,52 +747,63 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/5c8cddd4-d017-4380-b585-0475cc1b1a12/images/13229802_a1e70f7a-0ddb-4520-84bc-70f1856b6910_e5090089-e207-4b02-9546-03c50b0a2af9/thumbs/inside/1280x960/jpg/img_7563.webp" alt="Modern Geometric Coaster Set &amp; Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Modern Geometric Coaster Set &amp; Holder</strong>
         <p>Four coasters (circle, square, rounded arch, small circle) plus a storage stand; coasters print best at 100% infill for a nice weight.</p>
-        <p class="fits">Printables &middot; by Chris Snyder &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/1766156-modern-geometric-coaster-set-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Chris Snyder · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1766156-modern-geometric-coaster-set-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/998210/images/7595325_7e8b3f51-2219-4c21-9204-ba0a9f98aebf_39635912-2326-4bdb-a798-6d5ae40d0528/thumbs/inside/1280x960/jpg/5969533521422828091.webp" alt="Maze coaster and coaster base organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Maze coaster and coaster base organizer</strong>
         <p>Coaster set with a maze pattern on top, plus a holder base and a small cylinder that doubles as a desk organizer.</p>
-        <p class="fits">Printables &middot; by KeepReal &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/998210-maze-coaster-and-coaster-base-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by KeepReal · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/998210-maze-coaster-and-coaster-base-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/e4317f41-a069-485b-9709-ac6592fa2251/images/13405800_8696c299-5a2d-445a-85dd-04ba10765069_61ac04ee-a613-4620-9eb9-09a1610fb705/thumbs/inside/1280x960/jpg/img_0005.webp" alt="Coaster with Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Coaster with Holder</strong>
         <p>Five coasters and a matching storage holder; keeps tables free of drink rings.</p>
-        <p class="fits">Printables &middot; by Maker_Stein &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1788448-coaster-with-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Maker_Stein · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1788448-coaster-with-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/204834/images/1890411_0436c954-99fa-4faa-a178-14bf6c0bed33/thumbs/inside/1280x960/jpg/img_1594.webp" alt="Spinning Carousel Desk Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Spinning Carousel Desk Organizer</strong>
         <p>Big spinning desk organizer with a center pen cup, built like an old amusement-park carousel (60+ parts, no glue or extra hardware).</p>
-        <p class="fits">Printables &middot; by actualSIZE &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/204834-spinning-carousel-desk-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by actualSIZE · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/204834-spinning-carousel-desk-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/535575/images/4319008_16b17ac4-9b67-4b2a-b11a-29b07df98edd/thumbs/cover/1200x630/jpg/pxl_20230725_153304865.jpg" alt="Coffee Cup Desk Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Organizer</span>
         <strong>Coffee Cup Desk Organizer</strong>
         <p>A coaster with pen and tool slots around the rim, so your coffee and your pens sit in one spot; two sizes for different mugs.</p>
-        <p class="fits">Printables &middot; by scrith &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/535575-coffee-cup-desk-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by scrith · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/535575-coffee-cup-desk-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/478100/images/4028107_4886826b-7624-4cc4-b23e-82d0dfc18488/thumbs/cover/1200x630/jpg/cover.jpg" alt="Bat-Coaster Collection – The Ultimate Dark Knight Set" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Bat-Coaster Collection – The Ultimate Dark Knight Set</strong>
         <p>Twelve coasters with Batman logos from 1939 to the latest movies, plus a storage case that holds 6.</p>
-        <p class="fits">Printables &middot; by jajaum3d &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/478100-bat-coaster-collection-the-ultimate-dark-knight-se" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by jajaum3d · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/478100-bat-coaster-collection-the-ultimate-dark-knight-se" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -678,59 +814,73 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/90656/images/950205_d05d440c-feac-43ab-a6a5-aab2b0775b4b/thumbs/cover/1200x630/jpg/honeycomb-display-shelves.jpg" alt="Honeycomb Display Shelf (No Supports Required)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Honeycomb Display Shelf (No Supports Required)</strong>
         <p>Small wall shelf with snap-in honeycomb &quot;grill&quot; panels; looks great with several hung together.</p>
-        <p class="fits">Printables &middot; by Ryan Millar &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/90656-honeycomb-display-shelf-no-supports-required" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ryan Millar · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/90656-honeycomb-display-shelf-no-supports-required" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/650409/images/5130540_80029fd0-ae6f-4f6b-be82-69b6d6ccc708_6cde2c4a-d895-4d1f-9376-3013e1202148/img_7676.jpg" alt="Honeycomb Shelf" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Hook</span>
         <strong>Honeycomb Shelf</strong>
         <p>Wall-mounted hexagonal shelves in two depths (shallow ledge or deeper shelf) with interlocking parts and tool hooks.</p>
-        <p class="fits">Printables &middot; by Stun &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/650409-honeycomb-shelf" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Stun · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/650409-honeycomb-shelf" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/524153/images/4293776_ac966ae0-7ab0-42c3-b154-cb655c37f5ff/pxl_20230713_055925701.jpg" alt="Honeycomb Storage Wall (HSW) Shelf" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Clip</span>
         <strong>Honeycomb Storage Wall (HSW) Shelf</strong>
         <p>Shelf and supports that clip onto the popular Honeycomb Storage Wall system.</p>
-        <p class="fits">Printables &middot; by Drew Singer &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/524153-honeycomb-storage-wall-hsw-shelf" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Drew Singer · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/524153-honeycomb-storage-wall-hsw-shelf" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/493477/images/4021281_320a484a-8924-4006-85d7-bd10aac93c25/tempimageqyfeht.gif" alt="Honeycomb minimalistic shelf (16x15 cm)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Shelf</span>
         <strong>Honeycomb minimalistic shelf (16x15 cm)</strong>
         <p>Small see-through honeycomb shelf for a bathroom or any room; sticks to the wall with double-sided tape.</p>
-        <p class="fits">Printables &middot; by f4r0kh &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/493477-honeycomb-minimalistic-shelf-16x15-cm" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by f4r0kh · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/493477-honeycomb-minimalistic-shelf-16x15-cm" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1237/images/8045_0dc81de9-6f59-4d2f-943d-bbc4d99a2967/cambiocolor.jpg" alt="Magnetic Beehive Key Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Magnetic Beehive Key Holder</strong>
         <p>Beehive-shaped wall key holder with 5 magnetic slots and standard hook slots; needs small magnets (15 mm and 12 mm).</p>
-        <p class="fits">Printables &middot; by Rodrim &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/1237-magnetic-beehive-key-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Rodrim · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1237-magnetic-beehive-key-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/716713/stls/5618072_23aa9f43-8116-4f3c-ad48-9b818730373f_8897ba16-aa1f-4048-ae5c-6f84086d7a39/thumbs/inside/1280x960/png/backspring_preview.webp" alt="Wall Mounted Key Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Wall Mounted Key Holder</strong>
         <p>Modular key holder styled after a car seat-belt buckle; clip as many together as you need, screw or stick to the wall.</p>
-        <p class="fits">Printables &middot; by HappyBlue &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/716713-wall-mounted-key-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by HappyBlue · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/716713-wall-mounted-key-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/814516/images/6401477_421f86bf-fc5b-4ff6-8b5d-4af02bcc05b0_1a54bf4d-2d9f-4311-bde9-04686dc2f981/thumbs/inside/1280x960/jpg/joel22383.webp" alt="Sway, A lampshade" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Sway, A lampshade</strong>
         <p>Lampshade in 3 swaying shapes, made for an E14 socket holder; print upside down in PETG.</p>
-        <p class="fits">Printables &middot; by Joel &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/814516-sway-a-lampshade" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Joel · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/814516-sway-a-lampshade" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -741,35 +891,43 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/496724/images/4044008_c3783833-a2ad-4bde-9b8c-ae0469dbf660/thumbs/inside/1280x960/png/octopus-ring-holder.webp" alt="Octopus ring holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Octopus ring holder</strong>
         <p>Octopus with four tentacles for holding rings, earrings, and small jewelry; about 83 x 106 x 39 mm.</p>
-        <p class="fits">Printables &middot; by Jopek Design &middot; Free download</p>
-        <p class="part-note">License: License — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/496724-octopus-ring-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Jopek Design · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/496724-octopus-ring-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/493420/images/4020761_03a662f6-4b82-4681-af2b-402d3557266e/thumbs/cover/1200x630/jpg/20230529_171653.jpg" alt="The Solo Stand: Light Single Ring Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Stand</span>
         <strong>The Solo Stand: Light Single Ring Holder</strong>
         <p>Minimalist single ring holder, printed face-down so the textured bed gives it a unique finish; ~15 g of PETG.</p>
-        <p class="fits">Printables &middot; by kroiderCreations &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $15</p>
-        <a class="part-link" href="https://www.printables.com/model/493420-the-solo-stand-light-single-ring-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by kroiderCreations · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/493420-the-solo-stand-light-single-ring-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/760941/images/5932804_7c90dc09-39fd-4721-a2b9-dd8603c05b69_20db37a0-c3f8-4fbc-87e3-69774e5ab56c/thumbs/cover/320x480/png/valentinosaurus-34.webp" alt="Valentinosaurus - Ringosaurus V2 - Ring Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Magnetic</span>
         <strong>Valentinosaurus - Ringosaurus V2 - Ring Holder</strong>
         <p>Dinosaur ring holder with a heart-shaped back for earrings, wider stance so it won&#x27;t tip; 4 versions including a weighted one (ball bearings) and a magnetic-foot one.</p>
-        <p class="fits">Printables &middot; by Asphalt3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/760941-valentinosaurus-ringosaurus-v2-ring-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Asphalt3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/760941-valentinosaurus-ringosaurus-v2-ring-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/493399/images/5725479_1cd0630f-03fa-427e-88a5-6b2d3551d2f9_e41a44e5-70ed-4eb8-928d-83d8fd6bd700/thumbs/cover/1200x630/png/bild.png" alt="Keychain - Ring holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Keychain</span>
         <strong>Keychain - Ring holder</strong>
         <p>Small ring holder that clips onto your keys, for jobs or sports where you can&#x27;t wear a ring; adjustable in Fusion 360 for any ring size.</p>
-        <p class="fits">Printables &middot; by MW &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/493399-keychain-ring-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MW · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/493399-keychain-ring-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -780,27 +938,33 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/739076/images/5790492_b6f11970-35f5-4bbc-a2e2-3585f28bcb6b_8f454b95-cd64-44f0-89ed-6b9b5398ca1d/thumbs/inside/1280x960/png/dental-organisers-hex-design-v6.webp" alt="Bathroom Dental Organisers HEX Design and Matching Soap Dish" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Bathroom Dental Organisers HEX Design and Matching Soap Dish</strong>
         <p>Hex-pattern toothbrush and dental organizers (with or without a toothbrush holder) plus a matching soap dish.</p>
-        <p class="fits">Printables &middot; by Peter Martin &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/739076-bathroom-dental-organisers-hex-design-and-matching" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Peter Martin · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/739076-bathroom-dental-organisers-hex-design-and-matching" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/476979/images/3902034_8fc15992-1708-4937-b0f3-a5d39acc2e2c/thumbs/inside/1280x960/jpeg/img_0710.webp" alt="Bathroom Accessories: Tissue Box Cover &amp; Toothbrush Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Bathroom Accessories: Tissue Box Cover &amp; Toothbrush Holder</strong>
         <p>Tissue box cover that fits a standard Kleenex flat box, plus a toothbrush holder with drainage holes in the bottom.</p>
-        <p class="fits">Printables &middot; by maureen.nemetski &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/476979-bathroom-accessories-tissue-box-cover-toothbrush-h" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by maureen.nemetski · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/476979-bathroom-accessories-tissue-box-cover-toothbrush-h" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/108801/images/1083865_be88a823-da54-47f2-8558-7a5bfac2e26d/thumbs/inside/1280x960/jpg/jabonera-4.webp" alt="Reversible soap dish + toothbrush holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Reversible soap dish + toothbrush holder</strong>
         <p>Flip-it-over soap dish: when one side gets gunky, flip it to the clean side; matching toothbrush holder with a drain.</p>
-        <p class="fits">Printables &middot; by ArchiPrinter &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/108801-reversible-soap-dish-toothbrush-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ArchiPrinter · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/108801-reversible-soap-dish-toothbrush-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -811,43 +975,53 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/684951/images/5404099_be50b84d-68f9-4ce5-a800-14f80a474a87_42daee16-b443-4b56-bece-457936980de8/thumbs/cover/1200x630/jpg/pxl_20231220_151544664portrait.jpg" alt="Photo Frame Ornament (Wallet + Parametric)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Frame</span>
         <strong>Photo Frame Ornament (Wallet + Parametric)</strong>
         <p>Small hanging photo frame ornament for a wallet-sized (2&quot; x 3&quot;) photo; frame + slide-in backer, with or without the year on the front.</p>
-        <p class="fits">Printables &middot; by chemistbyday &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/684951-photo-frame-ornament-wallet-parametric" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by chemistbyday · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/684951-photo-frame-ornament-wallet-parametric" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/94082/images/969885_62fd7b3c-2e87-49fb-91e8-9fc134d9c06a/thumbs/inside/1280x960/jpeg/373a8116-d53d-40b7-9584-26af5928d325.webp" alt="Minimalist lithophane picture frame" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Minimalist lithophane picture frame</strong>
         <p>Self-standing picture frame that holds a 100 x 100 mm lithophane photo and battery string lights; swap in a photo of a loved one for a Christmas gift.</p>
-        <p class="fits">Printables &middot; by DaHouzKat &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/94082-minimalist-lithophane-picture-frame" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DaHouzKat · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/94082-minimalist-lithophane-picture-frame" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/11308/images/96667_8f518944-c203-4ebb-81e5-a513e622e2fc/thumbs/inside/1280x960/jpg/img_20191124_200601.webp" alt="Christmas Tree Bauble Secret Compartment Gift Box" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Christmas Tree Bauble Secret Compartment Gift Box</strong>
         <p>Two-piece latching bauble (100 mm) that hangs on the tree and hides a small gift inside.</p>
-        <p class="fits">Printables &middot; by 3DCreat3d &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/11308-christmas-tree-bauble-secret-compartment-gift-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3DCreat3d · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/11308-christmas-tree-bauble-secret-compartment-gift-box" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/689467/stls/5416751_348afd6a-d191-42cd-8e6d-a2f647b0a61d_7a74959a-96c8-420e-bd11-9a1aa26eb7ef/thumbs/inside/1280x960/png/photo_v3_exa_front_ita_preview.webp" alt="Snowflake Photo Frame" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Snowflake Photo Frame</strong>
         <p>Snowflake-shaped photo frame for Christmas family photos; about 30 cm, can scale to 18 cm.</p>
-        <p class="fits">Printables &middot; by Algol &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/689467-snowflake-photo-frame" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Algol · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/689467-snowflake-photo-frame" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/671408/rich_content/749ae8c0-1ed0-4b24-9b1d-7502d1b384ef/img_5379.jpeg" alt="Gift Box" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Gift Box</strong>
         <p>Gift-box-shaped ornament that hides in the Christmas tree; prints in multiple colors without a multi-material printer.</p>
-        <p class="fits">Printables &middot; by WrenchWorks3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/en/model/671408-gift-box/collections" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by WrenchWorks3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/en/model/671408-gift-box/collections" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -858,30 +1032,33 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/723019/images/5664659_c19a0593-575c-4395-aad9-7b8211a93112_06dbb1ee-7138-4a64-a5f4-9a645f4e1e79/sam_4720.jpg" alt="Self watering baby groot planter" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Self-watering</span>
         <strong>Self watering baby groot planter</strong>
         <p>Baby Groot (Guardians of the Galaxy) planter with a self-watering setup; makers report it prints without supports at 150% scale.</p>
-        <p class="fits">Printables &middot; by UniversalMaker &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/723019-self-watering-baby-groot-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by UniversalMaker · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/723019-self-watering-baby-groot-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
-        <span class="tag">Display only</span>
         <img src="https://media.printables.com/media/prints/256744/images/2301732_4f0acd3a-d66b-42be-975d-d56bd5632582/thumbs/inside/1280x960/jpg/c2d45761-fa3d-4989-a23f-04928781ad8a1.webp" alt="Pokémon Bulbasaur / Bisasam Planter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Pokémon Bulbasaur / Bisasam Planter</strong>
         <p>Bulbasaur planter that fits a standard 5 cm pot at 60% scale or a ~10 cm pot at 120%; drain-hole version included.</p>
-        <p class="fits">Printables &middot; by R3D &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/256744-pokemon-bulbasaur-bisasam-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by R3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/256744-pokemon-bulbasaur-bisasam-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/079/738079.webp" alt="Groot Hanging Planter" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Planter</span>
         <strong>Groot Hanging Planter</strong>
         <p>Groot&#x27;s head as a hanging planter, with 3 holes for chains (or set it on a windowsill); drainage holes in the bottom.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/738079-groot-hanging-planter?from=search" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/738079-groot-hanging-planter?from=search" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -907,14 +1084,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -940,7 +1116,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -995,31 +1170,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -230,9 +267,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <main id="top">
 <section class="wrap" id="tabletop-gaming">
     <h2 class="section-title">Tabletop &amp; Gaming</h2>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory &mdash; dice towers, trays, deck boxes, organizers, minis, and terrain for your game night: D&amp;D, Magic, Catan, and more. Download the model you like, then send us the file and we&rsquo;ll give you an exact quote. Don&rsquo;t see what you need? Tell us what you&rsquo;re looking for &mdash; we&rsquo;ll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
       <a href="#dice-towers">Dice Towers</a>
@@ -251,99 +290,114 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000443295/design/ebf4edf9-71a0-4619-836c-f7a0530f381b.gif?x-oss-process=image/format,webp" alt="Rainbow Dice Tower (no AMS/MMU needed)" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Multicolor</span>
         <strong>Rainbow Dice Tower (no AMS/MMU needed)</strong>
         <p>A rainbow-colored dice tower printed in separate color parts — no multi-color printer needed.</p>
-        <p class="fits">Printables &middot; by GlennovitS 3D &middot; Free download</p>
-        <p class="part-note">License: Standard license — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/857424-rainbow-dice-tower-no-amsmmu-needed" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GlennovitS 3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/857424-rainbow-dice-tower-no-amsmmu-needed" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/779191/images/6052633_d6a85248-2bea-421a-9283-add0115fef3f_60ad14e8-7a30-4d1c-92b9-d7a44d713203/thumbs/cover/1200x630/jpg/c2.jpg" alt="Battlement Dice Tower" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice tower</span>
         <strong>Battlement Dice Tower</strong>
         <p>Castle-style dice tower with a screw-in lid and dice storage inside; 138×147 mm, 176 mm tall.</p>
-        <p class="fits">Printables &middot; by Clockspring &middot; Free download</p>
-        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/779191-battlement-dice-tower" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Clockspring · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/779191-battlement-dice-tower" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/866745/images/6653870_a0ee25b0-c26d-4d90-8669-6fad4ef3a4b2_4ede07d8-fd1c-452d-b316-2096bd52edee/20240502_183907.jpg" alt="Foldable Dice Tower" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Print-in-place</span>
         <strong>Foldable Dice Tower</strong>
         <p>Folding dice tower, 15 cm tall, with print-in-place hinges; magnet version needs 4× 8×2 mm magnets.</p>
-        <p class="fits">Printables &middot; by GrandFather &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/866745-foldable-dice-tower" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GrandFather · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/866745-foldable-dice-tower" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1065491/images/8063473_ec6eeda9-d3e0-4598-b997-f5484e380c75_aefb46db-aeda-4dfe-aac4-194d756e5242/thumbs/cover/800x800/png/screenshot-from-2024-11-07-10-47-41.png" alt="Plinko Tube Dice Tower ✅ sellable" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">No supports</span>
         <strong>Plinko Tube Dice Tower ✅ sellable</strong>
         <p>A clear-tube dice tower where dice bounce down like a Plinko board; no supports needed, optional weighted base.</p>
-        <p class="fits">Printables &middot; by Tumblefluff &middot; Free download</p>
-        <p class="part-note">License: CC BY &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1065491-plinko-tube-dice-tower" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Tumblefluff · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1065491-plinko-tube-dice-tower" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/847307/images/6519171_39fc1518-99ef-4cce-a445-604105dfe2e5_f2697019-69a4-4956-9ddf-63caf9afcdd7/img_3732.jpg" alt="Catan Dice Tower" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice tower</span>
         <strong>Catan Dice Tower</strong>
         <p>Dice tower on a hex base that replaces one hex on a Catan board.</p>
-        <p class="fits">Printables &middot; by Levytek &middot; Free download</p>
-        <p class="part-note">License: Personal use only — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/847307-catan-dice-tower" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Levytek · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/847307-catan-dice-tower" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/849396/rich_content/c98db50e-fdc1-4853-8a8e-f43fab991746/thumbs/cover/800x450/png/wurfel-wettbewerv-v2.webp" alt="Catapult Dice Tower (100% 3D Printed, NO SUPPORT)" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">No supports</span>
         <strong>Catapult Dice Tower (100% 3D Printed, NO SUPPORT)</strong>
         <p>Dice tower with a working catapult that launches the dice; prints with no supports.</p>
-        <p class="fits">Printables &middot; by sdaendi &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/849396-catapult-dice-tower-100-3d-printed-no-support" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by sdaendi · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/849396-catapult-dice-tower-100-3d-printed-no-support" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/863291/images/6651132_8d611909-c258-434d-9699-8af78763278b_c600c840-f4e3-4b0f-8937-403a7d5d4ba6/thumbs/inside/1280x960/jpg/img_e2288.webp" alt="&quot;Press to roll&quot; Dice Tower - 3 sizes" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice tower</span>
         <strong>&quot;Press to roll&quot; Dice Tower - 3 sizes</strong>
         <p>Dice tower with a button that rolls the stored dice; needs 6× 7 mm push springs (large/standard sizes). Designer printed it in PETG.</p>
-        <p class="fits">Printables &middot; by SBtheWizard &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Designer used PETG — PETG price via the quote tool ($0.28/g) once weight is known.</p>
-        <a class="part-link" href="https://www.printables.com/model/863291-press-to-roll-dice-tower-3-sizes" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by SBtheWizard · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/863291-press-to-roll-dice-tower-3-sizes" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/19212/images/187100_cf91bb83-5c4f-41d9-832c-472cb861611d/thumbs/inside/1280x960/jpg/img_20180619_161041_222_19212.webp" alt="Open Spiral Dice Tower" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dice tower</span>
         <strong>Open Spiral Dice Tower</strong>
         <p>Open spiral dice tower with a slit so you can watch the dice tumble; fits dice up to 30 mm.</p>
-        <p class="fits">Printables &middot; by wuerfel &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/19212-open-spiral-dice-tower" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by wuerfel · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/19212-open-spiral-dice-tower" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/857506/images/6622422_88b9457e-82e6-48c8-a565-e4a514d73949_92fd76fe-03c0-42f3-bca3-5fbb666b339e/dsc_0235.jpg" alt="Hill House Dice Tower" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice tower</span>
         <strong>Hill House Dice Tower</strong>
         <p>Haunted-house dice tower — dice go in the roof and come out the front door; doubles as tabletop terrain.</p>
-        <p class="fits">Printables &middot; by Epiales &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/857506-hill-house-dice-tower" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Epiales · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/857506-hill-house-dice-tower" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US167821dc8c97f8/design/fe907cc51f075107.jpg" alt="Gothic Dice Tower" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dice tower</span>
         <strong>Gothic Dice Tower</strong>
         <p>Gothic castle-style dice tower, 17 cm tall, with a spiral staircase inside; single piece, zero supports. Designer recommends a silver dry-brush finish.</p>
-        <p class="fits">MakerWorld &middot; by KadisGFX &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $37 &middot; The designer&#x27;s page text says the model is &quot;optimized so you can pull it straight off the print bed and sell it,&quot; but the license is personal-use-only — confirm commercial terms before selling. The designer suggests ~$30 retail; our per-gram quote comes out at $37.</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3176904-gothic-dice-tower" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by KadisGFX · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3176904-gothic-dice-tower" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USe1dcf75aff69f6/design/2025-08-14_75d1cfd34a9ea.webp" alt="Spell Book Dice Tower, RPG, D&amp;D, MTG, Dice Storage" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dice tower</span>
         <strong>Spell Book Dice Tower, RPG, D&amp;D, MTG, Dice Storage</strong>
         <p>Spell-book-shaped dice tower with hidden storage and a removable dice tray; needs 10×3 mm magnets.</p>
-        <p class="fits">MakerWorld &middot; by SB &middot; Free download</p>
-        <p class="part-note">License: All rights reserved — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1701257-spell-book-dice-tower-rpg-d-d-mtg-dice-storage" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by SB · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1701257-spell-book-dice-tower-rpg-d-d-mtg-dice-storage" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -354,56 +408,63 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000001962006/design/2025-11-05_24ab6f008aa368.jpg?x-oss-process=image/format,webp" alt="DnD Travelling Dice Tray (Wood Effect)" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice</span>
         <strong>DnD Travelling Dice Tray (Wood Effect)</strong>
         <p>Travel dice vault, 212×212 mm, holding 4 dice sets plus minis, with a tablet holder; wood PLA recommended; needs 10× 5×5 mm magnets.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1962006-dnd-travelling-dice-tray-wood-effect" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1962006-dnd-travelling-dice-tray-wood-effect" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/435989/images/3607027_3bee34b8-1c4a-4126-b0bd-4db7c16153f5/thumbs/cover/1200x630/jpg/cryptex2.jpg" alt="Cryptex Dice Vault" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice</span>
         <strong>Cryptex Dice Vault</strong>
         <p>Combination-dial tube vault holding a full set of 7 D&amp;D dice.</p>
-        <p class="fits">MakerWorld &middot; by LoboCNC &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/95084-cryptex-dice-vault" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by LoboCNC · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/95084-cryptex-dice-vault" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000001858644/design/2025-10-06_5d2ee77cadf388.gif?x-oss-process=image/format,webp" alt="DND Ultimate Player Kit Tray - Fold Up Dice Tower" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice tower</span>
         <strong>DND Ultimate Player Kit Tray - Fold Up Dice Tower</strong>
         <p>All-in-one player tray: fold-up dice tower, A6 notebook slot, mini slots and dice slots; needs 13× 6×2 mm magnets.</p>
-        <p class="fits">MakerWorld &middot; by about30cows &middot; Free download</p>
-        <p class="part-note">License: License — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1858644-dnd-ultimate-player-kit-tray-fold-up-dice-tower" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by about30cows · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1858644-dnd-ultimate-player-kit-tray-fold-up-dice-tower" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US9a3425c887c936/design/2025-01-06_9f335bcc5da06.jpg" alt="Dice Tray Grimoire" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dice</span>
         <strong>Dice Tray Grimoire</strong>
         <p>Book-shaped secret dice tray with Cyber and Esoterica cover options and room for an EVA foam layer.</p>
-        <p class="fits">MakerWorld &middot; by Bird Of Play &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $35 &middot; Esoterica-cover version is 368 g (5 plates) → PLA $92</p>
-        <a class="part-link" href="https://makerworld.com/en/models/962017-dice-tray-grimoire" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Bird Of Play · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/962017-dice-tray-grimoire" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USc6da1bfc17e9a7/design/2025-01-29_c24a6abb006fa.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Transforming DND Dice Box" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice</span>
         <strong>Transforming DND Dice Box</strong>
         <p>Dice box whose lid flips open to become a rolling tray; holds a full polyhedral dice set plus a pen.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Exclusive — personal use, not for resale &middot; PLA $37</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1053556-transforming-dnd-dice-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1053556-transforming-dnd-dice-box" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/628/707628.webp" alt="Opinionated D&amp;D Dice Box &amp; Tray" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Print-in-place</span>
         <strong>Opinionated D&amp;D Dice Box &amp; Tray</strong>
         <p>Dice box and tray with a print-in-place hinge and magnet closure; holds exactly the dice a 5th-edition D&amp;D player needs; optional TPU rolling mat; needs 6×2 mm magnets.</p>
-        <p class="fits">MakerWorld &middot; by Nick Johnson &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/707628-opinionated-d-d-dice-box-tray" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Nick Johnson · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/707628-opinionated-d-d-dice-box-tray" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -414,72 +475,83 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/907204/previews/thumbs/inside/1280x960/png/55d48102b6eb153d486dd4966f562e1e1fe20ae3.webp" alt="Deck, Dice box" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dice</span>
         <strong>Deck, Dice box</strong>
         <p>Two-compartment box for standard, Magic and Pokémon-size cards; needs 8× 8×3 mm + 8× 5×1 mm magnets.</p>
-        <p class="fits">Printables &middot; by La3emedimension &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/907204-deck-dice-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by La3emedimension · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/907204-deck-dice-box" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/761471/images/5935023_92fa29e5-beca-4100-8fff-d10c263eeed0_af813ddd-4206-42a2-a782-55ddd2fdcc70/thumbs/inside/1280x960/jpg/pxl_20240211_201957503.webp" alt="The Dumpster Deck Box" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice</span>
         <strong>The Dumpster Deck Box</strong>
         <p>Dumpster-shaped deck box holding up to 110 double-sleeved cards plus dice; needs 4× 8×3 mm magnets.</p>
-        <p class="fits">Printables &middot; by Ye Olde 3D Printer &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/761471-the-dumpster-deck-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ye Olde 3D Printer · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/761471-the-dumpster-deck-box" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/596797/images/4814425_4b2c3d48-6701-429e-8f90-6dee84195966_16aa6a36-33d9-482a-a51a-f838a40644e1/thumbs/cover/1200x630/jpeg/photoroom_20231006_145346.jpg" alt="Urza Tower 100+ Card Deck Box" loading="lazy" onerror="this.style.display='none'" />
-        
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Urza Tower 100+ Card Deck Box</strong>
         <p>Deck box shaped like Urza&#x27;s Tower from Magic: The Gathering; dome screws on, with a dice/counter cavity on top.</p>
-        <p class="fits">Printables &middot; by thatcaddad &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/de/model/596797-urza-tower-100-card-deck-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by thatcaddad · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/de/model/596797-urza-tower-100-card-deck-box" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/954876/previews/thumbs/inside/1280x960/png/c9cca39e71254ca9d6f7b693f5fbf2af50eb0089.webp" alt="Card Box / Deck Box / Hub function for TCG" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dice</span>
         <strong>Card Box / Deck Box / Hub function for TCG</strong>
         <p>Two-deck hub box with dice and token sections; needs 5×2 mm magnets; sized for sleeved Magic cards.</p>
-        <p class="fits">Printables &middot; by W3DCustom &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/954876-card-box-deck-box-hub-fuction-for-tcg?lang=es" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by W3DCustom · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/954876-card-box-deck-box-hub-fuction-for-tcg?lang=es" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/695677/images/5466512_36c7e83b-d44d-45b6-b663-15f4803f882a_f88e77f5-2901-4ed5-b606-59fdd390cd77/thumbs/inside/1280x960/jpg/img_e5611.webp" alt="Stackable MTG Commander Deck Box V1 and V2" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dice</span>
         <strong>Stackable MTG Commander Deck Box V1 and V2</strong>
         <p>Stackable commander deck box: 100-card deck + 25-card side deck, commander window, stackable dice-tray base.</p>
-        <p class="fits">Printables &middot; by Ninja636 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/695677-stackable-mtg-commander-deck-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ninja636 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/695677-stackable-mtg-commander-deck-box" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/89954/images/946203_85735220-9ec0-4e22-9f4a-e642ab3c11ba/thumbs/inside/1280x960/png/mtg.webp" alt="MTG Commander Deck Box + Dice Compartment" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dice</span>
         <strong>MTG Commander Deck Box + Dice Compartment</strong>
         <p>Commander deck box for a 100-card deck with a dice tray underneath; designer notes it was not printed/tested yet.</p>
-        <p class="fits">Printables &middot; by Dart Dust &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/de/model/89954-mtg-commander-deck-box-dice-compartment" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Dart Dust · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/de/model/89954-mtg-commander-deck-box-dice-compartment" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/b30f4755-5d0f-438f-9080-d47973f1dc59/images/10152964_e31203ac-585c-480d-a2ed-a5d100d09fa0_6c360786-91f4-4427-b4e1-24760eccec32/thumbs/inside/1280x960/jpg/pxl_20250703_232411926.webp" alt="The 4 Deck Case" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Case</span>
         <strong>The 4 Deck Case</strong>
         <p>Carrying case for 4 double-sleeved 100-card decks plus token decks; needs 24× 8×3 mm magnets.</p>
-        <p class="fits">Printables &middot; by Ye Olde 3D Printer &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1345477-the-4-deck-case" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ye Olde 3D Printer · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1345477-the-4-deck-case" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/849966/images/6539669_343b24be-8ff8-4c3a-a268-f1a7a60009ce_b139ab86-9a1f-448e-a333-05da6d631f89/thumbs/inside/640x480/jpg/pxl_20240417_153729537mp.webp" alt="Vault-Tec MTG Commander deck box (Updated)" loading="lazy" onerror="this.style.display='none'" />
-        
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Dice</span>
         <strong>Vault-Tec MTG Commander deck box (Updated)</strong>
         <p>Fallout Vault-Tec themed commander deck box for 100+ sleeved cards plus tokens and a full dice set on top; needs 5×2 mm magnets.</p>
-        <p class="fits">Printables &middot; by 3dPrintedDad &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/fr/model/849966-vault-tec-mtg-commander-deck-box-updated" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3dPrintedDad · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/fr/model/849966-vault-tec-mtg-commander-deck-box-updated" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -490,75 +562,83 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/202654/images/1864721_151ba9a3-2110-4e15-87ea-5aac29bfbfe3/thumbs/cover/1200x630/jpg/large_display_img_0842_202654.jpg" alt="Cubitos Insert / Organizer" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Organizer</span>
         <strong>Cubitos Insert / Organizer</strong>
         <p>Nested-tray insert for Cubitos with individual player trays and no lid lift.</p>
-        <p class="fits">Printables &middot; by js500 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/de/model/202654-cubitos-insert-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by js500 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/de/model/202654-cubitos-insert-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/76974/images/831800_24716702-79cb-4e0a-b4f6-4e6b09f603a4/large_display_tiles_76974.jpg" alt="Lords of Vegas + Up Expansion - Organizer, Tiles, Trays" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice</span>
         <strong>Lords of Vegas + Up Expansion - Organizer, Tiles, Trays</strong>
         <p>Full organizer for Lords of Vegas + Up expansion: building, money and card trays, 12 dice and player-marker trays, 3D buildings.</p>
-        <p class="fits">Printables &middot; by picklerelish &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/76974-lords-of-vegas-up-expansion-organizer-tiles-trays" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by picklerelish · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/76974-lords-of-vegas-up-expansion-organizer-tiles-trays" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/773206/images/6012305_f97d0119-9306-4d6a-b30c-b7cc8750393d_4202ec37-efdc-4015-9f6b-d4b4c30a7a72/thumbs/inside/1280x960/jpg/img_0120.webp" alt="Quest for El Dorado Insert / Organizer (Lautapelit Edition)" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Organizer</span>
         <strong>Quest for El Dorado Insert / Organizer (Lautapelit Edition)</strong>
         <p>Insert holding the base game plus Heroes &amp; Hexes, Dangers &amp; Muisca, Dragons/Treasures/Mysteries and promos; sleeved-card friendly, vertical storage.</p>
-        <p class="fits">Printables &middot; by js500 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/773206-quest-for-el-dorado-insert-organizer-lautapelit-ed?lang=en" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by js500 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/773206-quest-for-el-dorado-insert-organizer-lautapelit-ed?lang=en" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/536988/images/6017094_8595dca3-7316-4983-8a47-95bc72e1d27e_6fb24c06-5b2d-4e10-b128-e79113cbae58/thumbs/inside/1280x960/jpeg/pxl_20240220_224129727.webp" alt="Token &amp; Dice Tray box insert for Horizon Zero Dawn the board game" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dice</span>
         <strong>Token &amp; Dice Tray box insert for Horizon Zero Dawn the board game</strong>
         <p>Token and dice tray insert for the Horizon Zero Dawn board game, with an extra sun-token tray added.</p>
-        <p class="fits">Printables &middot; by PrintedByMark &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/536988-token-dice-tray-box-insert-for-horizon-zero-dawn-t" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PrintedByMark · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/536988-token-dice-tray-box-insert-for-horizon-zero-dawn-t" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://cdn.thingiverse.com/assets/56/0d/f8/12/30/IMG_1821.jpeg" alt="Raiders of the North Sea + Expansions Organizer" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Organizer</span>
         <strong>Raiders of the North Sea + Expansions Organizer</strong>
         <p>Organizer fitting the base game plus Hall of Heroes and Fields of Fame in the original box: resource trays and a card draw/discard tray.</p>
-        <p class="fits">Thingiverse &middot; by greendog99 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:4381106" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by greendog99 · Thingiverse</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:4381106" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://cdn.thingiverse.com/assets/fb/67/06/bb/fc/8b451e23-81b3-4fd2-9dc5-f1dba969e61e.png" alt="Resident Evil 1 Board Game (Bravo) card organizer (kickstarter edition)" loading="lazy" onerror="this.style.display='none'" />
-        
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Organizer</span>
         <strong>Resident Evil 1 Board Game (Bravo) card organizer (kickstarter edition)</strong>
         <p>Card organizer for the Resident Evil 1 board game (Kickstarter edition), 283×283×63 mm, holding all sleeved cards; designer says it uses over 800 g of filament (almost a whole spool).</p>
-        <p class="fits">Thingiverse &middot; by ponorka15 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $200+</p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:6248070" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ponorka15 · Thingiverse</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:6248070" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/772690/images/6008770_6966f37e-f91d-4983-9273-5f6f1304bf88_7329ba82-7f38-4584-afcb-dcb0fd2820fc/view1.png" alt="Catan Card Tray Holder" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Multicolor</span>
         <strong>Catan Card Tray Holder</strong>
         <p>Two-tier stackable holder for individual resource-card trays, with a cover.</p>
-        <p class="fits">Printables &middot; by loyal-tr-8r &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/772690-catan-card-tray-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by loyal-tr-8r · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/772690-catan-card-tray-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/754145/images/5888043_c4e79092-9033-426a-8641-3ea417bb8b2d_a9c3a536-895f-44af-88be-e28c7651d092/thumbs/inside/1280x960/jpg/pxl_20240207_051746094.webp" alt="Elevated Settlers of Catan Card Trays" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Tray</span>
         <strong>Elevated Settlers of Catan Card Trays</strong>
         <p>Angled card trays (4/5/6-card variants) that snap together with 6×3 mm magnets.</p>
-        <p class="fits">Printables &middot; by Jamehz &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/pl/model/754145-elevated-settlers-of-catan-card-trays" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Jamehz · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/pl/model/754145-elevated-settlers-of-catan-card-trays" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -569,63 +649,75 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/352776/images/2996278_ed439f18-0ac7-48d9-8c9d-6da77d055ca9/thumbs/cover/1200x630/png/dragonskelt.png" alt="Dragon Skeleton ✅ sellable" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dragon</span>
         <strong>Dragon Skeleton ✅ sellable</strong>
         <p>Dragon skeleton miniature/display piece.</p>
-        <p class="fits">Printables &middot; by Peter Farell &middot; Free download</p>
-        <p class="part-note">License: CC BY &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/352776-dragon-skeleton" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Peter Farell · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/352776-dragon-skeleton" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/391974/images/3275667_549464d3-e632-4641-a62e-7aef53dbc85c/thumbs/cover/1200x630/jpg/eyJyb3RhdGVBbmdsZSI6MjcwfQ==/img_20230206_193119.jpg" alt="Magnetic Articulated Skeleton Dragon" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">No supports</span>
         <strong>Magnetic Articulated Skeleton Dragon</strong>
         <p>Print-in-place articulated skeleton dragon with magnets, no supports needed; needs 7× 5×3 mm magnets; looks good in glow-in-the-dark PLA.</p>
-        <p class="fits">Printables &middot; by RobertStevenson &middot; Free download</p>
-        <p class="part-note">License: License — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/391974-magnetic-articulated-skeleton-dragon" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by RobertStevenson · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/391974-magnetic-articulated-skeleton-dragon" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/266101/images/2370673_ff0acdf1-8d7a-4c38-9a01-fd1dd193ad55/thumbs/inside/1280x960/jpg/large_display_img_20200426_142804_266101.webp" alt="Bone Serpent / &quot;White Dragon&quot;" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Dragon</span>
         <strong>Bone Serpent / &quot;White Dragon&quot;</strong>
         <p>28–32 mm scale miniature for D&amp;D/Pathfinder, with an FDM-friendly pose included.</p>
-        <p class="fits">Printables &middot; by Clay Rade &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/266101-bone-serpent-white-dragon" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Clay Rade · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/266101-bone-serpent-white-dragon" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/860694/images/6613751_25b6eb17-731e-47ff-b4c9-29bf65c8f61d_f18d0b20-bad7-4ecb-8191-5295e99a208d/20240428_114639.jpg" alt="Flint The Mini Dragon" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Dragon</span>
         <strong>Flint The Mini Dragon</strong>
         <p>Small mini dragon figure.</p>
-        <p class="fits">Printables &middot; by XTRUD3D &middot; Free download</p>
-        <p class="part-note">License: License — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/fr/model/860694-flint-the-mini-dragon" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by XTRUD3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/fr/model/860694-flint-the-mini-dragon" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/679193/images/5371145_3fc2dae2-0de5-4d3d-bcc8-a0155da4755a_36b3108e-4bc1-4faa-9c87-d2dc020c5cc3/thumbs/inside/1280x960/jpg/20231216_225439.webp" alt="Articulated Baby Night Spirit Dragon v1.1" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Articulated</span>
         <strong>Articulated Baby Night Spirit Dragon v1.1</strong>
         <p>Small articulated baby dragon, printable as small as 91×74 mm.</p>
-        <p class="fits">Printables &middot; by AKinferno &middot; Free download</p>
-        <p class="part-note">License: License — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/679193-articulated-baby-night-spirit-dragon-v11" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by AKinferno · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/679193-articulated-baby-night-spirit-dragon-v11" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/763344/stls/5947226_6611889f-8931-4d5d-a5d8-d82fd5b81b76_0560e35d-fb20-4896-b26b-f40d88a7d0f8/thumbs/inside/1280x960/png/a_dnd_miniature_dragon_preview.webp" alt="LUMA Dragon ✅ sellable" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dragon</span>
         <strong>LUMA Dragon ✅ sellable</strong>
         <p>AI-generated (LUMA Genie) D&amp;D miniature dragon on a hex base.</p>
-        <p class="fits">Printables &middot; by ABitMoreAdventure &middot; Free download</p>
-        <p class="part-note">License: CC BY &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/763344-luma-dragon?lang=en" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ABitMoreAdventure · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/763344-luma-dragon?lang=en" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/411248/images/3414846_cfd767b0-a96c-4d67-8579-a32922fe3c30/thumbs/inside/1280x960/png/large_display_817bf6b6-40f4-4cf1-b309-641ebfb0bbcd_411248.webp" alt="Dragon 3D Miniature - Andor Junior the family fantasy game" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Dragon</span>
         <strong>Dragon 3D Miniature - Andor Junior the family fantasy game</strong>
         <p>Dragon miniature for the Andor Junior family fantasy game.</p>
-        <p class="fits">Printables &middot; by 3D_reifke &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/en/model/411248-dragon-3d-miniature-andor-junior-the-family-fantas" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3D_reifke · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/en/model/411248-dragon-3d-miniature-andor-junior-the-family-fantas" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -636,46 +728,55 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/486710/images/3976667_0cb7e1f9-ed6f-4a7d-951e-b2db8e3c97fe/thumbs/cover/1200x630/jpg/pxl_20230521_193032007.jpg" alt="Magnetic tiles for tabletop games" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Multicolor</span>
         <strong>Magnetic tiles for tabletop games</strong>
         <p>Magnetic modular tile system for D&amp;D or Pathfinder; tiles print in different colors for different terrain; uses 5 mm ball magnets inserted mid-print.</p>
-        <p class="fits">Printables &middot; by Mario37 &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/es/model/486710-magnetic-tiles-for-tabletop-games" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Mario37 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/es/model/486710-magnetic-tiles-for-tabletop-games" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/229325/stls/2088240_94f6c63c-626e-4085-8d8a-0cb54761f7c2/thumbs/inside/1280x960/png/door-closed-fdm_preview.webp" alt="Dynamod Dungeon Tiles - Sample Pack" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Dynamod Dungeon Tiles - Sample Pack</strong>
         <p>Sample pack of modular 32×32 mm dungeon tiles with switchable walls/doors and fog-of-war; full set at dynamod.games.</p>
-        <p class="fits">Printables &middot; by Geert Bevin &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/229325-dynamod-dungeon-tiles-sample-pack" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Geert Bevin · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/229325-dynamod-dungeon-tiles-sample-pack" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/0fd1545d-c79a-40a4-8f8b-13433769bc2b/previews/thumbs/inside/1280x960/png/829cbc4cbdd39f0e8fda7814e7c7c070dc8375da.webp" alt="CruxLink: Dungeon Tile System - Free and Open Source ✅ sellable" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>CruxLink: Dungeon Tile System - Free and Open Source ✅ sellable</strong>
         <p>Free and open-source modular dungeon tile system; the designer says you can print, modify and &quot;even sell printed pieces yourself&quot; and publish changes under the same license with credit.</p>
-        <p class="fits">Printables &middot; by Evandro Teixeira &middot; Free download</p>
-        <p class="part-note">License: CC BY-SA &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/1301804-cruxlink-dungeon-tile-system-free-and-open-source" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Evandro Teixeira · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1301804-cruxlink-dungeon-tile-system-free-and-open-source" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/486705/images/3973774_27c6c833-aaa5-473a-a162-4c91e25fa35b/thumbs/cover/1200x630/jpg/img_8237.jpg" alt="GridMap3D - DnD/TTRPG Tiles ✅ sellable" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Tiles</span>
         <strong>GridMap3D - DnD/TTRPG Tiles ✅ sellable</strong>
         <p>Snap-together dungeon tiles with raised cliff pieces for D&amp;D and other tabletop games.</p>
-        <p class="fits">Printables &middot; by PolyFrog &middot; Free download</p>
-        <p class="part-note">License: CC BY &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/486705-gridmap3d-dndttrpg-tiles?lang=en" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PolyFrog · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/486705-gridmap3d-dndttrpg-tiles?lang=en" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/11944/images/104308_5d631612-b933-48e3-bd64-7f8e1682d3c5/thumbs/cover/1200x630/jpg/nowalls_example_cavern_11944.jpg" alt="#NoWalls Cavern Dungeon Tiles (OpenLock/MagBall)" loading="lazy" onerror="this.style.display='none'" />
-        
+        <span class="draft-tag">Tiles</span>
         <strong>#NoWalls Cavern Dungeon Tiles (OpenLock/MagBall)</strong>
         <p>Wall-less cavern dungeon tiles on a 1&quot; (25 mm) base with 5 mm ball-magnet pockets; OpenLock compatible.</p>
-        <p class="fits">Printables &middot; by TheRooster &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/de/model/11944-nowalls-cavern-dungeon-tiles-openlockmagball" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by TheRooster · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/de/model/11944-nowalls-cavern-dungeon-tiles-openlockmagball" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -686,44 +787,53 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/867936/images/6662873_1cf3e552-db4f-4fe4-9da8-04f9c2f9d89e_80af0b8e-4fe7-4177-ac54-7e5e4dd5312c/thumbs/inside/1280x960/jpg/star_wars_chess.webp" alt="Checkers and Chess Board" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Checkers and Chess Board</strong>
         <p>One-piece 248×248 mm board for checkers and chess, plus checkers pieces.</p>
-        <p class="fits">Printables &middot; by jthomeo &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/867936-checkers-and-chess-board" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by jthomeo · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/867936-checkers-and-chess-board" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/557214/images/4469306_8167af40-bfb9-42e3-93f0-083dfea73ed2/thumbs/inside/1280x960/jpg/smfm-chess-bw.webp" alt="See Me Feel Me Chess (and Checkers)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>See Me Feel Me Chess (and Checkers)</strong>
         <p>Accessible chess/checkers set: piece and field colors can be seen and felt; optional knobs on the checkers fields.</p>
-        <p class="fits">Printables &middot; by Joost Tennekes &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/557214-see-me-feel-me-chess-and-checkers" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Joost Tennekes · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/557214-see-me-feel-me-chess-and-checkers" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/241453/images/2180265_32a6149c-d4cd-4b8e-97e4-e89efedd4cfb/thumbs/inside/1280x960/jpg/20220709_224100.webp" alt="Chess &amp; Checkers &amp; Nine Men&#x27;s Morris Board (w/Storage Box)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Chess &amp; Checkers &amp; Nine Men&#x27;s Morris Board (w/Storage Box)</strong>
         <p>250×250 mm storage box with the board in the lid plus checkers tokens; chess pieces up to 60 mm tall fit inside.</p>
-        <p class="fits">Printables &middot; by Scheibster &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/es/model/241453-chess-checkers-nine-mens-morris-board-wstorage-box" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Scheibster · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/es/model/241453-chess-checkers-nine-mens-morris-board-wstorage-box" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/877959/images/6733149_7b29480b-7430-4138-8b94-660990ec0f7b_b76e3645-295c-42db-a41e-fa9dabe0b99c/thumbs/inside/1280x960/png/pxl_20240512_1356528243.webp" alt="Modular Chess Board" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Modular Chess Board</strong>
         <p>Full-size 390×390 mm chess board in quarters with snap-in tiles; needs a 220×220 mm print bed.</p>
-        <p class="fits">Printables &middot; by EBD Design Studio &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/it/model/877959-modular-chess-board" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by EBD Design Studio · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/it/model/877959-modular-chess-board" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/654383/images/5158979_147362c7-9df7-4576-81f0-2e6c5dfb0890_47670635-ca3a-470f-983b-38bcb18dddbd/thumbs/inside/1280x960/jpg/sisko_and_dax_play_checkers.webp" alt="Space Checkers" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Space Checkers</strong>
         <p>Tridimensional checkers: a 4×4×4 cube split into 4 towers, with 12 small boards, rods and 24 pieces.</p>
-        <p class="fits">Printables &middot; by GamerMechanic81 &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/654383-space-checkers" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GamerMechanic81 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/654383-space-checkers" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -749,14 +859,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -782,7 +891,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -837,31 +945,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

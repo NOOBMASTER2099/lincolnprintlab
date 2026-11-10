@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -229,10 +266,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 
 <main id="top">
 <section class="wrap" id="dragons-creatures">
-    <h2 class="section-title">Dragons &amp; Creatures</h2>
+    <h1>Dragons &amp; Creatures</h1>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory — articulated dragons, axolotls, sharks, octopus, snakes, turtles and more creatures. Download the model you like, then send us the file and we'll give you an exact quote. Most of these are small, quick prints — great booth and market stock. Don't see what you need? Tell us what you're looking for — we'll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
       <a href="#flexi-dragons-fantasy">Flexi Dragons &amp; Fantasy</a>
@@ -251,45 +290,53 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/990d510b-65a9-445d-82df-adf89c904d93/images/13352739_0a61a954-e14c-4e25-9add-ed911fe056d4_2f3d6d99-7f67-42f1-a90f-61cd4ffffffc/thumbs/inside/1280x960/png/2.webp" alt="Flexi Dragon with Fully Articulated Flexible Wings" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Flexi Dragon with Fully Articulated Flexible Wings</strong>
         <p>Print-in-place dragon with a fully articulated body and flexible articulated wings; no supports, scales 70-130%.</p>
-        <p class="fits">Printables &middot; by FlexiMania &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Commercial licence via FlexiMania Patreon</p>
-        <a class="part-link" href="https://www.printables.com/model/1781752-flexi-dragon-with-fully-articulated-flexible-wings" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by FlexiMania · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1781752-flexi-dragon-with-fully-articulated-flexible-wings" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/e0e90a10-3ae8-43ff-b8c6-100d47c79771/images/11437684_6915344a-0ee9-450b-805a-fa057467bc55_b1e58588-bdcf-4c58-b2b6-1b6d8bf3e7d7/thumbs/inside/1280x960/webp/1-5.webp" alt="Flexi Dragon | Articulated 3D Printable Dragon Toy" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Flexi Dragon | Articulated 3D Printable Dragon Toy</strong>
         <p>A fully articulated dragon that slithers and bends, printed in one piece with no supports; looks best in metallic or silk PLA.</p>
-        <p class="fits">Printables &middot; by FlexiMania &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1518235-flexi-dragon-articulated-3d-printable-dragon-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by FlexiMania · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1518235-flexi-dragon-articulated-3d-printable-dragon-toy" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/540ff97d-07b0-48cb-9a2d-44c078bfd267/images/13752961_0c2cca7b-314e-48e6-accb-2b0ce2218541_ce3932a0-3f77-4184-b7e3-660652549f8a/thumbs/inside/1280x960/jpeg/img_9175.webp" alt="Baby Flexi and Articulated Crystal Dragon Improved" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Baby Flexi and Articulated Crystal Dragon Improved</strong>
         <p>A remixed baby crystal dragon with a bigger head, stronger links, and multi-colour eyes; do not scale it down.</p>
-        <p class="fits">Printables &middot; by fireandwaterguy &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Delicate model — not for young kids</p>
-        <a class="part-link" href="https://www.printables.com/model/1834620-baby-flexi-and-articulated-crystal-dragon-improved" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by fireandwaterguy · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1834620-baby-flexi-and-articulated-crystal-dragon-improved" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USa9d342425ee7dc/design/890b6bfdf71e3068.jpg" alt="Flexi Dragon / Articulated Dragon" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Flexi Dragon / Articulated Dragon</strong>
         <p>A detailed articulated dragon, 100% print-in-place with no supports or assembly; crisp scales, AMS-friendly.</p>
-        <p class="fits">MakerWorld &middot; by Not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3494010-flexi-dragon-articulated-dragon" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3494010-flexi-dragon-articulated-dragon" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/838289/images/6456834_75cec2a7-9450-464c-ade9-5fa18cf15fec_adbd17db-de54-4e46-bbc0-70db1dc55859/thumbs/inside/1280x960/png/dinodino.webp" alt="Flexi Rex Holding a Butterfly" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Articulated</span>
         <strong>Flexi Rex Holding a Butterfly</strong>
         <p>An articulated Flexi Rex that bends and twists, with a detailed butterfly perched alongside; prints in one piece.</p>
-        <p class="fits">Printables &middot; by Štístko &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Remix of the Flexi Rex; the butterfly may need attaching</p>
-        <a class="part-link" href="https://www.printables.com/model/838289-flexi-rex-holding-a-butterfly" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Štístko · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/838289-flexi-rex-holding-a-butterfly" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -300,109 +347,124 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/398842/images/3323724_9e774878-257e-45f3-8d24-7dac8f593f39/thumbs/inside/1280x960/jpg/photo1.webp" alt="Funny Flexi Octopus" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Funny Flexi Octopus</strong>
         <p>A print-in-place octopus with flexible legs and no supports at all; the classic flexi fidget, rebuilt from scratch by DrLex.</p>
-        <p class="fits">Printables &middot; by DrLex &middot; Free download</p>
-        <p class="part-note">License: CC BY &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Sell with attribution: 'Funny Flexi Octopus by DrLex' on the shop site and with the print</p>
-        <a class="part-link" href="https://www.printables.com/model/398842-funny-flexi-octopus" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DrLex · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/398842-funny-flexi-octopus" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/b12e8650-0e0d-4d9f-97d9-9022799fb581/images/9645315_adbae069-63e5-4cb7-9acd-3c1d27ceccaa_83602605-0e81-48bf-b09b-3144b2bb99ad/thumbs/inside/1280x960/png/plastic-3d-articulated-octopus-2.webp" alt="Articulated Octopus Chef" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Articulated Octopus Chef</strong>
         <p>An articulated octopus chef with swappable hats and tools; wiggly, supportless body, big on personality.</p>
-        <p class="fits">Printables &middot; by Plastic 3D &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Commercial licence via Plastic 3D Patreon / Printables Club</p>
-        <a class="part-link" href="https://www.printables.com/model/1281951-articulated-octopus-chef" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Plastic 3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1281951-articulated-octopus-chef" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/5e95b2a3-8253-4aac-8f9c-57267323f48e/images/13045819_f92f9d8f-f7c9-429d-96c0-34fe31e40a2d_bff3aa40-369a-47c9-9143-67694da70fad/thumbs/inside/1280x960/png/21.webp" alt="Flexi Fluffy Octopus - Articulated Toy, Keychain and Magnet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Flexi Fluffy Octopus - Articulated Toy, Keychain and Magnet</strong>
         <p>A cute baby octopus with chubby articulated tentacles, expressive eyes, and blushing cheeks; toy, keychain, and magnet versions included.</p>
-        <p class="fits">Printables &middot; by Fluffy Tails &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Commercial licence via Fluffy Tails Patreon</p>
-        <a class="part-link" href="https://www.printables.com/model/1740712-flexi-fluffy-octopus-articulated-toy-keychain-and" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Fluffy Tails · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1740712-flexi-fluffy-octopus-articulated-toy-keychain-and" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/bb0b4b69-ac4d-4277-bc7e-d190c8fc6846/images/13914419_7d8893af-33c5-42ce-858d-dfb18269557c_eb8e53e9-0fa0-4ae4-9c73-d9b48faecebb/thumbs/inside/1280x960/png/zd1.webp" alt="Articulated Skeleton Shark – Halloween Print in Place" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Articulated Skeleton Shark – Halloween Print in Place</strong>
         <p>A spooky articulated shark with exposed skeleton-style details through the fins, spine, and tail; print-in-place, no assembly.</p>
-        <p class="fits">Printables &middot; by Kuba Zw &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Halloween seasonal — great October booth stock</p>
-        <a class="part-link" href="https://www.printables.com/model/1855592-articulated-skeleton-shark-halloween-print-in-plac" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Kuba Zw · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1855592-articulated-skeleton-shark-halloween-print-in-plac" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US9fb91bc6f97410/design/2025-12-15_765e254a2926b8.png" alt="Derpy the Flexi Shark" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Derpy the Flexi Shark</strong>
         <p>A fun articulated shark with a flexible segmented body, in toy and keychain versions; prints in one piece, no supports.</p>
-        <p class="fits">MakerWorld &middot; by Not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2120925-derpy-the-flexi-shark" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2120925-derpy-the-flexi-shark" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USdcb519f3250409/design/6e690321a9c4c506.jpg" alt="FLEXI WHITE SHARK" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Articulated</span>
         <strong>FLEXI WHITE SHARK</strong>
         <p>A cute articulated shark with a rounded body, fins, and a playful style; a simple little fidget for ocean lovers.</p>
-        <p class="fits">MakerWorld &middot; by Not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2907670-flexi-white-shark" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2907670-flexi-white-shark" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US946c703f26ab3b/design/8a2e04998a2f470b.png" alt="Nalu the Flexi Whale Shark" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Keychain</span>
         <strong>Nalu the Flexi Whale Shark</strong>
         <p>A pocket-size whale shark with a rounded head, tiny smile, and flexible segmented body; the tail opening turns it into a keychain.</p>
-        <p class="fits">MakerWorld &middot; by Not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/3318022-nalu-the-flexi-whale-shark" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3318022-nalu-the-flexi-whale-shark" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US5256195c0db750/design/2025-07-05_47c0a301359a38.jpg" alt="Whale Shark – Articulated &amp; Keychain" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Keychain</span>
         <strong>Whale Shark – Articulated &amp; Keychain</strong>
         <p>A tiny articulated whale shark with a calm, friendly look; standard and keychain versions, zero supports.</p>
-        <p class="fits">MakerWorld &middot; by Not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1579523-whale-shark-articulated-keychain" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1579523-whale-shark-articulated-keychain" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US98dbd0cb213ac7/design/2025-04-10_c3a80c7914a2d.jpeg" alt="Flexi Shark Whale" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Flexi Shark Whale</strong>
         <p>A cute articulated whale shark keychain with star or no-star versions, in multi- or single-colour profiles.</p>
-        <p class="fits">MakerWorld &middot; by KON(LAB) &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $15 &middot; PETG $15 &middot; Multicolor &middot; Commercial licence $3/mo membership</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1303006-flexi-shark-whale" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by KON(LAB) · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1303006-flexi-shark-whale" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USfe0b529230b845/design/f94e7bd7fc1ca25a.png" alt="Flexi Crab | Articulated Crab - Print-in-Place" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Flexi Crab | Articulated Crab - Print-in-Place</strong>
         <p>A friendly articulated crab with movable legs, flexible claws, and a detailed raised-shell pattern; AMS and non-AMS profiles.</p>
-        <p class="fits">MakerWorld &middot; by Not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Optional 6/8/10 mm glass eyes, press-fit, no glue</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3022564-flexi-crab-articulated-crab-print-in-place" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3022564-flexi-crab-articulated-crab-print-in-place" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USdaa433377ac74d/design/2024-01-21_e9ec830792e13.jpg" alt="The Spinner Crab | Cute Articulated Desk Pal" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Articulated</span>
         <strong>The Spinner Crab | Cute Articulated Desk Pal</strong>
         <p>An articulated crab with a built-in spinning shell — a flexi animal and a spinner in one; no bearings needed.</p>
-        <p class="fits">MakerWorld &middot; by Bellamys3DPrints &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence via Thangs membership</p>
-        <a class="part-link" href="https://makerworld.com/en/models/150859" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Bellamys3DPrints · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/150859" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USfd1b2822b84b28/design/7b8be9a0d6030571.jpg" alt="Flexi Jellyfish with Modular Parts" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Flexi Jellyfish with Modular Parts</strong>
         <p>A tiny articulated jellyfish keychain in three modular parts (bell, inner frame, tentacles); print in up to 3 colours.</p>
-        <p class="fits">MakerWorld &middot; by Not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Commercial licence $13.99/mo</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2824329-flexi-jellyfish-with-modular-parts" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2824329-flexi-jellyfish-with-modular-parts" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -413,175 +475,210 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US20445879bd6da5/design/6453e769d751dea6.png" alt="Baby Axolotl – Cute Articulated Toy" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Baby Axolotl – Cute Articulated Toy</strong>
         <p>A small articulated axolotl with a segmented body and flexible tail; print-in-place, no supports, optional glass eyes.</p>
-        <p class="fits">MakerWorld &middot; by Not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2322568-baby-axolotl-cute-articulated-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2322568-baby-axolotl-cute-articulated-toy" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US9d8afc5271e425/design/2025-12-02_163e6c3686e168.png" alt="Flexi Axolotl | One-Piece Articulated Axolotl Cute" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Articulated</span>
         <strong>Flexi Axolotl | One-Piece Articulated Axolotl Cute</strong>
         <p>A one-piece articulated axolotl with smooth movement and clean joints straight off the build plate.</p>
-        <p class="fits">MakerWorld &middot; by FlexiMania &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence via FlexiMania Patreon</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2068846-flexi-axolotl-one-piece-articulated-axolotl-cute" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by FlexiMania · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2068846-flexi-axolotl-one-piece-articulated-axolotl-cute" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USee0d77c68fc5ec/design/f593441ac014f36b.jpg" alt="Cute Flexi Axolotl" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Cute Flexi Axolotl</strong>
         <p>An articulated axolotl with feathery gills and a long swishing tail; hyper-flexible spine, support-free, with a multicolour 3MF.</p>
-        <p class="fits">MakerWorld &middot; by Bellamys3DPrints &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Commercial licence via Thangs membership</p>
-        <a class="part-link" href="https://makerworld.com/en/models/139324-cute-flexi-axolotl" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Bellamys3DPrints · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/139324-cute-flexi-axolotl" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USa07ce8db8d15ed/design/1ba22df320627573.png" alt="Cute Turtle Family | Flexi Print in Place" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Cute Turtle Family | Flexi Print in Place</strong>
         <p>A cute articulated turtle with movable legs and optional eye inserts; multi-colour AMS and non-AMS profiles, 6/8/10 mm eyes.</p>
-        <p class="fits">MakerWorld &middot; by Creonic Lab &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2653805-chibi-flexi-turtle-print-in-place" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Creonic Lab · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2653805-chibi-flexi-turtle-print-in-place" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/UScd80d151c7d480/design/0f51ca9a1bc31d4c.png" alt="Cute Turtle Fidget Toy V2 | Flexi Print in Place" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Cute Turtle Fidget Toy V2 | Flexi Print in Place</strong>
         <p>An articulated turtle with big expressive eyes and a patterned shell; print-in-place, no supports or brim.</p>
-        <p class="fits">MakerWorld &middot; by Not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2828936-cute-turtle-fidget-toy-v2-flexi-print-in-place" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2828936-cute-turtle-fidget-toy-v2-flexi-print-in-place" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
+        <span class="draft-tag">Silk-friendly</span>
         <strong>Flexi Snake - Articulated Viper</strong>
-        <p style="color:#ff5a5a;font-weight:600">Model link is dead — this model was removed from Printables. Needs a replacement item.</p>
         <p>A fully articulated snake of interconnected segments with smooth, flowing motion; prints as one piece, no assembly.</p>
-        <p class="fits">Printables &middot; by sugui3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Great in silk filament</p>
-        <a class="part-link" href="https://www.printables.com/model/1794775-flexi-snake-articulated-viper" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p style="color:#ff5a5a;font-weight:600">Model link is dead — this model was removed from Printables. Needs a replacement item.</p>
+        <p class="credit">by sugui3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1794775-flexi-snake-articulated-viper" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/bb495bb4-102b-4842-9ea9-346d856e714b/images/12050064_40d9be84-9253-4820-a64a-6f2226443920_e3f1fff4-f0a4-4b93-9745-29c068dbe32d/thumbs/inside/1280x960/jpeg/whatsapp-image-2026-02-14-at-202915.webp" alt="Articulated Skeleton Snake" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Articulated</span>
         <strong>Articulated Skeleton Snake</strong>
         <p>An articulated skeleton snake that can open its mouth; position it or play with it, fits a 180 x 180 mm bed.</p>
-        <p class="fits">Printables &middot; by Flexi-Maker &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence via Flexi-Maker club membership</p>
-        <a class="part-link" href="https://www.printables.com/model/1601356-articulated-skeleton-snake" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Flexi-Maker · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1601356-articulated-skeleton-snake" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/680d932e-836d-4b98-bd75-1569322aedd4/images/13738635_f1d25409-61ac-44df-a08f-4efc4de76aa5_421ce982-e8fe-49d9-8fe2-36762bc413d4/thumbs/inside/1280x960/png/4kropka3.webp" alt="Articulated Flexi Lizard" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Articulated Flexi Lizard</strong>
         <p>An articulated lizard in pink or any colour, print-in-place with no supports; full-colour AMS, bottom-colour, and single-colour profiles.</p>
-        <p class="fits">Printables &middot; by Kuba Zw &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; 5% infill is plenty</p>
-        <a class="part-link" href="https://www.printables.com/model/1766928-articulated-flexi-lizard" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Kuba Zw · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1766928-articulated-flexi-lizard" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/fd28503d-04ef-4055-8fa2-5485dbfcdc87/images/10558266_3a2627c8-f24b-443f-af11-5e8cf1964afa_97fefea7-54a2-466a-883c-0847d58cf13d/thumbs/inside/1280x960/jpg/2.webp" alt="Print in Place Articulated Flexy Chameleon" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Print in Place Articulated Flexy Chameleon</strong>
         <p>A one-piece articulated chameleon for desk or shelf; a simple, easy print with no supports.</p>
-        <p class="fits">Printables &middot; by KOGI3D &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence via KOGI3D Patreon</p>
-        <a class="part-link" href="https://www.printables.com/model/1398499-print-in-place-articulated-flexy-chameleon" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by KOGI3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1398499-print-in-place-articulated-flexy-chameleon" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/676006/images/5313523_5850d472-809d-4311-8e82-38ded79affcc_5d3304fe-3f56-40b4-bfcf-15118ed048d1/thumbs/inside/1280x960/jpg/406501112_209668552112018_169450152741801023_n.webp" alt="Flexi Cat" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>Flexi Cat</strong>
         <p>An articulated print-in-place cat whose segments bend at the joints; a desk toy, cat-lover gift, or fidget.</p>
-        <p class="fits">Printables &middot; by Štístko &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/676006-flexi-cat" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Štístko · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/676006-flexi-cat" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/156939/images/1467407_5db3b74f-4a54-444f-bdfa-cd93d2229934/thumbs/inside/1280x960/jpg/90fc637ec7052a93318ade464d47a7db_display_large_15.webp" alt="Flexi Articulated Butterfly" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Flexi Articulated Butterfly</strong>
         <p>A segmented articulated butterfly that flexes its wings; a long-running fidget favourite, no supports.</p>
-        <p class="fits">Printables &middot; by Airwaves Ted &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/156939-flexi-articulated-butterfly" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Airwaves Ted · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/156939-flexi-articulated-butterfly" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/449572/images/4588423_e3f8f014-f190-4816-b480-596144b6f1ee/thumbs/inside/1280x960/jpg/triceratops-printables-cover.webp" alt="FlexiDinos Theobald the Flexi Triceratops print in place articulated dinosaur" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>FlexiDinos Theobald the Flexi Triceratops print in place articulated dinosaur</strong>
         <p>A print-in-place triceratops with four legs and a proper V-shaped head; the FlexiDinos line's take on the second-most-popular dino.</p>
-        <p class="fits">Printables &middot; by AndreasJoskaSutanto &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Updated version 'Gertrude' is the designer's recommended download</p>
-        <a class="part-link" href="https://www.printables.com/model/449572-flexidinos-theobald-the-flexi-triceratops-print-in" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by AndreasJoskaSutanto · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/449572-flexidinos-theobald-the-flexi-triceratops-print-in" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/301093/images/4588398_e8ac1aa5-663a-4174-8998-378c9d3950c5/thumbs/inside/1280x960/jpg/stegosaurus-printables-cover.webp" alt="FlexiDinos Günther the Flexi Stegosaurus print in place articulated dinosaur" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>FlexiDinos Günther the Flexi Stegosaurus print in place articulated dinosaur</strong>
         <p>A print-in-place stegosaurus from the FlexiDinos line; plates, tail, and four legs in one articulated print.</p>
-        <p class="fits">Printables &middot; by AndreasJoskaSutanto &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 2025 update 'Fünther' also exists</p>
-        <a class="part-link" href="https://www.printables.com/model/301093-flexidinos-gunther-the-flexi-stegosaurus-print-in" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by AndreasJoskaSutanto · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/301093-flexidinos-gunther-the-flexi-stegosaurus-print-in" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
 
 <section class="wrap" id="dragon-eggs-baby-dragons">
     <h2 class="section-title">Dragon Eggs &amp; Baby Dragons</h2>
-    <p class="section-sub">The ones Matt asked for: dragon eggs to hatch a dragon from, plus baby dragons that fit inside them.</p>
+    <p class="section-sub">Dragon eggs to hatch a dragon from, plus baby dragons that fit inside them.</p>
     <div class="prod-grid">
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/USc61976f6a1a0eb/design/2025-04-19_49816b6597bce.jpg" alt="Threaded Dragon Egg" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USc61976f6a1a0eb/design/2025-04-19_49816b6597bce.jpg" alt="Threaded Dragon Egg" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Threaded Dragon Egg</strong>
         <p>A screw-apart dragon egg designed to hold any of the designer's articulated dragons inside; no supports, 15% infill.</p>
-        <p class="fits">MakerWorld &middot; by P1lotz &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence via P1lotz Printables Club, $8/mo; pairs with his Articulated Christmas, Gothic, Ocean and Demon Dragons</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1334758-threaded-dragon-egg" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by P1lotz · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1334758-threaded-dragon-egg" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/US48d1d2ae301dbd/design/2025-10-14_8c6506e55b9c8.jpg" alt="Dragon Eggs in 6 sizes screw lids" loading="lazy" onerror="this.style.display='none'" />
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US48d1d2ae301dbd/design/2025-10-14_8c6506e55b9c8.jpg" alt="Dragon Eggs in 6 sizes screw lids" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Dragon Eggs in 6 sizes screw lids</strong>
         <p>Screw-lid dragon eggs in six sizes (Tiny to Large, 100–200%), sized to hide a dragon or other trinkets inside; silk filament looks best.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; A dab of lube on the screw thread at first helps it twist smoothly until worn in</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1462198-dragon-eggs-in-6-sizes-screw-lids" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1462198-dragon-eggs-in-6-sizes-screw-lids" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/US5f099aa2befab0/design/2024-04-03_bf34c2abec50b.jpg" alt="Threaded Spiky Dragon Egg" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US5f099aa2befab0/design/2024-04-03_bf34c2abec50b.jpg" alt="Threaded Spiky Dragon Egg" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Keychain</span>
         <strong>Threaded Spiky Dragon Egg</strong>
         <p>A spiky threaded dragon egg, roughly 150 mm tall — big enough to stash even large dragons or other items inside.</p>
-        <p class="fits">MakerWorld &middot; by The Spirit &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Very spiky — wear gloves pulling off supports; pairs with the small bone dragon keychain by liamvh_774022 on Printables</p>
-        <a class="part-link" href="https://makerworld.com/en/models/410982" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by The Spirit · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/410982" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://media.printables.com/media/prints/94198e74-7b4e-4ac8-a7fc-ebd68fa395fd/images/11625354_0e793669-95c9-4268-b134-7057eaa3b374_50416f60-ebe5-4fa2-aba1-29e9137e5806/thumbs/inside/1280x960/jpg/baby-dragon5.webp" alt="Small Baby Dragon - Articulated Dragon" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/94198e74-7b4e-4ac8-a7fc-ebd68fa395fd/images/11625354_0e793669-95c9-4268-b134-7057eaa3b374_50416f60-ebe5-4fa2-aba1-29e9137e5806/thumbs/inside/1280x960/jpg/baby-dragon5.webp" alt="Small Baby Dragon - Articulated Dragon" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Keychain</span>
         <strong>Small Baby Dragon - Articulated Dragon</strong>
         <p>A small articulated baby dragon sized to fit perfectly inside the designer's dragon eggs; keychain version included.</p>
-        <p class="fits">Printables &middot; by Bearded Printer &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence via Bearded Printer club (Obsessor tier) / Patreon; fits inside the designer's dragon eggs</p>
-        <a class="part-link" href="https://www.printables.com/model/889932-small-baby-dragon-articulated-dragon" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Bearded Printer · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/889932-small-baby-dragon-articulated-dragon" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://media.printables.com/media/prints/caa712d9-3ed0-4a9c-ad46-5df32c5050f8/previews/thumbs/inside/1280x960/png/1a41bd71-2529-46b4-82f8-6d2cc99d7c9c.webp" alt="Articulated Dragon 034 - Medium 8 in - STL and 3mf Files" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/caa712d9-3ed0-4a9c-ad46-5df32c5050f8/previews/thumbs/inside/1280x960/png/1a41bd71-2529-46b4-82f8-6d2cc99d7c9c.webp" alt="Articulated Dragon 034 - Medium 8 in - STL and 3mf Files" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Articulated</span>
         <strong>Articulated Dragon 034 - Medium 8 in - STL and 3mf Files</strong>
         <p>A medium (20 cm / 8 in) articulated dragon that comes with its own matching-scale Star Dragon Egg to store the dragon inside.</p>
-        <p class="fits">Printables &middot; by Torua3D &middot; Paid — $5.00</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Magnets needed (negative-volume magnet pockets in the files); commercial licence via Torua3D club membership</p>
-        <a class="part-link" href="https://www.printables.com/model/1757073-articulated-dragon-034-medium-8-in-stl-and-3mf-fil" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Torua3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1757073-articulated-dragon-034-medium-8-in-stl-and-3mf-fil" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/USdba309b8b9e48c/design/2025-04-11_7e235552386e35.jpg" alt="Easter Dragon Flexi - Articulated Figure" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USdba309b8b9e48c/design/2025-04-11_7e235552386e35.jpg" alt="Easter Dragon Flexi - Articulated Figure" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Easter Dragon Flexi - Articulated Figure</strong>
         <p>A fully articulated Easter dragon in male and female versions, each carrying a basket on its back for small printed eggs.</p>
-        <p class="fits">MakerWorld &middot; by biocraftlab &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Commercial licence via biocraftlab Patreon / MakerWorld Club; seasonal Easter stock — print the coloured eggs separately to fill the basket</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1303478-easter-dragon-flexi-articulated-figure" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by biocraftlab · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1303478-easter-dragon-flexi-articulated-figure" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://media.printables.com/media/prints/99949d1a-5666-43e5-aba9-075e62903df3/images/12173285_2786a283-abfa-4b39-9e69-7828cb088984_58b9fad8-0c41-4b71-8320-e7e3ac307c7a/whatsappvideo2026-02-27at084458-ezgifcom-video-to-gif-converter.gif" alt="Articulated dragon print in place" loading="lazy" onerror="this.style.display='none'" />
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/99949d1a-5666-43e5-aba9-075e62903df3/images/12173285_2786a283-abfa-4b39-9e69-7828cb088984_58b9fad8-0c41-4b71-8320-e7e3ac307c7a/whatsappvideo2026-02-27at084458-ezgifcom-video-to-gif-converter.gif" alt="Articulated dragon print in place" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>Articulated dragon print in place</strong>
         <p>A chibi-style baby dragon with a rounded head, closed sleeping eyes, tiny horns and ribbed wings; printed in one piece with built-in hinges.</p>
-        <p class="fits">Printables &middot; by 3D MAGIC &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs a few auto supports; neck and tail segments wiggle once printed</p>
-        <a class="part-link" href="https://www.printables.com/model/1618462-articulated-dragon-print-in-place" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3D MAGIC · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1618462-articulated-dragon-print-in-place" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -590,45 +687,55 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <h2 class="section-title">Crystal Dragons</h2>
     <p class="section-sub">The faceted, gem-like dragons — the ones that look best in silk, metallic, and rainbow filament.</p>
     <div class="prod-grid">
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/US1aaf7a7c4eb52b/design/2025-08-30_6b3124070d4b78.jpg" alt="ShardStorm - Wingless Articulated Crystal Dragon" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US1aaf7a7c4eb52b/design/2025-08-30_6b3124070d4b78.jpg" alt="ShardStorm - Wingless Articulated Crystal Dragon" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Articulated</span>
         <strong>ShardStorm - Wingless Articulated Crystal Dragon</strong>
         <p>A wingless crystal dragon with a snap-fit movable jaw and rounded, child-safe crystal tips; minimal supports, prints in about 5 hours.</p>
-        <p class="fits">MakerWorld &middot; by HollowMaker &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence $9 via HollowMaker Patreon; winged ShardStorm version also exists; only the lower jaw snaps in after printing</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1747977-shardstorm-wingless-articulated-crystal-dragon" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by HollowMaker · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1747977-shardstorm-wingless-articulated-crystal-dragon" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/US7eb7c2e5cad1a8/design/2025-03-06_9089d06cc470a.jpg" alt="Cute Crystal Dragon Flexi" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US7eb7c2e5cad1a8/design/2025-03-06_9089d06cc470a.jpg" alt="Cute Crystal Dragon Flexi" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Articulated</span>
         <strong>Cute Crystal Dragon Flexi</strong>
         <p>A cute fully articulated crystal dragon with a crystalline faceted body; support-free printing.</p>
-        <p class="fits">MakerWorld &middot; by PinkyWings &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence via PinkyWings MakerWorld membership / Patreon</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1179152-cute-crystal-dragon-flexi" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PinkyWings · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1179152-cute-crystal-dragon-flexi" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/USfc798616b17b98/design/2023-11-01_0d34db2a61b5b8.jpg" alt="Articulated Crystal Dragon by Saber3D" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USfc798616b17b98/design/2023-11-01_0d34db2a61b5b8.jpg" alt="Articulated Crystal Dragon by Saber3D" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Articulated Crystal Dragon by Saber3D</strong>
         <p>A fast-printing flexi crystal dragon designed for easy painting in the slicer; every part takes colour cleanly.</p>
-        <p class="fits">MakerWorld &middot; by Saber3D &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Commercial licence via Saber3D Patreon; 200% and 300% split-part versions on Patreon</p>
-        <a class="part-link" href="https://makerworld.com/en/models/55289-articulated-crystal-dragon-by-saber3d" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Saber3D · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/55289-articulated-crystal-dragon-by-saber3d" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/USb7019cbc382c93/design/2025-03-13_ceb77236d42d8.webp" alt="Articulated Crystal Dragon" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USb7019cbc382c93/design/2025-03-13_ceb77236d42d8.webp" alt="Articulated Crystal Dragon" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Articulated</span>
         <strong>Articulated Crystal Dragon</strong>
         <p>A support-free articulated crystal dragon in standard (55 x 114 x 28 mm) and miniature sizes; inspired by dragons, crystals, and planet Earth.</p>
-        <p class="fits">MakerWorld &middot; by Maty505 &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Commercial licence $13.99/mo; miniature size is very small — caution on tiny prints</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1176911-articulated-crystal-dragon" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Maty505 · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1176911-articulated-crystal-dragon" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/USbb7034368dfd41/design/2025-03-27_47bf5f7e86b3a.jpg" alt="FlexiBuild Crystal Dragon" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USbb7034368dfd41/design/2025-03-27_47bf5f7e86b3a.jpg" alt="FlexiBuild Crystal Dragon" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>FlexiBuild Crystal Dragon</strong>
         <p>A modular crystal dragon from the FlexiBuild system — print individual interlocking parts or the preassembled print-in-place version, up to ~50 cm long.</p>
-        <p class="fits">MakerWorld &middot; by Phoenix3DModels &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Personal use only; commercial licence via Phoenix3DModels Patreon / Thangs; parts mix and match with all other FlexiBuild dragons</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1254661-flexibuild-crystal-dragon" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Phoenix3DModels · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1254661-flexibuild-crystal-dragon" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -637,35 +744,45 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <h2 class="section-title">Fantasy Creatures — Phoenix, Unicorn &amp; More</h2>
     <p class="section-sub">Beyond dragons: a phoenix-dragon, a unicorn, a lava dragon and a winter dragon.</p>
     <div class="prod-grid">
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/USf23454bc3cd116/design/dda65cdb2299455a.png" alt="Flexi Phoenix Dragon – Articulated Fantasy Dragon" loading="lazy" onerror="this.style.display='none'" />
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USf23454bc3cd116/design/dda65cdb2299455a.png" alt="Flexi Phoenix Dragon – Articulated Fantasy Dragon" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Flexi Phoenix Dragon – Articulated Fantasy Dragon</strong>
         <p>Half phoenix, half baby dragon — feathered wings, vibrant plumage, an adorable dragon head, and an extra-long articulated tail that poses anywhere.</p>
-        <p class="fits">MakerWorld &middot; by OverdoseCreative &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Multicolour printing brings out the feather details; handle the thin feather tips carefully — they can be fragile</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3493038-flexi-phoenix-dragon-articulated-fantasy-dragon" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by OverdoseCreative · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3493038-flexi-phoenix-dragon-articulated-fantasy-dragon" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://media.printables.com/media/prints/2d215635-5d09-49fb-b948-ce6922e5a2f1/previews/thumbs/cover/1280x960/png/223494b2-58a7-431f-927c-063e90d9772a.webp" alt="Unicorn Flexi Crazy - Articulated Print-in-Place" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/2d215635-5d09-49fb-b948-ce6922e5a2f1/previews/thumbs/cover/1280x960/png/223494b2-58a7-431f-927c-063e90d9772a.webp" alt="Unicorn Flexi Crazy - Articulated Print-in-Place" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Unicorn Flexi Crazy - Articulated Print-in-Place</strong>
         <p>A magical articulated unicorn with crazy hair, a detailed horn and mane, and smooth print-in-place movement; scales 70–130%.</p>
-        <p class="fits">Printables &middot; by FlexiMania &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Commercial licence via FlexiMania Patreon; this one REQUIRES supports; works best at 100–120% scale</p>
-        <a class="part-link" href="https://www.printables.com/model/1750193-unicorn-flexi-crazy-articulated-print-in-place" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by FlexiMania · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1750193-unicorn-flexi-crazy-articulated-print-in-place" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://media.printables.com/media/prints/701dddc6-f260-4c40-b944-4a520b4851d4/previews/thumbs/cover/1280x960/png/966d51b7bdff411d164806cda9f4d00ff76842dd.webp" alt="Articulated Lava Dragon- Elder" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/701dddc6-f260-4c40-b944-4a520b4851d4/previews/thumbs/cover/1280x960/png/966d51b7bdff411d164806cda9f4d00ff76842dd.webp" alt="Articulated Lava Dragon- Elder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Articulated Lava Dragon- Elder</strong>
         <p>The Elder Lava Dragon in three sizes — Baby, Teen, and Adult — print-in-place with no supports, pre-coloured 3MF included.</p>
-        <p class="fits">Printables &middot; by Plastic 3D &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Commercial licence via Plastic 3D Patreon / Printables Club; print all three sizes for the full volcanic trio</p>
-        <a class="part-link" href="https://www.printables.com/model/1281936-articulated-lava-dragon-elder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Plastic 3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1281936-articulated-lava-dragon-elder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://media.printables.com/media/prints/9d52a1d1-ba82-4eb1-8f4f-8ab14a1c7caa/previews/thumbs/cover/1280x960/png/171f1f36-06e9-49cc-8f98-afc5c1b9d3c5.webp" alt="Flexi Winter Dragon, Articulated cute Model" loading="lazy" onerror="this.style.display='none'" />
+      <div class="card">
+        <img src="https://media.printables.com/media/prints/9d52a1d1-ba82-4eb1-8f4f-8ab14a1c7caa/previews/thumbs/cover/1280x960/png/171f1f36-06e9-49cc-8f98-afc5c1b9d3c5.webp" alt="Flexi Winter Dragon, Articulated cute Model" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Flexi Winter Dragon, Articulated cute Model</strong>
         <p>A winter dragon with a snowy white body and ice-blue horns, spikes, and wing details — the second release in the designer's Ice Series.</p>
-        <p class="fits">Printables &middot; by Ginkel3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Use the designer's provided print profile for the cleanest support removal; seasonal winter / Christmas stock</p>
-        <a class="part-link" href="https://www.printables.com/model/1822735-flexi-winter-dragon-articulated-cute-model" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ginkel3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1822735-flexi-winter-dragon-articulated-cute-model" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -674,35 +791,45 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <h2 class="section-title">Flexi Ocean Creatures</h2>
     <p class="section-sub">Manta rays and stingrays — the sea-creature flexis the existing shelf is missing.</p>
     <div class="prod-grid">
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000692963/design/2024-10-10_3a49a4cd43271.webp" alt="Flexi Manta Rays" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000692963/design/2024-10-10_3a49a4cd43271.webp" alt="Flexi Manta Rays" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Articulated</span>
         <strong>Flexi Manta Rays</strong>
         <p>An articulated stingray/manta ray with intricate detailing and a realistic wiggle; 1.5-hour print, no assembly.</p>
-        <p class="fits">MakerWorld &middot; by Flexi-Maker &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; PLA $15 &middot; PETG $15 &middot; Commercial licence via Flexi-Maker club membership; scales up well to 130%</p>
-        <a class="part-link" href="https://makerworld.com/en/models/692963" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Flexi-Maker · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/692963" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/US12182f1f514cbb/design/1b99841ab24282ff.jpg" alt="Flexi Manta Ray | Print in Place – NO SUPPORT" loading="lazy" onerror="this.style.display='none'" />
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US12182f1f514cbb/design/1b99841ab24282ff.jpg" alt="Flexi Manta Ray | Print in Place – NO SUPPORT" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Flexi Manta Ray | Print in Place – NO SUPPORT</strong>
         <p>A cute articulated manta ray printed as a single piece with no supports and no brim; wings and tail move smoothly.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Optional 10 mm glass eyes, tight press-fit, no glue; PLA+, PLA Tough or PETG recommended — standard PLA can be brittle at the joints</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2373512-flexi-manta-ray-print-in-place-no-support" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2373512-flexi-manta-ray-print-in-place-no-support" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/US35c642b47df339/design/2025-01-10_796515305e9af.png" alt="Ocean Motion: Flexi Stingray!" loading="lazy" onerror="this.style.display='none'" />
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US35c642b47df339/design/2025-01-10_796515305e9af.png" alt="Ocean Motion: Flexi Stingray!" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Silk-friendly</span>
         <strong>Ocean Motion: Flexi Stingray!</strong>
         <p>A friendly stingray in two versions — a quick-print stiff tail or a fully articulated long tail — with separate glue-on eyes.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Looks best in silk PLA (more delicate — handle with care); 0.2 mm layer height for working joints</p>
-        <a class="part-link" href="https://makerworld.com/en/models/968128-ocean-motion-flexi-stingray" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/968128-ocean-motion-flexi-stingray" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
-      <div class="card"><img src="https://makerworld.bblmw.com/makerworld/model/USaf7dff73123507/design/2025-03-16_bdd4dce019885.jpg" alt="Stingray articulated" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+      <div class="card">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USaf7dff73123507/design/2025-03-16_bdd4dce019885.jpg" alt="Stingray articulated" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Stingray articulated</strong>
         <p>A cute articulated stingray that moves its flaps, fins, and tail; print-in-place, no supports, with a multicolour profile.</p>
-        <p class="fits">MakerWorld &middot; by Nismo3Dprint &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Printed well in silk PLA; PETG had bed-adhesion trouble in one make — glue may help</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1217160-stingray-articulated" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Nismo3Dprint · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1217160-stingray-articulated" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -728,14 +855,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -761,7 +887,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -816,31 +941,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

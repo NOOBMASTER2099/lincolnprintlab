@@ -5,7 +5,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<title>Products | Lincoln Print Lab — Lincoln, NE</title>
+<title>Prints | Lincoln Print Lab — Lincoln, NE</title>
 <meta name="description" content="Lincoln Print Lab — local 3D printing in Lincoln, NE. PLA, PETG, TPU, ABS, ASA, nylon & more. Upload an STL, get an instant quote, then text us. Pick up, delivery in town, or mailed." />
 <link rel="icon" href="logo.jpg" type="image/jpeg" />
 <link rel="apple-touch-icon" href="logo.jpg" />
@@ -304,19 +304,48 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): category tiles ---- */
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.tile-sub{display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--muted);margin:2px 0 8px}
+.card-link{display:inline-block;margin-top:12px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:#fff}
+a.card:hover .card-link{text-decoration:underline}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html" aria-current="page">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html" aria-current="page">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -327,7 +356,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -343,8 +371,133 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 
 <main id="top">
 <section class="wrap" id="products">
-    <h2 class="section-title">Products</h2>
-    <p class="section-sub">Custom 3D prints, cosplay, RC parts, home decor, wall art, and custom work for companies — designed here, printed in Lincoln.</p>
+    <h1>Prints</h1>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
+    <p class="section-sub">Free files from their creators &mdash; download any model, print it yourself, or ask us to print it for you. Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. Pick up at 1717 O St, get it delivered in town, or we can mail it.</p>
+    <div class="prod-grid">
+      <a class="card" href="cosplay-helmets-props.html">
+        <img src="homepage-cosplay-venom-mask.webp" alt="Cosplay helmets &amp; props" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Cosplay helmets &amp; props</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Wearable helmets and props, sized to fit your head — bring your own file or tell us what you&#x27;re building and we&#x27;ll talk it through.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="rc-drone-parts.html">
+        <img src="https://media.printables.com/media/prints/3b1f40e9-95d8-4afd-b2cb-2c35e6dc4323/images/12992384_6ea808ee-bd8a-43a5-b6b2-e88c3bc0b94b_84982b2f-cba3-4b28-9bd0-72c0c4b1c444/thumbs/inside/1280x960/jpg/pxl_20260524_180609096.webp" alt="RC cars &amp; drone parts" loading="lazy" onerror="this.style.display='none'" />
+        <strong>RC cars &amp; drone parts</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Replacement parts, upgrades, mounts, and custom bits for RC cars and drones. Send your STL or tell us what broke. Don’t see your part? Tell us what you need — we’ll research it and track it down for you.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="larp-gear.html">
+        <img src="https://media.printables.com/media/prints/679963/images/5344430_1dd377c4-b371-47e8-8d00-45fa175d0a31_0822d6c9-fff0-414f-aa67-5d8e96749e8d/thumbs/cover/1200x630/jpg/20231213_160017.jpg" alt="LARP gear" loading="lazy" onerror="this.style.display='none'" />
+        <strong>LARP gear</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Swords, shields, armor, and tavern gear for live-action roleplay — printed props and soft-TPU builds.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="tabletop-gaming.html">
+        <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000443295/design/ebf4edf9-71a0-4619-836c-f7a0530f381b.gif?x-oss-process=image/format,webp" alt="Tabletop &amp; gaming" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Tabletop &amp; gaming</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Dice towers, trays, deck boxes, organizers, minis, and terrain for your game night — D&amp;D, Magic, Catan, and more.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="car-parts.html">
+        <img src="homepage-car-parts-console.webp" alt="Car parts" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Car parts</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Brackets, mounts, adapters, clips and bezels for classic American cars — Monte Carlo, Cutlass, Regal, Grand Prix, El Camino, Malibu, Camaro, Mustang, Charger, and more. Don’t see your car? Tell us what you need — we’ll research it and track the part down for you.</p>
+        <span class="card-link">28 parts + 15 accessories &rarr;</span>
+      </a>
+      <a class="card" href="business-office.html">
+        <img src="https://media.printables.com/media/prints/fca9dcd0-3de7-46db-bb9a-28a236d2c6a9/images/13641124_07580dd3-5eaf-423f-bd1e-e15c716044e9_7e41c82e-048a-482d-8ad5-cada845c1feb/thumbs/inside/1280x960/jpg/01.webp" alt="Business, conventions &amp; office" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Business, conventions &amp; office</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Desk organizers, business card holders, phone stands, badge holders, booth gear and branded swag for companies and conventions.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="fidgets.html">
+        <img src="https://media.printables.com/media/prints/404460/images/3369074_4aab4b3e-c8bb-4842-9985-b45fcef674e3/thumbs/inside/1280x960/jpg/20230220_143519.webp" alt="Fidgets" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Fidgets</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Infinity cubes, clickers, spinners, gear fidgets, mazes and worry stones — the fidgets everybody asks for at the booth.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="kids.html">
+        <img src="homepage-kids-toys.jpg" alt="Kids stuff" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Kids stuff</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Toy cars, animals, dinosaurs, puzzles, piggy banks and more — kid-friendly prints, small parts flagged.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="dragons-creatures.html">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US98dbd0cb213ac7/design/2025-04-10_c3a80c7914a2d.jpeg" alt="Dragons &amp; creatures" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Dragons &amp; creatures</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Articulated dragons, axolotls, sharks, snakes, and more creatures — the flexi animals everybody asks for at the booth.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="kitchen.html">
+        <img src="https://media.printables.com/media/prints/915833/images/6993927_99b50c99-d03e-455c-8d15-2289ee406199_bc284008-3bd9-4b64-b25e-316c1737c61b/thumbs/inside/1280x960/jpg/spatula-01.webp" alt="Kitchen gadgets &amp; accessories" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Kitchen gadgets &amp; accessories</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Kitchen utensils, organizers, gadgets and accessories — practical prints for the kitchen.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="pets.html">
+        <img src="https://media.printables.com/media/prints/682515/images/5362971_b8b03723-8dba-44ec-bae4-7a432ba2c14a_f4f53df7-0c74-4925-925b-046b129b9200/thumbs/inside/1280x960/jpeg/large_display_rollertoy_682515.webp" alt="Pet supplies" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Pet supplies</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Pet toys, bowls, name tags, leash holders, feeders and more — practical prints for dogs, cats, and more.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="seasonal-holiday.html">
+        <img src="https://media.printables.com/media/prints/301234/images/2634474_f24eea40-91e2-4979-9c20-ffd06fe3991c/thumbs/inside/1280x960/jpg/iconic-halloween-tokens.webp" alt="Seasonal &amp; holiday" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Seasonal &amp; holiday</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Halloween props, Christmas ornaments, and holiday decor — seasonal prints that sell fast.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="garden-outdoor.html">
+        <img src="https://media.printables.com/media/prints/392662/images/3280354_e48a63bb-13b1-4ef9-8e54-ebe655f8ed96/thumbs/inside/1280x960/jpeg/chickadee_mounted_side.webp" alt="Garden &amp; outdoor" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Garden &amp; outdoor</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Birdhouses, feeders, garden markers, outdoor planters and decor — prints for the yard and garden.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="phone-tech.html">
+        <img src="https://media.printables.com/media/prints/373624/images/3163303_31721263-4ccb-45ed-808f-4d2af4f23c57/thumbs/inside/1280x960/jpeg/image-45.webp" alt="Phone &amp; tech accessories" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Phone &amp; tech accessories</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Phone stands, cable holders, headphone stands, tablet stands and more — practical desk and tech prints.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="tools-workshop.html">
+        <img src="https://media.printables.com/media/prints/272067/images/2420675_ece7a830-eb84-4df6-877a-d3519ab547fa/thumbs/inside/1280x960/jpg/1662451182130.webp" alt="Tools &amp; workshop" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Tools &amp; workshop</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Tool organizers, bit holders, jigs, and workshop accessories — practical prints for the shop and workbench.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="wall-art-plaques.html">
+        <img src="https://makerworld.bblmw.com/makerworld/model/USae4e60ca2292b9/design/2024-12-10_dc023140a53328.jpg" alt="Wall art &amp; plaques" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Wall art &amp; plaques</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Die-cut character plaques and custom name signs. Preview an AI mockup, approve it, we print.</p>
+        <span class="card-link">50 items &rarr;</span>
+      </a>
+      <a class="card" href="home-decor-gifts.html">
+        <img src="https://makerworld.bblmw.com/makerworld/model/US5c2b1c769d4375/design/2025-05-14_840e17d654e33.png?x-oss-process=image/resize,w_1000/format,webp" alt="Home decor" loading="lazy" onerror="this.style.display='none'" />
+        <strong>Home decor</strong>
+        <span class="tile-sub">Free 3D print files</span>
+        <p>Lithophane photo lamps, planters, vases, wall art, and custom pieces for the house — made to order in Lincoln.</p>
+        <span class="card-link">71 items &rarr;</span>
+      </a>
+    </div>
+  </section>
+  <section class="wrap">
+    <h2 class="section-title">Need something custom?</h2>
     <div class="prod-grid">
       <div class="card">
         <strong>Custom 3D prints</strong>
@@ -354,129 +507,10 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         </div>
       </div>
       <div class="card">
-        <strong>Wall art &amp; plaques</strong>
-        <p>Die-cut character plaques and custom name signs. Preview an AI mockup, approve it, we print.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="wall-art-plaques.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
         <strong>Multi-color &amp; big builds</strong>
         <p>Up to 4 colors in one print and builds up to 420 × 420 × 480 mm. Text us with your idea.</p>
         <div class="actions" style="margin-top:14px">
           <a class="btn btn-ghost" href="sms:+14024135332" style="padding:10px 16px;font-size:13px">Text 402-413-5332</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Cosplay helmets &amp; props</strong>
-        <p>Wearable helmets and props, sized to fit your head — bring your own file or tell us what you're building and we'll talk it through.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="cosplay-helmets-props.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>RC cars &amp; drone parts</strong>
-        <p>Replacement parts, upgrades, mounts, and custom bits for RC cars and drones. Send your STL or tell us what broke. Don&rsquo;t see your part? Tell us what you need &mdash; we&rsquo;ll research it and track it down for you.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="rc-drone-parts.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Home decor</strong>
-        <p>Lithophane photo lamps, planters, vases, wall art, and custom pieces for the house — made to order in Lincoln.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="home-decor-gifts.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>LARP gear</strong>
-        <p>Swords, shields, armor, and tavern gear for live-action roleplay — printed props and soft-TPU builds.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="larp-gear.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Tabletop &amp; gaming</strong>
-        <p>Dice towers, trays, deck boxes, organizers, minis, and terrain for your game night — D&amp;D, Magic, Catan, and more.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="tabletop-gaming.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Car parts</strong>
-        <p>Brackets, mounts, adapters, clips and bezels for classic American cars &mdash; Monte Carlo, Cutlass, Regal, Grand Prix, El Camino, Malibu, Camaro, Mustang, Charger, and more. Don&rsquo;t see your car? Tell us what you need &mdash; we&rsquo;ll research it and track the part down for you.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="car-parts.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Business, conventions &amp; office</strong>
-        <p>Desk organizers, business card holders, phone stands, badge holders, booth gear and branded swag for companies and conventions.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="business-office.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Fidgets</strong>
-        <p>Infinity cubes, clickers, spinners, gear fidgets, mazes and worry stones — the fidgets everybody asks for at the booth.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="fidgets.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Kids stuff</strong>
-        <p>Toy cars, animals, dinosaurs, puzzles, piggy banks and more — kid-friendly prints, small parts flagged.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="kids.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Dragons & creatures</strong>
-        <p>Articulated dragons, axolotls, sharks, snakes, and more creatures — the flexi animals everybody asks for at the booth.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="dragons-creatures.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Kitchen gadgets & accessories</strong>
-        <p>Kitchen utensils, organizers, gadgets and accessories — practical prints for the kitchen.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="kitchen.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Pet supplies</strong>
-        <p>Pet toys, bowls, name tags, leash holders, feeders and more — practical prints for dogs, cats, and more.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="pets.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Seasonal & holiday</strong>
-        <p>Halloween props, Christmas ornaments, and holiday decor — seasonal prints that sell fast.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="seasonal-holiday.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Garden & outdoor</strong>
-        <p>Birdhouses, feeders, garden markers, outdoor planters and decor — prints for the yard and garden.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="garden-outdoor.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Phone & tech accessories</strong>
-        <p>Phone stands, cable holders, headphone stands, tablet stands and more — practical desk and tech prints.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="phone-tech.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
-        </div>
-      </div>
-      <div class="card">
-        <strong>Tools & workshop</strong>
-        <p>Tool organizers, bit holders, jigs, and workshop accessories — practical prints for the shop and workbench.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="tools-workshop.html" style="padding:10px 16px;font-size:13px">Check out the selection &rarr;</a>
         </div>
       </div>
       <div class="card">
@@ -509,14 +543,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -542,7 +575,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>

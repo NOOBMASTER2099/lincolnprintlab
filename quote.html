@@ -309,19 +309,42 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html" aria-current="page">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html" aria-current="page">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -332,7 +355,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -394,7 +416,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           <div class="stat"><label>Bounding box</label><strong id="stat-bbox">—</strong></div>
           <div class="stat"><label>Est. plastic</label><strong id="stat-grams">—</strong></div>
           <div class="stat"><label>Est. print time</label><strong id="stat-hours">—</strong></div>
-          <div class="stat"><label>Bed fit (up to 420³ mm)</label><strong id="stat-fit">—</strong></div>
+          <div class="stat"><label>Bed fit (up to 420 × 420 × 480 mm)</label><strong id="stat-fit">—</strong></div>
         </div>
         <div class="price-box">
           <div class="label">Estimated quote</div>
@@ -439,7 +461,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
             </label>
             <label>
               <input type="radio" name="finish" value="painted" />
-              <span><strong style="color:#fff">Painted — quoted</strong><br />Painted per job, $25 and up — Matt confirms the price by text</span>
+              <span><strong style="color:#fff">Painted — quoted</strong><br />Painted per job, $25 and up — we confirm the price by text</span>
             </label>
           </div>
           <label style="display:flex;gap:10px;align-items:flex-start;margin-top:12px;cursor:pointer">
@@ -466,7 +488,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </div>
     </div>
     <p class="disclaimer">Quotes are estimates from solid mesh volume (×0.45 for typical walls + ~20% infill) using the material density you pick (PLA 1.24 g/cm³ by default). Real grams and time vary with supports, orientation, and settings. Final price confirmed by text before we print.</p>
-    <p class="disclaimer">Ready to order? <a href="payment.html" style="text-decoration:underline">Go to checkout</a> &mdash; send your order request, Matt confirms the total and ready date by text, then you pay.</p>
+    <p class="disclaimer">Ready to order? <a href="payment.html" style="text-decoration:underline">Go to checkout</a> &mdash; send your order request, we&rsquo;ll confirm the total and ready date by text, then you pay.</p>
   </section>
 </main>
 <footer>
@@ -479,14 +501,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -512,7 +533,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -760,7 +780,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   }
 
   /* Estimated ready date — same lead time as the checkout: 3-5 business days,
-     +3-5 for mailed orders. Estimate only; Matt confirms the exact date by text. */
+     +3-5 for mailed orders. Estimate only; we confirm the exact date by text. */
   function addBusinessDays(d, n){
     var date = new Date(d.getTime()); var added = 0;
     while(added < n){ date.setDate(date.getDate() + 1); var day = date.getDay(); if(day !== 0 && day !== 6) added++; }
@@ -774,7 +794,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     if(mail){ low += 3; high += 5; }
     var today = new Date();
     var start = addBusinessDays(today, low), end = addBusinessDays(today, high);
-    return (mail ? 'Estimated delivery: ' : 'Estimated ready: ') + fmtDate(start) + ' \u2013 ' + fmtDate(end) + ' (estimate \u2014 Matt confirms the exact date by text)';
+    return (mail ? 'Estimated delivery: ' : 'Estimated ready: ') + fmtDate(start) + ' \u2013 ' + fmtDate(end) + ' (estimate \u2014 we confirm the exact date by text)';
   }
   function updateEta(){
     var el = document.getElementById('stat-eta');

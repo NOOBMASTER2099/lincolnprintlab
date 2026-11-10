@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -230,9 +267,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <main id="top">
 <section class="wrap" id="garden-outdoor">
     <h2 class="section-title">Garden &amp; Outdoor</h2>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory — birdhouses, feeders, garden markers, outdoor planters and decor. Download the model you like, then send us the file and we'll give you an exact quote. Prints built for the yard and garden. Don't see what you need? Tell us what you're looking for — we'll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
       <a href="#birdhouses-feeders">Birdhouses &amp; Feeders</a>
@@ -252,116 +291,134 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/392662/images/3280354_e48a63bb-13b1-4ef9-8e54-ebe655f8ed96/thumbs/inside/1280x960/jpeg/chickadee_mounted_side.webp" alt="Very Simple Birdhouse" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Birdhouse</span>
         <strong>Very Simple Birdhouse</strong>
         <p>A deliberately simple parametric birdhouse — one design file supports four bird sizes, mounts to a fence, with ventilation and drainage holes.</p>
-        <p class="fits">Printables &middot; by Chris Thompson &middot; Free download</p>
-        <p class="part-note">License: CC BY-SA 4.0 &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; One file supports four bird sizes (chickadee, finch, sparrow, swallow); print in PETG</p>
-        <a class="part-link" href="https://www.printables.com/model/392662-very-simple-birdhouse" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Chris Thompson · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/392662-very-simple-birdhouse" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/16438/images/134410_c7acd2ec-1eec-4327-bf53-eb26189a8068/thumbs/inside/1280x960/jpeg/birdhouse.webp" alt="A-Frame Birdhouse" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>A-Frame Birdhouse</strong>
         <p>A two-part A-frame birdhouse that prints without supports; the designer printed it in ASA, with PETG fine for a year or two outside.</p>
-        <p class="fits">Printables &middot; by Lopatka &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Two parts (house + perch), no supports; ASA best, PETG also works</p>
-        <a class="part-link" href="https://www.printables.com/model/16438-a-frame-birdhouse" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Lopatka · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/16438-a-frame-birdhouse" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/507512/stls/4116413_bbd4ecb5-414f-425f-b3ae-a7fefa347542/thumbs/inside/1280x960/png/wyzehouse_preview.webp" alt="WyzeHouse - Wyze Cam V3 Birdhouse" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Magnetic</span>
         <strong>WyzeHouse - Wyze Cam V3 Birdhouse</strong>
         <p>A full-size birdhouse with a built-in Wyze Cam V3 housing and a magnetic camera roof, so you can watch the nest from your phone.</p>
-        <p class="fits">Printables &middot; by Taptic Digital &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Holds a Wyze Cam V3; needs 10x 6x2 mm disc magnets; 40+ hour print</p>
-        <a class="part-link" href="https://www.printables.com/model/507512-wyzehouse-wyze-cam-v3-birdhouse" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Taptic Digital · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/507512-wyzehouse-wyze-cam-v3-birdhouse" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/482c9e1d-4540-44be-a904-388547c83989/previews/thumbs/inside/1280x960/png/13120fa7-9b77-4e52-97ea-6724d1ea8e14.webp" alt="Birdhouse w/Easy-to-Remove Nest Cup (For Chickadees/Wrens/Bluebirds) PIP-NS" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Print-in-place</span>
         <strong>Birdhouse w/Easy-to-Remove Nest Cup (For Chickadees/Wrens/Bluebirds) PIP-NS</strong>
         <p>A print-in-place birdhouse with a removable nest cup that twists out one-handed for cleaning; chickadee/wren and bluebird sizes.</p>
-        <p class="fits">Printables &middot; by Ryan Connor &middot; Paid — $5.00</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Chickadee/wren and bluebird sizes; tested outside for 3 years in PLA</p>
-        <a class="part-link" href="https://www.printables.com/model/1833065-birdhouse-weasy-to-remove-nest-cup-for-chickadeesw" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ryan Connor · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1833065-birdhouse-weasy-to-remove-nest-cup-for-chickadeesw" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/65625/images/723025_13308a99-53e6-440d-b380-5d13c8abd1eb/thumbs/inside/1280x960/jpg/large_display_2020-05-21_190249-1_65625.webp" alt="Swedish Bird House" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Birdhouse</span>
         <strong>Swedish Bird House</strong>
         <p>A birdhouse shaped like a traditional Swedish cottage with a small front porch; print the shell as one piece or in three parts.</p>
-        <p class="fits">Printables &middot; by PurchenZuPoden &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Traditional Swedish cottage with front porch; 30 mm or 45 mm entrance rings</p>
-        <a class="part-link" href="https://www.printables.com/model/65625-swedish-bird-house" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PurchenZuPoden · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/65625-swedish-bird-house" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/897297/images/6864146_9fac5b2d-b1a5-4f4b-8f22-86da4747d72f_df5244fc-fcef-4446-9bbd-e7b1a7fde3c2/thumbs/inside/1280x960/jpg/006b.webp" alt="Beehive Birdhouse" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Beehive Birdhouse</strong>
         <p>A cute birdhouse shaped like a beehive, with bees and a flower; pole, bracket or rope mount, printable even on a mini printer.</p>
-        <p class="fits">Printables &middot; by PA1_MAKER &middot; Paid — $6.00</p>
-        <p class="part-note">License: Personal use only — commercial licence via Patreon &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Beehive-shaped house with bees and flower; pole, bracket or rope mount; needs M3/M4 screws</p>
-        <a class="part-link" href="https://www.printables.com/model/897297-beehive-birdhouse" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PA1_MAKER · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/897297-beehive-birdhouse" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/810640/images/6267968_810191d4-3694-44e8-87f6-09d148b21547_56b90b0a-5106-46e6-8e6a-23096cdc2549/thumbs/inside/1280x960/jpg/001.webp" alt="The Barn! - Cute Rustic Birdhouse" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>The Barn! - Cute Rustic Birdhouse</strong>
         <p>A rustic barn-shaped birdhouse for small birds, 100% support-free and sized to fit a Prusa Mini bed.</p>
-        <p class="fits">Printables &middot; by PA1_MAKER &middot; Paid — $5.00</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Barn-shaped birdhouse; 28.5 mm entrance for small birds; needs M4 screws</p>
-        <a class="part-link" href="https://www.printables.com/model/810640-the-barn-cute-rustic-birdhouse" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PA1_MAKER · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/810640-the-barn-cute-rustic-birdhouse" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US3c769922b150e/design/00a7297790e40902.jpg" alt="Japanese Bird Feeder" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Feeder</span>
         <strong>Japanese Bird Feeder</strong>
         <p>An elegant Japanese-style bird feeder — freestanding, pole-mounted, or hung from a hook or branch — with snap-fit parts in two sizes.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $200 &middot; PETG $224 &middot; Large ~800 g / small ~400 g; freestanding, pole or hanging mount; pole adapters 20-30 mm</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3050085-japanese-bird-feeder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3050085-japanese-bird-feeder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US4b445fcfb994c4/595640142/instance/5ce143f1276c424c.jfif" alt="StakeLock Bird Feeder Gazebo" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Feeder</span>
         <strong>StakeLock Bird Feeder Gazebo</strong>
         <p>A sturdy ground-mounted bird feeder on a thick 35 mm stake — no hanging, no wobble — designed for real outdoor use.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Ground-stake feeder; PETG/ASA recommended; prints without supports</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2340256-stakelock-bird-feeder-gazebo" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2340256-stakelock-bird-feeder-gazebo" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US95d0d1bcb2ae2a/design/1846f3c2ec4f5049.jpg" alt="Connectable Bird Feeder" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Modular</span>
         <strong>Connectable Bird Feeder</strong>
         <p>A modular window, wall or hook bird feeder with three replaceable branch designs; two feeders can link together for balance.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Window, wall or hook mount; 3 branch designs; PETG recommended</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2256983-connectable-bird-feeder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2256983-connectable-bird-feeder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US4f264391417d0c/design/2024-10-11_36676fc2db444.jpg" alt="Dutch-style Windmill Bird feeder" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Feeder</span>
         <strong>Dutch-style Windmill Bird feeder</strong>
         <p>A bird feeder shaped like the 1880s Dutch windmill of Szwarszowice, Poland — five sails, drainage holes, and room for plenty of seed.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $94 &middot; PETG $105 &middot; Windmill-shaped feeder, 24 cm across; drainage holes; 265 g body + roof/sails</p>
-        <a class="part-link" href="https://makerworld.com/en/models/696287" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/696287" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000480404/design/2024-05-31_4ea74748ba60b.jpeg" alt="Squirrel Feeder Bench" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Squirrel Feeder Bench</strong>
         <p>A mini picnic-table squirrel feeder that freestands or screws to a fence — and doubles as a birdbath.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $76 &middot; PETG $85 &middot; Mini picnic-table feeder; doubles as a birdbath; freestanding or fence-mounted, no supports</p>
-        <a class="part-link" href="https://makerworld.com/en/models/480404-squirrel-feeder-bench" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/480404-squirrel-feeder-bench" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USb78da3eef37b99/design/2025-04-07_95c444ccac7a48.jpg" alt="SpoolPerch – the delightful avian feeder" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Birdhouse</span>
         <strong>SpoolPerch – the delightful avian feeder</strong>
         <p>A birdhouse feeder built around a paper roll, with a screw-on top, drainage holes, and roof spikes to deter squirrels.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Birdhouse feeder built around a paper roll; squirrel-deterrent roof spikes; print in PETG</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1296982-spoolperch-the-delightful-avian-feeder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1296982-spoolperch-the-delightful-avian-feeder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -372,43 +429,53 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/410191/images/3407497_d8ba2dfd-115b-4f28-b6e1-92d36d17e2bb/thumbs/inside/1280x960/jpg/large_display_e48f82e7-4ff3-465f-807e-e60cdc40abe5_410191.webp" alt="Hummingbird Feeder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Feeder</span>
         <strong>Hummingbird Feeder</strong>
         <p>A leak-proof hummingbird feeder with a small upright reservoir, bee-guarded ports, and an ant trap on the hanging cord.</p>
-        <p class="fits">Printables &middot; by DrTomFlint &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Leak-proof upright reservoir with bee guards and ant moat; print in PETG, 4+ perimeters</p>
-        <a class="part-link" href="https://www.printables.com/model/410191-hummingbird-feeder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DrTomFlint · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/410191-hummingbird-feeder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/466418/images/3827334_e5a0d8a4-f609-47de-b2d6-cb4080a81f10/thumbs/inside/1280x960/jpeg/img_1567.webp" alt="Hummingbird Feeder - Wine/Glass Bottle Reservoir" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Feeder</span>
         <strong>Hummingbird Feeder - Wine/Glass Bottle Reservoir</strong>
         <p>A hummingbird feeder that uses an upside-down wine or glass bottle as its nectar reservoir.</p>
-        <p class="fits">Printables &middot; by Kake Prints &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Uses an upside-down wine/glass bottle as the reservoir; PETG/ABS + annealing suggested</p>
-        <a class="part-link" href="https://www.printables.com/model/466418-hummingbird-feeder-wineglass-bottle-reservoir" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Kake Prints · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/466418-hummingbird-feeder-wineglass-bottle-reservoir" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/586383/images/4679135_f33150ee-17ae-4231-b31c-799fb807c551/thumbs/inside/1280x960/png/humming.webp" alt="Hummingbird / Butterfly Nectar Feeder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Feeder</span>
         <strong>Hummingbird / Butterfly Nectar Feeder</strong>
         <p>A tabletop nectar feeder for hummingbirds or butterflies, with a built-in water trench in the base to keep ants out.</p>
-        <p class="fits">Printables &middot; by JWoodrell &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Tabletop feeder with ant moat; paint the centre cap red to attract hummingbirds</p>
-        <a class="part-link" href="https://www.printables.com/model/586383-hummingbird-butterfly-nectar-feeder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by JWoodrell · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/586383-hummingbird-butterfly-nectar-feeder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/167668/images/1566187_a2923f4f-8c8c-4c1c-bdb9-8a623e6ecf2a/thumbs/inside/1280x960/jpg/20210612_063758.webp" alt="Hummingbird Feeder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Feeder</span>
         <strong>Hummingbird Feeder</strong>
         <p>A hummingbird feeder that screws onto a Girard's salad dressing bottle and holds about 400 g of sugar-water nectar.</p>
-        <p class="fits">Printables &middot; by geokscott &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits a Girard's salad dressing bottle; holds ~400 g nectar; ASA recommended for outdoor use</p>
-        <a class="part-link" href="https://www.printables.com/model/167668-hummingbird-feeder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by geokscott · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/167668-hummingbird-feeder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/524121/images/4241195_4de63c33-7100-4cbf-a8dc-30886b39a30e/thumbs/inside/1280x960/jpeg/img_3096.webp" alt="Mason Jar Hummingbird Feeder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Feeder</span>
         <strong>Mason Jar Hummingbird Feeder</strong>
         <p>A feeder base that screws onto a standard mason jar — the jar is the reservoir, the print is the flower ports.</p>
-        <p class="fits">Printables &middot; by Anthony Cerqua &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Feeder base that screws onto a standard mason jar</p>
-        <a class="part-link" href="https://www.printables.com/model/524121-mason-jar-hummingbird-feeder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Anthony Cerqua · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/524121-mason-jar-hummingbird-feeder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -419,57 +486,63 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USc649e6c38f4b57/design/2024-05-08_9252b2a243ff1.jpeg" alt="Modular_Insect_Hotel" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Modular</span>
         <strong>Modular_Insect_Hotel</strong>
         <p>A modular insect hotel of plug-together hexagons in several depths, with a drinking pool, covers, and bee and butterfly decorations.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Hexagonal modules plug together; ASA recommended outdoors; fill the pool with small stones</p>
-        <a class="part-link" href="https://makerworld.com/en/models/457227-modular_insect_hotel" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/457227-modular_insect_hotel" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USb5670900274596/design/2024-05-19_bc91036366204.jpg" alt="Classic design - insect hotel - bee hotel" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Bee hotel</span>
         <strong>Classic design - insect hotel - bee hotel</strong>
         <p>A classic wall-mount insect hotel with a removable roof, mounting bracket, and good insulation so the inside stays cool.</p>
-        <p class="fits">MakerWorld &middot; by Techro3D &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Wall-mount bee hotel with removable roof and mounting bracket; commercial licence via membership</p>
-        <a class="part-link" href="https://makerworld.com/en/models/463310-classic-design-insect-hotel-bee-hotel" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Techro3D · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/463310-classic-design-insect-hotel-bee-hotel" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US9e04f7aa974784/design/2025-04-06_bd45637e990228.jpg" alt="Bee Hotel" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Bee hotel</span>
         <strong>Bee Hotel</strong>
         <p>A bee hotel with a fully removable roof and attic for maintenance, wall-hung with two screws; printed in PETG.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $71 &middot; PETG $80 &middot; Removable roof and attic; wall-hung; needs ~40 bamboo nesting tubes (14 cm)</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1290765-bee-hotel" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1290765-bee-hotel" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US1f586a30e4ebcf/design/822db8a099216fe8.jpg" alt="Modular Bee House/Hotel for Native Solitary Bees!" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Modular Bee House/Hotel for Native Solitary Bees!</strong>
         <p>A wall-mounted modular bee house in horizontal or vertical layouts; each segment holds 40–50 nesting tubes and locks to the next.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Stackable modules, horizontal or vertical; holds 40-50 tubes per segment; no supports</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2551325-modular-bee-house-hotel-for-native-solitary-bees" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2551325-modular-bee-house-hotel-for-native-solitary-bees" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US97c8cb1f6e75a9/design/5ee6fc36fe3c0dbc.jpg" alt="Bee Hotel - Modular and Extendable" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Modular</span>
         <strong>Bee Hotel - Modular and Extendable</strong>
         <p>An infinitely extendable bee hotel with 4–15 mm channels at the optimum 150 mm depth; tested in ASA.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Infinitely extendable; 4-15 mm channels, 150 mm deep; ASA recommended</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2353964-bee-hotel-modular-and-extendable" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2353964-bee-hotel-modular-and-extendable" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US3163ffd2e19684/design/2024-04-15_63edd41205e69.jpg" alt="Wild Bee Hotel (Insect hotel)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Wild Bee Hotel (Insect hotel)</strong>
         <p>A wild bee hotel with a customisable multi-colour roof; print in PETG and fill with nesting tubes.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Customisable multi-colour roof pieces; print in PETG; needs nesting tubes</p>
-        <a class="part-link" href="https://makerworld.com/en/models/429600-wild-bee-hotel-insect-hotel" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/429600-wild-bee-hotel-insect-hotel" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -480,44 +553,53 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/61741/stls/646543_d495bbb4-9b27-45a3-b998-26b35f6c209a/thumbs/inside/1280x960/png/model-1-without-text_preview.webp" alt="Stylish Plant Labels / Tags" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>Stylish Plant Labels / Tags</strong>
         <p>Stylish parametric plant labels for the garden or herb planters, with text front and back and a two-colour layering trick.</p>
-        <p class="fits">Printables &middot; by Michaël Fortin &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Parametric labels, custom text via Fusion 360 file; prints in under 30 minutes each</p>
-        <a class="part-link" href="https://www.printables.com/model/61741-stylish-plant-labels-tags" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Michaël Fortin · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/61741-stylish-plant-labels-tags" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US650a3b299c5eff/design/9c23ba32ba33dd48a8512.jpg" alt="Plant Stake Label Holder for 2⅝ × 1-Inch Tags" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Holder</span>
         <strong>Plant Stake Label Holder for 2⅝ × 1-Inch Tags</strong>
         <p>A soil stake that holds a standard 2⅝ × 1-inch printed label at a 35° reading angle, with a snap-on bezel and no adhesive.</p>
-        <p class="fits">MakerWorld &middot; by Designer not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Holds a standard 2⅝x1 in label at a 35° reading angle; ASA tested (PETG warped in Texas heat)</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3113851-plant-stake-label-holder-for-2-5-8-x-1-inch-tags" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designer not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3113851-plant-stake-label-holder-for-2-5-8-x-1-inch-tags" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/578770/images/4622719_1c9715c9-ebf1-4303-b56e-d0cf8e5d34fc/thumbs/inside/1280x960/jpeg/img_3411.webp" alt="Butterfly climbing plant clip" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Clip</span>
         <strong>Butterfly climbing plant clip</strong>
         <p>A butterfly-shaped clip that holds climbing or dangling plants to a support — pretty and functional.</p>
-        <p class="fits">Printables &middot; by panchojestem &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Butterfly-shaped clip for climbing plants; scale in the slicer to fit the stem</p>
-        <a class="part-link" href="https://www.printables.com/model/578770-butterfly-climbing-plant-clip" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by panchojestem · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/578770-butterfly-climbing-plant-clip" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/9195/images/73215_bd2bfe77-fd7c-42b9-a5a6-5614a03830b8/thumbs/inside/1280x960/jpg/img_20190602_172532_9195.webp" alt="Butterfly with a living hinge - (Glue to a thing / wall)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Butterfly</span>
         <strong>Butterfly with a living hinge - (Glue to a thing / wall)</strong>
         <p>A little butterfly on a living hinge to glue onto walls, boards, or pots anywhere in the garden.</p>
-        <p class="fits">Printables &middot; by Wilko &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small butterfly to glue on walls, boards or pots; PETG suggested</p>
-        <a class="part-link" href="https://www.printables.com/model/9195-butterfly-with-a-living-hinge-glue-to-a-thing-wall" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Wilko · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/9195-butterfly-with-a-living-hinge-glue-to-a-thing-wall" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/153355/images/1440897_a9a4db04-5851-49b6-bd67-d94d7b69fcc1/thumbs/inside/1280x960/jpg/cover-shot.webp" alt="Garden Critters Craft Project" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Butterfly</span>
         <strong>Garden Critters Craft Project</strong>
         <p>Six garden critter bodies — beetle, butterfly, dragonfly, hummingbird, snail and tulip — to glue onto cut-up plastic bottles.</p>
-        <p class="fits">Printables &middot; by Twisty 3D Prints &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Beetle, butterfly, dragonfly, hummingbird, snail and tulip bodies to glue onto cut-up plastic bottles</p>
-        <a class="part-link" href="https://www.printables.com/model/153355-garden-critters-craft-project" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Twisty 3D Prints · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/153355-garden-critters-craft-project" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -528,67 +610,84 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/096cd6d7-1eb1-453d-8fc6-8e013d96ecaf/images/9787529_4b15c694-e50f-4f62-bcdc-d1bd2a8c64e3_e47f4f3c-7368-4210-a97d-ad4a96421170/thumbs/inside/1280x960/jpg/img_20250517_144821.webp" alt="Garden Hose Holder - support free, 8 prepared sizes &amp; parametric" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Garden Hose Holder - support free, 8 prepared sizes &amp; parametric</strong>
         <p>A wall-mount garden hose holder in 8 pre-exported sizes, with the parametric Fusion 360 file to size it exactly to your hose.</p>
-        <p class="fits">Printables &middot; by suit &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 8 sizes + parametric Fusion 360 file; wall-mountable; fits 180 mm beds</p>
-        <a class="part-link" href="https://www.printables.com/model/1298393-garden-hose-holder-support-free-8-prepared-sizes-p" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by suit · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1298393-garden-hose-holder-support-free-8-prepared-sizes-p" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/513294/images/4158887_88a7a06e-4c26-4be3-95e9-3947550f58e7/thumbs/cover/1280x960/jpg/large_display_20079196-dcae-418b-bfcc-07bda8cea843_513294.webp" alt="Garden hose holder to mount against a post or a wall" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Garden hose holder to mount against a post or a wall</strong>
         <p>A hose holder that bolts to a post (60/70/80 mm) or a wall, using 6 mm bolts and 10 mm hex nuts.</p>
-        <p class="fits">Printables &middot; by BogusF &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; PLA $58 &middot; PETG $64 &middot; Post (60/70/80 mm) or wall versions; 6 mm bolts + 10 mm hex nuts; PLA not ideal outdoors — print in PETG</p>
-        <a class="part-link" href="https://www.printables.com/model/513294-garden-hose-holder-to-mount-against-a-post-or-a-wa" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by BogusF · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/513294-garden-hose-holder-to-mount-against-a-post-or-a-wa" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/881226/images/6764072_0d22bea1-27e8-4b4d-ac77-976da8dde9f9_e737020f-1980-41b0-a8da-bb1ed74bab90/thumbs/inside/1280x960/jpg/pxl_20240516_125652915.webp" alt="Garden Hose Corner Guide" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Hose guide</span>
         <strong>Garden Hose Corner Guide</strong>
         <p>A roller guide that bolts to the corner of a shed, post or building so the hose runs around it without chafing.</p>
-        <p class="fits">Printables &middot; by remington &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Roller guide that bolts to a shed/post corner so the hose doesn't chafe; needs M4 bolts</p>
-        <a class="part-link" href="https://www.printables.com/model/881226-garden-hose-corner-guide" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by remington · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/881226-garden-hose-corner-guide" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/54cdb7eb-1232-4360-9734-cc51a284a870/images/13390348_5f6c85f4-ff2f-4b6e-9f35-4b414aec5647_8280581b-6612-445d-88f7-3333c719263b/thumbs/inside/1280x960/jpg/garden-hose-holder-1.webp" alt="Strong garden hose holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Strong garden hose holder</strong>
         <p>A heavy-duty wall-mount hose holder with 65° arches and cutouts for reinforcement — 239 g of PET, built to hold a full hose.</p>
-        <p class="fits">Printables &middot; by s0ren &middot; Free download</p>
-        <p class="part-note">License: CC0 &middot; PLA $60 &middot; PETG $67 &middot; PCTG or ASA recommended for strength and UV resistance; mounts with 4x M5/M6 screws</p>
-        <a class="part-link" href="https://www.printables.com/model/1786545-strong-garden-hose-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by s0ren · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1786545-strong-garden-hose-holder" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/12435/images/110340_32942db8-44cc-48ca-9af1-59d3f37812f8/thumbs/cover/1280x960/jpg/holder_w_hoses_12435.webp" alt="Garden Hose Holder Using Filament Spool" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Garden Hose Holder Using Filament Spool</strong>
         <p>Brackets that turn an empty filament spool into a garden hose reel — reuse the spool, store the hose.</p>
-        <p class="fits">Printables &middot; by John S &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; PLA $23 &middot; PETG $25 &middot; Brackets that turn an empty filament spool into a hose reel; PETG recommended; 90 g of filament</p>
-        <a class="part-link" href="https://www.printables.com/model/12435-garden-hose-holder-using-filament-spool" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by John S · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/12435-garden-hose-holder-using-filament-spool" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/152e1ef2-d8df-40ac-baa3-414a4dfab03f/images/10733756_a67f65ee-0623-4869-955d-2f0fb23d995e_c732c6d5-095d-42c9-930a-ba3e01b941e9/thumbs/inside/1280x960/jpg/img20250923113755.webp" alt="Haws watering can rose holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Watering can</span>
         <strong>Haws watering can rose holder</strong>
         <p>A two-part clip that fits around the handle of a Haws Cradley watering can to hold the spare rose and downspout.</p>
-        <p class="fits">Printables &middot; by SimpsonB3D &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Clips onto a Haws Cradley watering can to hold the spare rose/spout; ASA, ABS or PETG</p>
-        <a class="part-link" href="https://www.printables.com/model/1422991-haws-watering-can-rose-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by SimpsonB3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1422991-haws-watering-can-rose-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/878962/previews/thumbs/inside/1280x960/png/0781f4eb85c9b4d6a3437a29e9937a12e79db533.webp" alt="Ergonomic Watering Can - Shower Style Spout" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Watering can</span>
         <strong>Ergonomic Watering Can - Shower Style Spout</strong>
         <p>A 3-litre ergonomic watering can with a flexible handle and a gentle shower-style spout for garden plants.</p>
-        <p class="fits">Printables &middot; by Guenther &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 3-litre watering can with shower spout; PETG recommended; large print, not for small beds</p>
-        <a class="part-link" href="https://www.printables.com/model/878962-watering-can-shower-style-spout" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Guenther · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/878962-watering-can-shower-style-spout" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/756776/images/5902207_6c3a76e6-533c-4a79-a9d3-e36748165050_d5f2f745-7d98-4467-9b32-6b1487fc7cfc/thumbs/inside/1280x960/jpg/56011a6ee39be337666b9f38d49e4379_display_large_756776.webp" alt="Screw on Watering Can / Watering Pot" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Screw on Watering Can / Watering Pot</strong>
         <p>A rose head that screws onto a standard PET or glass bottle and turns it into a watering can.</p>
-        <p class="fits">Printables &middot; by polydisco &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Rose head that screws onto a standard PET or glass bottle; no supports</p>
-        <a class="part-link" href="https://www.printables.com/model/756776-screw-on-watering-can-watering-pot" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by polydisco · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/756776-screw-on-watering-can-watering-pot" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -599,35 +698,43 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/163301/images/3275877_5f10996d-4079-4906-8b09-9eb96cd13efe/thumbs/inside/1280x960/jpg/seed-tray-2.webp" alt="#0024 Seedling Starter Planter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Planter</span>
         <strong>#0024 Seedling Starter Planter</strong>
         <p>A 6-cell seed starter tray that fits a standard water pan, with finger holes underneath and air-pruning slots.</p>
-        <p class="fits">Printables &middot; by BuildX &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 6-cell tray that fits a standard water pan; finger holes for easy removal; PETG/ASA for outdoor use</p>
-        <a class="part-link" href="https://www.printables.com/model/163301-seedling-starter-planter" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by BuildX · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/163301-seedling-starter-planter" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/732853/images/6014673_a0283282-72ad-453f-ab3a-289067b38e7b_0095cd67-7a16-4030-b745-b0543ef2660b/thumbs/cover/1280x960/jpg/img_20240220_190601.webp" alt="Seed Starter and Tray in Vase Mode" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Vase</span>
         <strong>Seed Starter and Tray in Vase Mode</strong>
         <p>Four connected seed starter pots with drainage holes plus a watertight tray — printed in vase mode, fast and light on filament.</p>
-        <p class="fits">Printables &middot; by MBStudio &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Four connected pots with drainage + tray; vase mode, fast and light on filament</p>
-        <a class="part-link" href="https://www.printables.com/model/732853-seed-starter-and-tray-in-vase-mode-a-fast-and-easy" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MBStudio · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/732853-seed-starter-and-tray-in-vase-mode-a-fast-and-easy" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/377767/images/3175096_f2324fac-a5ad-4aed-b860-640c942bd9c0/thumbs/cover/1280x960/png/seed_starter_3x2.webp" alt="6 Cell Seed Starting Tray" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Tray</span>
         <strong>6 Cell Seed Starting Tray</strong>
         <p>A sturdy, simple 6-cell seed starting tray — an effective way to start seeds.</p>
-        <p class="fits">Printables &middot; by Prefectionist &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Sturdy simple 6-cell tray</p>
-        <a class="part-link" href="https://www.printables.com/model/377767-6-cell-seed-starting-tray" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Prefectionist · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/377767-6-cell-seed-starting-tray" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/61837/images/655969_908298fe-4dcf-4fc9-b579-6db26821ff9c/thumbs/inside/1280x960/jpg/169276507_271032397991850_689140336604764145_n.webp" alt="Seed Starter System - Reusable &amp; Print-in-Place" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>Seed Starter System - Reusable &amp; Print-in-Place</strong>
         <p>Reusable hinged seed starter pots that fold open to release the seedling, with modular trays that hold 6 or 9.</p>
-        <p class="fits">Printables &middot; by Sean K. &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Hinged pots that fold open to release the seedling; modular trays hold 6 or 9; PETG works better for the hinges</p>
-        <a class="part-link" href="https://www.printables.com/model/61837-seed-starter-system-reusable-print-in-place" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Sean K. · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/61837-seed-starter-system-reusable-print-in-place" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -638,43 +745,53 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/830147/previews/thumbs/inside/1280x960/png/33b195338b71f309205b4f2a24a91e6161a403f9.webp" alt="Garden Gnome" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Gnome</span>
         <strong>Garden Gnome</strong>
         <p>A 3D-scanned garden gnome, touched up in Blender — the classic yard guardian, ready to paint.</p>
-        <p class="fits">Printables &middot; by 3DHippo &middot; Free download</p>
-        <p class="part-note">License: GNU GPL v3.0 &middot; PLA $15 &middot; PETG $15 &middot; 3D-scanned garden gnome; 22 g at the designer's print settings</p>
-        <a class="part-link" href="https://www.printables.com/model/830147-garden-gnome" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3DHippo · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/830147-garden-gnome" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/72493/images/70576_830779af-54f2-4b3e-8659-f80d0b4b8c7b/thumbs/inside/1280x960/jpg/img_20220913_192525.jpg" alt="Garden gnomes" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Gnome</span>
         <strong>Garden gnomes</strong>
         <p>A set of garden gnomes for the garden, home, or tabletop games as decoration.</p>
-        <p class="fits">Printables &middot; by Wexik &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Set of garden gnomes for the garden, home or tabletop games</p>
-        <a class="part-link" href="https://www.printables.com/model/72493-garden-gnomes" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Wexik · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/72493-garden-gnomes" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/702651/images/5517941_e3f4ee72-4d48-4a62-a0c9-f631b036e57c/thumbs/inside/1280x960/jpg/dsc_0136.webp" alt="Garden Gnome - Multicolor" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Garden Gnome - Multicolor</strong>
         <p>A garden gnome painted in Bambu Studio for multicolour printing — print it in colour or paint it to match the garden.</p>
-        <p class="fits">Printables &middot; by Deltree3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Multicolour-painted gnome; print in colour or paint to match the garden</p>
-        <a class="part-link" href="https://www.printables.com/model/702651-garden-gnome-multicolor" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Deltree3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/702651-garden-gnome-multicolor" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/21587/images/23754_2f9d8d5d-4a8b-422c-b9e1-222f4b0dbcf3/thumbs/inside/1280x960/jpg/dsc_0882.jpg" alt="Gnome House" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Gnome</span>
         <strong>Gnome House</strong>
         <p>Doors, windows, shingles, steps and shutters to build a gnome house onto a log or stump for a fairy garden.</p>
-        <p class="fits">Printables &middot; by sparky6548 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Doors, windows, shingles, steps and shutters to build a gnome house onto a log or stump</p>
-        <a class="part-link" href="https://www.printables.com/model/21587-gnome-house" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by sparky6548 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/21587-gnome-house" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/604510/images/4769495_bb6dfd39-752f-4c8d-b2e9-7bfc39b8203e/thumbs/inside/1280x960/jpg/img_20230903_133004.webp" alt="Lillan's Butterfly" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Lillan's Butterfly</strong>
         <p>A beautiful standing butterfly with stringy wings and a hole through the middle so it can hang on a nail with friends.</p>
-        <p class="fits">Printables &middot; by Fyrby Additive &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Standing butterfly with a hanging hole; pre-painted Bambu file included</p>
-        <a class="part-link" href="https://www.printables.com/model/604510-lillans-butterfly" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Fyrby Additive · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/604510-lillans-butterfly" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -685,35 +802,43 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/640642/images/5060505_c89d7c32-ec21-4333-b721-34e4dff524a9_8f3290bd-5de4-4a99-99e2-33f0b18e59c8/thumbs/inside/1280x960/jpg/lantern10.webp" alt="Traditional Garden Lantern" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Lantern</span>
         <strong>Traditional Garden Lantern</strong>
         <p>A 33 cm hexagonal stone-look garden lantern built around a 2×2 in flickering LED candle, joined with tenon-style joinery and no glue.</p>
-        <p class="fits">Printables &middot; by Pelex &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 33 cm hexagonal stone-look lantern; fits a 2x2 in flickering LED candle; tenon joinery, no glue</p>
-        <a class="part-link" href="https://www.printables.com/model/640642-traditional-garden-lantern" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Pelex · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/640642-traditional-garden-lantern" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1135297/images/8579640_f8e8a489-8e1f-4714-9dd3-9cbf3383087a_dbadec52-d684-4ba9-8ec3-7b439dcd4c47/thumbs/inside/1280x960/jpg/pxl_20250106_082240162.webp" alt="Nutella Solarlamp" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Adapter</span>
         <strong>Nutella Solarlamp</strong>
         <p>An adapter and handle that turns a regular Nutella jar into a charming solar garden lantern.</p>
-        <p class="fits">Printables &middot; by Patrick Blom &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Adapter + handle that turns a Nutella jar into a solar garden lantern; print in PETG; needs a jar + solar light</p>
-        <a class="part-link" href="https://www.printables.com/model/1135297-nutella-solarlamp" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Patrick Blom · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1135297-nutella-solarlamp" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/558940/images/4481606_5f8e14b1-bc6d-4588-838a-e7d01f29cfad/thumbs/inside/1280x960/jpg/pxl_20230820_195617606.webp" alt="Japanese Garden Lantern Lamp - Remix with modular inserts" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Japanese Garden Lantern Lamp - Remix with modular inserts</strong>
         <p>A remix of Keenan's Japanese garden lantern with a swappable middle section, so the pattern inserts can be changed.</p>
-        <p class="fits">Printables &middot; by Chorche &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Remix of Keenan's lantern with swappable pattern inserts; print in PETG; top/bottom from the original model</p>
-        <a class="part-link" href="https://www.printables.com/model/558940-japanese-garden-lantern-lamp-remix-with-modular-in" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Chorche · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/558940-japanese-garden-lantern-lamp-remix-with-modular-in" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1585688/images/12440933_f568393a-1899-4d9d-b02a-fc8b18ca267a/thumbs/inside/1280x960/jpg/img_20260204_193656.webp" alt="Chinese New Year Lantern" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Lantern</span>
         <strong>Chinese New Year Lantern</strong>
         <p>An outdoor lantern with a 福 (fortune) top, solid or hanging options, and warp-adjusted files for ABS/ASA.</p>
-        <p class="fits">Printables &middot; by D3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Outdoor lantern with 福 (fortune) top; ABS/ASA warp-adjusted files included; LED puck or tea light</p>
-        <a class="part-link" href="https://www.printables.com/model/1585688-chinese-new-year-lantern" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by D3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1585688-chinese-new-year-lantern" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -739,14 +864,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -772,7 +896,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -827,31 +950,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -230,9 +267,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <main id="top">
 <section class="wrap" id="tools-workshop">
     <h2 class="section-title">Tools &amp; Workshop</h2>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory — tool organizers, bit holders, jigs, and workshop accessories. Download the model you like, then send us the file and we'll give you an exact quote. Practical prints for the shop and workbench. Don't see what you need? Tell us what you're looking for — we'll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
       <a href="#organizers-wall-mounts">Tool Organizers &amp; Wall Mounts</a>
@@ -247,114 +286,134 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <p class="section-sub">Screwdriver racks, pegboard holders, French cleat mounts, and wall storage for the shop.</p>
     <div class="prod-grid">
       <div class="card">
+        <span class="draft-tag">Organizer</span>
         <strong>Wall-Mounted 3D-Printed Screwdriver Organizer</strong>
         <p>A wall-mounted screwdriver rack with seven slots for flathead, Phillips, Torx, and precision drivers of different lengths and shaft diameters.</p>
         <p style="color:#ff5a5a;font-weight:600">Model link is dead — this model was removed from Printables. Needs a replacement item.</p>
-        <p class="fits">Printables &middot; by kkmmedia3d &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Wall-mounted with 2 screws; 7 slots</p>
-        <a class="part-link" href="https://www.printables.com/model/1757397-wall-mounted-3d-printed-screwdriver-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by kkmmedia3d · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1757397-wall-mounted-3d-printed-screwdriver-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/272067/images/2420675_ece7a830-eb84-4df6-877a-d3519ab547fa/thumbs/inside/1280x960/jpg/1662451182130.webp" alt="Parkside screwdriver organizer/stand" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Parkside screwdriver organizer/stand</strong>
         <p>A desk stand sized for a set of insulated Parkside screwdrivers — one row of 4 flatheads, one row of 3 Phillips plus a probe.</p>
-        <p class="fits">Printables &middot; by lukasz.jot &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Prints on its side, no supports; sized for Parkside insulated screwdrivers</p>
-        <a class="part-link" href="https://www.printables.com/model/272067-parkside-screwdriver-organizerstand" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by lukasz.jot · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/272067-parkside-screwdriver-organizerstand" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/262216/images/2340736_2263dedb-3f20-41d8-a96f-60749616d8ac/thumbs/inside/1280x960/jpg/large_display_imag0817_262216.webp" alt="Milwaukee Packout Screwdriver Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Organizer</span>
         <strong>Milwaukee Packout Screwdriver Organizer</strong>
         <p>A corner organizer for the larger (non-wheeled) Milwaukee Packout toolbox that holds nine screwdrivers and nut drivers.</p>
-        <p class="fits">Printables &middot; by Xirabolt &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Holds 9 screwdrivers; TPU adds impact resistance; Fusion 360 file included to customize hole sizes</p>
-        <a class="part-link" href="https://www.printables.com/model/262216-milwaukee-packout-screwdriver-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Xirabolt · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/262216-milwaukee-packout-screwdriver-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/390317/stls/3262997_7917b07c-802f-47e4-a038-5443c48d2552/thumbs/inside/1280x960/png/te-764_screwdriverholder-v4_preview.webp" alt="M-Jump TE-764 Screwdriver Holder (screw mounted) for wall or workbench shelf" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>M-Jump TE-764 Screwdriver Holder (screw mounted) for wall or workbench shelf</strong>
         <p>A screw-mounted holder for the 6-piece M-Jump TE-764 precision screwdriver set, made to sit on a workbench shelf.</p>
-        <p class="fits">Printables &middot; by JimSheldon &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Mounts with small wood screws; 15-20% infill, PLA fine</p>
-        <a class="part-link" href="https://www.printables.com/model/390317-m-jump-te-764-screwdriver-holder-screw-mounted-for" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by JimSheldon · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/390317-m-jump-te-764-screwdriver-holder-screw-mounted-for" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/324731/stls/2798792_4af3cace-e1fc-4382-8ad2-53e11843f625/thumbs/inside/1280x960/png/hex-driver-holder-with-text_preview.webp" alt="Hex Screwdriver Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Hex Screwdriver Holder</strong>
         <p>A simple wall- or enclosure-mount holder for the four hex screwdrivers used most on a 3D printer, in text, size-only, and plain versions.</p>
-        <p class="fits">Printables &middot; by Justin Nelson &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Mounts inside or outside a printer enclosure; walls at least 1.2 mm</p>
-        <a class="part-link" href="https://www.printables.com/model/324731-hex-screwdriver-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Justin Nelson · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/324731-hex-screwdriver-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US175f32116132f1/design/2025-04-21_8209635f72266.jpg" alt="IKEA Skadis Hammer Holder / Hook" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>IKEA Skadis Hammer Holder / Hook</strong>
         <p>A two-piece Skadis pegboard hammer holder with teardrop pegs that cradle a standard Stanley hammer head so it cannot slip out.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No supports; PLA fine, PETG or ABS for extra durability</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1343538-ikea-skadis-hammer-holder-hook" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1343538-ikea-skadis-hammer-holder-hook" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USff1d024ab16e18/design/2025-02-03_c5968d3ab3406.jpg" alt="Milwaukee M12 Tool Holder for Ikea Skadis" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Milwaukee M12 Tool Holder for Ikea Skadis</strong>
         <p>A reinforced Skadis pegboard holder for Milwaukee M12 tools, with dual snap-on slide-in hooks and no supports needed.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Load-bearing: holds an M12 power tool on a pegboard — use the Hook Lock and check the hooks hold before loading</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1070105-milwaukee-m12-tool-holder-for-ikea-skadis" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1070105-milwaukee-m12-tool-holder-for-ikea-skadis" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US1385aa32bf1ab3/design/f86baf1349510b33.png" alt="Cordless Drill Holder/Mount for Ikea Skadis" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Holder</span>
         <strong>Cordless Drill Holder/Mount for Ikea Skadis</strong>
         <p>A universal Skadis mount for cordless drills — fits Milwaukee, Makita, Festool, Ryobi, Parkside, and most other brands via a slide-in hook.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Load-bearing: holds a cordless drill — verify your drill's neck diameter before printing; a heavy-duty version exists for heavier tools</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1133233-cordless-drill-holder-mount-for-ikea-skadis" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1133233-cordless-drill-holder-mount-for-ikea-skadis" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/U5ed0a8f00bd446c/design/2024-06-21_54545ce5735b4.jpg" alt="Pegboard Hand Tool Holder v2" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Holder</span>
         <strong>Pegboard Hand Tool Holder v2</strong>
         <p>A pegboard box holder for 5-inch hand pliers and scissors, with tight-fit hooks that lock into round pegboard holes.</p>
-        <p class="fits">MakerWorld &middot; by zhoujt &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits round pegboard, 6 mm holes on 10 mm spacing; insert hooks first, then attach the box</p>
-        <a class="part-link" href="https://makerworld.com/en/models/504701-pegboard-hand-tool-holder-v2" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by zhoujt · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/504701-pegboard-hand-tool-holder-v2" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US2b5d131e0350a3/design/c3961c0d0f8f9dfc.jpg" alt="IKEA Skadis Customizable Round Holder, Your Size" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Holder</span>
         <strong>IKEA Skadis Customizable Round Holder, Your Size</strong>
         <p>A customizable Skadis cup row for anything cylindrical — glue sticks, markers, screwdriver handles, spray cans, WD-40 — diameter 10 to 80 mm, 1 to 12 cups.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Heavy or wide cups get a second peg automatically; print one cup first to check fit</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2984559-ikea-skadis-customizable-round-holder-your-size" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2984559-ikea-skadis-customizable-round-holder-your-size" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/cfda7e33-9274-4f95-b828-5fcd0dafc14a/previews/thumbs/inside/1280x960/png/034b164b-cf4f-4334-aea7-196da7e7899b.webp" alt="Linkable Tool Holder System V3" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Linkable Tool Holder System V3</strong>
         <p>Modular tool holders that link into one row and mount on a wall, French cleat, Festool MFT/T-track, or IKEA Skadis — bench dog, plier, and screwdriver holders included.</p>
-        <p class="fits">Printables &middot; by MP makes &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Standard (165 x 80 mm) and Slim (165 x 45 mm) versions; French cleat adapter needs M4/M5 screws</p>
-        <a class="part-link" href="https://www.printables.com/model/1875631-linkable-tool-holder-system-v3" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MP makes · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1875631-linkable-tool-holder-system-v3" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/524866/stls/4243875_78f59be7-1dbf-4302-aece-fc82815ac030/thumbs/inside/1280x960/png/parametric_french_cleat_preview.webp" alt="Parametric French Cleat Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Parametric French Cleat Holder</strong>
         <p>A parametric French cleat holder you configure to your tools — set the holes for pliers, screwdrivers, and anything else you can stick in a hole.</p>
-        <p class="fits">Printables &middot; by Robert Nickel &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print standing on its side, no supports; Fusion 360 parametric file included</p>
-        <a class="part-link" href="https://www.printables.com/model/524866-parametric-french-cleat-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Robert Nickel · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/524866-parametric-french-cleat-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/103308/stls/1039431_11b58c6d-b44b-4443-ab8f-b127101c5532/thumbs/inside/1280x960/png/cleat_rack_preview.webp" alt="French Cleat pliers holder" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Holder</span>
         <strong>French Cleat pliers holder</strong>
         <p>A simple French cleat holder for pliers and similar tools, hung on a threaded rod on the cleat wall.</p>
-        <p class="fits">Printables &middot; by Antimaterie &middot; Free download</p>
-        <p class="part-note">License: Personal use only — designer states prints are not for commercial use (contact designer for print-farm sales) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs a 12.5 cm M5 threaded rod; 3+ perimeters, 15% cubic infill, PLA fine</p>
-        <a class="part-link" href="https://www.printables.com/model/103308-french-cleat-pliers-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Antimaterie · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/103308-french-cleat-pliers-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -365,107 +424,133 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/4d29eb4b-34af-4ff4-96ac-8fa2bdc1d4d2/images/13457704_56364c23-023e-4e8a-8010-11ee056e7f6f_2b7bd359-5b0b-4c13-8a7c-f45ece73685e/thumbs/inside/1280x960/png/screw_driver_bit_case_cover.webp" alt="Compact Screwdriver Bit Storage Case | 3D Printable Organizer with Hinged Lid" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Compact Screwdriver Bit Storage Case | 3D Printable Organizer with Hinged Lid</strong>
         <p>A compact bit case with an integrated hinged lid and snap-lock latch, with dedicated slots to keep each screwdriver bit in place.</p>
-        <p class="fits">Printables &middot; by Designo999 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No supports; PLA, PETG, or ABS</p>
-        <a class="part-link" href="https://www.printables.com/model/1794836-compact-screwdriver-bit-storage-case-3d-printable" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Designo999 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1794836-compact-screwdriver-bit-storage-case-3d-printable" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/731233/previews/thumbs/inside/1280x960/png/a7003b31-ce4a-4e7e-a865-74598d7dc992.webp" alt="Gridfinity Mini Bit and Screwdriver Holder 2x1" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Gridfinity</span>
         <strong>Gridfinity Mini Bit and Screwdriver Holder 2x1</strong>
         <p>A 2x1 Gridfinity unit, 3 units tall, that stores 30 mini hex bits plus a handy screwdriver.</p>
-        <p class="fits">Printables &middot; by Herbert Rusznak &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Gridfinity 2x1 footprint; PLA, 0.32 mm layers, 10% gyroid infill</p>
-        <a class="part-link" href="https://www.printables.com/model/731233-gridfinity-mini-bit-and-screwdriver-holder-2x1" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Herbert Rusznak · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/731233-gridfinity-mini-bit-and-screwdriver-holder-2x1" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/459572/stls/3773621_ec7b70b3-a60a-4958-a0df-ce4e905d5c6f/thumbs/inside/1280x960/png/bithouder-v81_preview.webp" alt="BIG Double bit holder 104pcs" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Magnetic</span>
         <strong>BIG Double bit holder 104pcs</strong>
         <p>A double-sided magnetic bit holder with 104 holes for screwdriver and drill bits, with magnets on both sides.</p>
-        <p class="fits">Printables &middot; by laurens &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 8x N52 50x5x5 mm neodymium magnets; PETG recommended for durability</p>
-        <a class="part-link" href="https://www.printables.com/model/459572-big-double-bit-holder-104pcs" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by laurens · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/459572-big-double-bit-holder-104pcs" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/283413/images/2505617_812c32ff-dc75-42f5-b272-7a0995feea28/thumbs/inside/1280x960/png/20220829_143513.webp" alt="Snap Latch Drill Bit Case" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Case</span>
         <strong>Snap Latch Drill Bit Case</strong>
         <p>A rugged Pelican-style drill bit case with a snap latch and interior shelving, so bits stay organized and do not mix when tipped or shaken.</p>
-        <p class="fits">Printables &middot; by Embrace Making &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 1/8 in split pins as hinge hardware; PLA+ at 0.2 mm, 20% infill; assembly video on the page</p>
-        <a class="part-link" href="https://www.printables.com/model/283413-snap-latch-drill-bit-case" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Embrace Making · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/283413-snap-latch-drill-bit-case" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/806313/previews/thumbs/inside/1280x960/png/800e9e50118a85669a41b944e614a647d8fb08d7.webp" alt="Drill bit organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Drill bit organizer</strong>
         <p>A lidded drill bit organizer that holds up to 42 bits from 2 mm to 10 mm, with multiple bits of the same size in each slot.</p>
-        <p class="fits">Printables &middot; by HardwareLab &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Lid latches shut; needs two short M5 bolts to join lid and container; no supports</p>
-        <a class="part-link" href="https://www.printables.com/model/806313-drill-bit-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by HardwareLab · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/806313-drill-bit-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/129899/stls/1244809_c284b51d-9789-4dae-ae46-7da2696fc97b/thumbs/inside/1280x960/png/drillbitholder_preview.webp" alt="Wall mounted drill bit holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Wall mounted drill bit holder</strong>
         <p>A compact wall-mounted drill bit holder for bits 1/16 in through 1/2 in in 1/64 in steps, held at a 30-degree angle with a tray behind for pens and spare bits.</p>
-        <p class="fits">Printables &middot; by toddanglin &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Mounts to a wall with two screws; 8 in long; print flat side down, use the 3MF for slot accuracy</p>
-        <a class="part-link" href="https://www.printables.com/model/129899-wall-mounted-drill-bit-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by toddanglin · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/129899-wall-mounted-drill-bit-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/489665/stls/3995298_8e000e70-9a10-44ec-80ad-5bd3fcbbf774/thumbs/inside/1280x960/png/hex-round-drill-bit-holder-lid_preview.webp" alt="13 Piece Hex Shank Drill Bit Holder / case - 1.5mm - 6.5mm" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>13 Piece Hex Shank Drill Bit Holder / case - 1.5mm - 6.5mm</strong>
         <p>A screw-top case for a 13-piece hex shank drill bit set (1.5–6.5 mm) with space for a small screwdriver handle in the centre.</p>
-        <p class="fits">Printables &middot; by Cornersruns &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Half-turn screw locking lid; PETG or PLA, 0.2 mm layers</p>
-        <a class="part-link" href="https://www.printables.com/model/489665-13-piece-hex-shank-drill-bit-holder-case-15mm-65mm" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Cornersruns · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/489665-13-piece-hex-shank-drill-bit-holder-case-15mm-65mm" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/163236/stls/1517579_77513597-b639-452f-bcf3-21b9be4a8c1d/thumbs/inside/1280x960/png/metric-deep-top_preview.webp" alt="Magnetic Socket Organizer for the Tekton SKT15311 74-Piece Socket Set" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Magnetic</span>
         <strong>Magnetic Socket Organizer for the Tekton SKT15311 74-Piece Socket Set</strong>
         <p>A magnetic wall-mounted socket organizer for the Tekton 74-piece set, built on plywood with bar and cup magnets on a French cleat wall.</p>
-        <p class="fits">Printables &middot; by cyberbobcity &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 40 bar magnets (10 per bank) plus cup magnets; remove one socket or the whole bank and take it with you</p>
-        <a class="part-link" href="https://www.printables.com/model/163236-magnetic-socket-organizer-for-the-tekton-skt15311-" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by cyberbobcity · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/163236-magnetic-socket-organizer-for-the-tekton-skt15311-" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/974184/previews/thumbs/inside/1280x960/png/2554fb9e0a4de488b5b1197219fee9721306fc9e.webp" alt="Gridfinity Kobalt Metric Socket Holder 3x5x3" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Gridfinity Kobalt Metric Socket Holder 3x5x3</strong>
         <p>A 3x5 Gridfinity holder for Kobalt 3/8 in drive metric sockets, regular and deep, 19–9 mm plus an extension slot.</p>
-        <p class="fits">Printables &middot; by thesquirrelyengineer &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Embossed size lettering prints in a second colour (~0.57 g); magnet slots in the base; matching SAE and ratchet holders exist</p>
-        <a class="part-link" href="https://www.printables.com/model/974184-gridfinity-kobalt-metric-socket-holder-3x5x3" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by thesquirrelyengineer · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/974184-gridfinity-kobalt-metric-socket-holder-3x5x3" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/54a03f21-4e74-4c8e-b9bd-66d9de4f4a29/previews/thumbs/inside/1280x960/png/313bff2f-1d4a-4c6b-92a7-59a488e06245.webp" alt="Grid10 Expandable 1/4&quot; Socket Tray" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Grid10 Expandable 1/4" Socket Tray</strong>
         <p>A modular socket organizer system — base plates link together with printed dog-bone links and accessories screw on, so the tray fits any socket set and any drawer.</p>
-        <p class="fits">Printables &middot; by Mancow MacGyver &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Accessories mount with #4 sheet metal screws; print with at least 3 walls for durability</p>
-        <a class="part-link" href="https://www.printables.com/model/1749719-grid10-expandable-14-socket-tray" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Mancow MacGyver · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1749719-grid10-expandable-14-socket-tray" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/680228/stls/6066888_276ebf0f-0770-4442-9be3-643de737c7b5_9363617a-3e94-4d44-8efd-d78e28add8a6/thumbs/inside/1280x960/png/washer_40_preview.webp" alt="TrackTwist socket holder organizer 3/4&quot; 1/2&quot; 3/8&quot; 1/4&quot; drive SAE METRIC gridfinity V2 Wrench and tool organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>TrackTwist socket holder organizer 3/4" 1/2" 3/8" 1/4" drive SAE METRIC gridfinity V2 Wrench and tool organizer</strong>
         <p>A modular twist-lock socket organizer for 3/4, 1/2, 3/8, and 1/4 in drives, SAE and metric, deep and shallow — with Gridfinity rails and custom-engraved size washers.</p>
-        <p class="fits">Printables &middot; by AutoCode3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs 25x3 mm neodymium magnets; print holders horizontally at 50% infill; 60 blank washers included for custom engraving</p>
-        <a class="part-link" href="https://www.printables.com/model/680228-tracktwist-socket-holder-organizer-34-12-38-14-dri" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by AutoCode3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/680228-tracktwist-socket-holder-organizer-34-12-38-14-dri" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/681472/stls/5355108_4abec670-40a1-4edf-96cb-259b10a608e3_0851c6e5-8e4b-47e2-a681-b3ef948aacd4/thumbs/inside/1280x960/png/025_drive_metric_6pt_socket_holders_magnet_version_2_15november2023_preview.webp" alt="1/4&quot; Drive Metric Socket Set Holders (4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14mm)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>1/4" Drive Metric Socket Set Holders (4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14mm)</strong>
         <p>Socket holders for 1/4 in drive metric sockets, 4–14 mm, shallow and deep, with labelled sizes in a bold 24-point font.</p>
-        <p class="fits">Printables &middot; by PorscheAmateur &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Holes sized +0.50 mm over measured socket diameter; deep sockets get a 20 mm wall, shallow 10 mm; PLA fine</p>
-        <a class="part-link" href="https://www.printables.com/model/681472-14-drive-metric-socket-set-holders-4-5-6-7-8-9-10-" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PorscheAmateur · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/681472-14-drive-metric-socket-set-holders-4-5-6-7-8-9-10-" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/407349/images/3437474_7c885b81-3e2a-4da5-b13b-a240193d4fdc/thumbs/inside/1280x960/jpeg/36556703-5d37-4e42-bd74-9799d8fdf50d.webp" alt="Milwaukee Drill/Driver Bit Packout Organization" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Milwaukee Drill/Driver Bit Packout Organization</strong>
         <p>Slim bit bins and holders that organize drill and driver bits inside Milwaukee Packout cases, in 5-compartment and 11-compartment layouts.</p>
-        <p class="fits">Printables &middot; by maxelman &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Use the V6 SCAD file — the designer re-exported it with thicker springs after the originals loosened; Polymaker Matte PLA matches Packout red</p>
-        <a class="part-link" href="https://www.printables.com/model/407349-milwaukee-drilldriver-bit-packout-organization" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by maxelman · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/407349-milwaukee-drilldriver-bit-packout-organization" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -476,100 +561,123 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/835373/previews/thumbs/inside/1280x960/png/dbb5b8479da682410f296c233a1105c42fffbdab.webp" alt="Holder for combination wrench (e.g. Proxxon SlimLine)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Holder for combination wrench (e.g. Proxxon SlimLine)</strong>
         <p>A wall holder for 15 combination wrenches, 6 mm to 21 mm, with the size numbers printed in a second colour.</p>
-        <p class="fits">Printables &middot; by thommy &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Fits the 15-piece Proxxon SlimLine set; 3 mounting holes for 4 mm screws; PLA at 15% infill</p>
-        <a class="part-link" href="https://www.printables.com/model/835373-holder-for-combination-wrench-eg-proxxon-slimline" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by thommy · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/835373-holder-for-combination-wrench-eg-proxxon-slimline" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/378511/stls/3179281_35322a3d-801f-421d-a6ce-b5dbdb6ca8f2/thumbs/inside/1280x960/png/wrench-holder-half_preview.webp" alt="Gridfinity Box Wrench Organizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Gridfinity</span>
         <strong>Gridfinity Box Wrench Organizer</strong>
         <p>A 3x6 Gridfinity wrench organizer in two halves that holds box wrenches up to 9.5 inches long.</p>
-        <p class="fits">Printables &middot; by SailorJerry &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Prints as two 3x3 halves (print twice for the full set); based on Zack Freedman's Gridfinity templates</p>
-        <a class="part-link" href="https://www.printables.com/model/378511-gridfinity-box-wrench-organizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by SailorJerry · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/378511-gridfinity-box-wrench-organizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/425063/stls/3518758_096cfbc6-462f-45dd-b30e-5682f2c23a0e/thumbs/inside/1280x960/png/7mm_preview.webp" alt="Wrench holder wall mount" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Wrench holder wall mount</strong>
         <p>A simple wall-mount wrench holder in 7 mm and 10 mm sizes, printed in PETG with 4 walls.</p>
-        <p class="fits">Printables &middot; by PELU &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print back side on the bed; PETG, 0.30 mm layers, 4 walls, 5% infill</p>
-        <a class="part-link" href="https://www.printables.com/model/425063-wrench-holder-wall-mount" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PELU · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/425063-wrench-holder-wall-mount" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/265470/stls/2365465_131974b4-2fb1-4e4d-88ca-9aa960c7b955/thumbs/inside/1280x960/png/pins_preview.webp" alt="Tool Holder for Socket Wrench Set 12pcs 1/4&quot; with Extension Bar and Sockets for Wall Mount 001" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Tool Holder for Socket Wrench Set 12pcs 1/4" with Extension Bar and Sockets for Wall Mount 001</strong>
         <p>A wall holder for a 12-piece 1/4 in socket wrench set with extension bar and sockets, in screw-mount and pegboard-pin versions.</p>
-        <p class="fits">Printables &middot; by WIESEMANN 1893 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Screw version has 4 mm holes; designer notes they cannot guarantee safe storage of tools — mount securely</p>
-        <a class="part-link" href="https://www.printables.com/model/265470-tool-holder-for-socket-wrench-set-12pcs-14-with-ex" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by WIESEMANN 1893 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/265470-tool-holder-for-socket-wrench-set-12pcs-14-with-ex" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/788265/images/6112543_d802a85f-c421-4cc7-8498-c3f3a9861366_c3f937ef-c259-4e18-be4e-354773858c88/thumbs/inside/1280x960/jpeg/img_3889.webp" alt="Honeycomb Storage Wall T-Handle Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Honeycomb Storage Wall T-Handle Holder</strong>
         <p>A Honeycomb Storage Wall shelf for 7 T-handle wrenches (2–8 mm) with the sizes lettered in a second colour.</p>
-        <p class="fits">Printables &middot; by Trimetric &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs two standard HSW hollow inserts; PETG or PLA, 0.2 mm, 3 walls, 10% gyroid, no supports</p>
-        <a class="part-link" href="https://www.printables.com/model/788265-honeycomb-storage-wall-t-handle-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Trimetric · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/788265-honeycomb-storage-wall-t-handle-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/139312/images/1573167_2b972a5a-a7e0-4e0e-86a8-2043e8b26ee8_2f27aed3-03ac-471a-97e1-ea1c9bb487cd/thumbs/inside/1280x960/jpeg/holderformetrict-handlehexwrenchset20-12mm_preview04.webp" alt="Holder for metric T-handle hex wrench set 2.0 - 12mm" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Magnetic</span>
         <strong>Holder for metric T-handle hex wrench set 2.0 - 12mm</strong>
         <p>A holder for a metric T-handle hex wrench set, 2.0–12 mm, with magnetic hold-down or snap-in legs for non-ferrous surfaces.</p>
-        <p class="fits">Printables &middot; by caveduck &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs magnets (McMaster 5862K14) for the magnetic version; long print — fits diagonally on a Prusa MK3S; PETG</p>
-        <a class="part-link" href="https://www.printables.com/model/139312-holder-for-metric-t-handle-hex-wrench-set-20-12mm" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by caveduck · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/139312-holder-for-metric-t-handle-hex-wrench-set-20-12mm" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/778101/stls/6045820_29f417e7-14ad-4f4f-8151-87e221322707_1baf9b40-07fc-472f-8d36-ed4537d387ad/thumbs/inside/1280x960/png/sae_t_handle_alen_wrench_holder_preview.webp" alt="SAE T-Handle alen wrench holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>SAE T-Handle alen wrench holder</strong>
         <p>A wall-mounted T-handle holder for a 9-piece SAE set of Matco T-handle wrenches.</p>
-        <p class="fits">Printables &middot; by tweetfpv &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No supports; 0.2 mm layers, 30% infill; a metric version is also on the page</p>
-        <a class="part-link" href="https://www.printables.com/model/778101-sae-t-handle-alen-wrench-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by tweetfpv · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/778101-sae-t-handle-alen-wrench-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/280728/stls/2486184_5ebe84d1-b7ed-4613-997d-726180ecbaba/thumbs/inside/1280x960/png/t-griff-halter-torx_preview.webp" alt="T-handle allen wrench holder wallmount/skadis removable" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>T-handle allen wrench holder wallmount/skadis removable</strong>
         <p>A wall- or Skadis-mounted T-handle holder you can lift off the wall and take the whole set with you.</p>
-        <p class="fits">Printables &middot; by radicalreel &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Designed for ALDI / Workzone Torx and hex T-handles; uses Skadis hooks for the pegboard version</p>
-        <a class="part-link" href="https://www.printables.com/model/280728-t-handle-allen-wrench-holder-wallmountskadis-remov" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by radicalreel · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/280728-t-handle-allen-wrench-holder-wallmountskadis-remov" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/444897/stls/3817357_e21de718-5235-4ec7-8b9b-713f98875638_4b5bafaa-59ab-4adb-87a3-e94ece42cc11/thumbs/inside/1280x960/png/wall-mount-hex-wrench-holder_preview.webp" alt="Wall mount hex wrench holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Wall mount hex wrench holder</strong>
         <p>A hex wrench holder with a back plate with mounting holes, plus an optional nozzle wrench holder.</p>
-        <p class="fits">Printables &middot; by Ogama Industries &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Wall-mount back plate included; version with and without a nozzle wrench holder</p>
-        <a class="part-link" href="https://www.printables.com/model/444897-wall-mount-hex-wrench-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ogama Industries · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/444897-wall-mount-hex-wrench-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM0000000040313/design/2023-10-14_502v7c1wd9o5.jpeg" alt="Eds French Cleat Pliers / Crimper Holder/Organizer (for 10,12,15,16mm tubes and 15/18mm FC bars)!" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Modular</span>
         <strong>Eds French Cleat Pliers / Crimper Holder/Organizer (for 10,12,15,16mm tubes and 15/18mm FC bars)!</strong>
         <p>A modular French cleat holder for crimper pliers, built from side elements on aluminium tubes in 10, 12, 15, or 16 mm.</p>
-        <p class="fits">MakerWorld &middot; by eds_3d_shop &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PETG, 0.2 mm, 30% infill, 4 perimeters; STEP file included for modifications</p>
-        <a class="part-link" href="https://makerworld.com/en/models/40313" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by eds_3d_shop · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/40313" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/632881/stls/5010388_c2263a18-c970-4b8f-ad67-634202a8f9d2_2d103522-41f3-495d-97d6-ed637489cc4f/thumbs/inside/1280x960/png/caliper_holder_fcleat_preview.webp" alt="caliper holder, french cleat/screwable" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>caliper holder, french cleat/screwable</strong>
         <p>A holder for digital and standard calipers up to 15 cm, in a French cleat version and a screw-to-the-wall version.</p>
-        <p class="fits">Printables &middot; by Antimaterie &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print standing; use a brim on the screwable version; fits most 15 cm calipers</p>
-        <a class="part-link" href="https://www.printables.com/model/632881-caliper-holder-french-cleatscrewable" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Antimaterie · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/632881-caliper-holder-french-cleatscrewable" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1043939/previews/thumbs/inside/1280x960/png/95016a07d51265585bcd7fa39b3778a432d684f7.webp" alt="Parametric measure tape holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Parametric measure tape holder</strong>
         <p>A parametric holder for a soft fabric measuring tape — roller, base, and lid, no screws or glue, in 14, 18, and 22 mm tape widths.</p>
-        <p class="fits">Printables &middot; by Daniel Alberski &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $15 &middot; Only 15 g of filament for the 14 mm version; under 35 minutes to print; Fusion 360 file included</p>
-        <a class="part-link" href="https://www.printables.com/model/1043939-parametric-measure-tape-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Daniel Alberski · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1043939-parametric-measure-tape-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -580,100 +688,123 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/9d0a9506-da0b-4f70-8dfc-64aa16a1a281/previews/thumbs/inside/1280x960/png/9a367816-b98f-4443-a8a7-3f50e8f30738.webp" alt="18mm L-Corner Assembly Jig | Cabinet Clamp" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>18mm L-Corner Assembly Jig | Cabinet Clamp</strong>
         <p>A precise 90-degree L-corner jig that slides over the outside corners of two 18 mm boards and holds them square while you drive screws.</p>
-        <p class="fits">Printables &middot; by Mateusz Tokarz &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits standard 18 mm plywood/MDF and flat-pack boards; two screw slots on the outer faces; no supports</p>
-        <a class="part-link" href="https://www.printables.com/model/1811378-18mm-l-corner-assembly-jig-cabinet-clamp" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Mateusz Tokarz · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1811378-18mm-l-corner-assembly-jig-cabinet-clamp" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/354979/stls/3011367_27a1721a-921a-432d-8025-04c525aad3da/thumbs/inside/1280x960/png/corner-key-doweling-1_preview.webp" alt="Corner Key Doweling Jig" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Jig</span>
         <strong>Corner Key Doweling Jig</strong>
         <p>A doweling jig for mitered corners — bore a 45-degree hole with a 1/4 in drill bit and drive a wooden dowel through to reinforce the joint.</p>
-        <p class="fits">Printables &middot; by DSWoodworking &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Works on wood 1/2 in and up; clamp the jig tight; needs 1/4 in dowels and two clamps; PETG, 5 perimeters, 30% infill</p>
-        <a class="part-link" href="https://www.printables.com/model/354979-corner-key-doweling-jig" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DSWoodworking · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/354979-corner-key-doweling-jig" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USb1b4776a453cfd/design/2023-11-10_456ad3287bd6d.png" alt="Chonky 90 Degree Corner Jig" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Press</span>
         <strong>Chonky 90 Degree Corner Jig</strong>
         <p>A chunky 138.8 mm corner jig with 40 mm square holes — press it flush against the wood and grab it with clamps for a solid 90-degree corner.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $44 &middot; PETG $49 &middot; 175 g print in about 4 hours; PLA (or PC Blend for stiffness), 4 walls, 0.3 mm, 25% grid infill; also on Printables as model 642915</p>
-        <a class="part-link" href="https://makerworld.com/en/models/61551-chonky-90-degree-corner-jig" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/61551-chonky-90-degree-corner-jig" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/5443f4fb-f36b-451b-a5db-dbb15e8aa9aa/images/12413943_efd9805a-11d5-465c-92b4-c5df77238247_938f3413-8365-4532-adea-5411884c4078/thumbs/inside/1280x960/jpg/img20260327081237.webp" alt="Corner Clamp 90°" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Corner Clamp 90°</strong>
         <p>A fully 3D-printable corner clamp that holds parts at a perfect 90 degrees for gluing and assembly, with a printed screw and circlip system.</p>
-        <p class="fits">Printables &middot; by VC Design &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; 5 parts, no supports; print the screw in PETG or polycarbonate for strength; one make notes the dovetail is loose — check squareness before use</p>
-        <a class="part-link" href="https://www.printables.com/model/1649606-corner-clamp-90deg" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by VC Design · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1649606-corner-clamp-90deg" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/154276/stls/1447538_f0d67817-254e-4a88-a9bb-eb845be36a6c/thumbs/inside/1280x960/png/corner-jig-20mm_preview.webp" alt="Round corner Jig for Router" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Jig</span>
         <strong>Round corner Jig for Router</strong>
         <p>A router jig that cuts a 15 or 20 mm radius arc on the corner of a board with a flush trim bit, handheld or clamped down.</p>
-        <p class="fits">Printables &middot; by alecharp &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Positive tabs register the side of the board; PLA, 0.6 mm nozzle, 4 perimeters for strength</p>
-        <a class="part-link" href="https://www.printables.com/model/154276-round-corner-jig-for-router" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by alecharp · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/154276-round-corner-jig-for-router" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/37268/images/370898_4a7df359-aaa1-4a2a-8d44-b905e457ca14/thumbs/inside/1280x960/png/sandingblockrender.webp" alt="Simple Sanding Block" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Sanding block</span>
         <strong>Simple Sanding Block</strong>
         <p>A sanding block with a beefy printed M22 bolt that clamps a 38 mm x 230–240 mm sandpaper strip in place — built to not break.</p>
-        <p class="fits">Printables &middot; by Micke &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Base + clamp + bolt; PETG tested, PLA should work; 0.25 mm layers, 4 perimeters, 15% infill</p>
-        <a class="part-link" href="https://www.printables.com/model/37268-simple-sanding-block" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Micke · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/37268-simple-sanding-block" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/404225/stls/3366040_a667166c-ce35-42c0-87da-117e53fb298b/thumbs/inside/1280x960/png/sanding-block-body_preview.webp" alt="Sanding Block for 38mm wide abrasive cloth" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Sanding block</span>
         <strong>Sanding Block for 38mm wide abrasive cloth</strong>
         <p>A sanding block for 38 mm abrasive cloth with grit-labelled clamps (80/120/180/240) so you can tell your papers apart at a glance.</p>
-        <p class="fits">Printables &middot; by MazaaFIN &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; STEP file included; a matching curved-surface version is #46 in this catalog</p>
-        <a class="part-link" href="https://www.printables.com/model/404225-sanding-block-for-38mm-wide-abrasive-cloth" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MazaaFIN · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/404225-sanding-block-for-38mm-wide-abrasive-cloth" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/467815/images/3834600_e0e7cf77-390f-4f21-9ff6-f853ef6c1cfe/thumbs/inside/1280x960/jpg/img_7111.webp" alt="Sanding Blocks for Circular/Curved Surfaces" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Sanding block</span>
         <strong>Sanding Blocks for Circular/Curved Surfaces</strong>
         <p>Sanding blocks shaped for circular and curved surfaces, labelled by diameter, using the same clamp and bolt as the flat block.</p>
-        <p class="fits">Printables &middot; by floano &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Base is 5 cm wide; two bolt sizes; print main parts sideways, bolts thread-up</p>
-        <a class="part-link" href="https://www.printables.com/model/467815-sanding-blocks-for-circularcurved-surfaces" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by floano · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/467815-sanding-blocks-for-circularcurved-surfaces" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/154248/stls/1453024_355bd3eb-3c17-4847-b307-7d5c07d8f822/thumbs/inside/1280x960/png/stand-alone-support_preview.webp" alt="Wood Glue Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Wood Glue Holder</strong>
         <p>A shelf support that holds two Titebond III glue bottles upside down so the glue flows fast even when the bottle is nearly empty.</p>
-        <p class="fits">Printables &middot; by 3DMaker &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Front tip holder works standalone; Fusion 360 file included; French cleat not in the model</p>
-        <a class="part-link" href="https://www.printables.com/model/154248-wood-glue-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3DMaker · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/154248-wood-glue-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/117268/stls/1144216_f706569f-d333-4f7e-93d4-41cff651dd36/thumbs/inside/1280x960/png/gluegun_holder_v3_preview.webp" alt="Ryobi Glue Gun Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Ryobi Glue Gun Holder</strong>
         <p>A holder for a Ryobi hot glue gun that mounts vertically or horizontally on the wall or bench.</p>
-        <p class="fits">Printables &middot; by 3DDIY &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 (variant not stated in snippet) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print with the slot on top to avoid bridging and supports; PETG, 0.3 mm, 20% infill</p>
-        <a class="part-link" href="https://www.printables.com/model/117268-ryobi-glue-gun-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3DDIY · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/117268-ryobi-glue-gun-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/294700/stls/2586976_6b262ada-b1b8-4478-bb30-3cecc72d9122/thumbs/inside/1280x960/png/battery_holder_preview.webp" alt="Milwaukee Tool M18 Battery Holder with Snap-Lock" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Milwaukee Tool M18 Battery Holder with Snap-Lock</strong>
         <p>A wall or under-shelf mount for Milwaukee M18 batteries that snaps in using the same retention as the tool itself.</p>
-        <p class="fits">Printables &middot; by motocoder &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Load-bearing: holds M18 batteries overhead/under-shelf — mount with #6 wood screws and check snap retention before loading; one user notes XC4.0 batteries fit tight</p>
-        <a class="part-link" href="https://www.printables.com/model/294700-milwaukee-tool-m18-battery-holder-with-snap-lock" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by motocoder · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/294700-milwaukee-tool-m18-battery-holder-with-snap-lock" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/89785/stls/944954_a332f7f8-077e-4d81-9547-d57d1ea5768e/thumbs/inside/1280x960/png/makita-battery-holder-minimal-v30_preview.webp" alt="Makita 18V Battery &amp; Drill Heavy Duty Mounts/Holders" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Makita 18V Battery &amp; Drill Heavy Duty Mounts/Holders</strong>
         <p>Heavy-duty wall mounts for Makita 18V batteries and drills, tested daily in a school timber and metal workshop — embossed DRILL and BATTERY labels.</p>
-        <p class="fits">Printables &middot; by Lumanieri &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Load-bearing: holds a drill and batteries on a wall or under a bench — print in PLA+ at 50% infill, 1.2 mm walls, and screw into studs</p>
-        <a class="part-link" href="https://www.printables.com/model/89785-makita-18v-battery-drill-heavy-duty-mountsholders" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Lumanieri · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/89785-makita-18v-battery-drill-heavy-duty-mountsholders" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -699,14 +830,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -732,7 +862,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -787,31 +916,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

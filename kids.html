@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -230,9 +267,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <main id="top">
 <section class="wrap" id="kids">
     <h2 class="section-title">Kids Stuff</h2>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory — toy cars, animals, dinosaurs, puzzles, piggy banks and more for kids. Download the model you like, then send us the file and we'll give you an exact quote. Everything here is kid-friendly — no safety-critical parts, and anything with small pieces is flagged. Don't see what you need? Tell us what you're looking for — we'll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
     <p class="section-sub">A note on kids&rsquo; items: everything here is kid-friendly &mdash; no safety-critical parts, and anything with small pieces is flagged on its card. PLA isn&rsquo;t food-safe, so cookie cutters are for dough only and bath toys are for water play, not chewing. Items meant for kids under 12 follow CPSIA guidance &mdash; ask us if you need a specific material or finish.</p>
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
@@ -251,68 +290,83 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/756674/images/5901600_d652d071-f6b7-417b-be04-2d3e90f156c5_3cecb3d5-70e9-46d3-a1a7-f99defc29383/thumbs/inside/1280x960/png/toy_sports_car_with_wheels.webp" alt="Spencer&#x27;s Toy Car with Snap-Fit Wheels" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>Spencer's Toy Car with Snap-Fit Wheels</strong>
         <p>A toy sports car with moving wheels that snap onto thick pins and stay on; designed for the designer's toddler and rugged enough for one.</p>
-        <p class="fits">Printables &middot; by Epiales &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/756674" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Epiales · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/756674" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/560b43ca-63d7-441a-8734-0e94b05d0c54/images/12216907_8c010d5f-6328-42df-bf95-c68526fb1564_039f5448-ef1e-4972-8a7c-8e0f9d380269/thumbs/inside/1280x960/jpg/mini_slideshow_printables_01.webp" alt="Mini Offroad 1:45 Toy Car" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Print-in-place</span>
         <strong>Mini Offroad 1:45 Toy Car</strong>
         <p>A fully printable 1:45 expedition toy car, 54 parts, print-in-place suspension, wheels rotate with no screws or hardware; ~6 h print, 10 min assembly.</p>
-        <p class="fits">Printables &middot; by MAKERACER &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/1624316" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MAKERACER · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1624316" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/628074/images/4978079_0043a5b1-d54e-4141-b0c5-a7325e392ac8_8f0669bd-3daf-4da0-9954-0c124b9b8ec0/thumbs/inside/1280x960/jpg/20231027_122528.webp" alt="Little Pit Stop - Concept R" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>Little Pit Stop - Concept R</strong>
         <p>A toy car with swappable wheels: kids screw the wheels on and off with the included toy key/wrench, or race against the clock.</p>
-        <p class="fits">Printables &middot; by rorys3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/628074" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by rorys3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/628074" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/388166/images/3248457_68a887d2-fc79-4e3c-a90c-9c0c6c5c8120/thumbs/inside/1280x960/jpg/cutecarscollection.webp" alt="Cute Cars - The collection" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Cute Cars - The collection</strong>
         <p>Five animal toy cars in one set (giraffe, elephant, alligator, bunny bus, hippo), each with a moving mechanism that reacts as you drive it; best at 150% scale for play.</p>
-        <p class="fits">Printables &middot; by KT3Dprint &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/388166" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by KT3Dprint · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/388166" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/3cfd947b-ec37-44e0-9e0a-99d35041cc4d/images/13793472_33e47ddc-7f72-4c67-9666-13cef33f5393_b06c4b21-aaa7-4aa9-93d7-5f68855b6092/thumbs/inside/1280x960/jpg/img_20260912_141700.webp" alt="Sail Car" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>Sail Car</strong>
         <p>A sail-powered toy car for windy days, with a sail you can customize from any image; travels two to three times the wind speed.</p>
-        <p class="fits">Printables &middot; by Print-in-Place_Fun &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1840170" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Print-in-Place_Fun · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1840170" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/16169/images/511760_6dda9dd4-f14d-452d-8f33-26518c86d16a/thumbs/inside/1280x960/jpg/stemfie-rubber-band-driven-car-sps-000001-v01.webp" alt="STEMFIE rubber-band-driven car" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>STEMFIE rubber-band-driven car</strong>
         <p>A rubber-band-powered toy car built from the STEMFIE construction-set parts; a hands-on lesson in stored energy for school-age kids.</p>
-        <p class="fits">Printables &middot; by STEMFIE &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/16169" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by STEMFIE · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/16169" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/792144/images/6138129_3b4f663a-e01a-49ee-92d2-bcef8e1e0fed_83ac2819-3858-46c9-b9d6-fc0fa620fd58/thumbs/inside/1280x960/jpg/large_display_p1020086_792144.webp" alt="Alvis Stalwart toy car" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>Alvis Stalwart toy car</strong>
         <p>A 6x6 amphibious truck toy car with spinning wheels and detailed bodywork, modeled on the Matchbox favorite; TPU tires or one-piece TPU wheels optional.</p>
-        <p class="fits">Printables &middot; by Nick_Groot &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/792144" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Nick_Groot · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/792144" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/678324/images/5332597_15163c99-a068-4201-88cb-9359793b610d_73e78372-c68d-47ff-8338-34830535c72e/thumbs/inside/1280x960/jpeg/rescuer_0.webp" alt="3D Sets Mini: Rescuer Toy" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>3D Sets Mini: Rescuer Toy</strong>
         <p>A compact 1:16 toy rescue truck with real suspension, openable doors, and a foldable roof rack; the most popular 3D Sets model in toy (non-RC) form.</p>
-        <p class="fits">Printables &middot; by 3D Sets &middot; Paid — $25.00</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/678324" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3D Sets · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/678324" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -323,92 +377,113 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/665304/images/5245427_a7021716-8ff7-456f-8167-3f7694599f8f_32c5f939-4697-44dc-9954-2e7786b5d509/thumbs/inside/1280x960/jpg/404927558_6872674196102763_6227767472882172605_n.webp" alt="Flexi Stegosaurus" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Flexi Stegosaurus</strong>
         <p>A print-in-place articulated stegosaurus with moving joints and plates; no supports, no assembly, prints as one piece.</p>
-        <p class="fits">Printables &middot; by Štístko &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/665304" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Štístko · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/665304" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/2dc7af0b-0833-4cc1-949a-4afa8d2a6146/images/13626649_5db142b5-8481-42d3-a31d-7b10ccb9ba4c_8a90dde3-e171-40f3-8481-8ca0207f92b4/thumbs/inside/1280x960/webp/most-tessa-printables-cover.webp" alt="FlexiDinos Tessa the flexi T-Rex print in place articulated dinosaur with hinged jaw" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>FlexiDinos Tessa the flexi T-Rex print in place articulated dinosaur with hinged jaw</strong>
         <p>An articulated T-Rex with a hinged jaw that chomps; the designer's take on the classic Flexi Rex, printed on its side for a dynamic pose.</p>
-        <p class="fits">Printables &middot; by AndreasJoskaSutanto &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/566894" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by AndreasJoskaSutanto · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/566894" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/838289/images/6456834_75cec2a7-9450-464c-ade9-5fa18cf15fec_adbd17db-de54-4e46-bbc0-70db1dc55859/thumbs/inside/1280x960/png/dinodino.webp" alt="Flexi Rex Holding a Butterfly" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Flexi Rex Holding a Butterfly</strong>
         <p>The classic articulated Flexi Rex, this one holding a detailed butterfly; a desk toy and a playful dino in one print.</p>
-        <p class="fits">Printables &middot; by Štístko &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/838289" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Štístko · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/838289" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/852385/images/6556088_e6853497-c483-41a6-b5f6-2a5a0291b2b0_cf9ad712-0c8d-48f1-8ecc-578f8eaf2f5d/thumbs/inside/1280x960/jpg/436771197_7224014931054203_7004346347978623637_n.webp" alt="Flexi Velociraptor" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Flexi Velociraptor</strong>
         <p>A print-in-place articulated velociraptor with interlocking segments, sized for posing; PLA recommended, no supports.</p>
-        <p class="fits">Printables &middot; by Štístko &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/852385" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Štístko · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/852385" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/370425/images/3120694_5a50cd65-f2d7-4dc0-9115-1c4522192927/thumbs/inside/1280x960/jpg/dsc02481.webp" alt="T-Rex Slide-Together Toy Dinosaur" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>T-Rex Slide-Together Toy Dinosaur</strong>
         <p>A 15-piece slide-together T-Rex, 26 cm head to tail, made for the designer's son's dinosaur birthday party; kids assemble it themselves.</p>
-        <p class="fits">Printables &middot; by Buschi &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/370425" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Buschi · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/370425" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/82e446b1-24c9-4a5c-bcf8-19657a96fd93/images/13626669_250d5ed7-15b2-48b7-8dd0-c1440ea8b49a_bb320ce3-dc7d-44a2-abc2-66b4b25ceb15/thumbs/inside/1280x960/webp/most-jj-printables-cover.webp" alt="FlexiDinos JJ the Flexi Velociraptor / Deinonychus / Utahraptor print in place articulated dinosaur" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>FlexiDinos JJ the Flexi Velociraptor / Deinonychus / Utahraptor print in place articulated dinosaur</strong>
         <p>One articulated raptor that scales to three species (100% Utahraptor, 50% Deinonychus, 25% Velociraptor), with feathered tail; PETG recommended.</p>
-        <p class="fits">Printables &middot; by AndreasJoskaSutanto &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/937676" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by AndreasJoskaSutanto · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/937676" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/4c6af057-49a7-4a88-8f12-ae0fd4654fe9/images/13626759_7be9bc9c-04da-4ae3-b039-0444caae0b72_c101e832-e51c-43df-8644-8eeed5836e18/thumbs/inside/1280x960/webp/most-gregor-printables-cover.webp" alt="FlexiDinos Gregor the flexi Ankylosaurus print in place articulated dinosaur" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>FlexiDinos Gregor the flexi Ankylosaurus print in place articulated dinosaur</strong>
         <p>A wide-bodied articulated Ankylosaurus with a thagomizer tail; the MOST 1:100 version takes 5 mm magnets so it can ride with the rest of the FlexiDinos range.</p>
-        <p class="fits">Printables &middot; by AndreasJoskaSutanto &middot; Paid — $5.00</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts incl. magnets — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/854454" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by AndreasJoskaSutanto · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/854454" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/690650/images/5428427_b1bb3cfb-fd37-4439-87d2-52dc2af23f38_f38de57f-b397-4f2e-9814-0db220e50735/thumbs/inside/1280x960/jpg/dino1.webp" alt="Dinosaur Skeleton" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Skeleton</span>
         <strong>Dinosaur Skeleton</strong>
         <p>An Apatosaurus skeleton, about the same scale as the MakerBot T-Rex and Stegosaurus; prints well at 200% in PETG.</p>
-        <p class="fits">Printables &middot; by Reinis Miķelsons &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/690650" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Reinis Miķelsons · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/690650" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/b3c78e91-fd94-4360-9b58-735715654923/images/10697276_85ebbf5d-9d28-40c7-ad61-393c9b58e198_107f02c0-1008-4432-92b4-e6ba244af64f/thumbs/inside/1280x960/jpg/4-2.webp" alt="Flexi Rex Skeleton" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Articulated</span>
         <strong>Flexi Rex Skeleton</strong>
         <p>An articulated T-Rex skeleton in the Flexi Rex style, remodeled from scratch; prints without supports at 0.16 mm layers.</p>
-        <p class="fits">Printables &middot; by CHRIS-2020 &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 (variant not stated) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/1417318" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by CHRIS-2020 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1417318" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/676006/images/5313523_5850d472-809d-4311-8e82-38ded79affcc_5d3304fe-3f56-40b4-bfcf-15118ed048d1/thumbs/inside/1280x960/jpg/406501112_209668552112018_169450152741801023_n.webp" alt="Flexi Cat" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>Flexi Cat</strong>
         <p>A print-in-place articulated cat with bendable joints; a desk toy, a gift for cat lovers, and a good demo of what a printer can do.</p>
-        <p class="fits">Printables &middot; by Štístko &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/676006" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Štístko · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/676006" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/678641/images/5334336_9e2f821b-d81a-4cf9-ace0-cdd5c9045c7e_db3272bc-a47b-4d3f-899f-e675280983ac/thumbs/inside/1280x960/jpg/406470220_1414596645788011_2449686312748681324_n.webp" alt="Flexi Dog" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>Flexi Dog</strong>
         <p>A print-in-place articulated dog with loose-but-connected joints that wiggle when you pick it up; a charming desk companion and kids' toy.</p>
-        <p class="fits">Printables &middot; by Štístko &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/678641" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Štístko · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/678641" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -419,68 +494,83 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/592725/images/4766194_3b83cf65-9bdf-49c4-982a-1ba961f242a3_6ac34e4e-5a07-4e25-b538-51e475b95f2e/thumbs/inside/1280x960/jpg/printa.webp" alt="Puzzle toy for kids" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Puzzle toy for kids</strong>
         <p>A 2D and 3D block puzzle (four cubes, four small L-blocks, four large L-blocks) for building patterns or a solid cuboid; print each piece in a different color for the most fun.</p>
-        <p class="fits">Printables &middot; by SheepMe! &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/592725" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by SheepMe! · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/592725" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/75032/images/811566_a069b005-0ab3-4c2d-a2e0-07bf76c201da/thumbs/inside/1280x960/jpg/img_8429.webp" alt="Steel Ball Puzzle Maze" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Puzzle</span>
         <strong>Steel Ball Puzzle Maze</strong>
         <p>A steel-ball puzzle (pocket size for BBs, large size for 3/8" slingshot balls): get all the balls into the center ring; balls are inserted mid-print so the trick stays hidden.</p>
-        <p class="fits">Printables &middot; by Family3dPrint &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/75032" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Family3dPrint · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/75032" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/270045/images/2426335_f7ea4829-6b8b-4468-8971-213a7d0c9627/thumbs/inside/1280x960/jpg/img-03412.webp" alt="Maze Cube - Rookie" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Maze</span>
         <strong>Maze Cube - Rookie</strong>
         <p>An enclosed cube maze of easy difficulty: tilt the cube to guide a 12.7 mm ball from one hole to the other, no dead ends, playable from both sides.</p>
-        <p class="fits">Printables &middot; by kosteklvp &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/270045" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by kosteklvp · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/270045" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/7cd72ec3-839e-47b8-8486-820d7d441868/images/10595565_66811def-c3c2-4241-aeb3-84cf95033bf5_1d26a2a2-705d-4c54-88f3-1edf4a9a0157/thumbs/inside/1280x960/png/4x3-thumbnail2x.webp" alt="3D Maze Box (Costumizable puzzle!)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>3D Maze Box (Costumizable puzzle!)</strong>
         <p>A stackable maze box: print 2–5 different maze levels, screw them together, and race the ball through; more levels, harder puzzle.</p>
-        <p class="fits">Printables &middot; by GlennovitS 3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/596979" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GlennovitS 3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/596979" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/270735/images/2410369_2c96802f-3e70-40ba-8f60-208c20bcfc0e/thumbs/inside/1280x960/jpg/20220903_142209.webp" alt="Parametric Lost Marble Maze" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>Parametric Lost Marble Maze</strong>
         <p>A "lost marble" hidden-path maze block based on the old wooden toy: drop a marble in, solve it by feel — you can't see the path.</p>
-        <p class="fits">Printables &middot; by Raekal &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/270735" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Raekal · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/270735" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/ca231428-206e-430c-87ac-a76ce1e901b1/images/9611433_fc2c5bec-c6c1-4fbf-a6dd-cbc076380dba_a9f00419-9dfe-4f8a-bf71-02d6db35bcd5/thumbs/inside/1280x960/jpg/dscf8791.webp" alt="Balance Tower with Retro Blocks - Game" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Balance Tower with Retro Blocks - Game</strong>
         <p>A stacking game with retro-style blocks on a tilting base: pick your pieces, make your own rules, and don't topple the tower.</p>
-        <p class="fits">Printables &middot; by Flying Gyroscope &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $15 &middot; Multicolor &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/858458" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Flying Gyroscope · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/858458" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/930851/images/7097682_88908f14-8a46-48eb-8cea-6e57ab0903aa_b3554dd5-8fde-4d1b-8941-20e9abfbcc1e/thumbs/inside/1280x960/jpg/img_20240702_192824.webp" alt="Stacking number blocks children&#x27;s math toy" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>Stacking number blocks children's math toy</strong>
         <p>Ten numbered blocks (1–10), each block's height in centimeters matching its number, so kids can see addition by stacking.</p>
-        <p class="fits">Printables &middot; by Étienne &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/930851" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Étienne · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/930851" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/73723/images/798911_fe0797ef-b4d3-452b-bb18-40cc46de1850/thumbs/inside/1280x960/jpg/export.webp" alt="Print Bricks: more than 150 different shapes" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Print Bricks: more than 150 different shapes</strong>
         <p>Over 150 brick, plate, tile, slope, and corner shapes compatible with other brands; 0% infill, no supports, easy prints for building anything.</p>
-        <p class="fits">Printables &middot; by 3d_jc &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/73723" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3d_jc · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/73723" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -491,75 +581,93 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/f2ab526b-250e-4cbb-91ec-e306947b6083/images/13780291_fc006704-e770-4627-9843-560dede658ab_d0194f5e-bac0-42c7-ad0c-82361c2a9001/thumbs/inside/1280x960/png/daisy-printables-thingiverse.webp" alt="Daisy Flower Cookie Cutter STL – 3D Print Biscuit Mold" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Cookie cutter</span>
         <strong>Daisy Flower Cookie Cutter STL – 3D Print Biscuit Mold</strong>
         <p>A daisy-shaped cutter (80×62 mm) plus a universal handle; works for cookies, fondant, and clay.</p>
-        <p class="fits">Printables &middot; by Pyrogenio &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Dough only — PLA is not food-safe</p>
-        <a class="part-link" href="https://www.printables.com/model/1838444" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Pyrogenio · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1838444" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/411059/images/3413619_d598c91c-bdf3-49cf-994b-d9a071493887/thumbs/inside/1280x960/jpg/large_display_20210606_sm_cinnmol_cookie_dcortes2_411059.webp" alt="Chemistry Cookie Cutter - Cinnamon Molecule" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Cookie cutter</span>
         <strong>Chemistry Cookie Cutter - Cinnamon Molecule</strong>
         <p>A cinnamon-molecule-shaped cutter making ~60 mm biscuits; matches the designer's chocolate, lemon, and sugar molecule cutters for a set.</p>
-        <p class="fits">Printables &middot; by dcortes &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Dough only — PLA is not food-safe</p>
-        <a class="part-link" href="https://www.printables.com/model/411059" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by dcortes · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/411059" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/184332/images/1718742_625a6025-d403-4093-b371-da3c170bff25/thumbs/inside/1280x960/jpg/large_display_photo_20210930_122605-min_184332.webp" alt="Mad &amp; Happy Jack Cookie Cutter Set" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Cookie cutter</span>
         <strong>Mad &amp; Happy Jack Cookie Cutter Set</strong>
         <p>Happy and mad jack-o'-lantern cutters; prints well at 75% for smaller cookies.</p>
-        <p class="fits">Printables &middot; by TeamOliva &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Dough only — PLA is not food-safe</p>
-        <a class="part-link" href="https://www.printables.com/model/184332" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by TeamOliva · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/184332" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/840859/images/6475367_3ee5dbf7-ec33-4df1-a146-60831772aef3_408efcdb-8e0d-4d40-a830-463d1db64139/thumbs/inside/1280x960/png/screen-shot-2024-04-11-at-93239-pm.webp" alt="Maple Leaf Cookie Cutter" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Cookie cutter</span>
         <strong>Maple Leaf Cookie Cutter</strong>
         <p>A maple-leaf cutter with smooth edges, printed in PLA at 0.2 mm layers; print, press, bake.</p>
-        <p class="fits">Printables &middot; by fvhnf &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Dough only — PLA is not food-safe</p>
-        <a class="part-link" href="https://www.printables.com/model/840859" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by fvhnf · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/840859" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/341112/images/2910987_c9529f3d-18f9-4113-b85b-881642252c57/thumbs/inside/1280x960/jpg/large_display_ae859a09-bd41-47b6-955c-c2c9952de532_341112.webp" alt="Cookie Cutter 3D Printer and Tools Set" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Cookie cutter</span>
         <strong>Cookie Cutter 3D Printer and Tools Set</strong>
         <p>Five cutters in one set: 3D-printer nozzle, wrench, hammer, smiley face, and the Enable 3D logo.</p>
-        <p class="fits">Printables &middot; by Enable 3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Dough only — PLA is not food-safe</p>
-        <a class="part-link" href="https://www.printables.com/model/341112" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Enable 3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/341112" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/852444/images/6556502_dcab3a9d-5ab3-4172-8779-650719dbbdbd_c45d14aa-047a-42e6-87db-56b8e80dc1c0/thumbs/inside/1280x960/jpg/img_15556e.webp" alt="Onewheel Cookie Cutters" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Cookie cutter</span>
         <strong>Onewheel Cookie Cutters</strong>
         <p>Six board-shaped cutters (V1, Plus, XR, Pint, Pint X, GT) for Onewheel fans; flour the cutter first and use firm dough about 7 mm tall.</p>
-        <p class="fits">Printables &middot; by Lia &middot; Paid — $6.00</p>
-        <p class="part-note">License: Commercial use — no derivatives &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Dough only — PLA is not food-safe</p>
-        <a class="part-link" href="https://www.printables.com/model/852444" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Lia · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/852444" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/9c2a30c7-8d1e-4f15-ad0b-aadb6d11658f/images/10782397_ef5cf329-8055-43fd-86f1-47762d44db3c_858d1217-4fe2-4189-a735-4b172e21286d/thumbs/inside/1280x960/jpg/img_6178.webp" alt="Taco Shop - Authentic Mexican &quot;Taquería&quot; - Kid&#x27;s Play Kitchen Cooking Toys" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Taco Shop - Authentic Mexican "Taquería" - Kid's Play Kitchen Cooking Toys</strong>
         <p>A 20-piece play taco shop: pastor trompo (meat pile), fire, chopping stump, knives, tongs, salsa bowl, tortillas, limes, and plates; all parts print without supports.</p>
-        <p class="fits">Printables &middot; by Dany Sánchez &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/1428484" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Dany Sánchez · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1428484" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/257291/images/2305775_2502523e-93d4-4cfa-9ad7-033e27c1e37d/thumbs/inside/1280x960/jpg/large_display_toy_fruit_257291.webp" alt="Simple Toy Fruits" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Simple Toy Fruits</strong>
         <p>Simple apples, pears, and plums for play kitchens, inspired by the HABA First Orchard game; flat-bottomed, easy prints.</p>
-        <p class="fits">Printables &middot; by polywhale &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/257291" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by polywhale · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/257291" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/238328/images/2156798_d923d788-8a1b-4a24-96f4-54166402ed45/thumbs/inside/1280x960/jpg/pxl_20220708_181248169.webp" alt="Children&#x27;s Toy Toolbox" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>Children's Toy Toolbox</strong>
         <p>A toolbox built to be almost entirely 3D printed, with a hammer, screwdriver, wrench, nails, wood, nuts, and screws — thick and strong enough that the designer's 3- and 1-year-olds haven't broken it.</p>
-        <p class="fits">Printables &middot; by aviola7x7 &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 (variant not stated) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/238328" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by aviola7x7 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/238328" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -570,60 +678,73 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/705509/images/5537474_90977873-9a4d-4789-8f37-a0189b9be3db_f02fc3be-4833-48b9-933c-8e4f0da7a2fb/thumbs/inside/1280x960/png/zamek-final1a-rendergrb.webp" alt="Piggy bank with two coin slides | Piggy castle bank" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Piggy bank</span>
         <strong>Piggy bank with two coin slides | Piggy castle bank</strong>
         <p>A castle piggy bank with two coin slides and a direct-insert hole; coins spiral down the slides, and a door opens to empty it.</p>
-        <p class="fits">Printables &middot; by TOMx3D &middot; Paid — $3.50</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $68 &middot; PETG $76</p>
-        <a class="part-link" href="https://www.printables.com/model/705509" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by TOMx3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/705509" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/19989fcb-4a34-45f0-8505-1ad145a4cc9d/images/12892939_1825c10b-3bd5-4210-9ae9-8d31bf15b318_d654c495-c624-4e9e-9b62-d551607acd41/thumbs/inside/1280x960/jpg/piggy_one-coin_43_1.webp" alt="One-coin PiggyBank" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>One-coin PiggyBank</strong>
         <p>A pig (or boar) bank that holds exactly one coin with a satisfying click, thanks to internal springs; three sizes for coins up to 27.5 mm.</p>
-        <p class="fits">Printables &middot; by C47_3d &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/929648" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by C47_3d · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/929648" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/a99f508d-aee6-4cbe-9312-bede3f71725f/images/10595375_fd36d523-3c23-4818-8d30-2e362cb44a8f_2e5aab3a-3299-41ed-a71b-14b39ab1c297/thumbs/inside/1280x960/png/4x3-thumbnail2x.webp" alt="Mesmerizing Piggy Bank (twist/spin/fidget to enjoy the design!)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Piggy bank</span>
         <strong>Mesmerizing Piggy Bank (twist/spin/fidget to enjoy the design!)</strong>
         <p>A piggy bank with a twist-spinning lid that makes the pattern shift as you turn it; two styles (Lines, Pillshapes), no glue, no extra parts.</p>
-        <p class="fits">Printables &middot; by GlennovitS 3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/654672" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GlennovitS 3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/654672" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/b713518d-5f1e-41d1-b91d-affbcd3818a8/images/10595362_c5fcee22-1530-4d49-8b7b-5ccbe8e779ac_85670e18-d7fe-4837-a398-f16bf605c3a3/thumbs/inside/1280x960/png/4x3-thumbnail2x.webp" alt="Cute Computer Bank (desk companion - kawaii piggy bank)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Cute Computer Bank (desk companion - kawaii piggy bank)</strong>
         <p>A kawaii computer-shaped piggy bank with swappable faces; screw in the bottom, stick on the screen, pick a face.</p>
-        <p class="fits">Printables &middot; by GlennovitS 3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/654821" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GlennovitS 3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/654821" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/567085/images/4539716_5c951042-52b2-4a90-bd3f-6e2d19c9a7ec/thumbs/inside/1280x960/jpg/1.webp" alt="FIDGET POINTING PENCIL TOPPER FINGER, FOR EASIER LEARNING, PERFECT UNIQUE COOL GIFT FOR KIDS, BOOK PAGE TRACKING" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Fidget</span>
         <strong>FIDGET POINTING PENCIL TOPPER FINGER, FOR EASIER LEARNING, PERFECT UNIQUE COOL GIFT FOR KIDS, BOOK PAGE TRACKING</strong>
         <p>A pointing-finger pencil topper that tracks your line while you read, so you never lose your place; a 15-minute print.</p>
-        <p class="fits">Printables &middot; by 3dPrinttsy &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 (variant not stated) &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/567085" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3dPrinttsy · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/567085" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/834605/images/6431699_751a6976-e661-44bf-b042-7afdf99bdaf2_5d2ee4c5-875f-4636-a9a1-5cef79967869/thumbs/inside/1280x960/jpg/img_1884.webp" alt="Angry Cat &amp; Peeking Kitten Bookmarks" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Clip</span>
         <strong>Angry Cat &amp; Peeking Kitten Bookmarks</strong>
         <p>Two flat cat-silhouette page-clip bookmarks (angry cat with paws, peeking kitten); a quick, simple PLA print at 0.2 mm.</p>
-        <p class="fits">Printables &middot; by JeffC &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/834605" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by JeffC · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/834605" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/341964/images/2916161_0858a55f-a98f-44f8-9dff-9b80da5811cc/thumbs/inside/1280x960/jpg/photo_2022-12-17_13-37-33.webp" alt="Magnetic Bookmark with Pencil Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Magnetic</span>
         <strong>Magnetic Bookmark with Pencil Holder</strong>
         <p>A bookmark that holds a 7 mm pencil with magnets (plus a no-magnet version); keep the pencil with the book to jot notes as you read.</p>
-        <p class="fits">Printables &middot; by giacomopeli &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/341964" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by giacomopeli · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/341964" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -634,60 +755,73 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/769866/images/5996455_b0188df1-d7e7-411f-af30-33bcde3d2fe0_1fb86b20-2f08-4418-8f10-c6dab09607d2/thumbs/inside/1280x960/jpg/20240218_133106.webp" alt="SS Bathtime Toy Boat" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>SS Bathtime Toy Boat</strong>
         <p>A simple, sturdy floating toy boat with two interior benches so small toys can ride along; single piece, no supports, prints at 0.20 mm.</p>
-        <p class="fits">Printables &middot; by not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Water play only — not a chew toy</p>
-        <a class="part-link" href="https://www.printables.com/model/769866" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by not shown on page fetch · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/769866" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/772421/images/6007012_729272b3-23c0-46cd-9e7f-64b826aebed5_854050ee-841a-4fdd-a7e3-5a09bd0eece2/thumbs/inside/1280x960/jpg/fancy-duck2.webp" alt="Fancy Bath Time Duck" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>Fancy Bath Time Duck</strong>
         <p>A bath duck with a top hat; the hat friction-fits on (glue optional) and the duck is ready for the tub.</p>
-        <p class="fits">Printables &middot; by Bearded Printer &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Water play only — not a chew toy; hat is a small part — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/772421" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Bearded Printer · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/772421" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/768467/images/5980638_6654792d-cc2a-42e3-a941-f65e41677fde_2b8d8d65-3225-4c76-9e02-28970799567b/thumbs/inside/1280x960/jpg/img20240217162938.webp" alt="Bath time duck water toy" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Bath time duck water toy</strong>
         <p>A simple no-support bath duck with a spinning pin detail; a quick, fun water toy for all ages.</p>
-        <p class="fits">Printables &middot; by PRINTED IN TOKYO / MCM &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Water play only — not a chew toy</p>
-        <a class="part-link" href="https://www.printables.com/model/768467" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by PRINTED IN TOKYO / MCM · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/768467" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/918873/images/7121890_3a34f4e0-8949-459a-9fac-0d9fadf49e1d_26a55348-96be-4c14-87b2-31575f296a2e/thumbs/inside/1280x960/jpg/img_20240705_153559771_mfnr.webp" alt="Canoe boat" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>Canoe boat</strong>
         <p>A tiny toy canoe for the bathtub; 6 g of filament and about 20 minutes to print.</p>
-        <p class="fits">Printables &middot; by Michal &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $15 &middot; Water play only — not a chew toy</p>
-        <a class="part-link" href="https://www.printables.com/model/918873" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Michal · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/918873" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US2ace45535f303f/design/f96bf2d1188d15dd.png" alt="Submarine Bath Toy" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Toy</span>
         <strong>Submarine Bath Toy</strong>
         <p>A floating submarine with a built-in carry handle, a front pour spout, and big openings that drain and dry fast; snaps together from two parts, no glue.</p>
-        <p class="fits">MakerWorld &middot; by not shown on page fetch &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Water play only — not a chew toy</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2879294-submarine-bath-toy" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by not shown on page fetch · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2879294-submarine-bath-toy" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/432675/images/3582373_e616c2ba-a702-4fcb-8a0c-a1d0c5a5625c/thumbs/inside/1280x960/png/plane.webp" alt="Low Weight 3D Printable Glider" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Toy</span>
         <strong>Low Weight 3D Printable Glider</strong>
         <p>A very low-weight toy glider designed with real aerodynamics; about 20 g in LW-PLA, fits a Prusa Mini bed.</p>
-        <p class="fits">Printables &middot; by mblunt &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 (variant not stated) &middot; PLA $15 &middot; PETG $15</p>
-        <a class="part-link" href="https://www.printables.com/model/432675" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by mblunt · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/432675" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/635841/images/5029960_d4d268e5-424e-4659-acf3-769e78c517ab_fb11feca-5c2f-4e99-ac63-ec5d9f609c55/thumbs/inside/1280x960/jpeg/dsc01450.webp" alt="Flying Propeller (Pull Copter) &amp; Spinning Top (No Supports, No Assembly Required)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Flying Propeller (Pull Copter) &amp; Spinning Top (No Supports, No Assembly Required)</strong>
         <p>A pull-copter toy for kids: pull the rod and the propeller soars or the spinning top twirls; three parts, no assembly.</p>
-        <p class="fits">Printables &middot; by uhltimate &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Small parts — not for under 3s</p>
-        <a class="part-link" href="https://www.printables.com/model/635841" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by uhltimate · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/635841" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -713,14 +847,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -746,7 +879,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -801,31 +933,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -230,9 +267,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <main id="top">
 <section class="wrap" id="seasonal-holiday">
     <h2 class="section-title">Seasonal &amp; Holiday</h2>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory — Halloween props, Christmas ornaments, and holiday decor. Download the model you like, then send us the file and we'll give you an exact quote. Seasonal prints that sell fast at the booth — grab them before the holiday. Don't see what you need? Tell us what you're looking for — we'll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
       <a href="#halloween">Halloween</a>
@@ -248,139 +287,163 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/301234/images/2634474_f24eea40-91e2-4979-9c20-ffd06fe3991c/thumbs/inside/1280x960/jpg/iconic-halloween-tokens.webp" alt="Iconic Halloween Tokens" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Iconic Halloween Tokens</strong>
         <p>A set of flat Halloween tokens — skull, pumpkin, ghost, bat, cat, and witch hat — quick prints, great as booth handouts or trick-or-treat tokens.</p>
-        <p class="fits">Printables &middot; by Hex2000 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Six designs in one set: skull, pumpkin, ghost, bat, cat, witch hat</p>
-        <a class="part-link" href="https://www.printables.com/model/301234-iconic-halloween-tokens" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Hex2000 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/301234-iconic-halloween-tokens" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/18fc52a7-1110-44ce-9ab1-fdc32884a3ed/previews/thumbs/inside/1280x960/png/c08cdf7e-c5da-41f4-b6c1-b1e22b371e36.webp" alt="Warty Witch | Knobbly Green Halloween Pumpkin" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Warty Witch | Knobbly Green Halloween Pumpkin</strong>
         <p>A squat green pumpkin with knobbly skin, cat-like eyes, a skull nose, and a fanged grin; lid and stalk assembly included.</p>
-        <p class="fits">Printables &middot; by Infillery Originals &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs a battery LED tealight (not included); customisable in the designer's Pumpkin Builder</p>
-        <a class="part-link" href="https://www.printables.com/model/1878733-warty-witch-knobbly-green-halloween-pumpkin" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Infillery Originals · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1878733-warty-witch-knobbly-green-halloween-pumpkin" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/7a8ef14a-d69f-4d3e-9c5a-65be94acb95f/images/10855840_1dbf497c-82a5-46f6-8601-ffe27a8b7ab9/document_5997003766719585095.gif" alt="Pumpkin Skull Mask" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Seasonal</span>
         <strong>Pumpkin Skull Mask</strong>
         <p>A wearable pumpkin-skull mask blending jack-o-lantern and skeleton; a showpiece Halloween costume accessory.</p>
-        <p class="fits">Printables &middot; by 3DRF.GR &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Large print (67 MB STL); medium-size 3MF included</p>
-        <a class="part-link" href="https://www.printables.com/model/1439626-pumpkin-skull-mask" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3DRF.GR · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1439626-pumpkin-skull-mask" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/81954/stls/877243_391e2e63-f18f-41b0-95ef-1663d2f31665/thumbs/inside/1280x960/png/ghost_pumpkin_kazitoad_preview.webp" alt="Ghost Pumpkin with Hidden Face" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Pumpkin</span>
         <strong>Ghost Pumpkin with Hidden Face</strong>
         <p>A ghost jack-o-lantern that shows its face when lit from underneath; counter-top and hanging versions included.</p>
-        <p class="fits">Printables &middot; by Kazi Toad &middot; Free download</p>
-        <p class="part-note">License: Creative Commons 4.0 — designer states personal use only, commercial licence via Patreon &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Fits an electric tea light (no real flame); prints without supports if you can handle bridging</p>
-        <a class="part-link" href="https://www.printables.com/model/81954-ghost-pumpkin-with-hidden-face" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Kazi Toad · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/81954-ghost-pumpkin-with-hidden-face" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/d004a004-55b0-4d10-ba63-e84a3cfb72ca/images/14135308_5c168d57-ae39-41f8-90d8-ee1636a8de38_5c9df91a-bf97-4461-93c6-c8f1ffa0c460/thumbs/inside/1280x960/png/1.webp" alt="Halloween Potion Bottles" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Halloween Potion Bottles</strong>
         <p>A set of six chunky potion bottles, each with its own Halloween silhouette (bat, pumpkin, skull, cauldron, spider web, black cat) and matching cork.</p>
-        <p class="fits">Printables &middot; by Real_Prints &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Decorative display models, not for storing liquids</p>
-        <a class="part-link" href="https://www.printables.com/model/1882307-halloween-potion-bottles" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Real_Prints · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1882307-halloween-potion-bottles" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/7f1d4590-4ecb-4942-ae7d-64f28bef47e0/previews/thumbs/inside/1280x960/png/6ee24111-6677-4a1c-ae0e-c8b5a7c72047.webp" alt="The Witch&#x27;s Apothecary | Mini Potion Bottle Set" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>The Witch's Apothecary | Mini Potion Bottle Set</strong>
         <p>Five matching mini potion bottles — Venom Vial, Moon Elixir, Ghost Essence, Witch's Brew, Midnight Wings — each with its own motif and removable stopper.</p>
-        <p class="fits">Printables &middot; by Infillery Originals &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; AMS/MMU multicolour and separate-insert versions; small removable parts — not for young children</p>
-        <a class="part-link" href="https://www.printables.com/model/1877691-the-witchs-apothecary-mini-potion-bottle-set" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Infillery Originals · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1877691-the-witchs-apothecary-mini-potion-bottle-set" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/305186/images/2660939_d582427f-f0bc-438a-a284-05d7069ec940/thumbs/inside/1280x960/jpg/img20221029152916.webp" alt="Hexagon Halloween Decorations" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Hexagon Halloween Decorations</strong>
         <p>A set of small hexagonal Halloween decorations (jack-o-lantern, bat, witch's hat) that tile together; each takes two small cylinder magnets.</p>
-        <p class="fits">Printables &middot; by oyvindl &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs 2 mm x 1.8 mm cylinder magnets (2 per decoration)</p>
-        <a class="part-link" href="https://www.printables.com/model/305186-hexagon-halloween-decorations" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by oyvindl · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/305186-hexagon-halloween-decorations" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/81760/images/874911_4922829a-cac2-4b1f-a7da-e9c5dc022ec1/thumbs/inside/1280x960/jpg/skellys-with-catapult3.webp" alt="Halloween Desktop Pumpkin Catapult" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Halloween Desktop Pumpkin Catapult</strong>
         <p>A rubber-band-powered desktop catapult decorated with spider webs, skulls, and a jack-o-lantern; the swing arm is a witch's broom.</p>
-        <p class="fits">Printables &middot; by stlDenise &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs an ordinary office rubber band for power; prints flat without supports</p>
-        <a class="part-link" href="https://www.printables.com/model/81760-halloween-desktop-pumpkin-catapult" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by stlDenise · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/81760-halloween-desktop-pumpkin-catapult" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/5857a5be-1fec-4042-8118-8c680bd6a7b5/images/14153501_225f4ad4-41b5-489f-83c4-96b946c8cdc6_c966109d-e88b-48e6-b811-8feaa5d8649a/thumbs/inside/1280x960/jpg/tvt07263.webp" alt="Halloween Coasters &amp;amp; Holder – 3D Printed Spooky Decor" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Halloween Coasters &amp; Holder – 3D Printed Spooky Decor</strong>
         <p>A spiderweb coaster holder with Halloween coasters featuring a friendly ghost, bat, jack-o-lantern pumpkin, and haunted house.</p>
-        <p class="fits">Printables &middot; by Monik Studio &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Party and table decor as well as coasters</p>
-        <a class="part-link" href="https://www.printables.com/model/1884512-halloween-coasters-holder-3d-printed-spooky-decor" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Monik Studio · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1884512-halloween-coasters-holder-3d-printed-spooky-decor" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/80059/images/871850_211fe8ef-7b0e-4284-b9ac-f03b6cb18a7d/thumbs/inside/1280x960/jpg/together-picsa.webp" alt="8 Fun Halloween Cookie Cutters" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>8 Fun Halloween Cookie Cutters</strong>
         <p>Eight Halloween cookie cutters: witch on a broom, pumpkin, witch's hat, bat, spider's web, cat, cauldron, and ghost.</p>
-        <p class="fits">Printables &middot; by Hex2000 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; PLA is not food-safe — sell as playdough / craft cutters, not for direct food contact</p>
-        <a class="part-link" href="https://www.printables.com/model/80059-8-fun-halloween-cookie-cutters" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Hex2000 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/80059-8-fun-halloween-cookie-cutters" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US786ed30c66e18d/1080669733/instance/6135ce7e95217543.jpg" alt="Spook Spinners, Print-in-Place Halloween Fidget" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Spook Spinners, Print-in-Place Halloween Fidget</strong>
         <p>Print-in-place Halloween fidget spinners — a pumpkin, a ghost, and a skull; pinch the face and spin the body. About 11 minutes each.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $15 &middot; PETG $15 &middot; Multicolor &middot; About 5 g each; trick-or-treat plate prints 26 at once; small parts — not for kids under 3</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3466270-spook-spinners-print-in-place-halloween-fidget" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3466270-spook-spinners-print-in-place-halloween-fidget" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USa123495c6c1c32/design/af91446f6df4ad02.jpg" alt="Halloween Decorative Picks" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Seasonal</span>
         <strong>Halloween Decorative Picks</strong>
         <p>Eight flat Halloween decorative picks — pumpkin, skull, ghost, bat, and more — for planters, party food, or spooky displays.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print flat on the build plate</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3413809-halloween-decorative-picks" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3413809-halloween-decorative-picks" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US1c6fdea677040a/design/2025-10-21_ddf6de47562468.png" alt="Super cool multi-purpose Halloween prop - Skull Pumpkin" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Super cool multi-purpose Halloween prop - Skull Pumpkin</strong>
         <p>A high-detail skull pumpkin that works as a candy bowl or an LED lamp; multicolour effect with no AMS needed.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Two versions included: candy bowl and LED lamp; fits in the palm of your hand</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1910361-super-cool-multi-purpose-halloween-prop-skull-pump" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1910361-super-cool-multi-purpose-halloween-prop-skull-pump" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US7ea7d33254a656/design/99ce87a40ecedda9.png" alt="Witchy Boo – Little Ghost Reading Spells" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Shelf</span>
         <strong>Witchy Boo – Little Ghost Reading Spells</strong>
         <p>A tiny ghost wizard in an oversized witch hat, reading a spellbook with a pumpkin emblem; cute desk or shelf decor.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Prints well in a single colour, no AMS needed</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3385162-witchy-boo-little-ghost-reading-spells" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3385162-witchy-boo-little-ghost-reading-spells" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US23abb5fecac74d/design/2025-08-23_f8f7475de4e6c.jpeg" alt="Halloween Cookie Cutters - Set 1" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Seasonal</span>
         <strong>Halloween Cookie Cutters - Set 1</strong>
         <p>A set of five Halloween cookie cutters — pumpkin, ghost, web, witch hat, and skull — with handles; a 4-hour, 6-plate print.</p>
-        <p class="fits">MakerWorld &middot; by Parametric Model Maker &middot; Free download</p>
-        <p class="part-note">License: Standard Digital File License — personal use, not for resale &middot; PLA $29 &middot; PETG $32 &middot; PLA is not food-safe — sell as playdough / craft cutters; Set 2 (bat, moon, coffin) on the designer's profile</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1726317-halloween-cookie-cutters-set-1" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Parametric Model Maker · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1726317-halloween-cookie-cutters-set-1" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USaff7933887ecbc/design/2025-08-14_654020393331f8.webp" alt="Melting Pumpkin" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Pumpkin</span>
         <strong>Melting Pumpkin</strong>
         <p>A detailed melting horror pumpkin with a skull face fused into the dripping shape; a creepy windowsill or party decoration.</p>
-        <p class="fits">MakerWorld &middot; by Florian Weller &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $15 &middot; PETG $15 &middot; Print profile: 0.2 mm layers, 2 walls, 6% infill</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1699580-melting-pumpkin" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Florian Weller · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1699580-melting-pumpkin" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -391,122 +454,144 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/363935/stls/3076815_e5bebcc6-3625-42f1-b2fd-bc9d6842fe2b/thumbs/inside/1280x960/png/santa-claus-sleigh-christmas-tree-decoration-frikarte3d_preview.webp" alt="Santa Claus Sleigh Christmas Tree Decoration" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Santa Claus Sleigh Christmas Tree Decoration</strong>
         <p>A flat multicolour Christmas bauble featuring Santa, a flying reindeer, and snowflakes; striking in red and white.</p>
-        <p class="fits">Printables &middot; by Frikarte3D &middot; Free download</p>
-        <p class="part-note">License: Personal use only — non-commercial license &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Print in a single colour and paint it, or use AMS/MMU/manual filament swaps</p>
-        <a class="part-link" href="https://www.printables.com/model/363935-santa-claus-sleigh-christmas-tree-decoration" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Frikarte3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/363935-santa-claus-sleigh-christmas-tree-decoration" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/336400/images/2951725_9be11851-9803-42c0-a383-a387080d6ca0/thumbs/inside/1280x960/jpg/pxl_20221222_143653409_2.webp" alt="Elder Snowflake" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Elder Snowflake</strong>
         <p>A straightforward 4-inch snowflake ornament with a subtle eldritch nod; prints in about an hour with no supports.</p>
-        <p class="fits">Printables &middot; by Dustin Dade &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/336400-elder-snowflake" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Dustin Dade · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/336400-elder-snowflake" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/81711674-1f89-4403-9f7b-a6c47584da5c/images/11368496_58e25e3c-8c3c-456e-94b1-55e5bf5b72d7_9841dea2-9c01-4641-ae05-ebe8226f4d84/thumbs/inside/1280x960/jpg/img_0011.webp" alt="Christmas Ornament Set – Stars, Snowflakes, Bells &amp;amp; Trees" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Silk-friendly</span>
         <strong>Christmas Ornament Set – Stars, Snowflakes, Bells &amp; Trees</strong>
         <p>Over 15 original ornament designs — snowflakes, stars, bells, trees, and more — each around 3 g and 15–20 minutes to print.</p>
-        <p class="fits">Printables &middot; by uetam3 &middot; Free download</p>
-        <p class="part-note">License: Personal use only — commercial licence via Patreon &middot; PLA $15 &middot; PETG $15 &middot; Weight is per ornament (~3 g each); great in silk gold, white, and red PLA</p>
-        <a class="part-link" href="https://www.printables.com/model/1458612-christmas-ornament-set-stars-snowflakes-bells-tree" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by uetam3 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1458612-christmas-ornament-set-stars-snowflakes-bells-tree" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/274157/images/2436798_1f6ef307-e9c3-4d15-b40a-d9dae141bb67/thumbs/inside/1280x960/jpg/ornament_display_large_274157.webp" alt="Tree and Snowflake 2013 Ornament" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Tree and Snowflake 2013 Ornament</strong>
         <p>A Christmas tree ornament with a gimballed snowflake that spins on a vertical axis; thin enough to mail in a Christmas card.</p>
-        <p class="fits">Printables &middot; by Peter L &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Prints in two pieces and snaps together, or as a single print</p>
-        <a class="part-link" href="https://www.printables.com/model/274157-tree-and-snowflake-2013-ornament" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Peter L · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/274157-tree-and-snowflake-2013-ornament" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/96451/images/983789_77ad3936-00c7-4f37-b80f-076c5b6e8273/thumbs/inside/1280x960/jpg/img_20211125_150231041.webp" alt="Snowflake ornament" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Hook</span>
         <strong>Snowflake ornament</strong>
         <p>A quick, easy snowflake ornament for the tree or window; print it in clear filament with 0% infill for a light-catching effect.</p>
-        <p class="fits">Printables &middot; by Dan the 3D Printing Dad &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Thread a string or hook through the hole to hang it</p>
-        <a class="part-link" href="https://www.printables.com/model/96451-snowflake-ornament" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Dan the 3D Printing Dad · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/96451-snowflake-ornament" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/92569/images/991314_6cbedef5-3495-44cb-a625-b3633ec9e830/thumbs/inside/1280x960/png/glowing-snowflake-christmas-ornament-1.webp" alt="Glowing Snowflake - Christmas Tree Ornament" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Glowing Snowflake - Christmas Tree Ornament</strong>
         <p>A 5 cm snowflake ornament that covers a 3 mm LED diode, so it glows on the tree.</p>
-        <p class="fits">Printables &middot; by MyGeekyMuse &middot; Free download</p>
-        <p class="part-note">License: CC BY 4.0 &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Needs a 3 mm LED diode (white); transparent PVB or galaxy silver PLA looks best</p>
-        <a class="part-link" href="https://www.printables.com/model/92569-glowing-snowflake-christmas-tree-ornament" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MyGeekyMuse · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/92569-glowing-snowflake-christmas-tree-ornament" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/10843/images/91448_385a7103-6c25-4604-9734-be860c7b0d34/thumbs/inside/1280x960/jpg/foto-171119-18-11-59.webp" alt="Snowflake Christmas Ornament Christmas Tree XMAS decoration" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Snowflake Christmas Ornament Christmas Tree XMAS decoration</strong>
         <p>A small, fast snowflake ornament for the window or tree; prints in about 53 minutes with no supports or brim.</p>
-        <p class="fits">Printables &middot; by Seppo &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $15 &middot; Re-upload of Thingiverse thing:563396 by protechnordic; iron the top for a clean finish</p>
-        <a class="part-link" href="https://www.printables.com/model/10843-snowflake-christmas-ornament-christmas-tree-xmas-d" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Seppo · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/10843-snowflake-christmas-ornament-christmas-tree-xmas-d" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/91455/images/5370553_e7af145b-cb6f-4c4f-8b53-1f4bb127fdbc_96ad883d-a479-4ccf-ba25-31f09926ee72/thumbs/inside/1280x960/jpg/snowflake.webp" alt="Christmas snowflake" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Christmas snowflake</strong>
         <p>A snowflake ornament for the Christmas tree; a past Holiday Decorations and Ornaments contest entry.</p>
-        <p class="fits">Printables &middot; by Make by L. &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/91455-christmas-snowflake" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Make by L. · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/91455-christmas-snowflake" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/329432/stls/2832053_ebbc0152-206e-4852-880a-2b5370826c57/thumbs/inside/1280x960/png/merry_ornamentsvg_5mm_preview.webp" alt="Custom Snowflake Tree Ornament" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Ornament</span>
         <strong>Custom Snowflake Tree Ornament</strong>
         <p>A customisable snowflake ornament — 'Joy' and 'Merry' versions included, or add your own text with the included SVG.</p>
-        <p class="fits">Printables &middot; by ryanchakajodda &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Great for personalised gifts — swap in any name or word</p>
-        <a class="part-link" href="https://www.printables.com/model/329432-custom-snowflake-tree-ornament" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ryanchakajodda · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/329432-custom-snowflake-tree-ornament" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US7d567f9445cdd3/design/4911b461bc77a0f6.jpg" alt="Christmas Snowflake Gyro Ornament – Print-in-Place" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Christmas Snowflake Gyro Ornament – Print-in-Place</strong>
         <p>A spinning gyro ornament: three nested rings and a snowflake centre, each spinning freely on a different axis. Print-in-place, no supports.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Ornament 80 x 94 mm plus a mini keychain version; two-tone with one filament change</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3525565-christmas-snowflake-gyro-ornament-print-in-place" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3525565-christmas-snowflake-gyro-ornament-print-in-place" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USafe2ce78057d2d/design/0613c93dcf501af9.png" alt="Christmas Snowflake Ornaments - 2026 - 6 Pack" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Seasonal</span>
         <strong>Christmas Snowflake Ornaments - 2026 - 6 Pack</strong>
         <p>Six snowflake ornaments on one build plate — three designs in two sizes, including a 2026 keepsake with raised lettering.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Full plate takes about 2 hours 42 minutes; single-colour, no AMS required</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3483461-christmas-snowflake-ornaments-2026-6-pack" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3483461-christmas-snowflake-ornaments-2026-6-pack" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US3cef780e295e7a/2025-11-25_58ed902e2dfb9.jpg" alt="Mini Snowflake Set – Christmas Decoration" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Mini Snowflake Set – Christmas Decoration</strong>
         <p>Four tiny snowflake designs (25 mm) for trees, windows, mobiles, or gift wrapping; 3–4 minutes each, perfect for batch printing.</p>
-        <p class="fits">MakerWorld &middot; by Cubisten Lab &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Print all four at once on one build plate</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2039461-mini-snowflake-set-christmas-decoration" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Cubisten Lab · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2039461-mini-snowflake-set-christmas-decoration" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USb42c9fa790cf9/design/1e6117e6b86425e5.jpeg" alt="Cute Snowflake | Christmas Ornament" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Cute Snowflake | Christmas Ornament</strong>
         <p>A cute snowflake with a face, about 90 mm tall and only 1 mm thick; a 4-colour multicolour print, great as a gift tag too.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Print several at once to make the colour swaps worthwhile</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3481779-cute-snowflake-christmas-ornament" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3481779-cute-snowflake-christmas-ornament" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USa8323daebcb563/design/ca095fa426ca655c.jpg" alt="Personalized Christmas Ornament – Custom Name" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Personalized Christmas Ornament – Custom Name</strong>
         <p>A customisable name ornament with a snowflake, star, and Christmas tree that press-fit into cutouts; no AMS needed.</p>
-        <p class="fits">MakerWorld &middot; by Rform3D &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Customise the name in Bambu Studio; fuzzy-skin texture gives a decorative finish</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3425079-personalized-christmas-ornament-custom-name" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Rform3D · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3425079-personalized-christmas-ornament-custom-name" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -517,83 +602,103 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/688582/images/5440337_6c3eaed0-2a6f-4c71-a177-d43966be6674_49d96d4b-dacf-487b-b3b7-43b275949482/thumbs/inside/1280x960/jpg/branchy-ct-02.webp" alt="Christmas tree - stackable, &#x27;branchy&#x27; design pattern" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Christmas tree - stackable, 'branchy' design pattern</strong>
         <p>A stackable snowflake Christmas tree in scaled layers with a branchy leaf pattern; 170 mm or 250 mm tall, no supports.</p>
-        <p class="fits">Printables &middot; by NelisW &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Layers and spacers are numbered for easy assembly; star fits on top</p>
-        <a class="part-link" href="https://www.printables.com/model/688582-christmas-tree-stackable-branchy-design-pattern" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by NelisW · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/688582-christmas-tree-stackable-branchy-design-pattern" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/688579/images/5439737_8fe11d63-8a31-4d9c-8eb2-ef1cdb8333e0_73169ead-5f5e-4f57-bd71-3202797be1fc/thumbs/inside/1280x960/jpg/stary-170.webp" alt="Christmas tree - stackable, star design pattern" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Christmas tree - stackable, star design pattern</strong>
         <p>A stackable snowflake Christmas tree in scaled layers with a six-pointed star pattern; 170 mm or 250 mm tall, no supports.</p>
-        <p class="fits">Printables &middot; by NelisW &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Pairs with the branchy version for a matching set</p>
-        <a class="part-link" href="https://www.printables.com/model/688579-christmas-tree-stackable-star-design-pattern" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by NelisW · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/688579-christmas-tree-stackable-star-design-pattern" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/96799/images/873163_68d66189-a1c7-4723-b2e9-7a1e35abfe3e/thumbs/inside/1280x960/jpg/village-2.webp" alt="Christmas Willage" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Christmas Willage</strong>
         <p>A little Christmas village scene — houses, a snowman, a tree, and Santa with his deer on the roof; print the roof edges in glow-in-the-dark.</p>
-        <p class="fits">Printables &middot; by Wilko_SLO &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Prints without supports; glow-in-the-dark roof edges look like Christmas lights</p>
-        <a class="part-link" href="https://www.printables.com/model/96799-christmas-willage" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Wilko_SLO · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/96799-christmas-willage" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/700887/images/5553581_64f17af5-07b8-4f6d-80ac-5cca67bbf435/thumbs/inside/1280x960/jpg/msg1370178640-11238.webp" alt="The Santa Claus&#x27;s Reindeer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>The Santa Claus's Reindeer</strong>
         <p>Two cute reindeer decorations — one white, one brown, each with a different shoe and a scarf — about 20 minutes to print.</p>
-        <p class="fits">Printables &middot; by miziomon &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; No supports or post-processing; glue the scarves on</p>
-        <a class="part-link" href="https://www.printables.com/model/700887-the-santa-clauss-reindeer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by miziomon · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/700887-the-santa-clauss-reindeer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/170102/images/1583320_5144f283-4fb2-4b46-9b8a-e7b60c4c58d3/thumbs/inside/1280x960/jpg/large_display_img_1980_170102.webp" alt="Large Scale Multi Piece Santa Claus" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Large Scale Multi Piece Santa Claus</strong>
         <p>A large multi-piece Santa, just shy of 300 mm (about 12 inches) tall, printed in parts and assembled — the companion to the Large Scale Snowman.</p>
-        <p class="fits">Printables &middot; by rebeltaz &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Print in red, white, and black parts and glue; some supports needed for the ruffles</p>
-        <a class="part-link" href="https://www.printables.com/model/170102-large-scale-multi-piece-santa-claus" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by rebeltaz · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/170102-large-scale-multi-piece-santa-claus" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/343953/images/2837582_1c1fd4bd-8b18-478f-b5fb-78844f8c348b/thumbs/inside/1280x960/png/teaserfront.webp" alt="Snowman 07 (MC)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Snowman 07 (MC)</strong>
         <p>A multicolour snowman (the last of the designer's snowman series) with a bobble hat and moustache; single-extrusion version also available.</p>
-        <p class="fits">Printables &middot; by Wilko &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Attach the bobble and moustache with a small filament snippet as a guide pin</p>
-        <a class="part-link" href="https://www.printables.com/model/343953-snowman-07-mc" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Wilko · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/343953-snowman-07-mc" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1096828/images/9812844_80fdc7cb-96e9-4a03-8604-4a10ee6c38bc/thumbs/inside/1280x960/jpg/sm1.webp" alt="Knitted Snowman (IN PARTS)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Knitted Snowman (IN PARTS)</strong>
         <p>A charming knitted-look snowman printed in parts and assembled; pairs with the designer's Knitted Santa Claus.</p>
-        <p class="fits">Printables &middot; by Dimensional &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Prints with no supports; watch part orientation during assembly</p>
-        <a class="part-link" href="https://www.printables.com/model/1096828-knitted-snowman-in-parts" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Dimensional · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1096828-knitted-snowman-in-parts" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/33275/images/312419_47262c34-aabe-43ec-8e76-b934795beea8/thumbs/inside/1280x960/jpg/reindeer_v13_1random_c_preview.webp" alt="Reindeer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Ornament</span>
         <strong>Reindeer</strong>
         <p>Customisable little reindeer ornaments — generate 25 unique reindeer in one go with OpenSCAD, all print without supports.</p>
-        <p class="fits">Printables &middot; by Makkuro &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Add a hole and use them as tree decorations or little giveaways</p>
-        <a class="part-link" href="https://www.printables.com/model/33275-reindeer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Makkuro · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/33275-reindeer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/665230/images/5292393_7c37ecf2-8c66-42f1-9694-9668c8d7cb49/thumbs/inside/1280x960/jpg/side-angle.webp" alt="Christmas Tree Advent calendar" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Christmas Tree Advent calendar</strong>
         <p>A 15 cm Christmas tree advent calendar: snap a small star onto the tree each day from Dec 1st, finishing with a large top star on the 25th.</p>
-        <p class="fits">Printables &middot; by Sanraith &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $15 &middot; PETG $17 &middot; About 60 g of filament; no supports, no gluing; print with or without the Advent of Code sign</p>
-        <a class="part-link" href="https://www.printables.com/model/665230-christmas-tree-advent-calendar" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Sanraith · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/665230-christmas-tree-advent-calendar" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/143185/images/1355496_45028698-f228-4226-a633-067ec27bb6ac/thumbs/inside/1280x960/jpg/large_display_pc200274_143185.webp" alt="Gingerbread House Kit Card" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Gingerbread House Kit Card</strong>
         <p>A wee gingerbread house kit card for the desk, shelf, or tree — 'Merry Christmas' and 'Happy Holidays' versions, plus a blank to customise.</p>
-        <p class="fits">Printables &middot; by Nakozen &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Print with a pause-at-height colour swap; thread a loop through the roof holes to hang it</p>
-        <a class="part-link" href="https://www.printables.com/model/143185-gingerbread-house-kit-card" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Nakozen · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/143185-gingerbread-house-kit-card" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -604,86 +709,105 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/821233/images/6339714_88636d92-6881-4ce2-9760-a6d0fb9791cd_976d8a1d-80bf-4382-af1e-fa627c9b87b4/thumbs/inside/1280x960/jpg/20240325_215932.webp" alt="Bunnies! Collection of Interlocking Bunny Pattern / Tessalating Parts" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Keychain</span>
         <strong>Bunnies! Collection of Interlocking Bunny Pattern / Tessalating Parts</strong>
         <p>An interlocking bunny pattern applied to coasters, tiles, models, keychains, lithophanes, and postcards — just in time for Easter.</p>
-        <p class="fits">Printables &middot; by LEN polygon &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; STEP and STL files included so you can remix the pattern onto your own designs</p>
-        <a class="part-link" href="https://www.printables.com/model/821233-bunnies-collection-of-interlocking-bunny-pattern-t" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by LEN polygon · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/821233-bunnies-collection-of-interlocking-bunny-pattern-t" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US39464720b049df/design/1c3fbf3e46993116.png" alt="EASTER TOTEM DECORATION" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Seasonal</span>
         <strong>EASTER TOTEM DECORATION</strong>
         <p>A modern Easter totem stacking a minimalist egg, bunny silhouette, and flower into one sculptural shelf piece.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Matte PLA recommended for a premium finish</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2476968-easter-totem-decoration" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2476968-easter-totem-decoration" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USa622d3c8d4a39b/design/2025-01-24_a0a27cd989846.jpg" alt="Heart Articulated Egg" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Seasonal</span>
         <strong>Heart Articulated Egg</strong>
         <p>A 10 cm articulated egg with a heart pattern and little legs that screws open — works for Easter and Valentine's Day alike.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Screw-open design; resizable; wall and grass accessories on the designer's profile</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1030952-heart-articulated-egg" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1030952-heart-articulated-egg" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/46882/images/467226_8af0fb2e-077c-4e72-9ee6-d77741634793/thumbs/inside/1280x960/jpg/20201121_122727.webp" alt="Mr. Turkey" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Mr. Turkey</strong>
         <p>A cheerful Thanksgiving turkey designed by a 7-year-old in Tinkercad, with pegged-on head, feet, and feathers.</p>
-        <p class="fits">Printables &middot; by DesignFlaw06 &middot; Free download</p>
-        <p class="part-note">License: CC BY 4.0 &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Print the body at 102% and the head at 103% for the pegs to fit</p>
-        <a class="part-link" href="https://www.printables.com/model/46882-mr-turkey" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by DesignFlaw06 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/46882-mr-turkey" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/316117/images/2749378_f6f4d57f-0c2f-4771-a804-282ac84eb6dc/thumbs/inside/1280x960/jpg/20221114_144134.webp" alt="bobble turkey" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>bobble turkey</strong>
         <p>A Thanksgiving turkey with a bobble head on spring legs, plus a plain version; seven feathers print in multiple colours.</p>
-        <p class="fits">Printables &middot; by LMMerwin &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Bobble version needs 2 printed springs and a base; no-leg version is just the turkey and 7 feathers</p>
-        <a class="part-link" href="https://www.printables.com/model/316117-bobble-turkey" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by LMMerwin · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/316117-bobble-turkey" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/45615/images/452752_46ec701c-3149-4b40-915d-91b17de347c8/thumbs/inside/1280x960/png/capture3_45615.webp" alt="MMU Turkey" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>MMU Turkey</strong>
         <p>A flat multicolour Thanksgiving turkey designed for MMU or Palette printers, in brown, red, orange, white, and black.</p>
-        <p class="fits">Printables &middot; by Zachery124 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Not designed to be printed in parts and glued — needs a multi-material setup</p>
-        <a class="part-link" href="https://www.printables.com/model/45615-mmu-turkey" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Zachery124 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/45615-mmu-turkey" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/426187/images/3525160_293cd12f-6101-4cd5-9fa1-8cf5116a252d/thumbs/inside/1280x960/jpg/pxl_20230317_200938937.webp" alt="Heart Shamrock Candy Dishes" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Print-in-place</span>
         <strong>Heart Shamrock Candy Dishes</strong>
         <p>Four heart-shaped candy dishes joined with print-in-place hinges — fold them into a shamrock for St. Patrick's Day or open them into a row of hearts.</p>
-        <p class="fits">Printables &middot; by Ed Johnson &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Seven hinge-clearance versions included (0.1–0.6 mm); Fusion source file included</p>
-        <a class="part-link" href="https://www.printables.com/model/426187-heart-shamrock-candy-dishes" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ed Johnson · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/426187-heart-shamrock-candy-dishes" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/757020/stls/5904816_c2ecde87-4a67-4146-9fb9-d2d4e5d817de_24905676-de15-4f7f-9836-4341e920b555/thumbs/inside/1280x960/png/demo-assembled_preview.webp" alt="Giant Valentine&#x27;s Day Heart Thump Puzzle Box (Easy)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Giant Valentine's Day Heart Thump Puzzle Box (Easy)</strong>
         <p>A giant Valentine's puzzle box: find the hidden heart (or your own custom prize) inside. 200% scale of the classic Heart Thump box.</p>
-        <p class="fits">Printables &middot; by 3D Printy &middot; Free download</p>
-        <p class="part-note">License: CC BY 4.0 &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Explicitly OK to sell with attribution to 3D Printy; 16x 6x3 mm magnets and 1x M3 bolt recommended but optional</p>
-        <a class="part-link" href="https://www.printables.com/model/757020-giant-valentines-day-heart-thump-puzzle-box-easy" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3D Printy · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/757020-giant-valentines-day-heart-thump-puzzle-box-easy" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USaff53657491216/design/f5edf1d2f56c1bab.webp" alt="Holiday and Seasonal Magnets" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Holiday and Seasonal Magnets</strong>
         <p>A year-round fridge magnet collection — Uncle Sam hat (4th of July), turkey, Valentine's heart, Halloween pumpkin, Easter bunny, and fall sunflower.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor &middot; Needs small magnets (designer uses 1.2 cm magnets, scalable); commercial licence available via MakerWorld or Patreon</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3533100-holiday-and-seasonal-magnets" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3533100-holiday-and-seasonal-magnets" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/323790/images/2792937_aca8d430-6a48-4f36-8c5f-9f8e78840f55/thumbs/inside/1280x960/jpg/img_0071.webp" alt="Thanksgiving Turkey Napkin Ring" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Seasonal</span>
         <strong>Thanksgiving Turkey Napkin Ring</strong>
         <p>Thanksgiving turkey napkin rings for the feast table, in versions with or without feet — the feet version doubles as a table decoration.</p>
-        <p class="fits">Printables &middot; by skitch23 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 &mdash; <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Re-upload (not the original author); about 75 minutes each at 10% infill, 0.30 mm layers</p>
-        <a class="part-link" href="https://www.printables.com/model/323790-thanksgiving-turkey-napkin-ring" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by skitch23 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/323790-thanksgiving-turkey-napkin-ring" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -709,14 +833,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -742,7 +865,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -797,31 +919,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

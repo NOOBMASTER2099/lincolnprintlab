@@ -32,7 +32,6 @@
   "sameAs": [
     "https://www.facebook.com/profile.php?id=61595927983709",
     "https://www.youtube.com/@lincolnprintlab",
-    "https://www.instagram.com/lincolnprintlab/",
     "https://www.tiktok.com/@lincolnprintlabs",
     "https://www.pinterest.com/lincolnprintlab/"
   ]
@@ -315,19 +314,42 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 @media(max-width:860px){
   .prod-grid,.order-form{grid-template-columns:1fr}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -338,7 +360,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -356,7 +377,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <section class="wrap" style="padding-top:40px">
   <p class="kicker">Lincoln, NE · Checkout</p>
   <h1>Checkout</h1>
-  <p class="lede">Send us your order request &mdash; Matt confirms it by text, then you pay. There&rsquo;s no card form here and you don&rsquo;t pay anything until he confirms.</p>
+  <p class="lede">Send us your order request &mdash; we&rsquo;ll message you with your final total and ready/delivery date, then you pay. There&rsquo;s no card form here and you don&rsquo;t pay anything until we confirm.</p>
   <div class="actions" style="margin-bottom:8px">
     <a class="btn btn-ghost" href="products.html">Keep browsing</a>
     <a class="btn btn-ghost" href="quote.html">Get an exact quote first</a>
@@ -366,17 +387,17 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <section class="wrap" id="how-it-works">
   <h2 class="section-title">How ordering works</h2>
   <div class="card">
-    <p><strong style="color:#fff">1. Send your order request.</strong> Review your cart below and send it to Matt by text or email. No payment yet.</p>
-    <p><strong style="color:#fff">2. Matt confirms by text.</strong> He texts you the final total and your ready/delivery date.</p>
-    <p><strong style="color:#fff">3. Then you pay.</strong> Cash App, Zelle, or PayPal &mdash; in your app, after he confirms. We never see or store your card number.</p>
-    <p><strong style="color:#fff">4. We print it and check it.</strong> Matt inspects every print after it&rsquo;s built, before you get the &ldquo;it&rsquo;s ready&rdquo; text.</p>
+    <p><strong style="color:#fff">1. Send your order request.</strong> Review your cart below and send it to us by text or email. No payment yet.</p>
+    <p><strong style="color:#fff">2. We&rsquo;ll message you.</strong> We text you the final total and your ready/delivery date.</p>
+    <p><strong style="color:#fff">3. Then you pay.</strong> Cash App, Zelle, or PayPal &mdash; in your app, after we confirm. We never see or store your card number.</p>
+    <p><strong style="color:#fff">4. We print it and check it.</strong> We inspect every print after it&rsquo;s built, before you get the &ldquo;it&rsquo;s ready&rdquo; text.</p>
     <p><strong style="color:#fff">5. Pick it up within 48 hours.</strong> Can&rsquo;t make it? Just text us and we&rsquo;ll set a different date &mdash; stay in contact and there&rsquo;s no problem.</p>
   </div>
 </section>
 
 <section class="wrap" id="cart-section">
   <h2 class="section-title">1. Your cart</h2>
-  <p class="section-sub">Prices are estimates &mdash; Matt confirms the exact total by text before you pay anything. Items marked (est.) don&rsquo;t have a firm listed price yet, so we start at the $15 minimum.</p>
+  <p class="section-sub">Prices are estimates &mdash; we confirm the exact total by text before you pay anything. Items marked (est.) don&rsquo;t have a firm listed price yet, so we start at the $15 minimum.</p>
   <div id="cart-list"></div>
   <div class="card" style="margin-top:14px">
     <strong>Add an item by hand</strong>
@@ -445,7 +466,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </label>
     <label>
       <input type="radio" name="cfinish" value="painted" />
-      <span><strong style="color:#fff">Painted — quoted</strong><br />Painted per job, $25 and up — Matt confirms the price by text</span>
+      <span><strong style="color:#fff">Painted — quoted</strong><br />Painted per job, $25 and up — we confirm the price by text</span>
     </label>
   </div>
   <label style="display:flex;gap:10px;align-items:flex-start;margin-top:12px;cursor:pointer">
@@ -476,13 +497,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <section class="wrap" id="check-section">
   <h2 class="section-title">6. After it&rsquo;s built &mdash; we check it</h2>
   <div class="card">
-    <p>After your print is built, Matt inspects it before it&rsquo;s marked ready &mdash; he checks the print quality, the size, and the finish. If something isn&rsquo;t right, we reprint it or text you before you pay anything. You only get the &ldquo;it&rsquo;s ready&rdquo; text after the print has passed that check.</p>
+    <p>After your print is built, we inspect it before it&rsquo;s marked ready &mdash; we check the print quality, the size, and the finish. If something isn&rsquo;t right, we reprint it or text you before you pay anything. You only get the &ldquo;it&rsquo;s ready&rdquo; text after the print has passed that check.</p>
   </div>
 </section>
 
 <section class="wrap" id="pay-section">
   <h2 class="section-title">7. How to pay &mdash; after we confirm</h2>
-  <p class="section-sub">Don&rsquo;t pay yet. Pick how you&rsquo;ll pay once Matt confirms &mdash; he texts you the final total and ready date first. Pay in your app &mdash; we never see or store your card number. Put your name in the payment note so we can match it to your order.</p>
+  <p class="section-sub">Don&rsquo;t pay yet. Pick how you&rsquo;ll pay once we confirm &mdash; we text you the final total and ready date first. Pay in your app &mdash; we never see or store your card number. Put your name in the payment note so we can match it to your order.</p>
   <div class="fulfill" id="checkout-pay">
     <label class="is-on">
       <input type="radio" name="cpay" value="cashapp" checked />
@@ -501,12 +522,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <span class="label">Estimated total</span>
     <div class="amount" id="order-total">$0</div>
     <div class="note" id="order-breakdown">Items $0 &middot; Shipping/handling $0 &middot; Est. tax $0</div>
-    <p class="note" style="margin-top:8px">This is an estimate. Matt confirms the exact total &mdash; including the delivery fee and sales tax &mdash; by text before you pay. You don&rsquo;t pay until he confirms.</p>
+    <p class="note" style="margin-top:8px">This is an estimate. We confirm the exact total &mdash; including the delivery fee and sales tax &mdash; by text before you pay. You don&rsquo;t pay until we confirm.</p>
   </div>
   <div class="card" style="margin-top:16px">
     <strong>Estimated ready date</strong>
     <p id="eta-text" style="font-size:18px;color:#fff"></p>
-    <p id="eta-note">This is an estimate, not a guarantee. Matt confirms the exact date by text. If we can&rsquo;t make it by then, we&rsquo;ll text you and you can cancel for a full refund.</p>
+    <p id="eta-note">This is an estimate, not a guarantee. We confirm the exact date by text. If we can&rsquo;t make it by then, we&rsquo;ll text you and you can cancel for a full refund.</p>
   </div>
   <label style="display:flex;gap:10px;align-items:flex-start;margin-top:16px;cursor:pointer">
     <input type="checkbox" id="agree-terms" style="margin-top:4px;accent-color:#fff" />
@@ -517,12 +538,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <span>I understand the 48-hour pickup window &mdash; I&rsquo;ll pick up within 48 hours of the &ldquo;it&rsquo;s ready&rdquo; text, or text (402) 413-5332 to set a different date.</span>
   </label>
   <div class="actions" style="margin-top:16px">
-    <button class="btn btn-primary" id="place-order" type="button">Send order request &mdash; Matt confirms by text</button>
+    <button class="btn btn-primary" id="place-order" type="button">Send order request &mdash; we&rsquo;ll confirm by text</button>
   </div>
   <p class="status-line" id="order-status"></p>
   <div class="mockup-panel" id="order-panel">
     <h3 style="margin-bottom:4px">Your order request is ready to send</h3>
-    <p style="margin-bottom:6px">Your texting app should have opened. If it didn&rsquo;t (like on a computer), copy the order below and paste it in a text to <strong style="color:#fff">(402) 413-5332</strong>. Matt will text you to confirm the total and ready date &mdash; don&rsquo;t pay until he confirms.</p>
+    <p style="margin-bottom:6px">Your texting app should have opened. If it didn&rsquo;t (like on a computer), copy the order below and paste it in a text to <strong style="color:#fff">(402) 413-5332</strong>. We&rsquo;ll text you to confirm the total and ready date &mdash; don&rsquo;t pay until we confirm.</p>
     <textarea id="order-text" readonly rows="6"></textarea>
     <div class="actions" style="margin-top:10px">
       <button class="btn btn-primary" id="copy-order" type="button">Copy order</button>
@@ -602,14 +623,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -635,7 +655,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -953,7 +972,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
     renderTotals();
     if(sms){ try{ window.location.href=sms.href; }catch(e){} }
-    if(st){ st.textContent='Order request ready \u2014 your texting app should have opened. If it didn\u2019t, copy the order below and text it to (402) 413-5332. Matt will text you to confirm the total and ready date \u2014 don\u2019t pay until he confirms.'; st.classList.add('ok'); }
+    if(st){ st.textContent='Order request ready \u2014 your texting app should have opened. If it didn\u2019t, copy the order below and text it to (402) 413-5332. We\u2019ll text you to confirm the total and ready date \u2014 don\u2019t pay until we confirm.'; st.classList.add('ok'); }
   });
   var printBtn=$('print-receipt');
   if(printBtn) printBtn.addEventListener('click', function(){ window.print(); });

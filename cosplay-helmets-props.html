@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -230,9 +267,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <main id="top">
 <section class="wrap" id="cosplay-helmets-props">
     <h2 class="section-title">Cosplay Helmets &amp; Props</h2>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory &mdash; helmets, masks, armor, and props to wear to the con or hang on the wall. Download the model you like, then send us the file and we&rsquo;ll give you an exact quote. Most of these are character pieces (Marvel, Star Wars, games), so they&rsquo;re display-only at the shop &mdash; but we can still print one for your own costume. Don&rsquo;t see what you need? Tell us what you&rsquo;re looking for &mdash; we&rsquo;ll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <p class="section-sub">Not sure of your size? <a href="fit-scale.html" style="text-decoration:underline">Check the Helmet Sizing guide</a> &mdash; the LincolnPrintLab Scale matches your hat size to the right print size.</p>
 
@@ -250,183 +289,203 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://3dad.ru/uploads/models/856/3130856.webp" alt="Iron Man MK2 Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Iron Man MK2 Helmet</strong>
         <p>Wearable Iron Man helmet, split into pieces that print on any printer including a small bed; magnetic faceplate, sized to Budwin&#x27;s #3 sizing head.</p>
-        <p class="fits">MakerWorld &middot; by GB &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/3130856-iron-man-mk2-helmet-a1-mini-all-printers" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GB · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3130856-iron-man-mk2-helmet-a1-mini-all-printers" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000001720794/design/2025-05-05_2a67bd8cb6b55.png?x-oss-process=image/format,webp" alt="Iron Man MK5 Helmet (Wearable)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Iron Man MK5 Helmet (Wearable)</strong>
         <p>Wearable Iron Man helmet in just 4 parts, no motor, no multi-color printer needed; faceplate held on with 12 magnets (8×2mm).</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1720794-iron-man-mk5-helmet-wereable" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1720794-iron-man-mk5-helmet-wereable" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/065/196065.webp" alt="Iron Man Wearable Helmet Mark 42" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Wearable</span>
         <strong>Iron Man Wearable Helmet Mark 42</strong>
         <p>Full-size wearable Iron Man Mark 42 helmet; print at 100% for full size, 50% for a desk model.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/196065-iron-man-wearable-helmet-mark-42-mk-42" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/196065-iron-man-wearable-helmet-mark-42-mk-42" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/512/2698512.webp" alt="Motorized Iron Man Helmet (Mark 42)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Magnetic</span>
         <strong>Motorized Iron Man Helmet (Mark 42)</strong>
         <p>Iron Man helmet with a magnetic-hinge faceplate; static version or motorized version with servos and a small controller board.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2698512-motorized-iron-man-helmet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2698512-motorized-iron-man-helmet" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US94de6948f7f5df/design/2024-07-04_wf2kb4j5705j.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Iron Man Mark 85 Helmet V2" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Wearable</span>
         <strong>Iron Man Mark 85 Helmet V2</strong>
         <p>Updated wearable Iron Man Mark 85 helmet; uses 60 small magnets (7×1mm) for assembly.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/524672" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/524672" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US8ac39f85fa6e8c/design/2025-01-16_f0917e8b66e178.jpeg" alt="Batman Helmet (Cowl) — Perfect for Cosplay" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Batman Helmet (Cowl) — Perfect for Cosplay</strong>
         <p>Batman cowl with pointed ears, in a cut version (easier to wear) and an uncut version (display); fits most adult heads.</p>
-        <p class="fits">MakerWorld &middot; by Yawning Dad &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1002250-batman-helmet-cowl-perfect-for-cosplay" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Yawning Dad · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1002250-batman-helmet-cowl-perfect-for-cosplay" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US304507bdd79463/design/2024-08-08_3127e8fb9e50e.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Batman Arkham Origins Cowl" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Cowl</span>
         <strong>Batman Arkham Origins Cowl</strong>
         <p>Batman cowl from the Arkham Origins game; prints in TPU for a flexible fit or PLA for display.</p>
-        <p class="fits">MakerWorld &middot; by 3d printinator &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $101 &middot; PETG $113</p>
-        <a class="part-link" href="https://makerworld.com/en/models/579101-batman-arkham-origins-cowl" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3d printinator · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/579101-batman-arkham-origins-cowl" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/185/56185.webp" alt="Batman Armor Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Batman Armor Helmet</strong>
         <p>Armored Batman helmet, reworked in CAD to use much less filament than the original (~370g vs ~820g); includes test slices to check sizing before the full print. Size ~220×178×190mm at original scale.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $93 &middot; PETG $104</p>
-        <a class="part-link" href="https://makerworld.com/en/models/56185" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/56185" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/330/2973330.webp" alt="Spider-Man Brand New Day Mask (Faceshell)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Magnetic</span>
         <strong>Spider-Man Brand New Day Mask (Faceshell)</strong>
         <p>Spider-Man faceshell with magnetic swap-out eyes in 3 expressions (narrow, wide, focused); perforated shell so you can breathe; wear under a fabric mask. Sized to Budwin&#x27;s #3 head.</p>
-        <p class="fits">MakerWorld &middot; by GB &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2973330-spiderman-brand-new-day-mask-a1-mini-others" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by GB · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2973330-spiderman-brand-new-day-mask-a1-mini-others" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/447/713447.webp" alt="Spider-Man Classic FaceShell" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Face shell</span>
         <strong>Spider-Man Classic FaceShell</strong>
         <p>Classic comic-style Spider-Man faceshell; uses 20 magnets (5×2mm) for the eyes; sized to Budwin&#x27;s #3 head.</p>
-        <p class="fits">MakerWorld &middot; by Budwin &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/713447-spider-man-classic-faceshell" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Budwin · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/713447-spider-man-classic-faceshell" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US2d03e306a5a0a3/design/2024-01-10_7db4e9c4ce753.jpeg?x-oss-process=image/resize,w_1000/format,webp" alt="Spider-Man Raimi FaceShell + Lens (Realistic)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Face shell</span>
         <strong>Spider-Man Raimi FaceShell + Lens (Realistic)</strong>
         <p>Spider-Man faceshell from the Raimi movies (Tobey Maguire), smooth shell with realistic lens.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/132945-spider-man-raimi-faceshell-lens-realistic" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/132945-spider-man-raimi-faceshell-lens-realistic" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US80e0ba82788035/design/2024-08-25_a2a986e39797a.png?x-oss-process=image/resize,w_1000/format,webp" alt="Deadpool 3 Movie Helmet (Textured)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Deadpool 3 Movie Helmet (Textured)</strong>
         <p>Textured Deadpool mask/helmet from Deadpool &amp; Wolverine; uses 100 magnets (8×2mm); one of the most-printed cosplay masks on MakerWorld.</p>
-        <p class="fits">MakerWorld &middot; by Budwin &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/606313" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Budwin · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/606313" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/044/710044.webp" alt="Wolverine Textured Helmet V3" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Wolverine Textured Helmet V3</strong>
         <p>Wolverine mask in classic yellow and black, reworked for accuracy with support-free textures; two fits (accurate and comfort); uses 46 magnets (8×2mm).</p>
-        <p class="fits">MakerWorld &middot; by Budwin &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/710044-wolverine-textured-helmet-v3" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Budwin · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/710044-wolverine-textured-helmet-v3" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US329ebf081d21cd/design/2024-11-08_7c6cc77f36e88.png?x-oss-process=image/resize,w_1000/format,webp" alt="Venomized Spider-Man Mask" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Venomized Spider-Man Mask</strong>
         <p>Spider-Man mask with Venom&#x27;s toothy grin and black webbing; multi-color version or single-color with painted details; 50% scale fits any printer.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/768658-venomized-spider-man" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/768658-venomized-spider-man" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/782/1300782.webp" alt="Dr. Doom–Inspired Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Dr. Doom–Inspired Helmet</strong>
         <p>Helmet inspired by Marvel&#x27;s Dr. Doom, with room inside for most head sizes and eye slots for mesh inserts; good display piece too.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1300782-dr-doom-inspired-helmet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1300782-dr-doom-inspired-helmet" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/12864/images/114227_4c08dda2-b5dc-44d3-ba68-f74452ef931f/thumbs/cover/320x480/jpg/capshieldfrontfull_v005_12864.webp" alt="Captain America Shield" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Shield</span>
         <strong>Captain America Shield</strong>
         <p>Full-size Captain America shield split into a center piece + 8 segments with interlocks; print at 125% on a big printer for true full size, or 80% on a standard bed.</p>
-        <p class="fits">Printables &middot; by That Engineering Guy &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/12864-captain-america-shield" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by That Engineering Guy · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/12864-captain-america-shield" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/125141/images/1205799_34f4084b-cfdc-489d-9035-cc49db314a51/thumbs/cover/640x480/png/shield-picture-1.webp" alt="Captain America Shield (Durable Design)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Shield</span>
         <strong>Captain America Shield (Durable Design)</strong>
         <p>Full-size (~650mm across) Captain America shield engineered for strength: segments under 185×185mm, press-fit dowel joints, strap mounts on the back.</p>
-        <p class="fits">Printables &middot; by kingbilly111 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/125141-captain-america-shield-durable-design" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by kingbilly111 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/125141-captain-america-shield-durable-design" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/989/921989.webp" alt="Thor&#x27;s Hammer (Mjolnir)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Thor&#x27;s Hammer (Mjolnir)</strong>
         <p>Thor&#x27;s hammer, about 310×150×80mm as posted and scalable; separate nameplate piece, hole in the handle for a leather strap.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/921989-thor-s-hammer-mjolnir" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/921989-thor-s-hammer-mjolnir" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US4f18fa48c1aeb5/design/2025-05-23_13b469eba04e8.jpg" alt="Cracked Mjolnir — Thor Hammer (Love and Thunder)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Hammer</span>
         <strong>Cracked Mjolnir — Thor Hammer (Love and Thunder)</strong>
         <p>Thor&#x27;s cracked hammer from Love and Thunder, full 1:1 scale; print in translucent filament with an LED inside for glowing cracks.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/143623-cracked-mjolnir-thor-hammer-love-and-thunder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/143623-cracked-mjolnir-thor-hammer-love-and-thunder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US32e97281d40a31/design/2023-10-18_6e2bfc060e22.jpg" alt="Mjolnir — Thor Hammer (Full Size)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Hammer</span>
         <strong>Mjolnir — Thor Hammer (Full Size)</strong>
         <p>Full-size Thor&#x27;s hammer, about 600g of filament and ~19 hours; simplified to a few big parts with hidden joins.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $150 &middot; PETG $168</p>
-        <a class="part-link" href="https://makerworld.com/en/models/44616-mjolnir-thor-hammer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/44616-mjolnir-thor-hammer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -437,147 +496,164 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://3dad.ru/uploads/models/918/2816918.webp" alt="Wearable Mandalorian Armor, All Parts" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Wearable</span>
         <strong>Wearable Mandalorian Armor, All Parts</strong>
         <p>Full 1:1 scale Mandalorian armor set: T-visor helmet, chest armor, shoulder armor, gauntlets, thigh guards, and hand plates; clean &quot;fresh Beskar&quot; finish, split for standard printers; includes a video guide for sizing it to your body.</p>
-        <p class="fits">MakerWorld &middot; by Timberlake Creations &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2816918-wearable-cosplay-mandalorian-armor-all-parts" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Timberlake Creations · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2816918-wearable-cosplay-mandalorian-armor-all-parts" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/580/1848580.webp" alt="Mandalorian Helmet (303g, Minimal Supports)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Mandalorian Helmet (303g, Minimal Supports)</strong>
         <p>Mandalorian helmet redesigned to use only ~303g of filament with minimal supports and easy assembly; includes a head-fit test ring to check sizing first.</p>
-        <p class="fits">MakerWorld &middot; by 3Z3D &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; PLA $76 &middot; PETG $85</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1848580-mandalorian-helmet-303g-min-support-parts-assemble" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3Z3D · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1848580-mandalorian-helmet-303g-min-support-parts-assemble" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/546995/stls/4397210_3b6b9f41-045a-4a10-b5a2-55c366f0b062/thumbs/inside/1280x960/png/ears_preview.webp" alt="Moon Knight Mandalorian &quot;Moondalorian&quot; Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Moon Knight Mandalorian &quot;Moondalorian&quot; Helmet</strong>
         <p>Mandalorian helmet styled like Moon Knight, with a cloth look on top, a moon crescent on the forehead, and eye-shaped visor; split version included for smaller printers; sized for a 22-inch head.</p>
-        <p class="fits">Printables &middot; by ReProps &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/546995-moon-knight-mandalorian-moondalorian-helmet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ReProps · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/546995-moon-knight-mandalorian-moondalorian-helmet" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/779317/images/6053757_6467ca38-7f68-4474-8f40-bd6d561661c9_5de07e4d-aaa6-45bc-a3a6-7782076cc3fa/thumbs/inside/1280x960/png/large_display_era_mando_helm.webp" alt="Mandalorian Helmet (ERA)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Mandalorian Helmet (ERA)</strong>
         <p>Mandalorian helmet modeled after the helmets in Star Wars, with the classic T-visor, side details, and antenna mount.</p>
-        <p class="fits">Printables &middot; by Midnight3D &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/779317-mandalorian-helmet-era" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Midnight3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/779317-mandalorian-helmet-era" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/272429/images/2423566_9979e4fc-3ded-4c4a-bfd4-0adf44c5525f/thumbs/inside/1280x960/jpg/large_display_0f682ddd-a588-4e7f-867a-8d1db94f928a_272429.webp" alt="Mandalorian Helmet: The Rogue" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Mandalorian Helmet: The Rogue</strong>
         <p>Custom Mandalorian helmet with a triangle detail from the Imperial Super Commando style and a recessed back vent; print one ear mirrored.</p>
-        <p class="fits">Printables &middot; by ReProps &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/272429-mandalorian-helmet-the-rogue" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ReProps · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/272429-mandalorian-helmet-the-rogue" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/278/53278.webp" alt="Boba Fett Helmet (Supportless)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Boba Fett Helmet (Supportless)</strong>
         <p>Boba Fett helmet reworked to print with almost no supports; includes a head-fit test piece and a printable visor option.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/53278-boba-fett-helmet-supportless" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/53278-boba-fett-helmet-supportless" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/333/231333.webp" alt="Accurate Boba Fett Dented Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Accurate Boba Fett Dented Helmet</strong>
         <p>Boba Fett helmet recreated from the well-known &quot;dented helmet&quot; reference build; main shell plus ears and rangefinder details.</p>
-        <p class="fits">MakerWorld &middot; by Alextreme &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/231333" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Alextreme · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/231333" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000001185157/design/2025-03-07_b1arfn471ijy1_e2d7738c4848d411a84a1c3299901bdf_preview_featured.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Full Size Darth Vader Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Full Size Darth Vader Helmet</strong>
         <p>Full-size printable Darth Vader helmet with different print options depending on printer size.</p>
-        <p class="fits">MakerWorld &middot; by hyperZ &middot; Free download</p>
-        <p class="part-note">License: CC0 — public domain &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1185157-full-size-darth-vader-helmet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by hyperZ · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1185157-full-size-darth-vader-helmet" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/31565/images/311480_b721561b-90dd-4158-800d-31f5d04b61b9/thumbs/cover/320x480/png/0.webp" alt="Wearable Darth Vader Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Wearable</span>
         <strong>Wearable Darth Vader Helmet</strong>
         <p>Wearable Darth Vader helmet; makers report cutting it into 6 pieces for easier printing, and scaling to ~90% for a kid.</p>
-        <p class="fits">Printables &middot; by lecter &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/31565-wearable-darth-vader-helmet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by lecter · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/31565-wearable-darth-vader-helmet" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/3041/images/8348918_83f81225-3618-4d2e-a401-de0e21ffa395_793ce7fa-1bdd-49f6-a1ac-1b6bfc55b29a/thumbs/cover/1200x630/jpg/img_2504.jpg" alt="Stormtrooper ANH Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Stormtrooper ANH Helmet</strong>
         <p>Full-scale Stormtrooper helmet from A New Hope; bottom opening about 228×224mm; print at 87% for a child.</p>
-        <p class="fits">Printables &middot; by KeepTheBOX &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/3041-stormtrooper-anh-helmet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by KeepTheBOX · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/3041-stormtrooper-anh-helmet" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/3042/images/130488_51cacecc-292b-4a13-9d26-5afa8e869c42/thumbs/cover/1200x630/jpg/10.jpg" alt="Stormtrooper First Order Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Wearable</span>
         <strong>Stormtrooper First Order Helmet</strong>
         <p>Wearable First Order Stormtrooper helmet from the newer Star Wars movies.</p>
-        <p class="fits">Printables &middot; by KeepTheBOX &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/3042-stormtrooper-first-order-helmet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by KeepTheBOX · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/3042-stormtrooper-first-order-helmet" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/22904/images/227428_ea2598d4-5c40-4a5d-97e1-4ae121c55e5e/thumbs/inside/1280x960/jpg/4_helmets_22904.webp" alt="Storm Trooper Helmet — Purist and Alternative Options (Wearable)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Wearable</span>
         <strong>Storm Trooper Helmet — Purist and Alternative Options (Wearable)</strong>
         <p>Stormtrooper helmet in several versions, including a screen-accurate &quot;purist&quot; version from A New Hope and cleaner alternate versions; hollowed out to wear.</p>
-        <p class="fits">Printables &middot; by Jace1969 &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/22904-storm-trooper-helmet-purist-and-alternative-option" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Jace1969 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/22904-storm-trooper-helmet-purist-and-alternative-option" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US6519094f570485/design/2024-11-03_a4d7a25d41daa.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Kylo Ren Helmet — Split" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Kylo Ren Helmet — Split</strong>
         <p>Kylo Ren helmet split in two with dowels for easier assembly, including a battle-damaged version.</p>
-        <p class="fits">MakerWorld &middot; by Mr.Charles185 &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/752957-kylo-ren-helmet-split" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Mr.Charles185 · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/752957-kylo-ren-helmet-split" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/636/1840636.webp" alt="Luke Skywalker&#x27;s ANH Lightsaber Hilt" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Luke Skywalker&#x27;s ANH Lightsaber Hilt</strong>
         <p>Luke&#x27;s lightsaber hilt from A New Hope, based on the Graflex flash handle; easy to print, with delicate parts noted by the designer.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/1840636-luke-skywalker-s-anh-hilt" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1840636-luke-skywalker-s-anh-hilt" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/593/67593.webp" alt="Darth Vader&#x27;s Lightsaber Hilt" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Darth Vader&#x27;s Lightsaber Hilt</strong>
         <p>Darth Vader&#x27;s lightsaber hilt, split onto color-sorted print plates for easy multi-color printing.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/67593-star-wars-darth-vader-s-lightsaber" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/67593-star-wars-darth-vader-s-lightsaber" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/141/1253141.webp" alt="Cal Kestis Lightsaber — Single Blade" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Lightsaber</span>
         <strong>Cal Kestis Lightsaber — Single Blade</strong>
         <p>Cal Kestis&#x27;s lightsaber from the Jedi: Survivor game, single-blade version; prints in pieces that screw together with no glue.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1253141-cal-kestis-lightsaber-single-blade" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1253141-cal-kestis-lightsaber-single-blade" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -588,111 +664,123 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://3dad.ru/uploads/models/272/1971272.webp" alt="Wearable Halo Master Chief Armor (Full Cosplay)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Wearable</span>
         <strong>Wearable Halo Master Chief Armor (Full Cosplay)</strong>
         <p>Full-body Master Chief Mjolnir Mark VI armor: helmet, chest, shoulders, arms, legs, and boots; modular and wearable, with a newer Gen3 version also on the same page.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1971272-wearable-halo-master-chief-armor-full-cosplay" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1971272-wearable-halo-master-chief-armor-full-cosplay" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/112/201112.webp" alt="Master Chief MK V Helmet — Halo: Combat Evolved" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>Master Chief MK V Helmet — Halo: Combat Evolved</strong>
         <p>Master Chief&#x27;s MK V helmet from the first Halo game, cut with a flat bottom for easier printing.</p>
-        <p class="fits">MakerWorld &middot; by lukeinator &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/201112-master-chief-mk-v-helmet-halo-ce" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by lukeinator · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/201112-master-chief-mk-v-helmet-halo-ce" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USe3162ec7495fee/design/1455bbaae5641a95.png" alt="Full Scale Wearable Doom Slayer Praetor Armor" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Wearable</span>
         <strong>Full Scale Wearable Doom Slayer Praetor Armor</strong>
         <p>Full Doom Slayer armor set: helmet, chest, shoulders, arms, belt, thighs, knees, and boots; sized at 100% for a 6&#x27;2&quot;, 175 lb frame — must be scaled to the wearer.</p>
-        <p class="fits">MakerWorld &middot; by Timberlake Creations &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/3283748-full-scale-wearable-doom-slayer-praetor-armor" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Timberlake Creations · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3283748-full-scale-wearable-doom-slayer-praetor-armor" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/252630/images/2294879_8c01634b-1d36-4410-9dbb-9885dd8eef89/thumbs/cover/1200x630/jpg/main-sword.jpg" alt="Legend of Zelda Master Sword (BOTW / TOTK, Full Scale)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">No supports</span>
         <strong>Legend of Zelda Master Sword (BOTW / TOTK, Full Scale)</strong>
         <p>Full-size Master Sword from Breath of the Wild / Tears of the Kingdom; no supports needed, snaps together without glue, parts split by color so it can be printed color-accurate; about 470g of filament. Includes a PDF assembly guide.</p>
-        <p class="fits">Printables &middot; by Popandsicle &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; PLA $118 &middot; PETG $132 &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/252630-legend-of-zelda-master-sword-botw-totk-full-scale" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Popandsicle · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/252630-legend-of-zelda-master-sword-botw-totk-full-scale" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/13383/images/119113_64f2b1b0-90a1-41a3-9056-cba5a6712a5a/thumbs/inside/1280x960/jpg/20160328_005128_13383.webp" alt="Master Sword (Full Size) — Legend of Zelda" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Sword</span>
         <strong>Master Sword (Full Size) — Legend of Zelda</strong>
         <p>Full-size Master Sword, about 20 hours and 0.5kg of filament; matching sheath file also available from the same designer.</p>
-        <p class="fits">Printables &middot; by ChelsCCT &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; PLA $125 &middot; PETG $140</p>
-        <a class="part-link" href="https://www.printables.com/model/13383-master-sword-full-size-legend-of-zelda" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ChelsCCT · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/13383-master-sword-full-size-legend-of-zelda" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/497231/images/4047563_a69365a1-b2aa-4f1b-ab0e-c47ed863f94d/shield-cosplay.jpg" alt="Hylian Shield — Full Size" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Shield</span>
         <strong>Hylian Shield — Full Size</strong>
         <p>Full-size Hylian Shield from Zelda; edges and details split into pieces small enough for a standard bed, plus a full backing file; add handles from foam or belts.</p>
-        <p class="fits">Printables &middot; by m h &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/497231-hylian-shield-full-size" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by m h · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/497231-hylian-shield-full-size" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/32399/stls/318016_ceb83947-fb55-4131-8520-86c9135a9270/thumbs/inside/1280x960/png/badge_triangle__blue_preview.webp" alt="God of War Leviathan Axe" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Multicolor</span>
         <strong>God of War Leviathan Axe</strong>
         <p>Kratos&#x27;s Leviathan Axe from God of War, a 1:1 replica; hollowed out so LED lights can go inside the blade; print the blue-marked parts in clear filament for the glow.</p>
-        <p class="fits">Printables &middot; by Oddworks &middot; Free download</p>
-        <p class="part-note">License: CC 4.0 — variant not shown, check page &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/32399-god-of-war-leviathan-axe" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Oddworks · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/32399-god-of-war-leviathan-axe" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/28c61df6-4465-47a5-a592-781e837358b4/images/13416246_f613ce37-c01d-41c7-865b-e0377e5c4094_618285e0-4ee1-439b-bf8d-383dc7b1b416/thumbs/inside/1280x960/png/a944f459-95b4-4fa4-803f-d2802a800a83.webp" alt="Hollow Knight Wearable Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Wearable</span>
         <strong>Hollow Knight Wearable Helmet</strong>
         <p>Wearable Hollow Knight helmet; big print — split it for your printer and keep infill low to hold the weight down; detachable back piece version uses 5 magnets (10×5mm).</p>
-        <p class="fits">Printables &middot; by dakl &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1789669-hollow-knight-wearable-helmet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by dakl · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1789669-hollow-knight-wearable-helmet" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/aaf1e3b7-66e9-4197-8881-6579943e2368/images/10424251_1c54e627-2a70-4359-b2fa-908dd03f7f9b_3cf6cf7f-ab2c-4949-85fb-42496a35ca6c/thumbs/inside/1280x960/jpg/0.webp" alt="Wylder Cosplay Helmet — Elden Ring: Nightreign (Life-Size)" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>Wylder Cosplay Helmet — Elden Ring: Nightreign (Life-Size)</strong>
         <p>Life-size Wylder helmet from Elden Ring: Nightreign; 5 parts with keyed cuts and pegs; about 26cm tall × 30cm wide × 29cm deep; fits a 220×220mm printer.</p>
-        <p class="fits">Printables &middot; by ABYSS ART STUDIO &middot; File: $16.00</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1380830-wylder-cosplay-helmet-lifesize-elden-ring-nightrei" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ABYSS ART STUDIO · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1380830-wylder-cosplay-helmet-lifesize-elden-ring-nightrei" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USde41acf548a342/design/c1b8277cb6bac7a5.png" alt="MMPR Red Ranger Helmet" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Helmet</span>
         <strong>MMPR Red Ranger Helmet</strong>
         <p>Mighty Morphin Power Rangers Red Ranger helmet with a working side latch; sized to Budwin&#x27;s #3 head; uses 20 magnets (8×2mm).</p>
-        <p class="fits">MakerWorld &middot; by Budwin &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2889593-mmpr-red-ranger-helmet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Budwin · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2889593-mmpr-red-ranger-helmet" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US694c83fdef104e/design/2a9f69b1d9a6fb74.png" alt="MMPR White Ranger Saba Sword" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Sword</span>
         <strong>MMPR White Ranger Saba Sword</strong>
         <p>The White Ranger&#x27;s Saba talking sword, with tiger-head pommel; uses steel dowel pins inside for strength; full assembly guide with 17 steps included.</p>
-        <p class="fits">MakerWorld &middot; by Budwin &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/3102047-mmpr-white-ranger-saba-sword" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Budwin · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3102047-mmpr-white-ranger-saba-sword" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USad924c16acafb9/design/927589b66dd1f9a6.png" alt="MMPR Red Ranger Power Sword" loading="lazy" onerror="this.style.display='none'" />
-        <span class="tag">Display only</span>
+        <span class="draft-tag">Sword</span>
         <strong>MMPR Red Ranger Power Sword</strong>
         <p>The Red Ranger&#x27;s Power Sword; sliced for big and small beds, with a full-length uncut blade file included.</p>
-        <p class="fits">MakerWorld &middot; by Budwin &middot; Free download</p>
-        <p class="part-note">License: MakerWorld Standard — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2889611-mmpr-red-ranger-power-sword" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Budwin · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2889611-mmpr-red-ranger-power-sword" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -703,19 +791,23 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://bamax.es/uploads_v2/160/wearable-close-helmet-16th-century-knight-armor-3d-print-model-Qz8UxVYf_200.webp" alt="Wearable Close Helmet (16th Century Knight Armor)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Wearable</span>
         <strong>Wearable Close Helmet (16th Century Knight Armor)</strong>
         <p>Wearable knight&#x27;s helmet copied from real mid-1500s armor, with working locking pins and latches; files fit a 220×220mm bed; designer recommends PETG. Costume piece only — no real protection.</p>
-        <p class="fits">Printables &middot; by Nico&#x27;s Printed Antiques &middot; File: $14.00</p>
-        <p class="part-note">License: Standard license — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1397306-wearable-close-helmet-16th-century-knight-armor" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Nico's Printed Antiques · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1397306-wearable-close-helmet-16th-century-knight-armor" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/311/images/2299_38e4378b-8341-48f7-9597-653968143bbb/plague_2019-7.jpg" alt="Plague Doctor Mask" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mask</span>
         <strong>Plague Doctor Mask</strong>
         <p>Modern take on the classic plague doctor mask with the long beak; prints in one piece on a 250×210×210mm bed or in 3 pieces to glue together; add cheap sunglass lenses for the goggles.</p>
-        <p class="fits">Printables &middot; by Jindřich Beneš &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/311-plague-doctor-mask" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Jindřich Beneš · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/311-plague-doctor-mask" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -741,14 +833,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -774,7 +865,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -829,31 +919,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};

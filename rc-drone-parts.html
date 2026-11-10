@@ -190,19 +190,57 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   h1{font-size:clamp(38px,10vw,46px)}
   section{padding:32px 0}
 }
+/* ---- Prints redesign (2026-11-09): hamburger menu ---- */
+.nav-check{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.hamburger{display:none;list-style:none;cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:10px;color:#fff;font-size:20px;line-height:1;padding:8px 12px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:rgba(0,0,0,.97);padding:8px 16px 14px}
+.mobile-nav a{display:block;padding:12px 4px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-nav a:last-child{border-bottom:0}
+@media(max-width:860px){
+  .hamburger{display:inline-flex;align-items:center;justify-content:center}
+  .nav-check:checked ~ .mobile-nav{display:block}
+  .nav .cart-chip{display:none}
+}
+
+/* ---- Prints redesign (2026-11-09): free-file card format ---- */
+.draft-tag{
+  display:inline-block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border:1px solid rgba(255,255,255,.28);color:var(--muted);
+  border-radius:999px;padding:4px 10px;margin-bottom:8px;
+}
+.free-line{font-size:19px;color:#fff;border-left:3px solid #fff;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;margin-bottom:18px;max-width:720px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;background:#fff;color:#070708;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.dl-btn:hover{background:#e8e4da}
+.print-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px}
+.print-btn:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.credit{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--muted);margin-top:10px}
+.cat-free{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);margin-bottom:10px}
+
 </style>
 
 </head>
 <body>
 <header>
+  <input type="checkbox" id="nav-toggle" class="nav-check" />
   <div class="wrap nav">
     <a class="brand" href="index.html">
       <img src="logo.jpg" alt="Lincoln Print Lab" />
       <div class="brand-name">LINCOLN <span>PRINT LAB</span></div>
     </a>
-    <nav><ul><li><a href="products.html">Products</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="products.html">Prints</a></li> <li><a href="materials.html">Materials</a></li> <li><a href="plaques.html">Custom Plaques</a></li> <li><a href="pricing.html">Pricing</a></li> <li><a href="fit-scale.html">Helmet Sizing</a></li> <li><a href="quote.html">Get a quote</a></li> <li><a href="contact.html">Contact</a></li></ul></nav>
     <a class="cart-chip" href="payment.html" id="cart-chip">🛒 Cart (0) — $0</a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menu">&#9776;</label>
   </div>
+  <nav class="mobile-nav" aria-label="Menu">
+    <a href="products.html">Prints</a>
+    <a href="materials.html">Materials</a>
+    <a href="plaques.html">Custom Plaques</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="fit-scale.html">Helmet Sizing</a>
+    <a href="quote.html">Get a quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 <div class="wrap site-head">
   <div class="site-head-logo">
@@ -213,7 +251,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/lincolnprintlab/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       </div>
@@ -230,9 +267,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 <main id="top">
 <section class="wrap" id="rc-drone-parts">
     <h2 class="section-title">RC Cars &amp; Drone Parts</h2>
+    <p class="cat-free">Free 3D print files</p>
+    <p class="free-line">Files are free from their creators. We charge for the printing.</p>
     <p class="section-sub">Pick from our inventory &mdash; bodies, mounts, frames, guards, and upgrades for RC cars and drones: Traxxas, Arrma, Losi, DJI, and FPV quads. Download the model you like, then send us the file and we&rsquo;ll give you an exact quote. If it broke, we can probably print it. Don&rsquo;t see what you need? Tell us what you&rsquo;re looking for &mdash; we&rsquo;ll research it and track it down for you.</p>
-    <p class="section-sub">Prices shown are estimates at our per-gram rates (PLA $0.25/g, PETG $0.28/g, $15 minimum) &mdash; just a ballpark. Send us the file and the instant quote tool gives you the exact price.</p>
-    <p class="section-sub">We print every design under the license its designer chose &mdash; the designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    <p class="section-sub">Printing is $0.25/g PLA ($0.30/g silk), $15 minimum &mdash; the quote tool gives you the exact price. The designer is credited on each listing, and we encourage you to support the creators directly (memberships, tips, follows).</p>
+    
 
     <div class="pills" style="justify-content:flex-start;margin-bottom:8px">
       <a href="#rc-cars">RC Cars — Bodies, Mounts &amp; Upgrades</a>
@@ -246,162 +285,203 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/3b1f40e9-95d8-4afd-b2cb-2c35e6dc4323/images/12992384_6ea808ee-bd8a-43a5-b6b2-e88c3bc0b94b_84982b2f-cba3-4b28-9bd0-72c0c4b1c444/thumbs/inside/1280x960/jpg/pxl_20260524_180609096.webp" alt="Traxxas Slash Clipless Body Latch Mount" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Traxxas Slash Clipless Body Latch Mount</strong>
         <p>Fits: Traxxas Slash 4x4, rear clipless body mount (replaces Traxxas part TRA6967) — Replacement clip for the rear clipless body mount when the stock clip breaks; print in PETG, 4–6 walls.</p>
-        <p class="fits">Printables &middot; by makewithjake &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1732751-traxxas-slash-clipless-body-latch-mount" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by makewithjake · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1732751-traxxas-slash-clipless-body-latch-mount" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/577727/images/4615150_ec167e0a-b4a5-45e8-9184-8f1538c0540c/thumbs/cover/1200x630/jpg/lap-monitor-battery-and-transponder-holder-2.jpg" alt="Lap Monitor Transponder and Battery Holder" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Holder</span>
         <strong>Lap Monitor Transponder and Battery Holder</strong>
         <p>Fits: Traxxas Slash 2WD, bolts around the front body mount posts — Holder for a small LiPo battery and a Lap Monitor race transponder, with the sensor poking through a hole in the hood.</p>
-        <p class="fits">Printables &middot; by Nick S &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/577727-lap-monitor-transponder-and-battery-holder" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Nick S · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/577727-lap-monitor-transponder-and-battery-holder" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/351169/stls/2982041_d9c43aae-45c7-4280-a300-99c1b49130d1/thumbs/inside/1280x960/png/front-wing-stl_preview.webp" alt="Custom Front and Rear Wing for Traxxas 2WD Models (Rustler, Stampede, Bandit, Slash)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Custom Front and Rear Wing for Traxxas 2WD Models (Rustler, Stampede, Bandit, Slash)</strong>
         <p>Fits: Traxxas 2WD models only (NOT 4x4) — Bolt-on front and rear wings for downforce and speed runs; front wing mounts where the stock bumper goes, rear wing mounts where the wheelie bar goes.</p>
-        <p class="fits">Printables &middot; by kbedrich &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/it/model/351169-custom-front-and-rear-wing-for-traxxas-2wd-models-" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by kbedrich · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/it/model/351169-custom-front-and-rear-wing-for-traxxas-2wd-models-" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/eed7afbf-f23c-47fb-8bb4-b046dc598a99/previews/thumbs/inside/1280x960/png/994326c7-3e3b-4b81-8273-1b31cfb8c120.webp" alt="Traxxas Rustler 4x4 Hobbywing Max10 Mount Plate" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Traxxas Rustler 4x4 Hobbywing Max10 Mount Plate</strong>
         <p>Fits: Traxxas Rustler 4x4 — Flat mount plate that bolts a Hobbywing Max10 speed controller to the stock holes in the Rustler chassis.</p>
-        <p class="fits">Printables &middot; by 3D_Goblin &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1670411-traxxas-rustler-4x4-hobbywing-max10-mount-plate" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3D_Goblin · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1670411-traxxas-rustler-4x4-hobbywing-max10-mount-plate" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/448927/images/3699775_6e3126b8-f2ba-47a3-b73f-0bb1ef198daa/thumbs/inside/1280x960/png/img_5832.webp" alt="Arrma 4S V2 Shock Rod End (Kraton/Outcast)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Shock part</span>
         <strong>Arrma 4S V2 Shock Rod End (Kraton/Outcast)</strong>
         <p>Fits: Arrma 4S V2 Kraton / Outcast (replaces part ARA330672) — Replacement shock rod end; designer prints it in TPU95 or PC Blend and is still testing which holds up best.</p>
-        <p class="fits">Printables &middot; by pandaym &middot; Free download</p>
-        <p class="part-note">License: Standard license — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/448927-arrma-4s-v2-shock-rod-end-kratonoutcast" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by pandaym · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/448927-arrma-4s-v2-shock-rod-end-kratonoutcast" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/c0da07fa-9a5f-4355-9b9c-b594515b3a02/images/9900067_c14438aa-8242-4a01-a59f-4bba7b676544_080349d0-25ad-4c4f-9684-cf84715a859c/thumbs/inside/1280x960/jpg/20250529_131551.webp" alt="Arrma 7.5x8mm 6S Shock Bushing" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Bushing</span>
         <strong>Arrma 7.5x8mm 6S Shock Bushing</strong>
         <p>Fits: Arrma 3S vehicles running 6S shocks — Small bushing that lets 6S shocks fit on a 3S truck; print in the softest TPU you can, 6 walls.</p>
-        <p class="fits">Printables &middot; by AfterEight &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1312185-arrma-75x8mm-6s-shock-bushing" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by AfterEight · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1312185-arrma-75x8mm-6s-shock-bushing" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/105256/images/1052970_cb43d7c5-1a7c-4594-866e-b8a50096b6b3/20210829_003706.jpg" alt="Arrma Infraction, Limitless and Felony GNSS Mount Relocator" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Arrma Infraction, Limitless and Felony GNSS Mount Relocator</strong>
         <p>Fits: Arrma Infraction / Limitless / Felony (speed-run cars) — Relocates the SkyRC GNSS speed-meter mount to between the rear diffuser mounts to keep the weight low for speed runs.</p>
-        <p class="fits">Printables &middot; by Deeps &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/en/model/105256-arrma-infraction-limitless-and-felony-gnss-mount-r" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Deeps · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/en/model/105256-arrma-infraction-limitless-and-felony-gnss-mount-r" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/199665/stls/1841470_40cd5862-f5f8-4b51-b2d5-a87e34feae23/thumbs/inside/1280x960/png/wing_spacer_10mm_preview.webp" alt="Arrma Granite/BigRock/Typhon 3S Wing Spacer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Arrma Granite/BigRock/Typhon 3S Wing Spacer</strong>
         <p>Fits: Arrma Granite / Big Rock / Typhon 3S — Spacer that raises the wing mount so a Typhon 6S or Kraton wing clears the body; 10 mm and 16 mm versions, print in TPU.</p>
-        <p class="fits">Printables &middot; by Dad&#x27;s Friendly Robot Co &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/199665-arrma-granitebigrocktyphon-3s-wing-spacer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Dad's Friendly Robot Co · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/199665-arrma-granitebigrocktyphon-3s-wing-spacer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/assets/58/0c/74/e1/95/Arrma_Granite_Big_Rock_3s_BLX_v2_Wing_Mount-Arrma_3-4s_Wing_Mount_B.png&w=1024&h=1024&fit=inside&n=-1" alt="Arrma Granite 3S BLX v2 TPU Wing Mount" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Arrma Granite 3S BLX v2 TPU Wing Mount</strong>
         <p>Fits: Arrma Granite 3S BLX v2 (also fits Big Rock 3S) — Flexible TPU wing mount, a remix of the stock-style mount with tougher supports and nut pockets; needs 3x M3 screws and locknuts.</p>
-        <p class="fits">Thingiverse &middot; by caracalrc &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:4802854" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by caracalrc · Thingiverse</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:4802854" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
+        <span class="draft-tag">Mount</span>
         <strong>Rear Brace / Wing Mount for Arrma Big Rock 223S</strong>
         <p>Fits: Arrma Big Rock 223S — Rear brace that ties the roll bar to the rear body mount to stop the body flexing and cracking on roof landings, and doubles as a rear wing mount; 5 mm or 8 mm versions, 100% infill.</p>
-        <p class="fits">Cults3D &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/game/improved-rearprotection-wingmount-for-arrma-big-rock-223s" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/game/improved-rearprotection-wingmount-for-arrma-big-rock-223s" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/790932/images/6129830_45d499b2-637d-4344-bb40-5e02ddacae48_632a5d22-2ccc-482b-a976-3ad3b91b20a6/thumbs/inside/1280x960/jpeg/large_display_12cd566d-cc46-497e-9532-854041829845_790932.webp" alt="Traxxas TRX-4 Bumper Mount Delete" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Traxxas TRX-4 Bumper Mount Delete</strong>
         <p>Fits: Traxxas TRX-4 crawler — Clean delete plate that removes the stock bumper mount for a tucked-in look; designer printed it in 95A TPU.</p>
-        <p class="fits">Printables &middot; by CommaLlama &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/790932-traxxas-trx-4-bumper-mount-delete" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by CommaLlama · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/790932-traxxas-trx-4-bumper-mount-delete" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/756854/stls/5902751_f1518c3e-786f-433d-9337-b93b963c7729_bc631431-176c-4c9e-9c2c-2cb7000e1ab3/thumbs/inside/1280x960/png/towing-eye-holder_preview.webp" alt="Front Bumper, Traxxas TRX4, Chevy K-10" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Front Bumper, Traxxas TRX4, Chevy K-10</strong>
         <p>Fits: Traxxas TRX-4 with the Chevy K-10 body (may fit other TRX-4 bodies) — Front bumper with a winch mount that bolts to the stock bumper holes; includes a taller reinforced version and a version without the logo.</p>
-        <p class="fits">Printables &middot; by nexen &middot; File: $5.00</p>
-        <p class="part-note">License: Standard license — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/756854-front-bumper-traxxas-trx4-chevy-k-10" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by nexen · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/756854-front-bumper-traxxas-trx4-chevy-k-10" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/966726/images/7379006_ffe4983d-d2dc-492c-8402-7cd8eb25a553_be61e852-175b-4382-ae99-a4101478b061/thumbs/cover/1200x630/jpg/2.jpg" alt="Armadillo Off-Road Truck 1/10 Body for SCX10 III" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Armadillo Off-Road Truck 1/10 Body for SCX10 III</strong>
         <p>Fits: Axial SCX10 III Base Camp builder&#x27;s kit chassis (313 mm wheelbase; may fit other 313 mm chassis with modified mounts) — Full hard truck body with working doors on magnets, fold-down bed sides, roof rack, and battery hatch in the bed floor; prints on a 180×180 mm bed in sections, with a step-by-step assembly manual.</p>
-        <p class="fits">Printables &middot; by polymech3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/966726-armadillo-off-road-truck-110-body-for-scx10-iii" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by polymech3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/966726-armadillo-off-road-truck-110-body-for-scx10-iii" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://dl2.myminifactory.com/object-assets/632a836ecb97b/images/720X720-img-20240404-111029.jpg" alt="Crawler Cat 1 &quot;Mammoth&quot; 1/10 RC Body" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Crawler</span>
         <strong>Crawler Cat 1 &quot;Mammoth&quot; 1/10 RC Body</strong>
         <p>Fits: TRX4 / TRX6 and SCX10 III (stretched/modified) chassis; 4x4 or 6x6 — Big scale truck cab with opening doors, foldable mirrors, working roof latch, detailed dashboard, and side tire carrier; cab-only listing (expedition cab sold separately).</p>
-        <p class="fits">MyMiniFactory &middot; by Ian Jim &middot; File: $15.00</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.myminifactory.com/object/3d-print-crawler-cat-1-mammoth-1-10-rc-body-245894" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Ian Jim · MyMiniFactory</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.myminifactory.com/object/3d-print-crawler-cat-1-mammoth-1-10-rc-body-245894" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://what3d.ru/upload/015/u1522/a/8/c8a2a263.webp" alt="Mercedes UNIMOG U5023 Cabin / Body (RC Car / RC Truck) 1/10 scale" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>Mercedes UNIMOG U5023 Cabin / Body (RC Car / RC Truck) 1/10 scale</strong>
         <p>Fits: Designer&#x27;s own Unimog RC chassis (mounting brackets included) — Detailed 1/10 Unimog cab in 3 parts with opening doors and hood, seats, dashboard, mirrors, and snorkel; prints in 3 colors.</p>
-        <p class="fits">Printables &middot; by Prism08 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://www.printables.com/model/741809-mercedes-unimog-u5023-cabin-body-rc-car-rc-truck-1" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Prism08 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/741809-mercedes-unimog-u5023-cabin-body-rc-car-rc-truck-1" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/240547/images/2173612_8ecbbc21-eca8-41ea-bec9-3eb26704e86c/thumbs/inside/1280x960/jpg/large_display_pxl_20220227_220426571small_240547.webp" alt="Losi Mini-B +2mm Wheels" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Wheels</span>
         <strong>Losi Mini-B +2mm Wheels</strong>
         <p>Fits: Losi Mini-B — Wheels with a 2 mm offset that make the Mini-B 4 mm wider overall, built to push it to the 184 mm limit for Mini Off-road Nationals racing.</p>
-        <p class="fits">Printables &middot; by nick.cnc &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/240547-losi-mini-b-2mm-wheels" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by nick.cnc · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/240547-losi-mini-b-2mm-wheels" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/129886/images/1181258_ae54b4ce-5f5e-4f1a-a2c6-1c8a9ba60f0a/thumbs/inside/1280x960/jpg/mg_0215_129886.webp" alt="Team Losi Mini T 2.0 Hex Adapter 8-12 mm" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">No supports</span>
         <strong>Team Losi Mini T 2.0 Hex Adapter 8-12 mm</strong>
         <p>Fits: Losi Mini-T 2.0 — Adapter that converts the stock 8 mm wheel hex to 12 mm so bigger aftermarket wheels fit; print flat, no supports.</p>
-        <p class="fits">Printables &middot; by tylermor &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/129886-team-losi-mini-t-20-hex-adapter-8-12-mm" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by tylermor · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/129886-team-losi-mini-t-20-hex-adapter-8-12-mm" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/5b5a02e3-0693-478b-906b-2dcde0c1d7ae/previews/thumbs/inside/1280x960/png/90a1ffe2-e729-4e77-b9ce-73d7c79891db.webp" alt="Low Center of Gravity Conversion for Losi Micro-B" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Low Center of Gravity Conversion for Losi Micro-B</strong>
         <p>Fits: Losi Micro-B — Chassis conversion kit (top/bottom case, side rails, battery strap, servo mount) that lowers the layout for better handling and lets retro and modern bodies fit without moving the electronics.</p>
-        <p class="fits">Printables &middot; by officepizzaparty &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1874155-low-center-of-gravity-conversion-for-losi-micro-b" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by officepizzaparty · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1874155-low-center-of-gravity-conversion-for-losi-micro-b" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://resize.thingiverse.com/?url=https://cdn.thingiverse.com/assets/20/3b/fe/03/ee/P1040865.JPG&w=1024&h=1024&fit=inside&n=-1" alt="OpenRC F1 Car - 1:10 RC Car" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">RC car</span>
         <strong>OpenRC F1 Car - 1:10 RC Car</strong>
         <p>Fits: Fully 3D-printed 1:10 Formula 1 car (own chassis, needs motors/electronics/bearings per the build guide) — The classic open-source printable F1 car: print everything in PLA except the tires (flexible filament), with a full build guide and parts list.</p>
-        <p class="fits">Thingiverse &middot; by barspin &middot; Free download</p>
-        <p class="part-note">License: CC BY-SA &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:1193309" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by barspin · Thingiverse</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:1193309" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/609/1081609.webp" alt="Mini RC Track System" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Mini RC Track System</strong>
         <p>Fits: Mini-Z, Losi Micro-B, and other small-scale RC cars — Modular 1-foot track sections (straights, corners, connectors) in PLA and TPU to build a mini RC race track, including a timing-tower setup.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1081609-mini-rc-track-system" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1081609-mini-rc-track-system" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -412,243 +492,304 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <div class="prod-grid">
       <div class="card">
         <img src="https://media.printables.com/media/prints/a64e029e-0fef-42a0-862f-7d80f40f18a0/images/11817463_59312fae-561d-4c35-9c75-5d91e5e7cfc2_7656390d-1323-4606-ba2f-86407f473804/thumbs/cover/1200x630/jpg/img_5658.jpg" alt="Leopard FPV Drone" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Leopard FPV Drone</strong>
         <p>Fits: 5-inch FPV quad (needs 22xx motors, flight controller/ESC stack, FPV system, battery) — Fully printable modular 5-inch FPV quad frame: plates, arms, camera guards, antenna block, TPU bumpers and GPS mount; designer recommends ABS/ASA, nylon or PC for the frame and TPU for the guards.</p>
-        <p class="fits">Printables &middot; by ProgrammaDan &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1517629-leopard-fpv-drone" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ProgrammaDan · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1517629-leopard-fpv-drone" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/180511/images/1687214_317dfd0a-5fd0-4531-bb26-d1c05e1da8e3/thumbs/cover/1200x630/jpg/img_2867.jpg" alt="The WU TANK: Micro Freestyle FPV Frame (5 and 6 inch)" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Frame</span>
         <strong>The WU TANK: Micro Freestyle FPV Frame (5 and 6 inch)</strong>
         <p>Fits: 5.25-inch and 6-inch freestyle FPV builds (DJI Vista/O3, most stacks) — Ultralight freestyle FPV frame (5-inch is 65 g) in WideX and DeadCat arm layouts; carbon-cut arms with printed accessories, fits DJI Vista/O3 and most electronics.</p>
-        <p class="fits">Printables &middot; by ledrone.club &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/180511-the-wu-tank-micro-freestyle-fpv-frame-5-and-6-inch" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ledrone.club · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/180511-the-wu-tank-micro-freestyle-fpv-frame-5-and-6-inch" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/317882/images/2753847_9965b081-c4a7-4c2f-943c-516fb29e77ab/thumbs/inside/1280x960/png/capture-decran-2022-11-16-a-151910.webp" alt="WU TANK MAX2 (Sparrow Edition) - 5 &amp; 6 inch freestyle frame" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>WU TANK MAX2 (Sparrow Edition) - 5 &amp; 6 inch freestyle frame</strong>
         <p>Fits: 5- and 6-inch freestyle FPV builds (DJI O4 Pro/O3, Vista, Walksnail) — Freestyle FPV frame with universal camera plates, DJI O4 Pro/O3 and Walksnail support, and GoPro mounts included; arms are carbon-cut, accessories print in TPU.</p>
-        <p class="fits">Printables &middot; by ledrone.club &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/317882-wu-tank-max2-sparrow-edition-5-6-inch-freestyle-fr" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ledrone.club · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/317882-wu-tank-max2-sparrow-edition-5-6-inch-freestyle-fr" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000000729739/design/2024-10-25_77b609fa263.jpg?x-oss-process=image/format,webp" alt="Grasshopper5 5 inch Long Range FPV Frame" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Frame</span>
         <strong>Grasshopper5 5 inch Long Range FPV Frame</strong>
         <p>Fits: 5-inch long-range FPV builds (Betaflight/ArduPilot/INAV, DJI O3 or analog) — 5-inch FPV frame with an adjustable tilt angle (20°/30°/45°) between the rotor plane and the body for better forward-flight efficiency; fits standard 20×20 and 30.5×30.5 stacks.</p>
-        <p class="fits">MakerWorld &middot; by Robofusion &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/729739-grasshopper5-5-inch-long-range-fpv-frame" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Robofusion · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/729739-grasshopper5-5-inch-long-range-fpv-frame" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1c4db49c-4ffa-4278-9637-8bfba01d9215/images/11793810_72c0e151-ddb9-49fb-b210-896552958d93_91e62b77-6baf-41aa-a770-3f520d975405/thumbs/cover/1200x630/jpg/pic2.jpg" alt="Dragonfly FPV Drone" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Dragonfly FPV Drone</strong>
         <p>Fits: 5-inch FPV quad (needs 22xx motors, flight controller/ESC stack, FPV system, battery) — Fully printable modular 5-inch FPV quad, the lighter, sharper-looking brother of the Leopard; ABS-GF frame with TPU guards, bumpers and GPS mount.</p>
-        <p class="fits">Printables &middot; by ProgrammaDan &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/481521-dragonfly-fpv-drone" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by ProgrammaDan · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/481521-dragonfly-fpv-drone" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1511864/images/13081216_1fcf7ec3-dbfc-45a3-a1f8-0b6e1b3f0b09/thumbs/inside/1280x960/jpg/whatsapp-image-2025-08-03-at-11-53-11-1_1511864.webp" alt="CineWhoop 5-Inch Frame – Replica of Lumenier QAV-PRO Whoop 5&quot;" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>CineWhoop 5-Inch Frame – Replica of Lumenier QAV-PRO Whoop 5&quot;</strong>
         <p>Fits: 5-inch cinewhoop builds (20×20 / 30.5×30.5 stacks) — 5-inch cinewhoop frame modeled on the Lumenier QAV-PRO Whoop 5 (not exact, new cage shape) with enclosed prop guards; DXF/STEP files for laser-cutting carbon or acrylic, STL optional.</p>
-        <p class="fits">Printables &middot; by virk3D &middot; File: $6.30</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1511864-cinewhoop-5-inch-frame-replica-of-lumenier-qav-pro" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by virk3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1511864-cinewhoop-5-inch-frame-replica-of-lumenier-qav-pro" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/425161/images/3518001_e674ea9c-f0d7-4733-acf7-b652f7d99046/thumbs/inside/1280x960/jpg/main2.webp" alt="Race Drone" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Race Drone</strong>
         <p>Fits: 4-inch and 5-inch FPV race builds — Fully printable aerodynamic race quad frame in 4-inch and 5-inch versions (about 70 g of prints), modular frame and canopy with 14 mm and 19 mm FPV camera canopies.</p>
-        <p class="fits">Printables &middot; by Y3D &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/425161-race-drone" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Y3D · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/425161-race-drone" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://images.cults3d.com/44XMxSSPKjd8h6XDb2jzDPyb9Cw=/516x516/filters:no_upscale()/https://fbi.cults3d.com/uploaders/33837980/illustration-file/e9dcc608-2fb6-4046-b19e-bb77372504a4/20250826_130856small.jpg" alt="World&#x27;s Smallest DJI FPV Drone - NanoBee45 O4 v1.0" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>World&#x27;s Smallest DJI FPV Drone - NanoBee45 O4 v1.0</strong>
         <p>Fits: 45 mm micro FPV build (DJI O4 Lite, BetaFPV 3-in-1 flight controller, 0802 motors) — 45 mm micro FPV drone frame for the DJI O4 Lite, with a floating anti-jello canopy that holds the camera, video transmitter and battery in one; frame in PA6-CF, canopy in 95A TPU.</p>
-        <p class="fits">Cults3D &middot; by Multiboard3D &middot; Free download</p>
-        <p class="part-note">License: Cults3D personal use — not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/various/nanobee-o4-v1-0-worlds-smallest-dji-fpv-drone" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Multiboard3D · Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/various/nanobee-o4-v1-0-worlds-smallest-dji-fpv-drone" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/16376/images/155975_d8df0507-54de-4cc5-9075-a01c832ca0f8/imgp0063_16376.jpg" alt="65mm Whoop Frame / 40mm Props / 21g / Micro Quad" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>65mm Whoop Frame / 40mm Props / 21g / Micro Quad</strong>
         <p>Fits: 65 mm micro quad (0803 motors, BetaFPV F4 flight controller, 40 mm props) — 65 mm micro quad frame for 40 mm props, 21 g all-up; print the frame in NylonX and the battery holder in TPU.</p>
-        <p class="fits">Printables &middot; by Rygar1432 &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/16376-65mm-whoop-frame-40mm-props-21g-micro-quad" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Rygar1432 · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/16376-65mm-whoop-frame-40mm-props-21g-micro-quad" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/921793/images/7271608_34a04f3d-3ab7-4d18-b1a9-cb3e0f6c0bb2/thumbs/inside/1280x960/jpg/screenshot-2024-07-07-200409_921793.webp" alt="BetaFPV Meteor65 Pro Frame" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>BetaFPV Meteor65 Pro Frame</strong>
         <p>Fits: BetaFPV Meteor65 Pro tiny whoop (up to 35 mm props, 26 mm flight-controller mount) — Replacement frame for the BetaFPV Meteor65 Pro tiny whoop (standard Pro edition, not the lighter Air frame); solid and partitioned versions included.</p>
-        <p class="fits">Printables &middot; by Riley Entropy &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/921793-betafpv-meteor65-pro-frame" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Riley Entropy · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/921793-betafpv-meteor65-pro-frame" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/976803/images/8289009_9b5fb6d1-6d3a-4a04-8d7a-fc8b18ca6b0b/thumbs/inside/1280x960/jpg/whatsapp-image-2024-09-20-at-14-40-22_976803.webp" alt="BetaFPV Air Canopy for lower cam angles - For Air65 and Air75 Tinywhoops" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Canopy</span>
         <strong>BetaFPV Air Canopy for lower cam angles - For Air65 and Air75 Tinywhoops</strong>
         <p>Fits: BetaFPV Air65 / Air75 tiny whoops — Canopy for BetaFPV Air tiny whoops with a longer tail for lower camera angles and better antenna support; designer printed it in nylon PA12 (TPU also works).</p>
-        <p class="fits">Printables &middot; by MakerMeik &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/976803-betafpv-air-canopy-for-lower-cam-angles-for-air65" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by MakerMeik · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/976803-betafpv-air-canopy-for-lower-cam-angles-for-air65" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/221466/stls/2024843_064e4a5f-6ab5-4494-867f-74bb6f62583c/thumbs/inside/1280x960/png/betafpv_cetus_pro_landingfeet_preview.webp" alt="BetaFPV cetus pro printable landing feet" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Press</span>
         <strong>BetaFPV cetus pro printable landing feet</strong>
         <p>Fits: BetaFPV Cetus Pro tiny whoop — Tiny press-fit landing feet for the BetaFPV Cetus Pro, about 4.5 mm extra ground clearance; scale 1–2% if the fit is tight.</p>
-        <p class="fits">Printables &middot; by Voxel3D_NL &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/221466-betafpv-cetus-pro-printable-landing-feet" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Voxel3D_NL · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/221466-betafpv-cetus-pro-printable-landing-feet" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/948738/images/7895007_7d3d8b2a-6f5d-41b5-b3dc-cd7a0eefdc1a/thumbs/inside/1280x960/jpg/img_3270_948738.webp" alt="Modular Tinywhoop Stand for 65mm, 75mm and 85mm drones" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Modular</span>
         <strong>Modular Tinywhoop Stand for 65mm, 75mm and 85mm drones</strong>
         <p>Fits: 65/75/85 mm tiny whoops (1S 300/550 mAh and 2S 550 mAh battery holders) — Modular display/storage stand for tiny whoops; the adapter slides into the whoop&#x27;s battery holder, with holders for 1S 300 mAh, 1S 550 mAh and 2S 550 mAh batteries.</p>
-        <p class="fits">Printables &middot; by Crytorious &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/948738-modular-tinywhoop-stand-for-65mm-75mm-and-85mm-dro" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Crytorious · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/948738-modular-tinywhoop-stand-for-65mm-75mm-and-85mm-dro" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/451006/images/3910781_0818e70f-9734-4ced-ab35-45f17133f2d6/thumbs/cover/1200x630/jpg/fpv-antenna-project.jpg" alt="The FPV Antenna Project: Universal FPV Drone U.Fl for O3/Vista/walksnail,etc +VTx" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>The FPV Antenna Project: Universal FPV Drone U.Fl for O3/Vista/walksnail,etc +VTx</strong>
         <p>Fits: 80+ FPV frames (TBS Source One, ImpulseRC Apex, Diatone Roma, iFlight Nazgul, and more) — Mix-and-match TPU antenna, GPS and video-transmitter mounts for FPV drones, covering 80+ frames and 50+ antennas (DJI O3/Vista, Walksnail, TBS Crossfire); the designer makes your exact setup on request.</p>
-        <p class="fits">Printables &middot; by Tim O&#x27;Brien &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/451006-the-fpv-antenna-project-universal-fpv-drone-ufl-fo?lang=en" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Tim O'Brien · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/451006-the-fpv-antenna-project-universal-fpv-drone-ufl-fo?lang=en" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US353a8849e7ba22/design/836383664b232add.jpg" alt="FPV drone antenna mount" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>FPV drone antenna mount</strong>
         <p>Fits: Any FPV drone with standoffs; made for the TBS Crossfire Immortal T antenna — Foldable TPU antenna mount that slides onto the frame standoffs and folds flat for transport; print in TPU 95A.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2372655-fpv-drone-antenna-mount" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2372655-fpv-drone-antenna-mount" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/362757/images/3630866_ad87782d-7bdd-4b0a-b444-0713ccfb9c0b/thumbs/cover/1200x630/png/diatone-roma-f4-gopro-mount-reinforced.png" alt="Diatone Roma F4 Gopro mount" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Mount</span>
         <strong>Diatone Roma F4 Gopro mount</strong>
         <p>Fits: Diatone Roma F4 FPV drone (also Roma F3.5 / F5) — TPU GoPro mount for the Diatone Roma F4; normal and reinforced versions, print solid infill at high temperature for best layer grip.</p>
-        <p class="fits">Printables &middot; by Frodo &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/362757-diatone-roma-f4-gopro-mount" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Frodo · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/362757-diatone-roma-f4-gopro-mount" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/745894/images/5825146_6c322afb-dd92-4ea3-b1e7-fd05f4815e4d_955e953e-445f-4ed8-99f7-46069c21561a/banggod_photo_04.png" alt="MA GoPro-Style Finger Mount for Catalyst Machineworks BangGOD FPV Drone" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>MA GoPro-Style Finger Mount for Catalyst Machineworks BangGOD FPV Drone</strong>
         <p>Fits: Catalyst Machineworks BangGOD FPV frame — GoPro-style finger mount for the BangGOD frame that puts the camera right at the front for a prop-free view; print in TPU, 20% infill.</p>
-        <p class="fits">Printables &middot; by Magic Aerials &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/745894-ma-gopro-style-finger-mount-for-catalyst-machinewo" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Magic Aerials · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/745894-ma-gopro-style-finger-mount-for-catalyst-machinewo" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://media.printables.com/media/prints/1503389/images/13002126_e9c4aa54-98ba-4dbd-98ba-5de2a1b0d2b6/thumbs/inside/1280x960/jpg/img_20250714_195245_1503389.webp" alt="DJI Avata Prop Guard Delete" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>DJI Avata Prop Guard Delete</strong>
         <p>Fits: Original DJI Avata — Delete kit that replaces the bulky stock prop guards on the original Avata to fix the &quot;Avata tumble&quot; and cut drag and weight.</p>
-        <p class="fits">Printables &middot; by Adr1an &middot; Free download</p>
-        <p class="part-note">License: License — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.printables.com/model/1503389-dji-avata-prop-guard-delete" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Adr1an · Printables</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.printables.com/model/1503389-dji-avata-prop-guard-delete" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US79734052424fad/design/2024-06-09_7111ac01cf0b58.jpg" alt="DJI Avata 2 Combi Guard" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>DJI Avata 2 Combi Guard</strong>
         <p>Fits: DJI Avata 2 — Revised prop guard for the Avata 2 with built-in camera protection; clips over the stock guard and still fits in the DJI shoulder bag; PETG recommended.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/490114-dji-avata-2-combi-guard" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/490114-dji-avata-2-combi-guard" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US246d4445fec494/design/2e5ef4ad94cd1718.png" alt="DJI Landing pad" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Multicolor</span>
         <strong>DJI Landing pad</strong>
         <p>Fits: DJI Mini 4 Pro (probably Mini 3 and similar-size Minis too) — Compact 230×230 mm landing pad for DJI Mini-series drones with a high-visibility graphic; print in PLA, PETG or ASA.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a> &middot; Multicolor</p>
-        <a class="part-link" href="https://makerworld.com/en/models/2378772-dji-landing-pad" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2378772-dji-landing-pad" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US78767a2e57d002/design/2025-02-23_b638aa930b0e8.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Jelly Cargo Drone System for Dji Mini Pro 4/3/2" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Drone</span>
         <strong>Jelly Cargo Drone System for Dji Mini Pro 4/3/2</strong>
         <p>Fits: DJI Mini 4 Pro (tested); Mini 3 Pro / Mini 2 unconfirmed — Flexible TPU tentacle arms that turn a DJI Mini into a tiny cargo carrier — adds 4.85 g, carries up to 95 g; for experienced pilots only, not supported by DJI.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/1143600-jelly-cargo-drone-system-for-dji-mini-pro-4-3-2" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/1143600-jelly-cargo-drone-system-for-dji-mini-pro-4-3-2" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://3dad.ru/uploads/models/787/2516787.webp" alt="DJI Mini 3-4-5 Pro Fly More Case" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Case</span>
         <strong>DJI Mini 3-4-5 Pro Fly More Case</strong>
         <p>Fits: DJI Mini 3/4/5 Pro Fly More combo + DJI RC / RC 2 controller with sun hood — Rugged carry case for the Mini 3/4/5 Pro Fly More combo and controller, with separate spots for the ND-filter set and a folding landing pad.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/2516787-dji-mini-3-4-5-pro-fly-more-case" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/2516787-dji-mini-3-4-5-pro-fly-more-case" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://cdn.thingiverse.com/assets/38/ee/05/f7/a1/26b445fd-cdc0-4115-8994-9f0f69d38c38.jpg" alt="DJI Mini 4 pro landing gear" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Clip</span>
         <strong>DJI Mini 4 pro landing gear</strong>
         <p>Fits: DJI Mini 4 Pro — Clip-on landing legs for the DJI Mini 4 Pro that raise it off grass and rough ground; two leg versions plus a cross brace, designer printed in PLA+.</p>
-        <p class="fits">Thingiverse &middot; by John2637 &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://www.thingiverse.com/thing:6321819" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by John2637 · Thingiverse</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://www.thingiverse.com/thing:6321819" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USM00000000202708/design/2024-02-24_40edacc6391cd.webp" alt="DJI Mini 4 Pro Shoes" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Shoes</span>
         <strong>DJI Mini 4 Pro Shoes</strong>
         <p>Fits: DJI Mini 4 Pro — Tiny TPU feet protectors for the DJI Mini 4 Pro; 2 g per set.</p>
-        <p class="fits">MakerWorld &middot; by Sph3raLab &middot; Free download</p>
-        <p class="part-note">License: CC BY &middot; PLA $15</p>
-        <a class="part-link" href="https://makerworld.com/en/models/202708-dji-mini-4-pro-shoes" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Sph3raLab · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/202708-dji-mini-4-pro-shoes" target="_blank" rel="noopener">Download File</a>
+        <a class="print-btn" href="quote.html">Get It Printed</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USab450ab8eeefa0/design/2024-07-02_83aa863838fe5.jpg" alt="DJI mini 4 pro stand" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Stand</span>
         <strong>DJI mini 4 pro stand</strong>
         <p>Fits: DJI Mini 4 Pro — Display stand for the DJI Mini 4 Pro; 5.3-hour print, two PETG parts (21 g + 58 g).</p>
-        <p class="fits">MakerWorld &middot; by Scorch1262 &middot; Free download</p>
-        <p class="part-note">License: CC BY-NC-SA — personal use, not for resale &middot; PLA $19 &middot; PETG $22</p>
-        <a class="part-link" href="https://makerworld.com/en/models/521163-dji-mini-4-pro-stand" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by Scorch1262 · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/521163-dji-mini-4-pro-stand" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US7191a770cb305/design/2024-11-24_5db28f2867336.png" alt="DJI Neo Landing Gear/Feet v1.2" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Landing gear</span>
         <strong>DJI Neo Landing Gear/Feet v1.2</strong>
         <p>Fits: DJI Neo — Twist-on landing feet for the DJI Neo so it can take off from sand, pebbles or lawn instead of your hand; version 1.2.</p>
-        <p class="fits">MakerWorld &middot; by straightouttanozzles &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/816664-dji-neo-landing-gear-feet-v1-2" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by straightouttanozzles · MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/816664-dji-neo-landing-gear-feet-v1-2" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US19475e58fd2f7c/design/73c23b6b7650acd9.jpeg" alt="DJI Neo 2 Clip-On Landing Gear – 3 Pieces" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Clip</span>
         <strong>DJI Neo 2 Clip-On Landing Gear – 3 Pieces</strong>
         <p>Fits: DJI Neo 2 — 3-piece snap-fit clip-on landing gear for the DJI Neo 2, no screws or glue; the side button stays reachable; prints on one plate in PLA.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/3552091-dji-neo-2-clip-on-landing-gear-3-pieces" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/3552091-dji-neo-2-clip-on-landing-gear-3-pieces" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/US1e417451402796/design/2024-09-17_0bd2db0ecd5eb.png" alt="DJI Neo Bumper" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Clip</span>
         <strong>DJI Neo Bumper</strong>
         <p>Fits: DJI Neo — Bumper for the DJI Neo that clips onto the frame (PETG&#x27;s flex holds it on; TPU does not fit); print twice, one per side, plus a version with landing skids built in.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/en/models/648462-dji-neo-bumper" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/en/models/648462-dji-neo-bumper" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://makerworld.bblmw.com/makerworld/model/USf94d0bc31ce19c/design/2024-09-11_d7acad18cf4a8.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Dji neo bumper guards" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Prop</span>
         <strong>Dji neo bumper guards</strong>
         <p>Fits: DJI Neo — Bumper guards for the DJI Neo that sandwich between the prop duct and the top guard; a remix of the Avata 2 bumper design.</p>
-        <p class="fits">MakerWorld &middot; by Designer not listed &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://makerworld.com/it/models/636343" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">MakerWorld</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://makerworld.com/it/models/636343" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
       <div class="card">
         <img src="https://fbi.cults3d.com/uploaders/16374272/illustration-file/de4225a5-02d5-4364-85c3-60ed1f7dcb7f/dji-mini3-landing-legs-2.jpg" alt="DJI Mavic Mini 3, Mini 3 PRO, Mini 4 PRO Landing Skids Phantomizer" loading="lazy" onerror="this.style.display='none'" />
+        <span class="draft-tag">Landing gear</span>
         <strong>DJI Mavic Mini 3, Mini 3 PRO, Mini 4 PRO Landing Skids Phantomizer</strong>
         <p>Fits: DJI Mavic Mini 3 / Mini 3 Pro / Mini 4 Pro — Landing skids that give the Mini 3/4 Pro taller &quot;Phantom-style&quot; legs; 7 files (STL + 3MF).</p>
-        <p class="fits">Cults3D &middot; by 3dthinks &middot; Free download</p>
-        <p class="part-note">License: License not shown — check page before selling &middot; From $15 — <a href="quote.html" style="text-decoration:underline">get an exact quote</a></p>
-        <a class="part-link" href="https://cults3d.com/en/3d-model/gadget/dji-mavic-mini-3-pro-landing-skids-phantomizer" target="_blank" rel="noopener">Download the model &rarr;</a>
+        <p class="credit">by 3dthinks · Cults3D</p>
+        <div class="card-actions">
+        <a class="dl-btn" href="https://cults3d.com/en/3d-model/gadget/dji-mavic-mini-3-pro-landing-skids-phantomizer" target="_blank" rel="noopener">Download File</a>
+        </div>
       </div>
     </div>
   </section>
@@ -674,14 +815,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         Sister shop to <a href="https://nebraskacomics.com" target="_blank" rel="noopener">Nebraska Comics</a> · local 3D prints<br />
         <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
         · <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-        · <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
         · <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
         · <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
         · <a href="mailto:contact@lincolnprintlab.com">contact@lincolnprintlab.com</a>
       </div>
     </div>
     <div class="pills">
-      <a href="products.html">Products</a>
+      <a href="products.html">Prints</a>
       <a href="car-parts.html">Car Parts</a>
       <a href="cosplay-helmets-props.html">Cosplay Helmets &amp; Props</a>
       <a href="rc-drone-parts.html">RC Cars &amp; Drone Parts</a>
@@ -707,7 +847,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="tel:+14024135332">402-413-5332</a>
       <a href="https://www.facebook.com/profile.php?id=61595927983709" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.youtube.com/@lincolnprintlab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lincolnprintlab" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@lincolnprintlabs" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.pinterest.com/lincolnprintlab/" target="_blank" rel="noopener">Pinterest</a>
       <a href="mailto:contact@lincolnprintlab.com">Email</a>
@@ -762,31 +901,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     }
   }
   function clearCart(){ save([]); renderChip(); }
-  var grids=document.querySelectorAll('.prod-grid');
-  grids.forEach(function(grid){
-    Array.prototype.forEach.call(grid.children, function(card){
-      if(!card.classList || !card.classList.contains('card')) return;
-      if(isDisplayOnly(card)) return;
-      var nameEl=card.querySelector('strong');
-      var note=card.querySelector('.part-note');
-      if(!nameEl || !note) return;
-      if(card.querySelector('.add-cart-btn')) return;
-      var name=nameEl.textContent.trim();
-      var pr=parsePrice(card);
-      var label='Add to cart \u2014 '+money(pr.price)+(pr.est?' (est.)':'');
-      var btn=document.createElement('button');
-      btn.type='button';
-      btn.className='add-cart-btn';
-      btn.textContent=label;
-      btn.addEventListener('click', function(){
-        addItem(name, pr.price, pr.est);
-        btn.textContent='Added \u2713';
-        btn.classList.add('is-added');
-        setTimeout(function(){ btn.textContent=label; btn.classList.remove('is-added'); }, 1600);
-      });
-      card.appendChild(btn);
-    });
-  });
+  /* No add-to-cart buttons on category pages — order via the quote tool. */
   renderChip();
   window.LPLCart={load:load, save:save, totals:totals, money:money, renderChip:renderChip,
     addItem:addItem, removeItem:removeItem, setQty:setQty, clearCart:clearCart};
